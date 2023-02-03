@@ -44,12 +44,9 @@
             this.вихідЗПрограмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідУВікноРеєстраціїToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідУВікноВходуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< HEAD
             this.buttonПовернутись = new System.Windows.Forms.Button();
-=======
-            this.label2 = new System.Windows.Forms.Label();
             this.textBoxCountOfRows = new System.Windows.Forms.TextBox();
->>>>>>> 6a8cf10201205534c12e85b83940ebece9ad43c5
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -189,7 +186,6 @@
             this.вихідУВікноВходуToolStripMenuItem.Text = "Вихід у вікно входу";
             this.вихідУВікноВходуToolStripMenuItem.Click += new System.EventHandler(this.вихідУВікноВходуToolStripMenuItem_Click);
             // 
-<<<<<<< HEAD
             // buttonПовернутись
             // 
             this.buttonПовернутись.BackColor = System.Drawing.Color.Red;
@@ -202,40 +198,35 @@
             this.buttonПовернутись.Text = "<<<Повернутись";
             this.buttonПовернутись.UseVisualStyleBackColor = false;
             this.buttonПовернутись.Click += new System.EventHandler(this.buttonПовернутись_Click);
-=======
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.SystemColors.Window;
-            this.label2.Location = new System.Drawing.Point(650, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(276, 39);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Всього записів:";
             // 
             // textBoxCountOfRows
             // 
             this.textBoxCountOfRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxCountOfRows.Location = new System.Drawing.Point(964, 49);
+            this.textBoxCountOfRows.Location = new System.Drawing.Point(896, 52);
             this.textBoxCountOfRows.Name = "textBoxCountOfRows";
-            this.textBoxCountOfRows.Size = new System.Drawing.Size(126, 45);
+            this.textBoxCountOfRows.Size = new System.Drawing.Size(100, 45);
             this.textBoxCountOfRows.TabIndex = 7;
->>>>>>> 6a8cf10201205534c12e85b83940ebece9ad43c5
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.ForeColor = System.Drawing.Color.Snow;
+            this.label2.Location = new System.Drawing.Point(592, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(286, 39);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Всього записів :";
             // 
             // ВивідДаних
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.buttonПовернутись);
-=======
-            this.ClientSize = new System.Drawing.Size(1153, 421);
-            this.Controls.Add(this.textBoxCountOfRows);
             this.Controls.Add(this.label2);
->>>>>>> 6a8cf10201205534c12e85b83940ebece9ad43c5
+            this.Controls.Add(this.textBoxCountOfRows);
+            this.Controls.Add(this.buttonПовернутись);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
@@ -269,11 +260,9 @@
         private System.Windows.Forms.ToolStripMenuItem головнаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem населенняToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вивідДанихToolStripMenuItem;
-<<<<<<< HEAD
+
         private System.Windows.Forms.Button buttonПовернутись;
-=======
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxCountOfRows;
->>>>>>> 6a8cf10201205534c12e85b83940ebece9ad43c5
+        private System.Windows.Forms.Label label2;
     }
 }

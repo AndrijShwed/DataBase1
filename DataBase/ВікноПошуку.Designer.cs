@@ -351,7 +351,7 @@
             // textBoxCount
             // 
             this.textBoxCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxCount.Location = new System.Drawing.Point(250, 260);
+            this.textBoxCount.Location = new System.Drawing.Point(296, 256);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(104, 38);
             this.textBoxCount.TabIndex = 17;
@@ -361,7 +361,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(370, 262);
+            this.label3.Location = new System.Drawing.Point(415, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 32);
             this.label3.TabIndex = 18;
