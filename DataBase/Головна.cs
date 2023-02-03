@@ -26,6 +26,11 @@ namespace DataBase
             form.Show();
         }
 
-        
+        private void ButtonНаселеніПункти_MouseClick(object sender, MouseEventArgs e)
+        {
+            Населення_Роки form = new Населення_Роки();
+            this.Hide();
+            form.Show();
+        }
     }
 }

@@ -94,3 +94,4 @@ C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\K4os.Hash.xxHash.dll
 C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Numerics.Vectors.dll
 C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\MySql.Data.xml
 C:\Users\1\source\repos\DataBase_1\DataBase\obj\x86\Debug\DataBase.csproj.CopyComplete
+C:\Users\1\source\repos\DataBase_1\DataBase\obj\x86\Debug\DataBase.Населення_Роки.resources
