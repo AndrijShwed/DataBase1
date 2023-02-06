@@ -146,17 +146,17 @@
     <Compile Include="ЗмінаДаних.Designer.cs">
       <DependentUpon>ЗмінаДаних.cs</DependentUpon>
     </Compile>
+    <Compile Include="Населені_Пункти.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Населені_Пункти.Designer.cs">
+      <DependentUpon>Населені_Пункти.cs</DependentUpon>
+    </Compile>
     <Compile Include="Населення.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Населення.Designer.cs">
       <DependentUpon>Населення.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Населення_Роки.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Населення_Роки.Designer.cs">
-      <DependentUpon>Населення_Роки.cs</DependentUpon>
     </Compile>
     <Compile Include="Реєстрація.cs">
       <SubType>Form</SubType>
@@ -195,11 +195,11 @@
     <EmbeddedResource Include="ЗмінаДаних.resx">
       <DependentUpon>ЗмінаДаних.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Населені_Пункти.resx">
+      <DependentUpon>Населені_Пункти.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Населення.resx">
       <DependentUpon>Населення.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Населення_Роки.resx">
-      <DependentUpon>Населення_Роки.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Реєстрація.resx">
       <DependentUpon>Реєстрація.cs</DependentUpon>

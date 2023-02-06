@@ -194,9 +194,9 @@ namespace DataBase
             dataGridViewДодати.ReadOnly = false;
 
             this.dataGridViewДодати.Rows.Add();
-
+           
             dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
-            dataGridViewДодати.Rows[rowNumber].Cells[5].Value = "дд.мм.рррр";
+            dataGridViewДодати.Rows[rowNumber].Cells[5].Value =  "дд.мм.рррр";
 
             rowNumber++;
 

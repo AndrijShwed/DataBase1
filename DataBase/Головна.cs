@@ -28,7 +28,7 @@ namespace DataBase
 
         private void ButtonНаселеніПункти_MouseClick(object sender, MouseEventArgs e)
         {
-            Населення_Роки form = new Населення_Роки();
+            Населені_Пункти form = new Населені_Пункти();
             this.Hide();
             form.Show();
         }

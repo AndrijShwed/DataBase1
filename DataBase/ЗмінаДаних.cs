@@ -311,9 +311,59 @@ namespace DataBase
                         c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%'";
                     }
                     break;
+                case "По прізвищу і імені":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%'";
+                    }
+                    break;
+                case "По прізвищу і побатькові":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND surname LIKE '%" + surname + "%'";
+                    }
+                    break;
+                case "По прізвищу і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
                 case "По імені":
                     {
                         c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%'";
+                    }
+                    break;
+                case "По імені і побатькові":
+                    {
+                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%'";
+                    }
+                    break;
+                case "По імені і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
+                case "По побатькові і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE suname LIKE '%" + surname + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
+                case "По прізвищу імені і побатькові":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%'";
+                    }
+                    break;
+                case "По імені побатькові і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
+                case "По прізвищу побатькові і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND surname LIKE '%" + surname + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
+                case "По прізвищу імені і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND village LIKE '%" + village + "%'";
                     }
                     break;
                 case "По побатькові":
