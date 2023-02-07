@@ -485,6 +485,17 @@ namespace DataBase
                 choice = "По населеному пункту";
             }
             else
+             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
+                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
+                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text != "Статус" &&
+                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
+                textBoxДатаНародженняДО.Text == "Дата народження до:"
+                )
+            {
+                choice = "По статусу";
+            }
+            else
             if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                 textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
@@ -653,6 +664,7 @@ namespace DataBase
             string village = Convert.ToString(textBoxНаселенийПункт.Text);
             string street = Convert.ToString(textBoxВулиця.Text);
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
+            string status = Convert.ToString(textBoxСтатус.Text);
            
 
             switch (choice)
@@ -681,6 +693,11 @@ namespace DataBase
                 case "По статі":
                     {
                         c.com = "SELECT * FROM people WHERE sex LIKE '%" + sex + "%'";
+                    }
+                    break;
+                case "По статусу":
+                    {
+                        c.com = "SELECT * FROM people WHERE status LIKE '%" + status + "%'";
                     }
                     break;
                 case "По даті народження від і до:":
