@@ -194,7 +194,7 @@ namespace DataBase
             dataGridViewДодати.ReadOnly = false;
 
             this.dataGridViewДодати.Rows.Add();
-           
+
             dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
             dataGridViewДодати.Rows[rowNumber].Cells[5].Value =  "дд.мм.рррр";
 
@@ -241,9 +241,8 @@ namespace DataBase
                             _reader.Close();
                        
                         if (a)
-                        {
-                            MessageBox.Show("Такий запис вже існує !");
-                          
+                        {   
+                           
                         }
                         else
                         {
@@ -262,7 +261,7 @@ namespace DataBase
                                     string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`)" +
                                   "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email)";
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
-
+                                    
 
 
                                     _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[1].Value;
@@ -281,6 +280,7 @@ namespace DataBase
 
                                     if (_command.ExecuteNonQuery() == 1)
                                         add = true;
+                                    dataGridViewДодати.Rows.RemoveAt(i);
                                 }
 
                             }
@@ -301,11 +301,17 @@ namespace DataBase
                     if (add && (i == rowCount - 1))
                     {
                         MessageBox.Show("Дані добавлено !");
-                        dataGridViewДодати.Rows.Clear();
+                       // dataGridViewДодати.Rows.Clear();
                     }
                     else if(!add && (i == rowCount - 1))
 
                         MessageBox.Show("Помилка добавлення даних !");
+
+                    if(dataGridViewДодати.RowCount > 0)
+                    {
+                        MessageBox.Show("Такий запис вже існує !");
+                    }
+
                 }
                 catch
                 {
