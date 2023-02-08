@@ -190,9 +190,15 @@
             // textBoxCountOfRows
             // 
             this.textBoxCountOfRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+<<<<<<< HEAD
             this.textBoxCountOfRows.Location = new System.Drawing.Point(433, 49);
             this.textBoxCountOfRows.Name = "textBoxCountOfRows";
             this.textBoxCountOfRows.Size = new System.Drawing.Size(152, 45);
+=======
+            this.textBoxCountOfRows.Location = new System.Drawing.Point(425, 48);
+            this.textBoxCountOfRows.Name = "textBoxCountOfRows";
+            this.textBoxCountOfRows.Size = new System.Drawing.Size(130, 45);
+>>>>>>> d713af90a61edf09c10a71debdc35b1ee5be76c5
             this.textBoxCountOfRows.TabIndex = 7;
             // 
             // label2
@@ -200,7 +206,11 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.Color.Snow;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(124, 52);
+=======
+            this.label2.Location = new System.Drawing.Point(110, 55);
+>>>>>>> d713af90a61edf09c10a71debdc35b1ee5be76c5
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(278, 38);
             this.label2.TabIndex = 8;
