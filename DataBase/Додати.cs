@@ -301,7 +301,7 @@ namespace DataBase
                     if (add && (i == rowCount - 1))
                     {
                         MessageBox.Show("Дані добавлено !");
-                       // dataGridViewДодати.Rows.Clear();
+                       
                     }
                     else if(!add && (i == rowCount - 1))
 
