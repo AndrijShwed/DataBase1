@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -94,6 +95,24 @@ namespace DataBase
             Головна form = new Головна();
             this.Close();
             form.Show();
+        }
+
+        private void buttonОновити_Click(object sender, EventArgs e)
+        {
+            ConnectionClass _manager = new ConnectionClass();
+            _manager.openConnection();
+
+            int y = Convert.ToInt32(DateTime.Now.Year.ToString()) - 2023;
+            string count = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця'";
+            MySqlCommand search = new MySqlCommand(count, _manager.getConnection());
+            //MySqlDataReader _reader;
+            //_reader = search.ExecuteReader();
+
+            //int ber = Convert.ToInt32(search.ExecuteScalar());
+            this.dataGridViewНаселені_Пункти.Rows.Add();
+            dataGridViewНаселені_Пункти.Rows[y].Cells[0].Value = Convert.ToInt32(DateTime.Now.Year.ToString()); 
+            dataGridViewНаселені_Пункти.Rows[y].Cells[1].Value = 10; 
+            _manager.closeConnection();
         }
     }
 }

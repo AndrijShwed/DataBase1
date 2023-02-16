@@ -33,6 +33,7 @@
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.населеніПунктиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ButtonПовернутись = new DataBase.RJButton();
+            this.buttonОновити = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewНаселені_Пункти)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -94,11 +95,25 @@
             this.ButtonПовернутись.UseVisualStyleBackColor = false;
             this.ButtonПовернутись.Click += new System.EventHandler(this.ButtonПовернутись_Click);
             // 
+            // buttonОновити
+            // 
+            this.buttonОновити.BackColor = System.Drawing.Color.LightSalmon;
+            this.buttonОновити.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonОновити.ForeColor = System.Drawing.Color.Black;
+            this.buttonОновити.Location = new System.Drawing.Point(457, 0);
+            this.buttonОновити.Name = "buttonОновити";
+            this.buttonОновити.Size = new System.Drawing.Size(217, 45);
+            this.buttonОновити.TabIndex = 3;
+            this.buttonОновити.Text = "Оновити";
+            this.buttonОновити.UseVisualStyleBackColor = false;
+            this.buttonОновити.Click += new System.EventHandler(this.buttonОновити_Click);
+            // 
             // Населені_Пункти
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1062, 553);
+            this.Controls.Add(this.buttonОновити);
             this.Controls.Add(this.dataGridViewНаселені_Пункти);
             this.Controls.Add(this.ButtonПовернутись);
             this.Controls.Add(this.menuStrip1);
@@ -121,5 +136,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem головнаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem населеніПунктиToolStripMenuItem;
+        private System.Windows.Forms.Button buttonОновити;
     }
 }

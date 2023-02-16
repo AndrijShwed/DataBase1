@@ -252,13 +252,9 @@ namespace DataBase
                             _reader.Close();
                        
                         if (a)
-<<<<<<< HEAD
                         {
                             current++;
-=======
-                        {   
-                           
->>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
+
                         }
                         else
                         {
@@ -296,11 +292,11 @@ namespace DataBase
 
                                     if (_command.ExecuteNonQuery() == 1)
                                         add = true;
-<<<<<<< HEAD
+
                                     dataGridViewДодати.Rows.RemoveAt(current);
-=======
+
                                     dataGridViewДодати.Rows.RemoveAt(i);
->>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
+
                                 }
 
                             }
@@ -318,10 +314,6 @@ namespace DataBase
                         return;
                     }
 
-<<<<<<< HEAD
-                   
-
-=======
                     if (add && (i == rowCount - 1))
                     {
                         MessageBox.Show("Дані добавлено !");
@@ -336,7 +328,7 @@ namespace DataBase
                         MessageBox.Show("Такий запис вже існує !");
                     }
 
->>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
+
                 }
                 catch
                 {
