@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace DataBase
 {
     class ConnectionClass
     {
-        private const string connStr = "server = localhost; user = User; database = berezhnytsya; password = User;";
+       
+        private const string connStr = "server=52.19.23.88;user=sql8597722;database=sql8597722;password=1;";
 
         MySqlConnection sqlConn = new MySqlConnection(connStr);
 

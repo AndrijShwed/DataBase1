@@ -103,7 +103,6 @@ C:\Users\Андрій\Source\Repos\DataBase1\DataBase\bin\Debug\K4os.Hash.xxHash
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.AssemblyReference.cache
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
-C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.exe.config
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.ResolveComReference.cache
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.Properties.Resources.resources
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.Авторизація.resources
@@ -120,3 +119,14 @@ C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.exe
 C:\Users\Андрій\Source\Repos\DataBase1\DataBase\obj\Debug\DataBase.pdb
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\MySqlConnector.dll
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\MySqlConnector.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Buffers.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Memory.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Андрій\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.xml
