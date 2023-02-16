@@ -200,7 +200,7 @@ namespace DataBase
             dataGridViewДодати.ReadOnly = false;
 
             this.dataGridViewДодати.Rows.Add();
-           
+
             dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
             dataGridViewДодати.Rows[rowNumber].Cells[5].Value =  "дд.мм.рррр";
             dataGridViewДодати.Rows[rowNumber].Cells[6].Value =  textBoxНаселенийПункт.Text.ToString();
@@ -252,8 +252,13 @@ namespace DataBase
                             _reader.Close();
                        
                         if (a)
+<<<<<<< HEAD
                         {
                             current++;
+=======
+                        {   
+                           
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                         }
                         else
                         {
@@ -272,7 +277,7 @@ namespace DataBase
                                     string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`)" +
                                   "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email)";
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
-
+                                    
 
 
                                     _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
@@ -291,7 +296,11 @@ namespace DataBase
 
                                     if (_command.ExecuteNonQuery() == 1)
                                         add = true;
+<<<<<<< HEAD
                                     dataGridViewДодати.Rows.RemoveAt(current);
+=======
+                                    dataGridViewДодати.Rows.RemoveAt(i);
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                                 }
 
                             }
@@ -309,8 +318,25 @@ namespace DataBase
                         return;
                     }
 
+<<<<<<< HEAD
                    
 
+=======
+                    if (add && (i == rowCount - 1))
+                    {
+                        MessageBox.Show("Дані добавлено !");
+                       
+                    }
+                    else if(!add && (i == rowCount - 1))
+
+                        MessageBox.Show("Помилка добавлення даних !");
+
+                    if(dataGridViewДодати.RowCount > 0)
+                    {
+                        MessageBox.Show("Такий запис вже існує !");
+                    }
+
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                 }
                 catch
                 {

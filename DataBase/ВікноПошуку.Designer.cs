@@ -351,7 +351,7 @@
             // textBoxCount
             // 
             this.textBoxCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxCount.Location = new System.Drawing.Point(296, 256);
+            this.textBoxCount.Location = new System.Drawing.Point(295, 257);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(104, 38);
             this.textBoxCount.TabIndex = 17;

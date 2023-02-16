@@ -10,8 +10,12 @@ namespace DataBase
 {
     class ConnectionClass
     {
+<<<<<<< HEAD
        
         private const string connStr = "server=52.19.23.88;user=sql8597722;database=sql8597722;password=1;";
+=======
+        private const string connStr = "server = localhost; user = User; database =  berezhnytsya; password = User;";
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
 
         MySqlConnection sqlConn = new MySqlConnection(connStr);
 
