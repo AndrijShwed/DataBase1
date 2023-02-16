@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +20,12 @@ namespace DataBase
         public Додати()
         {
             InitializeComponent();
+
+            textBoxНаселенийПункт.Text = "Населений пункт";
+            textBoxНаселенийПункт.ForeColor = Color.Gray;
+
+            textBoxВулиця.Text = "Вулиця";
+            textBoxВулиця.ForeColor = Color.Gray;
             HeaderOfTheTable();
 
         }
@@ -197,6 +203,8 @@ namespace DataBase
 
             dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
             dataGridViewДодати.Rows[rowNumber].Cells[5].Value =  "дд.мм.рррр";
+            dataGridViewДодати.Rows[rowNumber].Cells[6].Value =  textBoxНаселенийПункт.Text.ToString();
+            dataGridViewДодати.Rows[rowNumber].Cells[7].Value =  textBoxВулиця.Text.ToString();
 
             rowNumber++;
 
@@ -205,6 +213,9 @@ namespace DataBase
         private void buttonЗберегти_В_Таблицю_Click(object sender, EventArgs e)
         {
             rowNumber = 0;
+            bool a = false;
+            bool add = false;
+            int current = 0;
 
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
@@ -215,15 +226,15 @@ namespace DataBase
             {
                 try
                 {
-                    bool add = false;
+                   
 
                     _manager.openConnection();
 
-                    string lastname = Convert.ToString(this.dataGridViewДодати.Rows[i].Cells[1].Value);
-                    string name = Convert.ToString(this.dataGridViewДодати.Rows[i].Cells[2].Value);
-                    string surname = Convert.ToString(this.dataGridViewДодати.Rows[i].Cells[3].Value);
-                    string sex = Convert.ToString(this.dataGridViewДодати.Rows[i].Cells[4].Value);
-                    string date_of_birth = Convert.ToString(this.dataGridViewДодати.Rows[i].Cells[5].Value);
+                    string lastname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[1].Value);
+                    string name = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[2].Value);
+                    string surname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[3].Value);
+                    string sex = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[4].Value);
+                    string date_of_birth = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[5].Value);
                     string s1 = date_of_birth.Substring(0, 2);
                     string s2 = date_of_birth.Substring(3, 2);
                     string s3 = date_of_birth.Substring(6, 4);
@@ -237,12 +248,17 @@ namespace DataBase
 
                             MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
                            _reader = search.ExecuteReader();
-                            bool a = _reader.HasRows;
+                            a = _reader.HasRows;
                             _reader.Close();
                        
                         if (a)
+<<<<<<< HEAD
+                        {
+                            current++;
+=======
                         {   
                            
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                         }
                         else
                         {
@@ -264,23 +280,27 @@ namespace DataBase
                                     
 
 
-                                    _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[1].Value;
-                                    _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[2].Value;
-                                    _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[3].Value;
-                                    _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[4].Value;
+                                    _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
+                                    _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
+                                    _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
+                                    _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
                                     _command.Parameters.Add("@date_of_birth", MySqlDbType.VarChar).Value = date_of_birth;
-                                    _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[6].Value;
-                                    _command.Parameters.Add("@street", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[7].Value;
-                                    _command.Parameters.Add("@numb_of_house", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[8].Value;
-                                    _command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[9].Value;
-                                    _command.Parameters.Add("@id_kod", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[10].Value;
-                                    _command.Parameters.Add("@phone_numb", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[11].Value;
-                                    _command.Parameters.Add("@status", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[12].Value;
-                                    _command.Parameters.Add("@email", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[i].Cells[13].Value;
+                                    _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
+                                    _command.Parameters.Add("@street", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
+                                    _command.Parameters.Add("@numb_of_house", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
+                                    _command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
+                                    _command.Parameters.Add("@id_kod", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
+                                    _command.Parameters.Add("@phone_numb", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
+                                    _command.Parameters.Add("@status", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
+                                    _command.Parameters.Add("@email", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
 
                                     if (_command.ExecuteNonQuery() == 1)
                                         add = true;
+<<<<<<< HEAD
+                                    dataGridViewДодати.Rows.RemoveAt(current);
+=======
                                     dataGridViewДодати.Rows.RemoveAt(i);
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                                 }
 
                             }
@@ -298,6 +318,10 @@ namespace DataBase
                         return;
                     }
 
+<<<<<<< HEAD
+                   
+
+=======
                     if (add && (i == rowCount - 1))
                     {
                         MessageBox.Show("Дані добавлено !");
@@ -312,15 +336,29 @@ namespace DataBase
                         MessageBox.Show("Такий запис вже існує !");
                     }
 
+>>>>>>> a83e5dd766a121b1f278eb157d83e2ab717a76c7
                 }
                 catch
                 {
                     MessageBox.Show("Помилка роботи з базою даних !");
                 }
+                
                 finally
                 {
                     _manager.closeConnection();
                 }
+                if (add && (i == rowCount - 1))
+                {
+                    MessageBox.Show("Дані добавлено !");
+                    //dataGridViewДодати.Rows.Clear();
+                }
+                else if (!add && (i == rowCount - 1) && !a)
+
+                    MessageBox.Show("Помилка добавлення даних !");
+
+                if (a && dataGridViewДодати.Rows.Count > 0 && (i == rowCount - 1))
+
+                    MessageBox.Show("Такий запис вже існує !");
 
             }
 
@@ -331,6 +369,42 @@ namespace DataBase
             ВивідДаних form = new ВивідДаних();
             this.Hide();
             form.Show();
+        }
+
+        private void textBoxНаселенийПункт_MouseEnter(object sender, EventArgs e)
+        {
+            if (textBoxНаселенийПункт.Text == "Населений пункт")
+            {
+                textBoxНаселенийПункт.Text = "";
+                textBoxНаселенийПункт.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxНаселенийПункт_MouseLeave(object sender, EventArgs e)
+        {
+            if (textBoxНаселенийПункт.Text == "")
+            {
+                textBoxНаселенийПункт.Text = "Населений пункт";
+                textBoxНаселенийПункт.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxВулиця_MouseEnter(object sender, EventArgs e)
+        {
+            if (textBoxВулиця.Text == "Вулиця")
+            {
+                textBoxВулиця.Text = "";
+                textBoxВулиця.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxВулиця_MouseLeave(object sender, EventArgs e)
+        {
+            if (textBoxВулиця.Text == "")
+            {
+                textBoxВулиця.Text = "Вулиця";
+                textBoxВулиця.ForeColor = Color.Black;
+            }
         }
     }
 }
