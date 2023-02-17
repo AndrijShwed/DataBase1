@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="RowOfData.cs" />
     <Compile Include="RowOfTableКористувачі.cs" />
+    <Compile Include="RowOfVillage.cs" />
     <Compile Include="SQLCommand.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Авторизація.cs">

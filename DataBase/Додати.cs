@@ -295,7 +295,7 @@ namespace DataBase
 
                                     dataGridViewДодати.Rows.RemoveAt(current);
 
-                                    dataGridViewДодати.Rows.RemoveAt(i);
+                                   //dataGridViewДодати.Rows.RemoveAt(i);
 
                                 }
 
@@ -328,7 +328,7 @@ namespace DataBase
                 if (add && (i == rowCount - 1))
                 {
                     MessageBox.Show("Дані добавлено !");
-                    //dataGridViewДодати.Rows.Clear();
+                   
                 }
                 else if (!add && (i == rowCount - 1) && !a)
 
