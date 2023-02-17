@@ -314,20 +314,6 @@ namespace DataBase
                         return;
                     }
 
-                    if (add && (i == rowCount - 1))
-                    {
-                        MessageBox.Show("Дані добавлено !");
-                       
-                    }
-                    else if(!add && (i == rowCount - 1))
-
-                        MessageBox.Show("Помилка добавлення даних !");
-
-                    if(dataGridViewДодати.RowCount > 0)
-                    {
-                        MessageBox.Show("Такий запис вже існує !");
-                    }
-
 
                 }
                 catch
