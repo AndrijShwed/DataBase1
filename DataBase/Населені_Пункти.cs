@@ -163,7 +163,7 @@ namespace DataBase
 
            
             this.dataGridViewНаселені_Пункти.Rows.Add();
-
+           
             string count_ber = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця'";
             string count_zab = "SELECT COUNT(*) FROM people WHERE village = 'Заболотівці'";
             string count_rog = "SELECT COUNT(*) FROM people WHERE village = 'Рогізно'";
@@ -210,7 +210,7 @@ namespace DataBase
                 //int yes = 0;
                 if (yes == 0)
                 {
-                    MessageBox.Show("Відсутній !!!");
+                    
                     string addYear = "INSERT INTO `sql8597722`.`count_peoples` (`year`, `berezhnytsya`, `zabolotivtsi`, `rogizno`, `zhuravkiv`, `zagurzchyna`, `all`)" +
                         " VALUES('"+yearNow+"', '"+ber+"', '"+zab+"', '"+rog+"', '"+zhur+"', '"+zag+"', '"+all+"')";
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
@@ -218,7 +218,7 @@ namespace DataBase
                 }
                 else
                 {
-                    MessageBox.Show("Присутній !!!");
+                    
                     string addYear = "UPDATE `sql8597722`.`count_peoples` SET `berezhnytsya` = '"+ber+"', `zabolotivtsi` = '"+zab+"'," +
                         " `rogizno` = '"+rog+"', `zhuravkiv` = '"+zhur+"', `zagurzchyna` = '"+zag+"', `all` = '"+all+"' WHERE(`id` = '"+id+"')";
 
