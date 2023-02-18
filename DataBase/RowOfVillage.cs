@@ -18,11 +18,12 @@ namespace DataBase
         public object rogizno { get; set; }
         public object zhuravkiv { get; set; }
         public object zagurzchyna { get; set; }
+        public object all { get; set; }
 
         public RowOfVillage() { }
 
         public RowOfVillage(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno,
-           object _zhuravkiv, object _zagurzchyna)
+           object _zhuravkiv, object _zagurzchyna, object _all)
         {
             id = _id;
             year = _year;
@@ -31,10 +32,11 @@ namespace DataBase
             rogizno = _rogizno;
             zhuravkiv = _zhuravkiv;
             zagurzchyna = _zagurzchyna;
+            all = _all;
         }
 
         public void DataChange(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno, object _zhuravkiv,
-            object _zagurzchyna)
+            object _zagurzchyna, object _all)
         {
             id = _id;
             year = _year;
@@ -43,6 +45,7 @@ namespace DataBase
             rogizno = _rogizno;
             zhuravkiv = _zhuravkiv;
             zagurzchyna = _zagurzchyna;
+            all = _all;
 
         }
 
