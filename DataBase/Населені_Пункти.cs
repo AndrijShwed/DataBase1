@@ -164,8 +164,6 @@ namespace DataBase
            
             this.dataGridViewНаселені_Пункти.Rows.Add();
 
-
-
             string count_ber = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця'";
             string count_zab = "SELECT COUNT(*) FROM people WHERE village = 'Заболотівці'";
             string count_rog = "SELECT COUNT(*) FROM people WHERE village = 'Рогізно'";
