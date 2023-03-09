@@ -174,3 +174,14 @@ C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplete
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\MySqlConnector.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\MySqlConnector.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Buffers.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Memory.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.xml
