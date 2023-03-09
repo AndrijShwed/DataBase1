@@ -33,12 +33,14 @@
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.населенняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ДодатиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.переглядДанихToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідЗПрограмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonДодатиРядок = new System.Windows.Forms.Button();
             this.buttonЗберегти_В_Таблицю = new System.Windows.Forms.Button();
             this.dataGridViewДодати = new System.Windows.Forms.DataGridView();
             this.ButtonПовернутись = new DataBase.RJButton();
-            this.переглядДанихToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBoxНаселенийПункт = new System.Windows.Forms.TextBox();
+            this.textBoxВулиця = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewДодати)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +82,14 @@
             this.ДодатиToolStripMenuItem.Name = "ДодатиToolStripMenuItem";
             this.ДодатиToolStripMenuItem.Size = new System.Drawing.Size(99, 32);
             this.ДодатиToolStripMenuItem.Text = "Додати";
+            // 
+            // переглядДанихToolStripMenuItem
+            // 
+            this.переглядДанихToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.переглядДанихToolStripMenuItem.Name = "переглядДанихToolStripMenuItem";
+            this.переглядДанихToolStripMenuItem.Size = new System.Drawing.Size(188, 32);
+            this.переглядДанихToolStripMenuItem.Text = "Перегляд  даних";
+            this.переглядДанихToolStripMenuItem.Click += new System.EventHandler(this.переглядДанихToolStripMenuItem_Click);
             // 
             // вихідЗПрограмиToolStripMenuItem
             // 
@@ -140,13 +150,27 @@
             this.ButtonПовернутись.UseVisualStyleBackColor = false;
             this.ButtonПовернутись.Click += new System.EventHandler(this.ButtonПовернутись_Click_1);
             // 
-            // переглядДанихToolStripMenuItem
+            // textBoxНаселенийПункт
             // 
-            this.переглядДанихToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.переглядДанихToolStripMenuItem.Name = "переглядДанихToolStripMenuItem";
-            this.переглядДанихToolStripMenuItem.Size = new System.Drawing.Size(188, 32);
-            this.переглядДанихToolStripMenuItem.Text = "Перегляд  даних";
-            this.переглядДанихToolStripMenuItem.Click += new System.EventHandler(this.переглядДанихToolStripMenuItem_Click);
+            this.textBoxНаселенийПункт.BackColor = System.Drawing.Color.DarkOrange;
+            this.textBoxНаселенийПункт.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxНаселенийПункт.Location = new System.Drawing.Point(33, 114);
+            this.textBoxНаселенийПункт.Name = "textBoxНаселенийПункт";
+            this.textBoxНаселенийПункт.Size = new System.Drawing.Size(221, 34);
+            this.textBoxНаселенийПункт.TabIndex = 10;
+            this.textBoxНаселенийПункт.MouseEnter += new System.EventHandler(this.textBoxНаселенийПункт_MouseEnter);
+            this.textBoxНаселенийПункт.MouseLeave += new System.EventHandler(this.textBoxНаселенийПункт_MouseLeave);
+            // 
+            // textBoxВулиця
+            // 
+            this.textBoxВулиця.BackColor = System.Drawing.Color.DarkOrange;
+            this.textBoxВулиця.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxВулиця.Location = new System.Drawing.Point(279, 114);
+            this.textBoxВулиця.Name = "textBoxВулиця";
+            this.textBoxВулиця.Size = new System.Drawing.Size(225, 34);
+            this.textBoxВулиця.TabIndex = 11;
+            this.textBoxВулиця.MouseEnter += new System.EventHandler(this.textBoxВулиця_MouseEnter);
+            this.textBoxВулиця.MouseLeave += new System.EventHandler(this.textBoxВулиця_MouseLeave);
             // 
             // Додати
             // 
@@ -154,6 +178,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.textBoxВулиця);
+            this.Controls.Add(this.textBoxНаселенийПункт);
             this.Controls.Add(this.ButtonПовернутись);
             this.Controls.Add(this.dataGridViewДодати);
             this.Controls.Add(this.buttonЗберегти_В_Таблицю);
@@ -185,5 +211,7 @@
         private RJButton ButtonПовернутись;
         private System.Windows.Forms.ToolStripMenuItem вихідЗПрограмиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem переглядДанихToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxНаселенийПункт;
+        private System.Windows.Forms.TextBox textBoxВулиця;
     }
 }

@@ -32,6 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.населеніПунктиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonОновити = new System.Windows.Forms.Button();
+            this.buttonВихідЗПРограми = new System.Windows.Forms.Button();
             this.ButtonПовернутись = new DataBase.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewНаселені_Пункти)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -48,7 +50,7 @@
             this.dataGridViewНаселені_Пункти.Name = "dataGridViewНаселені_Пункти";
             this.dataGridViewНаселені_Пункти.RowHeadersWidth = 51;
             this.dataGridViewНаселені_Пункти.RowTemplate.Height = 24;
-            this.dataGridViewНаселені_Пункти.Size = new System.Drawing.Size(1030, 420);
+            this.dataGridViewНаселені_Пункти.Size = new System.Drawing.Size(1350, 420);
             this.dataGridViewНаселені_Пункти.TabIndex = 1;
             // 
             // menuStrip1
@@ -59,7 +61,7 @@
             this.населеніПунктиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1062, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1382, 36);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -78,6 +80,31 @@
             this.населеніПунктиToolStripMenuItem.Size = new System.Drawing.Size(195, 32);
             this.населеніПунктиToolStripMenuItem.Text = "Населені_Пункти";
             // 
+            // buttonОновити
+            // 
+            this.buttonОновити.BackColor = System.Drawing.Color.LightSalmon;
+            this.buttonОновити.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonОновити.ForeColor = System.Drawing.Color.Black;
+            this.buttonОновити.Location = new System.Drawing.Point(457, 0);
+            this.buttonОновити.Name = "buttonОновити";
+            this.buttonОновити.Size = new System.Drawing.Size(217, 45);
+            this.buttonОновити.TabIndex = 3;
+            this.buttonОновити.Text = "Оновити";
+            this.buttonОновити.UseVisualStyleBackColor = false;
+            this.buttonОновити.Click += new System.EventHandler(this.buttonОновити_Click);
+            // 
+            // buttonВихідЗПРограми
+            // 
+            this.buttonВихідЗПРограми.BackColor = System.Drawing.Color.Red;
+            this.buttonВихідЗПРограми.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonВихідЗПРограми.Location = new System.Drawing.Point(774, 1);
+            this.buttonВихідЗПРограми.Name = "buttonВихідЗПРограми";
+            this.buttonВихідЗПРограми.Size = new System.Drawing.Size(268, 44);
+            this.buttonВихідЗПРограми.TabIndex = 4;
+            this.buttonВихідЗПРограми.Text = "Вийти з програми";
+            this.buttonВихідЗПРограми.UseVisualStyleBackColor = false;
+            this.buttonВихідЗПРограми.Click += new System.EventHandler(this.buttonВихідЗПрограми_Click);
+            // 
             // ButtonПовернутись
             // 
             this.ButtonПовернутись.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -86,7 +113,7 @@
             this.ButtonПовернутись.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonПовернутись.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ButtonПовернутись.ForeColor = System.Drawing.Color.White;
-            this.ButtonПовернутись.Location = new System.Drawing.Point(800, 501);
+            this.ButtonПовернутись.Location = new System.Drawing.Point(1120, 501);
             this.ButtonПовернутись.Name = "ButtonПовернутись";
             this.ButtonПовернутись.Size = new System.Drawing.Size(250, 40);
             this.ButtonПовернутись.TabIndex = 0;
@@ -98,7 +125,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 553);
+            this.ClientSize = new System.Drawing.Size(1382, 553);
+            this.Controls.Add(this.buttonВихідЗПРограми);
+            this.Controls.Add(this.buttonОновити);
             this.Controls.Add(this.dataGridViewНаселені_Пункти);
             this.Controls.Add(this.ButtonПовернутись);
             this.Controls.Add(this.menuStrip1);
@@ -121,5 +150,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem головнаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem населеніПунктиToolStripMenuItem;
+        private System.Windows.Forms.Button buttonОновити;
+        private System.Windows.Forms.Button buttonВихідЗПРограми;
     }
 }
