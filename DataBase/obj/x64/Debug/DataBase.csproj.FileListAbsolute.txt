@@ -111,3 +111,16 @@ C:\Users\Андрій\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.csp
 C:\Users\Андрій\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.csproj.CoreCompileInputs.cache
 C:\Users\Андрій\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.exe
 C:\Users\Андрій\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.pdb
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\DataBase.pdb
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\MySqlConnector.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\MySqlConnector.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Buffers.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Memory.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Numerics.Vectors.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x64\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\obj\x64\Debug\DataBase.Населені_Пункти.resources
