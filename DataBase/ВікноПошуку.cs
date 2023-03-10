@@ -672,32 +672,32 @@ namespace DataBase
               
                 case "По прізвищу":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%'";
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%'";
                     }
                     break;
                 case "По імені":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%'";
+                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%'";
                     }
                     break;
                 case "По побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE surname LIKE '%" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE surname LIKE '" + surname + "%'";
                     }
                     break;
                 case "По населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE village LIKE '" + village + "%'";
                     }
                     break;
                 case "По статі":
                     {
-                        c.com = "SELECT * FROM people WHERE sex LIKE '%" + sex + "%'";
+                        c.com = "SELECT * FROM people WHERE sex LIKE '" + sex + "%'";
                     }
                     break;
                 case "По статусу":
                     {
-                        c.com = "SELECT * FROM people WHERE status LIKE '%" + status + "%'";
+                        c.com = "SELECT * FROM people WHERE status LIKE '" + status + "%'";
                     }
                     break;
                 case "По даті народження від і до:":
@@ -739,37 +739,37 @@ namespace DataBase
                     break;
                 case "По прізвищу і імені":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%'";
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%'";
                     }
                     break;
                 case "По прізвищу і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND village LIKE '" + village + "%'";
                     }
                     break;
                 case "По імені і побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%' AND surname LIKE '" + surname + "%'";
                     }
                     break;
                 case "По імені і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '%" + name + "%' AND village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%' AND village LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу імені і побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND surname LIKE '" + surname + "%'";
                     }
                     break;
                 case "По прізвищу імені і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND village LIKE '" + village + "%'";
                     }
                     break;
                 case "По статі і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE sex LIKE '%" + sex + "%' AND village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE sex LIKE '" + sex + "%' AND village LIKE '" + village + "%'";
                     }
                     break;
                 case "По статі і даті народження від і до:":
@@ -803,7 +803,7 @@ namespace DataBase
                             MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
                             break;
                         }
-                        c.com = "SELECT * FROM people WHERE sex LIKE '%" + sex + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                        c.com = "SELECT * FROM people WHERE sex LIKE '" + sex + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По населеному пункту і даті народження від і до:":
@@ -837,7 +837,7 @@ namespace DataBase
                             MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
                             break;
                         }
-                        c.com = "SELECT * FROM people WHERE village LIKE '%" + village + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                        c.com = "SELECT * FROM people WHERE village LIKE '" + village + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По статі, населеному пункту і даті народження від і до:":
@@ -871,17 +871,17 @@ namespace DataBase
                             MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
                             break;
                         }
-                        c.com = "SELECT * FROM people WHERE sex LIKE '%" + sex + "%' AND village LIKE '%" + village + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                        c.com = "SELECT * FROM people WHERE sex LIKE '" + sex + "%' AND village LIKE '" + village + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По населеному пункту і вулиці":
                     {
-                        c.com = "SELECT * FROM people WHERE village LIKE '%" + village + "%' AND street LIKE '%" + street + "%'";
+                        c.com = "SELECT * FROM people WHERE village LIKE '" + village + "%' AND street LIKE '" + street + "%'";
                     }
                     break;
                 case "По населеному пункту, вулиці і номеру будинку":
                     {
-                        c.com = "SELECT * FROM people WHERE village LIKE '%" + village + "%' AND street LIKE '%" + street + "%' AND numb_of_house = '" + numb_of_house + "'";
+                        c.com = "SELECT * FROM people WHERE village LIKE '" + village + "%' AND street LIKE '" + street + "%' AND numb_of_house = '" + numb_of_house + "'";
                     }
                     break;
 

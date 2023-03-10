@@ -377,6 +377,11 @@ namespace DataBase
                         c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND surname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
                     }
                     break;
+                case "По прізвищу імені побатькові і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%' AND village LIKE '%" + village + "%'";
+                    }
+                    break;
                 case "По побатькові":
                     {
                         c.com = "SELECT * FROM people WHERE surname LIKE '" + surname + "%'";
@@ -521,148 +526,149 @@ namespace DataBase
 
                 if (dataGridViewЗберегтиЗміни.SelectedRows.Count == 0)
                 {
+                    MessageBox.Show("Не вибрано рядки для збереження внесених змін. Виберіть рядки !");
 
-                    int a = dataGridViewЗберегтиЗміни.RowCount;
-                    bool changed = false;
+                    //int a = dataGridViewЗберегтиЗміни.RowCount;
+                    //bool changed = false;
 
-                    for (int i = 0; i < a; i++)
-                    {
+                    //for (int i = 0; i < a; i++)
+                    //{
 
-                        if (Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[1].Value) != "" &&
-                            Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[2].Value) != "" &&
-                            Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[3].Value) != "" &&
-                            Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[4].Value) != "")
+                    //    if (Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[1].Value) != "" &&
+                    //        Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[2].Value) != "" &&
+                    //        Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[3].Value) != "" &&
+                    //        Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[0].Cells[4].Value) != "")
 
-                        {
+                    //    {
 
-                            string people_id = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[0].Value);
-                            string lastname = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[1].Value);
-                            string name = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[2].Value);
-                            string surname = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[3].Value);
-                            string sex = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[4].Value);
-                            string date_of_birth = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[5].Value);
-                            string village = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[6].Value);
-                            string street = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[7].Value);
-                            string numb_of_house = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[8].Value);
-                            string passport = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[9].Value);
-                            string id_kod = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[10].Value);
-                            string phone_numb = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[11].Value);
-                            string status = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[12].Value);
-                            string email = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[13].Value);
-
-
-                            if (date_of_birth != "дд.мм.рррр")
-                            {
-
-                                try
-                                {
-                                    string s1 = date_of_birth.Substring(0, 2);
-                                    string s2 = date_of_birth.Substring(3, 2);
-                                    string s3 = date_of_birth.Substring(6, 4);
-                                    date_of_birth = s3 + '/' + s2 + '/' + s1;
-                                    DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
-
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
-                                    break;
-                                }
+                    //        string people_id = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[0].Value);
+                    //        string lastname = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[1].Value);
+                    //        string name = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[2].Value);
+                    //        string surname = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[3].Value);
+                    //        string sex = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[4].Value);
+                    //        string date_of_birth = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[5].Value);
+                    //        string village = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[6].Value);
+                    //        string street = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[7].Value);
+                    //        string numb_of_house = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[8].Value);
+                    //        string passport = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[9].Value);
+                    //        string id_kod = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[10].Value);
+                    //        string phone_numb = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[11].Value);
+                    //        string status = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[12].Value);
+                    //        string email = Convert.ToString(this.dataGridViewЗберегтиЗміни.Rows[i].Cells[13].Value);
 
 
-                                if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
-                                {
-                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
-                                        " У рядку з номером: " + people_id);
+                    //        if (date_of_birth != "дд.мм.рррр")
+                    //        {
 
-                                }
-                                else
-                                {
-                                    ConnectionClass _manager = new ConnectionClass();
+                    //            try
+                    //            {
+                    //                string s1 = date_of_birth.Substring(0, 2);
+                    //                string s2 = date_of_birth.Substring(3, 2);
+                    //                string s3 = date_of_birth.Substring(6, 4);
+                    //                date_of_birth = s3 + '/' + s2 + '/' + s1;
+                    //                DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
 
-                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
-                                        "name = '" + name + "', " +
-                                        "surname = '" + surname + "', " +
-                                        "sex = '" + sex + "', " +
-                                        "date_of_birth = '" + date_of_birth + "', " +
-                                        "village = '" + village + "', " +
-                                        "street = '" + street + "', " +
-                                        "numb_of_house = '" + numb_of_house + "', " +
-                                        "passport = '" + passport + "', " +
-                                        "id_kod = '" + id_kod + "', " +
-                                        "phone_numb = '" + phone_numb + "', " +
-                                        "status = '" + status + "', " +
-                                        "email = '" + email + "' " +
-                                        "WHERE people_id = " + people_id;
-                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+                    //            }
+                    //            catch
+                    //            {
+                    //                MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                    //                break;
+                    //            }
 
-                                    try
-                                    {
-                                        _manager.openConnection();
-                                        _command.ExecuteNonQuery();
-                                        changed = true;
 
-                                    }
-                                    catch
-                                    {
-                                        MessageBox.Show("Помилка роботи з базою даних !");
-                                        break;
-                                    }
-                                    finally
-                                    {
-                                        _manager.closeConnection();
+                    //            if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
+                    //            {
+                    //                MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
+                    //                    " У рядку з номером: " + people_id);
 
-                                    }
-                                }
-                            }
-                            else
-                            {
+                    //            }
+                    //            else
+                    //            {
+                    //                ConnectionClass _manager = new ConnectionClass();
 
-                                ConnectionClass _manager = new ConnectionClass();
+                    //                string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                    //                    "name = '" + name + "', " +
+                    //                    "surname = '" + surname + "', " +
+                    //                    "sex = '" + sex + "', " +
+                    //                    "date_of_birth = '" + date_of_birth + "', " +
+                    //                    "village = '" + village + "', " +
+                    //                    "street = '" + street + "', " +
+                    //                    "numb_of_house = '" + numb_of_house + "', " +
+                    //                    "passport = '" + passport + "', " +
+                    //                    "id_kod = '" + id_kod + "', " +
+                    //                    "phone_numb = '" + phone_numb + "', " +
+                    //                    "status = '" + status + "', " +
+                    //                    "email = '" + email + "' " +
+                    //                    "WHERE people_id = " + people_id;
+                    //                MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
-                                string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
-                                    "name = '" + name + "', " +
-                                    "surname = '" + surname + "', " +
-                                    "sex = '" + sex + "', " +
-                                    "village = '" + village + "', " +
-                                    "street = '" + street + "', " +
-                                    "numb_of_house = '" + numb_of_house + "', " +
-                                    "passport = '" + passport + "', " +
-                                    "id_kod = '" + id_kod + "', " +
-                                    "phone_numb = '" + phone_numb + "', " +
-                                    "status = '" + status + "', " +
-                                    "email = '" + email + "' " +
-                                    "WHERE people_id = " + people_id;
-                                MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+                    //                try
+                    //                {
+                    //                    _manager.openConnection();
+                    //                    _command.ExecuteNonQuery();
+                    //                    changed = true;
 
-                                try
-                                {
-                                    _manager.openConnection();
-                                    _command.ExecuteNonQuery();
-                                    changed = true;
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("Помилка роботи з базою даних1 !");
-                                    break;
-                                }
-                                finally
-                                {
-                                    _manager.closeConnection();
+                    //                }
+                    //                catch
+                    //                {
+                    //                    MessageBox.Show("Помилка роботи з базою даних !");
+                    //                    break;
+                    //                }
+                    //                finally
+                    //                {
+                    //                    _manager.closeConnection();
 
-                                }
-                            }
+                    //                }
+                    //            }
+                    //        }
+                    //        else
+                    //        {
 
-                        }
-                        else
-                            MessageBox.Show("Не всі поля заповнені ! Заповніть прізвище, ім'я, побатькові і стать");
+                    //            ConnectionClass _manager = new ConnectionClass();
 
-                    }
-                    if (changed)
-                    {
-                        MessageBox.Show("Дані змінено !");
-                        dataGridViewЗберегтиЗміни.ReadOnly = true;
-                    }
+                    //            string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                    //                "name = '" + name + "', " +
+                    //                "surname = '" + surname + "', " +
+                    //                "sex = '" + sex + "', " +
+                    //                "village = '" + village + "', " +
+                    //                "street = '" + street + "', " +
+                    //                "numb_of_house = '" + numb_of_house + "', " +
+                    //                "passport = '" + passport + "', " +
+                    //                "id_kod = '" + id_kod + "', " +
+                    //                "phone_numb = '" + phone_numb + "', " +
+                    //                "status = '" + status + "', " +
+                    //                "email = '" + email + "' " +
+                    //                "WHERE people_id = " + people_id;
+                    //            MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                    //            try
+                    //            {
+                    //                _manager.openConnection();
+                    //                _command.ExecuteNonQuery();
+                    //                changed = true;
+                    //            }
+                    //            catch
+                    //            {
+                    //                MessageBox.Show("Помилка роботи з базою даних1 !");
+                    //                break;
+                    //            }
+                    //            finally
+                    //            {
+                    //                _manager.closeConnection();
+
+                    //            }
+                    //        }
+
+                    //    }
+                    //    else
+                    //        MessageBox.Show("Не всі поля заповнені ! Заповніть прізвище, ім'я, побатькові і стать");
+
+                    //}
+                    //if (changed)
+                    //{
+                    //    MessageBox.Show("Дані змінено !");
+                    //    dataGridViewЗберегтиЗміни.ReadOnly = true;
+                    //}
                 }
                 else
                 {
@@ -864,47 +870,51 @@ namespace DataBase
 
         private void вибраніToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-
-            if (dataGridViewЗберегтиЗміни.SelectedRows.Count != 0)
+            if (user.userName == "A")
             {
 
-                ConnectionClass _manager = new ConnectionClass();
-                bool add = false;
-
-                foreach (DataGridViewRow row in dataGridViewЗберегтиЗміни.SelectedRows)
+                if (dataGridViewЗберегтиЗміни.SelectedRows.Count != 0)
                 {
-                    int index = row.Index;
 
-                    int people_id = Convert.ToInt32(dataGridViewЗберегтиЗміни.Rows[index].Cells[0].Value);
-                    string _commandstring = "DELETE FROM people WHERE people_id = " + people_id;
-                    MySqlCommand _command = new MySqlCommand(_commandstring, _manager.getConnection());
+                    ConnectionClass _manager = new ConnectionClass();
+                    bool add = false;
 
-                    try
+                    foreach (DataGridViewRow row in dataGridViewЗберегтиЗміни.SelectedRows)
                     {
-                        _manager.openConnection();
-                        _command.ExecuteNonQuery();
-                        dataGridViewЗберегтиЗміни.Rows.RemoveAt(index);
-                        add = true;
+                        int index = row.Index;
+
+                        int people_id = Convert.ToInt32(dataGridViewЗберегтиЗміни.Rows[index].Cells[0].Value);
+                        string _commandstring = "DELETE FROM people WHERE people_id = " + people_id;
+                        MySqlCommand _command = new MySqlCommand(_commandstring, _manager.getConnection());
+
+                        try
+                        {
+                            _manager.openConnection();
+                            _command.ExecuteNonQuery();
+                            dataGridViewЗберегтиЗміни.Rows.RemoveAt(index);
+                            add = true;
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Помилка роботи з базою даних !");
+                        }
+                        finally
+                        {
+                            _manager.closeConnection();
+                        }
                     }
-                    catch
+                    if (add)
                     {
-                        MessageBox.Show("Помилка роботи з базою даних !");
-                    }
-                    finally
-                    {
-                        _manager.closeConnection();
+                        MessageBox.Show("Дані видалено !");
                     }
                 }
-                if (add)
+                else
                 {
-                    MessageBox.Show("Дані видалено !");
+                    MessageBox.Show("Елемент для видалення не вибрано !");
                 }
             }
             else
-            {
-                MessageBox.Show("Елемент для видалення не вибрано !");
-            }
-
+                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
         }
 
         private void переглядДанихToolStripMenuItem2_Click(object sender, EventArgs e)
