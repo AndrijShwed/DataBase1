@@ -303,93 +303,88 @@ namespace DataBase
 
             SQLCommand c = new SQLCommand();
 
-            string lastname = Convert.ToString(textBoxПрізвище.Text);
-            string name = Convert.ToString(textBoxІм_я.Text);
-            string surname = Convert.ToString(textBoxПобатькові.Text);
-            string village = Convert.ToString(textBoxНаселенийПункт.Text);
-            string people_id = Convert.ToString(textBoxНомер.Text);
+            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower();
+            string name = Convert.ToString(textBoxІм_я.Text).ToLower();
+            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower();
+            string village = Convert.ToString(textBoxНаселенийПункт.Text).ToLower();
+            string people_id = Convert.ToString(textBoxНомер.Text).ToLower();
 
             switch (choice)
             {
 
                 case "По прізвищу":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     }
                     break;
                 case "По прізвищу і імені":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%'";
                     }
                     break;
                 case "По прізвищу і побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND surname LIKE '" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По прізвищу і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По імені":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%'";
                     }
                     break;
                 case "По імені і побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%' AND surname LIKE '" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По імені і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По побатькові і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE suname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу імені і побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND surname LIKE '" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По імені побатькові і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE name LIKE '" + name + "%' AND surname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу побатькові і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND surname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу імені і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу імені побатькові і населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND surname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
-                    }
-                    break;
-                case "По прізвищу імені побатькові і населеному пункту":
-                    {
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '%" + lastname + "%' AND name LIKE '%" + name + "%' AND surname LIKE '%" + surname + "%' AND village LIKE '%" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По побатькові":
                     {
-                        c.com = "SELECT * FROM people WHERE surname LIKE '" + surname + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По населеному пункту":
                     {
-                        c.com = "SELECT * FROM people WHERE village LIKE '" + village + "%'";
+                        c.com = "SELECT * FROM people WHERE LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По номеру":
