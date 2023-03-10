@@ -95,6 +95,20 @@ C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Numerics.Vector
 C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\MySql.Data.xml
 C:\Users\1\source\repos\DataBase_1\DataBase\obj\x86\Debug\DataBase.csproj.CopyComplete
 C:\Users\1\source\repos\DataBase_1\DataBase\obj\x86\Debug\DataBase.Населення_Роки.resources
+<<<<<<< HEAD
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\MySqlConnector.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\MySqlConnector.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Buffers.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Memory.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Numerics.Vectors.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\bin\x86\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\1\source\repos\DataBase_1\DataBase\obj\x86\Debug\DataBase.Населені_Пункти.resources
+=======
 C:\Users\1\source\repos\DataBase1\DataBase\bin\x86\Debug\DataBase.exe.config
 C:\Users\1\source\repos\DataBase1\DataBase\bin\x86\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\bin\x86\Debug\DataBase.pdb
@@ -130,3 +144,4 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\x86\Debug\DataBase.csproj.CoreCom
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x86\Debug\DataBase.csproj.CopyComplete
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x86\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x86\Debug\DataBase.pdb
+>>>>>>> 5e30c94528a2001a98da778959a2164ae9a8fb43
