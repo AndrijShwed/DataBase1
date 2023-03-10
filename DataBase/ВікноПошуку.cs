@@ -485,7 +485,7 @@ namespace DataBase
                 choice = "По населеному пункту";
             }
             else
-             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                 textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
                 textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text != "Статус" &&
@@ -494,6 +494,17 @@ namespace DataBase
                 )
             {
                 choice = "По статусу";
+            }
+            else
+            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
+                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
+                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text != "Статус" &&
+                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
+                textBoxДатаНародженняДО.Text == "Дата народження до:"
+                )
+            {
+                choice = "По статусу і населеному пункту";
             }
             else
             if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
@@ -698,6 +709,11 @@ namespace DataBase
                 case "По статусу":
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(status) LIKE '%" + status + "%'";
+                    }
+                    break;
+                case "По статусу і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE LOWER(status) LIKE '%" + status + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По даті народження від і до:":

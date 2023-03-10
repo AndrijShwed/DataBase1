@@ -374,11 +374,9 @@ namespace DataBase
                     break;
                 case "По прізвищу імені побатькові і населеному пункту":
                     {
-<<<<<<< HEAD
-                        c.com = "SELECT * FROM people WHERE lastname LIKE '" + lastname + "%' AND name LIKE '" + name + "%' AND surname LIKE '" + surname + "%' AND village LIKE '" + village + "%'";
-=======
+
                         c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
->>>>>>> 03119c5ef67693037e80d6402738cff642034c1f
+
                     }
                     break;
                 case "По побатькові":
