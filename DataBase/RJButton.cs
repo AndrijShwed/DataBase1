@@ -13,7 +13,7 @@ namespace DataBase
     public class RJButton : Button
     {
         private int borderSize = 0;
-        private int borderRadus = 40;
+        private int borderRadius = 40;
         private Color borderColor = Color.PaleVioletRed;
 
        
@@ -48,10 +48,10 @@ namespace DataBase
             RectangleF rectSurface = new RectangleF(0, 0, this.Width, this.Height);
             RectangleF rectBorder = new RectangleF(1, 1, this.Width - 0.8F, this.Height -1);
 
-            if (borderRadus > 2)
+            if (borderRadius > 2)
             {
-                using (GraphicsPath pathSurface = GetFigurePath(rectSurface,borderRadus))
-                using (GraphicsPath pathBorder = GetFigurePath(rectBorder,borderRadus - 1F))
+                using (GraphicsPath pathSurface = GetFigurePath(rectSurface,borderRadius))
+                using (GraphicsPath pathBorder = GetFigurePath(rectBorder,borderRadius - 1F))
                 using (Pen penSurface = new Pen(this.Parent.BackColor, 2))
                 using (Pen penBorder = new Pen(borderColor, borderSize))
                 {
