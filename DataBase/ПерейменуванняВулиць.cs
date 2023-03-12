@@ -81,5 +81,11 @@ namespace DataBase
             else
                 MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
         }
+
+        private void вихідToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
     }
 }

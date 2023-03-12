@@ -38,6 +38,7 @@
             this.ВведітьСтаруНазвуВулиці = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ЗамінитиІЗберегти = new ClassLibrary1.RJButton();
+            this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.головнаToolStripMenuItem,
             this.населенняToolStripMenuItem,
-            this.перейменуванняВулицьToolStripMenuItem});
+            this.перейменуванняВулицьToolStripMenuItem,
+            this.вихідToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1089, 36);
@@ -137,6 +139,14 @@
             this.ЗамінитиІЗберегти.UseVisualStyleBackColor = false;
             this.ЗамінитиІЗберегти.Click += new System.EventHandler(this.ЗамінитиІЗберегти_Click);
             // 
+            // вихідToolStripMenuItem
+            // 
+            this.вихідToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(285, 32);
+            this.вихідToolStripMenuItem.Text = "                                  Вихід";
+            this.вихідToolStripMenuItem.Click += new System.EventHandler(this.вихідToolStripMenuItem_Click);
+            // 
             // ПерейменуванняВулиць
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -173,5 +183,6 @@
         private System.Windows.Forms.Label ВведітьСтаруНазвуВулиці;
         private System.Windows.Forms.Label label2;
         private ClassLibrary1.RJButton ЗамінитиІЗберегти;
+        private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
     }
 }
