@@ -32,5 +32,12 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void ПерейменуванняВулиць_MouseClick(object sender, MouseEventArgs e)
+        {
+            ПерейменуванняВулиць form = new ПерейменуванняВулиць();
+            this.Hide();
+            form.Show();
+        }
     }
 }

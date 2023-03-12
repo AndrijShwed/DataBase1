@@ -37,6 +37,8 @@
             this.ButtonПідприємства = new DataBase.RJButton();
             this.ButtonДомогосподарства = new DataBase.RJButton();
             this.ButtonНаселення = new DataBase.RJButton();
+            this.ПерейменуванняВулиць = new ClassLibrary1.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -144,12 +146,44 @@
             this.ButtonНаселення.UseVisualStyleBackColor = false;
             this.ButtonНаселення.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселення_MouseClick);
             // 
+            // ПерейменуванняВулиць
+            // 
+            this.ПерейменуванняВулиць.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.ПерейменуванняВулиць.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.ПерейменуванняВулиць.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ПерейменуванняВулиць.BackgroundImage")));
+            this.ПерейменуванняВулиць.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ПерейменуванняВулиць.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.ПерейменуванняВулиць.BorderRadius = 20;
+            this.ПерейменуванняВулиць.BorderSize = 0;
+            this.ПерейменуванняВулиць.FlatAppearance.BorderSize = 0;
+            this.ПерейменуванняВулиць.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ПерейменуванняВулиць.ForeColor = System.Drawing.Color.White;
+            this.ПерейменуванняВулиць.Location = new System.Drawing.Point(520, 324);
+            this.ПерейменуванняВулиць.Name = "ПерейменуванняВулиць";
+            this.ПерейменуванняВулиць.Size = new System.Drawing.Size(200, 160);
+            this.ПерейменуванняВулиць.TabIndex = 11;
+            this.ПерейменуванняВулиць.TextColor = System.Drawing.Color.White;
+            this.ПерейменуванняВулиць.UseVisualStyleBackColor = false;
+            this.ПерейменуванняВулиць.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ПерейменуванняВулиць_MouseClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(462, 487);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(292, 38);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Заміна назви вулиці";
+            // 
             // Головна
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1282, 953);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.ПерейменуванняВулиць);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ButtonНаселеніПункти);
             this.Controls.Add(this.ButtonПідприємства);
@@ -176,5 +210,7 @@
         private RJButton ButtonПідприємства;
         private RJButton ButtonНаселеніПункти;
         private System.Windows.Forms.Label label2;
+        private ClassLibrary1.RJButton ПерейменуванняВулиць;
+        private System.Windows.Forms.Label label5;
     }
 }

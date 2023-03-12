@@ -38,3 +38,4 @@ C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe.config
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.exe
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПерейменуванняВулиць.resources

@@ -189,6 +189,12 @@
     <Compile Include="Населення.Designer.cs">
       <DependentUpon>Населення.cs</DependentUpon>
     </Compile>
+    <Compile Include="ПерейменуванняВулиць.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ПерейменуванняВулиць.Designer.cs">
+      <DependentUpon>ПерейменуванняВулиць.cs</DependentUpon>
+    </Compile>
     <Compile Include="Реєстрація.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Населення.resx">
       <DependentUpon>Населення.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ПерейменуванняВулиць.resx">
+      <DependentUpon>ПерейменуванняВулиць.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Реєстрація.resx">
       <DependentUpon>Реєстрація.cs</DependentUpon>
