@@ -21,8 +21,6 @@ namespace DataBase
         {
             InitializeComponent();
 
-            textBoxНаселенийПункт.Text = "Населений пункт";
-            textBoxНаселенийПункт.ForeColor = Color.Gray;
 
             textBoxВулиця.Text = "Вулиця";
             textBoxВулиця.ForeColor = Color.Gray;
@@ -351,12 +349,6 @@ namespace DataBase
 
         private void textBoxНаселенийПункт_MouseEnter(object sender, EventArgs e)
         {
-            if (textBoxНаселенийПункт.Text == "Населений пункт")
-            {
-                textBoxНаселенийПункт.Text = "";
-                textBoxНаселенийПункт.ForeColor = Color.Black;
-            }
-        }
 
         private void textBoxНаселенийПункт_MouseLeave(object sender, EventArgs e)
         {
@@ -376,12 +368,6 @@ namespace DataBase
             }
         }
 
-        private void textBoxВулиця_MouseLeave(object sender, EventArgs e)
-        {
-            if (textBoxВулиця.Text == "")
-            {
-                textBoxВулиця.Text = "Вулиця";
-                textBoxВулиця.ForeColor = Color.Black;
             }
         }
     }
