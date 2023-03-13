@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DataBase
 {
@@ -21,9 +22,14 @@ namespace DataBase
         {
             InitializeComponent();
 
+           
 
-            textBoxВулиця.Text = "Вулиця";
-            textBoxВулиця.ForeColor = Color.Gray;
+            comboBoxVillage.Text = "Виберіть населений пункт";
+            comboBoxVillage.Items.Add("Бережниця");
+            comboBoxVillage.Items.Add("Заболотівці");
+            comboBoxVillage.Items.Add("Рогізно");
+            comboBoxVillage.Items.Add("Журавків");
+            comboBoxVillage.Items.Add("Загурщина");
             HeaderOfTheTable();
 
         }
@@ -151,7 +157,7 @@ namespace DataBase
             dataGridViewДодати.Columns.Add(column12);
             dataGridViewДодати.Columns.Add(column13);
             dataGridViewДодати.Columns.Add(column14);
-           
+
 
             dataGridViewДодати.AllowUserToAddRows = false;
             dataGridViewДодати.ReadOnly = true;
@@ -200,9 +206,9 @@ namespace DataBase
             this.dataGridViewДодати.Rows.Add();
 
             dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
-            dataGridViewДодати.Rows[rowNumber].Cells[5].Value =  "дд.мм.рррр";
-            dataGridViewДодати.Rows[rowNumber].Cells[6].Value =  textBoxНаселенийПункт.Text.ToString();
-            dataGridViewДодати.Rows[rowNumber].Cells[7].Value =  textBoxВулиця.Text.ToString();
+            dataGridViewДодати.Rows[rowNumber].Cells[5].Value = "дд.мм.рррр";
+            dataGridViewДодати.Rows[rowNumber].Cells[6].Value = comboBoxVillage.Text.ToString();
+            dataGridViewДодати.Rows[rowNumber].Cells[7].Value = comboBoxStreets.Text.ToString();
 
             rowNumber++;
 
@@ -224,7 +230,7 @@ namespace DataBase
             {
                 try
                 {
-                   
+
 
                     _manager.openConnection();
 
@@ -239,16 +245,16 @@ namespace DataBase
 
                     if (lastname != "" && name != "" && surname != "" && sex != "" && date_of_birth != "дд.мм.рррр")
                     {
-                           date_of_birth = s3 + "-" + s2 + "-" + s1;
-                           string equal = "SELECT * FROM people WHERE lastname = '" + lastname + "' AND" +
-                              " name = '" + name + "' AND surname = '" + surname + "' AND " +
-                                "date_of_birth = '" + date_of_birth + "'";
+                        date_of_birth = s3 + "-" + s2 + "-" + s1;
+                        string equal = "SELECT * FROM people WHERE lastname = '" + lastname + "' AND" +
+                           " name = '" + name + "' AND surname = '" + surname + "' AND " +
+                             "date_of_birth = '" + date_of_birth + "'";
 
-                            MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
-                           _reader = search.ExecuteReader();
-                            a = _reader.HasRows;
-                            _reader.Close();
-                       
+                        MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
+                        _reader = search.ExecuteReader();
+                        a = _reader.HasRows;
+                        _reader.Close();
+
                         if (a)
                         {
                             current++;
@@ -258,7 +264,7 @@ namespace DataBase
                         {
                             try
                             {
-                   
+
                                 date_of_birth = s3 + '/' + s2 + '/' + s1;
                                 DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
                                 if (date_of_birth1 > DateTime.Now)
@@ -271,7 +277,7 @@ namespace DataBase
                                     string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`)" +
                                   "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email)";
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
-                                    
+
 
 
                                     _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
@@ -293,7 +299,7 @@ namespace DataBase
 
                                     dataGridViewДодати.Rows.RemoveAt(current);
 
-                                   //dataGridViewДодати.Rows.RemoveAt(i);
+                                    //dataGridViewДодати.Rows.RemoveAt(i);
 
                                 }
 
@@ -318,7 +324,7 @@ namespace DataBase
                 {
                     MessageBox.Show("Помилка роботи з базою даних !");
                 }
-                
+
                 finally
                 {
                     _manager.closeConnection();
@@ -326,7 +332,7 @@ namespace DataBase
                 if (add && (i == rowCount - 1))
                 {
                     MessageBox.Show("Дані добавлено !");
-                   
+
                 }
                 else if (!add && (i == rowCount - 1) && !a)
 
@@ -347,26 +353,62 @@ namespace DataBase
             form.Show();
         }
 
-        private void textBoxНаселенийПункт_MouseEnter(object sender, EventArgs e)
-        {
+       
 
-        private void textBoxНаселенийПункт_MouseLeave(object sender, EventArgs e)
+        private void comboBoxVillage_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (textBoxНаселенийПункт.Text == "")
-            {
-                textBoxНаселенийПункт.Text = "Населений пункт";
-                textBoxНаселенийПункт.ForeColor = Color.Black;
-            }
-        }
+           
 
-        private void textBoxВулиця_MouseEnter(object sender, EventArgs e)
-        {
-            if (textBoxВулиця.Text == "Вулиця")
+            comboBoxStreets.Items.Clear();
+
+            string village = comboBoxVillage.Text;
+            comboBoxStreets.Text = "Виберіть вулицю";
+
+            switch (village)
             {
-                textBoxВулиця.Text = "";
-                textBoxВулиця.ForeColor = Color.Black;
-            }
-        }
+                case "Бережниця":
+                    comboBoxStreets.Items.Add("Шевченка");
+                    comboBoxStreets.Items.Add("Дорошенка");
+                    comboBoxStreets.Items.Add("Надбережна");
+                    comboBoxStreets.Items.Add("Бандери С.");
+                    comboBoxStreets.Items.Add("Рогізнянська");
+                    comboBoxStreets.Items.Add("І.Франка");
+                    comboBoxStreets.Items.Add("Космонавтів");
+                    comboBoxStreets.Items.Add("Нова");
+                    comboBoxStreets.Items.Add("Молодіжна");
+                    comboBoxStreets.Items.Add("Лісна");
+                    comboBoxStreets.Items.Add("Садова");
+                    comboBoxStreets.Items.Add("Зелена");
+
+                    break;
+                case "Рогізно":
+                    comboBoxStreets.Items.Add("Шевченка");
+                    comboBoxStreets.Items.Add("І.Франка");
+                    comboBoxStreets.Items.Add("Лесі Українки");
+                    comboBoxStreets.Items.Add("Зелена");
+                    comboBoxStreets.Items.Add("Садова");
+                    comboBoxStreets.Items.Add("Вузька");
+                    break;
+                case "Заболотівці":
+                    comboBoxStreets.Items.Add("Миру");
+                    comboBoxStreets.Items.Add("Шевченка");
+                    comboBoxStreets.Items.Add("Космонавтів");
+                    comboBoxStreets.Items.Add("Героїв України");
+                    break;
+                case "Журавків":
+                    comboBoxStreets.Items.Add("Шевченка");
+                    comboBoxStreets.Items.Add("Довбуша");
+                    comboBoxStreets.Items.Add("Миру");
+                    comboBoxStreets.Items.Add("Б.Хмельницького");
+                    comboBoxStreets.Items.Add("Чорновола В.");
+                    comboBoxStreets.Items.Add("Лісна");
+                    break;
+                case "Загурщина":
+                    comboBoxStreets.Items.Add("Шевченка");
+                    comboBoxStreets.Items.Add("Зелена");
+                    break;
+                default:
+                    return;
 
             }
         }

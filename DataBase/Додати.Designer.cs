@@ -39,8 +39,8 @@
             this.buttonЗберегти_В_Таблицю = new System.Windows.Forms.Button();
             this.dataGridViewДодати = new System.Windows.Forms.DataGridView();
             this.ButtonПовернутись = new DataBase.RJButton();
-            this.textBoxНаселенийПункт = new System.Windows.Forms.TextBox();
-            this.textBoxВулиця = new System.Windows.Forms.TextBox();
+            this.comboBoxVillage = new System.Windows.Forms.ComboBox();
+            this.comboBoxStreets = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewДодати)).BeginInit();
             this.SuspendLayout();
@@ -150,27 +150,26 @@
             this.ButtonПовернутись.UseVisualStyleBackColor = false;
             this.ButtonПовернутись.Click += new System.EventHandler(this.ButtonПовернутись_Click_1);
             // 
-            // textBoxНаселенийПункт
+            // comboBoxVillage
             // 
-            this.textBoxНаселенийПункт.BackColor = System.Drawing.Color.DarkOrange;
-            this.textBoxНаселенийПункт.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxНаселенийПункт.Location = new System.Drawing.Point(33, 114);
-            this.textBoxНаселенийПункт.Name = "textBoxНаселенийПункт";
-            this.textBoxНаселенийПункт.Size = new System.Drawing.Size(221, 34);
-            this.textBoxНаселенийПункт.TabIndex = 10;
-            this.textBoxНаселенийПункт.MouseEnter += new System.EventHandler(this.textBoxНаселенийПункт_MouseEnter);
-            this.textBoxНаселенийПункт.MouseLeave += new System.EventHandler(this.textBoxНаселенийПункт_MouseLeave);
+            this.comboBoxVillage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.comboBoxVillage.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxVillage.FormattingEnabled = true;
+            this.comboBoxVillage.Location = new System.Drawing.Point(26, 114);
+            this.comboBoxVillage.Name = "comboBoxVillage";
+            this.comboBoxVillage.Size = new System.Drawing.Size(524, 37);
+            this.comboBoxVillage.TabIndex = 12;
+            this.comboBoxVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxVillage_SelectedIndexChanged);
             // 
-            // textBoxВулиця
+            // comboBoxStreets
             // 
-            this.textBoxВулиця.BackColor = System.Drawing.Color.DarkOrange;
-            this.textBoxВулиця.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxВулиця.Location = new System.Drawing.Point(279, 114);
-            this.textBoxВулиця.Name = "textBoxВулиця";
-            this.textBoxВулиця.Size = new System.Drawing.Size(225, 34);
-            this.textBoxВулиця.TabIndex = 11;
-            this.textBoxВулиця.MouseEnter += new System.EventHandler(this.textBoxВулиця_MouseEnter);
-            this.textBoxВулиця.MouseLeave += new System.EventHandler(this.textBoxВулиця_MouseLeave);
+            this.comboBoxStreets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.comboBoxStreets.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxStreets.FormattingEnabled = true;
+            this.comboBoxStreets.Location = new System.Drawing.Point(589, 114);
+            this.comboBoxStreets.Name = "comboBoxStreets";
+            this.comboBoxStreets.Size = new System.Drawing.Size(442, 37);
+            this.comboBoxStreets.TabIndex = 13;
             // 
             // Додати
             // 
@@ -178,8 +177,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.ClientSize = new System.Drawing.Size(1924, 1055);
-            this.Controls.Add(this.textBoxВулиця);
-            this.Controls.Add(this.textBoxНаселенийПункт);
+            this.Controls.Add(this.comboBoxStreets);
+            this.Controls.Add(this.comboBoxVillage);
             this.Controls.Add(this.ButtonПовернутись);
             this.Controls.Add(this.dataGridViewДодати);
             this.Controls.Add(this.buttonЗберегти_В_Таблицю);
@@ -211,7 +210,7 @@
         private RJButton ButtonПовернутись;
         private System.Windows.Forms.ToolStripMenuItem вихідЗПрограмиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem переглядДанихToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBoxНаселенийПункт;
-        private System.Windows.Forms.TextBox textBoxВулиця;
+        private System.Windows.Forms.ComboBox comboBoxVillage;
+        private System.Windows.Forms.ComboBox comboBoxStreets;
     }
 }
