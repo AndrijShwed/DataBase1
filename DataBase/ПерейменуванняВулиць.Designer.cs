@@ -33,12 +33,12 @@
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.населенняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.перейменуванняВулицьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.СтараНазва = new System.Windows.Forms.TextBox();
+            this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.НоваНазва = new System.Windows.Forms.TextBox();
             this.ВведітьСтаруНазвуВулиці = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ЗамінитиІЗберегти = new ClassLibrary1.RJButton();
-            this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textBoxСтараНазва = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,13 +79,13 @@
             this.перейменуванняВулицьToolStripMenuItem.Size = new System.Drawing.Size(268, 32);
             this.перейменуванняВулицьToolStripMenuItem.Text = "Перейменування вулиць";
             // 
-            // СтараНазва
+            // вихідToolStripMenuItem
             // 
-            this.СтараНазва.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.СтараНазва.Location = new System.Drawing.Point(71, 170);
-            this.СтараНазва.Name = "СтараНазва";
-            this.СтараНазва.Size = new System.Drawing.Size(400, 34);
-            this.СтараНазва.TabIndex = 1;
+            this.вихідToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
+            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(285, 32);
+            this.вихідToolStripMenuItem.Text = "                                  Вихід";
+            this.вихідToolStripMenuItem.Click += new System.EventHandler(this.вихідToolStripMenuItem_Click);
             // 
             // НоваНазва
             // 
@@ -139,13 +139,13 @@
             this.ЗамінитиІЗберегти.UseVisualStyleBackColor = false;
             this.ЗамінитиІЗберегти.Click += new System.EventHandler(this.ЗамінитиІЗберегти_Click);
             // 
-            // вихідToolStripMenuItem
+            // textBoxСтараНазва
             // 
-            this.вихідToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
-            this.вихідToolStripMenuItem.Size = new System.Drawing.Size(285, 32);
-            this.вихідToolStripMenuItem.Text = "                                  Вихід";
-            this.вихідToolStripMenuItem.Click += new System.EventHandler(this.вихідToolStripMenuItem_Click);
+            this.textBoxСтараНазва.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxСтараНазва.Location = new System.Drawing.Point(76, 170);
+            this.textBoxСтараНазва.Name = "textBoxСтараНазва";
+            this.textBoxСтараНазва.Size = new System.Drawing.Size(384, 34);
+            this.textBoxСтараНазва.TabIndex = 6;
             // 
             // ПерейменуванняВулиць
             // 
@@ -153,11 +153,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1089, 534);
+            this.Controls.Add(this.textBoxСтараНазва);
             this.Controls.Add(this.ЗамінитиІЗберегти);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ВведітьСтаруНазвуВулиці);
             this.Controls.Add(this.НоваНазва);
-            this.Controls.Add(this.СтараНазва);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -178,11 +178,11 @@
         private System.Windows.Forms.ToolStripMenuItem головнаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem населенняToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem перейменуванняВулицьToolStripMenuItem;
-        private System.Windows.Forms.TextBox СтараНазва;
         private System.Windows.Forms.TextBox НоваНазва;
         private System.Windows.Forms.Label ВведітьСтаруНазвуВулиці;
         private System.Windows.Forms.Label label2;
         private ClassLibrary1.RJButton ЗамінитиІЗберегти;
         private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxСтараНазва;
     }
 }

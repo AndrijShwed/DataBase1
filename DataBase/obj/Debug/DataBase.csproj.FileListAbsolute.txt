@@ -1,3 +1,5 @@
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe.config
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\MySqlConnector.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Buffers.dll
@@ -19,6 +21,7 @@ C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.AssemblyReference.cache
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.ResolveComReference.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Properties.Resources.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Авторизація.resources
@@ -28,14 +31,11 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Головна.res
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ЗмінаДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населені_Пункти.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населення.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПерейменуванняВулиць.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Реєстрація.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Додати.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.GenerateResource.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CoreCompileInputs.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplete
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.pdb
-C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe.config
-C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.exe
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПерейменуванняВулиць.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.pdb

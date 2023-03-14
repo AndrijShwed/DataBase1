@@ -18,6 +18,7 @@ namespace DataBase
         public ПерейменуванняВулиць()
         {
             InitializeComponent();
+  
         }
 
         private void населенняToolStripMenuItem_Click(object sender, EventArgs e)
@@ -42,12 +43,12 @@ namespace DataBase
             {
 
 
-                string OldName = Convert.ToString(СтараНазва.Text);
+                string OldName = Convert.ToString(textBoxСтараНазва.Text);
                 string NewName = Convert.ToString(НоваНазва.Text);
 
-                if (СтараНазва.Text == "" || НоваНазва.Text == "")
+                if (textBoxСтараНазва.Text == "" || НоваНазва.Text == "")
                 {
-                    MessageBox.Show("Не заповнено назву вулиці !");
+                    MessageBox.Show("Виберіть сару назву !");
 
                 }
                 else

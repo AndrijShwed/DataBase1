@@ -372,7 +372,7 @@ namespace DataBase
                     comboBoxStreets.Items.Add("Надбережна");
                     comboBoxStreets.Items.Add("Бандери С.");
                     comboBoxStreets.Items.Add("Рогізнянська");
-                    comboBoxStreets.Items.Add("І.Франка");
+                    comboBoxStreets.Items.Add("Ів.Франка");
                     comboBoxStreets.Items.Add("Космонавтів");
                     comboBoxStreets.Items.Add("Нова");
                     comboBoxStreets.Items.Add("Молодіжна");
@@ -383,7 +383,7 @@ namespace DataBase
                     break;
                 case "Рогізно":
                     comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("І.Франка");
+                    comboBoxStreets.Items.Add("Ів.Франка");
                     comboBoxStreets.Items.Add("Лесі Українки");
                     comboBoxStreets.Items.Add("Зелена");
                     comboBoxStreets.Items.Add("Садова");
