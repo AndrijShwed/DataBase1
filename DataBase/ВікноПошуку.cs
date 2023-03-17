@@ -561,7 +561,18 @@ namespace DataBase
             {
                 choice = "По прізвищу імені і побатькові";
             }
-           else
+            else
+            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
+                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
+                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
+                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
+                textBoxДатаНародженняДО.Text == "Дата народження до:"
+                )
+            {
+                choice = "По прізвищу і побатькові";
+            }
+            else
             if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
                 textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
@@ -756,6 +767,11 @@ namespace DataBase
                 case "По прізвищу і імені":
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%'";
+                    }
+                    break;
+                case "По прізвищу і побатькові":
+                    {
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По прізвищу і населеному пункту":
