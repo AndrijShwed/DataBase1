@@ -218,13 +218,6 @@ namespace DataBase
                 village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
                 numb_of_house + "'";
 
-            c.comName = "SELECT name FROM people WHERE  LOWER(village) LIKE '" +
-                village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
-                numb_of_house + "'";
-
-            c.comSurname = "SELECT surname FROM people WHERE  LOWER(village) LIKE '" +
-               village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
-               numb_of_house + "'";
 
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
@@ -252,33 +245,6 @@ namespace DataBase
 
             }
 
-            _command = new MySqlCommand(c.comName, _manager.getConnection());
-           // _reader = _command.ExecuteReader();
-
-            while (_reader.Read())
-            {
-                RowOfDataN row = new RowOfDataN(_reader["name"]);
-                _dataN.Add(row);
-            }
-            for (int i = 0; i < _dataN.Count; i++)
-            {
-                comboBoxName.Items.Add(_dataN[i].name);
-
-            }
-
-            _command = new MySqlCommand(c.comSurname, _manager.getConnection());
-            //_reader = _command.ExecuteReader();
-
-            while (_reader.Read())
-            {
-                RowOfDataS row = new RowOfDataS(_reader["name"]);
-                _dataS.Add(row);
-            }
-            for (int i = 0; i < _dataS.Count; i++)
-            {
-                comboBoxSurname.Items.Add(_dataS[i].surname);
-
-            }
             if (mess == false)
             {
                 MessageBox.Show("Запис не знайдено !");
