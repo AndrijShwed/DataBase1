@@ -143,6 +143,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RowOfData.cs" />
+    <Compile Include="RowOfDataL.cs" />
+    <Compile Include="RowOfDataN.cs" />
+    <Compile Include="RowOfDataS.cs" />
     <Compile Include="RowOfTableКористувачі.cs" />
     <Compile Include="RowOfVillage.cs" />
     <Compile Include="SQLCommand.cs" />
@@ -170,6 +173,12 @@
     </Compile>
     <Compile Include="Головна.Designer.cs">
       <DependentUpon>Головна.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Домогосподарства.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Домогосподарства.Designer.cs">
+      <DependentUpon>Домогосподарства.cs</DependentUpon>
     </Compile>
     <Compile Include="ЗмінаДаних.cs">
       <SubType>Form</SubType>
@@ -228,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Головна.resx">
       <DependentUpon>Головна.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Домогосподарства.resx">
+      <DependentUpon>Домогосподарства.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ЗмінаДаних.resx">
       <DependentUpon>ЗмінаДаних.cs</DependentUpon>
