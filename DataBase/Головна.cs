@@ -39,5 +39,12 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void ButtonДомогосподарства_MouseClick(object sender, MouseEventArgs e)
+        {
+            Домогосподарства form = new Домогосподарства();
+            this.Hide();
+            form.Show();
+        }
     }
 }

@@ -33,12 +33,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ПерейменуванняВулиць = new ClassLibrary1.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.ButtonНаселеніПункти = new DataBase.RJButton();
             this.ButtonПідприємства = new DataBase.RJButton();
             this.ButtonДомогосподарства = new DataBase.RJButton();
             this.ButtonНаселення = new DataBase.RJButton();
-            this.ПерейменуванняВулиць = new ClassLibrary1.RJButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -82,70 +82,6 @@
             this.label2.TabIndex = 12;
             this.label2.Text = "Населені пункти";
             // 
-            // ButtonНаселеніПункти
-            // 
-            this.ButtonНаселеніПункти.BackColor = System.Drawing.Color.LightPink;
-            this.ButtonНаселеніПункти.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonНаселеніПункти.BackgroundImage")));
-            this.ButtonНаселеніПункти.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonНаселеніПункти.FlatAppearance.BorderSize = 0;
-            this.ButtonНаселеніПункти.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonНаселеніПункти.ForeColor = System.Drawing.Color.White;
-            this.ButtonНаселеніПункти.Location = new System.Drawing.Point(114, 324);
-            this.ButtonНаселеніПункти.Name = "ButtonНаселеніПункти";
-            this.ButtonНаселеніПункти.Size = new System.Drawing.Size(160, 160);
-            this.ButtonНаселеніПункти.TabIndex = 11;
-            this.ButtonНаселеніПункти.UseVisualStyleBackColor = false;
-            this.ButtonНаселеніПункти.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселеніПункти_MouseClick);
-            // 
-            // ButtonПідприємства
-            // 
-            this.ButtonПідприємства.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonПідприємства.BackColor = System.Drawing.Color.LightPink;
-            this.ButtonПідприємства.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonПідприємства.BackgroundImage")));
-            this.ButtonПідприємства.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonПідприємства.FlatAppearance.BorderSize = 0;
-            this.ButtonПідприємства.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonПідприємства.ForeColor = System.Drawing.Color.White;
-            this.ButtonПідприємства.Location = new System.Drawing.Point(975, 44);
-            this.ButtonПідприємства.Name = "ButtonПідприємства";
-            this.ButtonПідприємства.Size = new System.Drawing.Size(160, 160);
-            this.ButtonПідприємства.TabIndex = 10;
-            this.ButtonПідприємства.Text = "rjButton4";
-            this.ButtonПідприємства.UseVisualStyleBackColor = false;
-            // 
-            // ButtonДомогосподарства
-            // 
-            this.ButtonДомогосподарства.BackColor = System.Drawing.Color.Lavender;
-            this.ButtonДомогосподарства.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonДомогосподарства.BackgroundImage")));
-            this.ButtonДомогосподарства.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonДомогосподарства.FlatAppearance.BorderSize = 0;
-            this.ButtonДомогосподарства.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonДомогосподарства.ForeColor = System.Drawing.Color.White;
-            this.ButtonДомогосподарства.Location = new System.Drawing.Point(114, 44);
-            this.ButtonДомогосподарства.Name = "ButtonДомогосподарства";
-            this.ButtonДомогосподарства.Size = new System.Drawing.Size(160, 160);
-            this.ButtonДомогосподарства.TabIndex = 9;
-            this.ButtonДомогосподарства.Text = "rjButton1";
-            this.ButtonДомогосподарства.UseVisualStyleBackColor = false;
-            // 
-            // ButtonНаселення
-            // 
-            this.ButtonНаселення.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonНаселення.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ButtonНаселення.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonНаселення.BackgroundImage")));
-            this.ButtonНаселення.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ButtonНаселення.FlatAppearance.BorderSize = 0;
-            this.ButtonНаселення.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonНаселення.ForeColor = System.Drawing.Color.White;
-            this.ButtonНаселення.Location = new System.Drawing.Point(520, 44);
-            this.ButtonНаселення.Name = "ButtonНаселення";
-            this.ButtonНаселення.Size = new System.Drawing.Size(200, 160);
-            this.ButtonНаселення.TabIndex = 8;
-            this.ButtonНаселення.Text = "rjButton1";
-            this.ButtonНаселення.UseVisualStyleBackColor = false;
-            this.ButtonНаселення.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселення_MouseClick);
-            // 
             // ПерейменуванняВулиць
             // 
             this.ПерейменуванняВулиць.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -175,6 +111,68 @@
             this.label5.Size = new System.Drawing.Size(292, 38);
             this.label5.TabIndex = 13;
             this.label5.Text = "Заміна назви вулиці";
+            // 
+            // ButtonНаселеніПункти
+            // 
+            this.ButtonНаселеніПункти.BackColor = System.Drawing.Color.LightPink;
+            this.ButtonНаселеніПункти.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonНаселеніПункти.BackgroundImage")));
+            this.ButtonНаселеніПункти.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonНаселеніПункти.FlatAppearance.BorderSize = 0;
+            this.ButtonНаселеніПункти.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonНаселеніПункти.ForeColor = System.Drawing.Color.White;
+            this.ButtonНаселеніПункти.Location = new System.Drawing.Point(114, 324);
+            this.ButtonНаселеніПункти.Name = "ButtonНаселеніПункти";
+            this.ButtonНаселеніПункти.Size = new System.Drawing.Size(160, 160);
+            this.ButtonНаселеніПункти.TabIndex = 11;
+            this.ButtonНаселеніПункти.UseVisualStyleBackColor = false;
+            this.ButtonНаселеніПункти.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселеніПункти_MouseClick);
+            // 
+            // ButtonПідприємства
+            // 
+            this.ButtonПідприємства.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonПідприємства.BackColor = System.Drawing.Color.LightPink;
+            this.ButtonПідприємства.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonПідприємства.BackgroundImage")));
+            this.ButtonПідприємства.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonПідприємства.FlatAppearance.BorderSize = 0;
+            this.ButtonПідприємства.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonПідприємства.ForeColor = System.Drawing.Color.White;
+            this.ButtonПідприємства.Location = new System.Drawing.Point(975, 44);
+            this.ButtonПідприємства.Name = "ButtonПідприємства";
+            this.ButtonПідприємства.Size = new System.Drawing.Size(160, 160);
+            this.ButtonПідприємства.TabIndex = 10;
+            this.ButtonПідприємства.UseVisualStyleBackColor = false;
+            // 
+            // ButtonДомогосподарства
+            // 
+            this.ButtonДомогосподарства.BackColor = System.Drawing.Color.Lavender;
+            this.ButtonДомогосподарства.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonДомогосподарства.BackgroundImage")));
+            this.ButtonДомогосподарства.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonДомогосподарства.FlatAppearance.BorderSize = 0;
+            this.ButtonДомогосподарства.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonДомогосподарства.ForeColor = System.Drawing.Color.White;
+            this.ButtonДомогосподарства.Location = new System.Drawing.Point(114, 44);
+            this.ButtonДомогосподарства.Name = "ButtonДомогосподарства";
+            this.ButtonДомогосподарства.Size = new System.Drawing.Size(160, 160);
+            this.ButtonДомогосподарства.TabIndex = 9;
+            this.ButtonДомогосподарства.UseVisualStyleBackColor = false;
+            this.ButtonДомогосподарства.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonДомогосподарства_MouseClick);
+            // 
+            // ButtonНаселення
+            // 
+            this.ButtonНаселення.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ButtonНаселення.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.ButtonНаселення.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonНаселення.BackgroundImage")));
+            this.ButtonНаселення.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ButtonНаселення.FlatAppearance.BorderSize = 0;
+            this.ButtonНаселення.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonНаселення.ForeColor = System.Drawing.Color.White;
+            this.ButtonНаселення.Location = new System.Drawing.Point(520, 44);
+            this.ButtonНаселення.Name = "ButtonНаселення";
+            this.ButtonНаселення.Size = new System.Drawing.Size(200, 160);
+            this.ButtonНаселення.TabIndex = 8;
+            this.ButtonНаселення.UseVisualStyleBackColor = false;
+            this.ButtonНаселення.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселення_MouseClick);
             // 
             // Головна
             // 
