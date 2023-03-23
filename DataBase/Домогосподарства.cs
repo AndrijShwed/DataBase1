@@ -213,14 +213,6 @@ namespace DataBase
             comboBoxName.Items.Clear();
             comboBoxSurname.Items.Clear();
 
-            comboBoxLastname.Text = "Виберіть прізвище";
-            string Lastname = comboBoxLastname.Text;
-            comboBoxName.Text = "Виберіть ім_я";
-            string Name = comboBoxName.Text;
-            comboBoxSurname.Text = "Виберіть побатькові";
-            string Surname = comboBoxSurname.Text;
-            
-          
             string village = Convert.ToString(comboBoxVillage.Text).ToLower();
             string street = Convert.ToString(comboBoxStreets.Text).ToLower();
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
