@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Домогосподарства));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,10 +49,10 @@
             this.Ім_я = new System.Windows.Forms.Label();
             this.Побатькові = new System.Windows.Forms.Label();
             this.dataGridViewДомогосподарства = new System.Windows.Forms.DataGridView();
+            this.Знайти_власника = new DataBase.RJButton();
             this.ЗберегтиВТаблицю = new DataBase.RJButton();
             this.Додати_пустий_рядок = new DataBase.RJButton();
             this.rjButton1 = new DataBase.RJButton();
-            this.Знайти_власника = new DataBase.RJButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewДомогосподарства)).BeginInit();
             this.SuspendLayout();
@@ -101,63 +103,63 @@
             // 
             // comboBoxVillage
             // 
-            this.comboBoxVillage.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxVillage.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxVillage.FormattingEnabled = true;
             this.comboBoxVillage.Location = new System.Drawing.Point(14, 89);
             this.comboBoxVillage.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxVillage.Name = "comboBoxVillage";
-            this.comboBoxVillage.Size = new System.Drawing.Size(262, 30);
+            this.comboBoxVillage.Size = new System.Drawing.Size(262, 34);
             this.comboBoxVillage.TabIndex = 1;
             this.comboBoxVillage.SelectedIndexChanged += new System.EventHandler(this.comboBoxVillage_SelectedIndexChanged);
             // 
             // comboBoxStreets
             // 
-            this.comboBoxStreets.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxStreets.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxStreets.FormattingEnabled = true;
             this.comboBoxStreets.Location = new System.Drawing.Point(286, 89);
             this.comboBoxStreets.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxStreets.Name = "comboBoxStreets";
-            this.comboBoxStreets.Size = new System.Drawing.Size(280, 30);
+            this.comboBoxStreets.Size = new System.Drawing.Size(280, 34);
             this.comboBoxStreets.TabIndex = 2;
             // 
             // comboBoxNumb
             // 
-            this.comboBoxNumb.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxNumb.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxNumb.FormattingEnabled = true;
             this.comboBoxNumb.Location = new System.Drawing.Point(576, 89);
             this.comboBoxNumb.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxNumb.Name = "comboBoxNumb";
-            this.comboBoxNumb.Size = new System.Drawing.Size(135, 30);
+            this.comboBoxNumb.Size = new System.Drawing.Size(135, 34);
             this.comboBoxNumb.TabIndex = 3;
             // 
             // comboBoxLastname
             // 
-            this.comboBoxLastname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxLastname.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxLastname.FormattingEnabled = true;
             this.comboBoxLastname.Location = new System.Drawing.Point(721, 89);
             this.comboBoxLastname.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxLastname.Name = "comboBoxLastname";
-            this.comboBoxLastname.Size = new System.Drawing.Size(268, 30);
+            this.comboBoxLastname.Size = new System.Drawing.Size(268, 34);
             this.comboBoxLastname.TabIndex = 4;
             // 
             // comboBoxName
             // 
-            this.comboBoxName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxName.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxName.FormattingEnabled = true;
             this.comboBoxName.Location = new System.Drawing.Point(999, 89);
             this.comboBoxName.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxName.Name = "comboBoxName";
-            this.comboBoxName.Size = new System.Drawing.Size(228, 30);
+            this.comboBoxName.Size = new System.Drawing.Size(228, 34);
             this.comboBoxName.TabIndex = 5;
             // 
             // comboBoxSurname
             // 
-            this.comboBoxSurname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxSurname.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxSurname.FormattingEnabled = true;
             this.comboBoxSurname.Location = new System.Drawing.Point(1237, 89);
             this.comboBoxSurname.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.comboBoxSurname.Name = "comboBoxSurname";
-            this.comboBoxSurname.Size = new System.Drawing.Size(231, 30);
+            this.comboBoxSurname.Size = new System.Drawing.Size(231, 34);
             this.comboBoxSurname.TabIndex = 6;
             // 
             // Населений_пункт
@@ -228,13 +230,44 @@
             // 
             // dataGridViewДомогосподарства
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewДомогосподарства.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewДомогосподарства.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewДомогосподарства.Location = new System.Drawing.Point(26, 196);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewДомогосподарства.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewДомогосподарства.Location = new System.Drawing.Point(14, 196);
             this.dataGridViewДомогосподарства.Name = "dataGridViewДомогосподарства";
             this.dataGridViewДомогосподарства.RowHeadersWidth = 51;
             this.dataGridViewДомогосподарства.RowTemplate.Height = 24;
-            this.dataGridViewДомогосподарства.Size = new System.Drawing.Size(1456, 456);
+            this.dataGridViewДомогосподарства.Size = new System.Drawing.Size(1468, 456);
             this.dataGridViewДомогосподарства.TabIndex = 13;
+            // 
+            // Знайти_власника
+            // 
+            this.Знайти_власника.BackColor = System.Drawing.Color.Orange;
+            this.Знайти_власника.FlatAppearance.BorderSize = 0;
+            this.Знайти_власника.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Знайти_власника.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Знайти_власника.ForeColor = System.Drawing.Color.White;
+            this.Знайти_власника.Location = new System.Drawing.Point(21, 132);
+            this.Знайти_власника.Name = "Знайти_власника";
+            this.Знайти_власника.Size = new System.Drawing.Size(358, 45);
+            this.Знайти_власника.TabIndex = 17;
+            this.Знайти_власника.Text = "Знайти власника";
+            this.Знайти_власника.UseVisualStyleBackColor = false;
+            this.Знайти_власника.Click += new System.EventHandler(this.Знайти_власника_Click);
             // 
             // ЗберегтиВТаблицю
             // 
@@ -242,28 +275,30 @@
             this.ЗберегтиВТаблицю.BackColor = System.Drawing.Color.Tomato;
             this.ЗберегтиВТаблицю.FlatAppearance.BorderSize = 0;
             this.ЗберегтиВТаблицю.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ЗберегтиВТаблицю.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.ЗберегтиВТаблицю.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ЗберегтиВТаблицю.ForeColor = System.Drawing.Color.White;
-            this.ЗберегтиВТаблицю.Location = new System.Drawing.Point(753, 132);
+            this.ЗберегтиВТаблицю.Location = new System.Drawing.Point(834, 132);
             this.ЗберегтиВТаблицю.Name = "ЗберегтиВТаблицю";
-            this.ЗберегтиВТаблицю.Size = new System.Drawing.Size(327, 45);
+            this.ЗберегтиВТаблицю.Size = new System.Drawing.Size(403, 45);
             this.ЗберегтиВТаблицю.TabIndex = 16;
             this.ЗберегтиВТаблицю.Text = "Зберегти в таблицю";
             this.ЗберегтиВТаблицю.UseVisualStyleBackColor = false;
+            this.ЗберегтиВТаблицю.Click += new System.EventHandler(this.ЗберегтиВТаблицю_Click);
             // 
             // Додати_пустий_рядок
             // 
             this.Додати_пустий_рядок.BackColor = System.Drawing.Color.LightSalmon;
             this.Додати_пустий_рядок.FlatAppearance.BorderSize = 0;
             this.Додати_пустий_рядок.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Додати_пустий_рядок.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Додати_пустий_рядок.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Додати_пустий_рядок.ForeColor = System.Drawing.Color.White;
-            this.Додати_пустий_рядок.Location = new System.Drawing.Point(385, 132);
+            this.Додати_пустий_рядок.Location = new System.Drawing.Point(395, 133);
             this.Додати_пустий_рядок.Name = "Додати_пустий_рядок";
-            this.Додати_пустий_рядок.Size = new System.Drawing.Size(326, 45);
+            this.Додати_пустий_рядок.Size = new System.Drawing.Size(424, 45);
             this.Додати_пустий_рядок.TabIndex = 15;
             this.Додати_пустий_рядок.Text = "Додати пустий рядок";
             this.Додати_пустий_рядок.UseVisualStyleBackColor = false;
+            this.Додати_пустий_рядок.Click += new System.EventHandler(this.Додати_пустий_рядок_Click);
             // 
             // rjButton1
             // 
@@ -279,21 +314,6 @@
             this.rjButton1.Text = "<<<  Повернутись";
             this.rjButton1.UseVisualStyleBackColor = false;
             this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
-            // 
-            // Знайти_власника
-            // 
-            this.Знайти_власника.BackColor = System.Drawing.Color.Orange;
-            this.Знайти_власника.FlatAppearance.BorderSize = 0;
-            this.Знайти_власника.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Знайти_власника.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Знайти_власника.ForeColor = System.Drawing.Color.White;
-            this.Знайти_власника.Location = new System.Drawing.Point(21, 132);
-            this.Знайти_власника.Name = "Знайти_власника";
-            this.Знайти_власника.Size = new System.Drawing.Size(326, 45);
-            this.Знайти_власника.TabIndex = 17;
-            this.Знайти_власника.Text = "Знайти власника";
-            this.Знайти_власника.UseVisualStyleBackColor = false;
-            this.Знайти_власника.Click += new System.EventHandler(this.Знайти_власника_Click);
             // 
             // Домогосподарства
             // 
