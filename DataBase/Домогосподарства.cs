@@ -14,8 +14,7 @@ namespace DataBase
     public partial class Домогосподарства : Form
     {
         private List<RowOfDataL> _dataL = new List<RowOfDataL>();
-        private List<RowOfDataN> _dataN = new List<RowOfDataN>();
-        private List<RowOfDataS> _dataS = new List<RowOfDataS>();
+      
         private User user;
         bool mess;
 
@@ -210,75 +209,53 @@ namespace DataBase
 
         private void Знайти_власника_Click(object sender, EventArgs e)
         {
+            comboBoxLastname.Items.Clear();
+            comboBoxName.Items.Clear();
+            comboBoxSurname.Items.Clear();
+
+            comboBoxLastname.Text = "Виберіть прізвище";
+            string Lastname = comboBoxLastname.Text;
+            comboBoxName.Text = "Виберіть ім_я";
+            string Name = comboBoxName.Text;
+            comboBoxSurname.Text = "Виберіть побатькові";
+            string Surname = comboBoxSurname.Text;
+            
+          
             string village = Convert.ToString(comboBoxVillage.Text).ToLower();
             string street = Convert.ToString(comboBoxStreets.Text).ToLower();
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
             SQLCommand c = new SQLCommand();
-            c.comLastname = "SELECT lastname FROM people WHERE  LOWER(village) LIKE '" +
+            c.com = "SELECT lastname,name,surname FROM people WHERE  LOWER(village) LIKE '" +
                 village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
                 numb_of_house + "'";
 
-            c.comName = "SELECT name FROM people WHERE  LOWER(village) LIKE '" +
-                village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
-                numb_of_house + "'";
-
-            c.comSurname = "SELECT surname FROM people WHERE  LOWER(village) LIKE '" +
-               village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
-               numb_of_house + "'";
-
+           
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
-            //MySqlDataReader _readerN;
-            //MySqlDataReader _readerS;
+           
             _manager.openConnection();
 
-            MySqlCommand _command = new MySqlCommand(c.comLastname, _manager.getConnection());
-            //MySqlCommand _commandN = new MySqlCommand(c.comName, _manager.getConnection());
-            //MySqlCommand _commandS = new MySqlCommand(c.comSurname, _manager.getConnection());
+            MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
+           
             _reader = _command.ExecuteReader();
-            //_readerN = _commandN.ExecuteReader();
-            //_readerS = _commandS.ExecuteReader();
+           
 
 
             while (_reader.Read())
             {
-                RowOfDataL row = new RowOfDataL(_reader["lastname"]);
+                RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
                 _dataL.Add(row);
             }
             for (int i = 0; i < _dataL.Count; i++)
             {
                 comboBoxLastname.Items.Add(_dataL[i].lastname);
+                comboBoxName.Items.Add(_dataL[i].name);
+                comboBoxSurname.Items.Add(_dataL[i].surname);
                 mess = true;
 
             }
+           
 
-            _command = new MySqlCommand(c.comName, _manager.getConnection());
-           // _reader = _command.ExecuteReader();
-
-            while (_reader.Read())
-            {
-                RowOfDataN row = new RowOfDataN(_reader["name"]);
-                _dataN.Add(row);
-            }
-            for (int i = 0; i < _dataN.Count; i++)
-            {
-                comboBoxName.Items.Add(_dataN[i].name);
-
-            }
-
-            _command = new MySqlCommand(c.comSurname, _manager.getConnection());
-            //_reader = _command.ExecuteReader();
-
-            while (_reader.Read())
-            {
-                RowOfDataS row = new RowOfDataS(_reader["name"]);
-                _dataS.Add(row);
-            }
-            for (int i = 0; i < _dataS.Count; i++)
-            {
-                comboBoxSurname.Items.Add(_dataS[i].surname);
-
-            }
             if (mess == false)
             {
                 MessageBox.Show("Запис не знайдено !");

@@ -144,8 +144,6 @@
     </Compile>
     <Compile Include="RowOfData.cs" />
     <Compile Include="RowOfDataL.cs" />
-    <Compile Include="RowOfDataN.cs" />
-    <Compile Include="RowOfDataS.cs" />
     <Compile Include="RowOfTableКористувачі.cs" />
     <Compile Include="RowOfVillage.cs" />
     <Compile Include="SQLCommand.cs" />
