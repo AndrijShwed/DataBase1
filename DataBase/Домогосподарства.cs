@@ -17,6 +17,7 @@ namespace DataBase
       
         private User user;
         bool mess;
+        int rowNumber = 0;
 
         public Домогосподарства()
         {
@@ -31,9 +32,10 @@ namespace DataBase
         }
         private void HeaderOfTheTable()
         {
-            this.dataGridViewДомогосподарства.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewДомогосподарства.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewДомогосподарства.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewДомогосподарства.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewДомогосподарства.DefaultCellStyle.ForeColor = Color.Black;
+            this.dataGridViewДомогосподарства.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewДомогосподарства.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewДомогосподарства.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
 
@@ -213,18 +215,11 @@ namespace DataBase
             comboBoxName.Items.Clear();
             comboBoxSurname.Items.Clear();
 
-            comboBoxLastname.Text = "Виберіть прізвище";
-            string Lastname = comboBoxLastname.Text;
-            comboBoxName.Text = "Виберіть ім_я";
-            string Name = comboBoxName.Text;
-            comboBoxSurname.Text = "Виберіть побатькові";
-            string Surname = comboBoxSurname.Text;
-            
-          
             string village = Convert.ToString(comboBoxVillage.Text).ToLower();
             string street = Convert.ToString(comboBoxStreets.Text).ToLower();
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
             SQLCommand c = new SQLCommand();
+
             c.com = "SELECT lastname,name,surname FROM people WHERE  LOWER(village) LIKE '" +
                 village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
                 numb_of_house + "'";
@@ -254,11 +249,153 @@ namespace DataBase
                 mess = true;
 
             }
+<<<<<<< HEAD
            
+=======
+           _manager.closeConnection();
+
+            comboBoxLastname.Text = "Виберіть прізвище";
+            string Lastname = comboBoxLastname.Text;
+            comboBoxName.Text = "Виберіть ім_я";
+            string Name = comboBoxName.Text;
+            comboBoxSurname.Text = "Виберіть побатькові";
+            string Surname = comboBoxSurname.Text;
+>>>>>>> e804963bceec23abc526c5c45bd9242760455845
 
             if (mess == false)
             {
                 MessageBox.Show("Запис не знайдено !");
+            }
+        }
+
+        private void Додати_пустий_рядок_Click(object sender, EventArgs e)
+        {
+            dataGridViewДомогосподарства.DataSource = null;
+            dataGridViewДомогосподарства.ReadOnly = false;
+
+            this.dataGridViewДомогосподарства.Rows.Add();
+
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[0].ReadOnly = true;
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[1].Value = comboBoxVillage.Text.ToString();
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[2].Value = comboBoxStreets.Text.ToString();
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[3].Value = comboBoxNumb.Text.ToString();
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[4].Value = comboBoxLastname.Text.ToString();
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[5].Value = comboBoxName.Text.ToString();
+            dataGridViewДомогосподарства.Rows[rowNumber].Cells[6].Value = comboBoxSurname.Text.ToString();
+
+            rowNumber++;
+        }
+
+        private void ЗберегтиВТаблицю_Click(object sender, EventArgs e)
+        {
+           
+            bool a = false;
+            bool add = false;
+            int current = 0;
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+
+            int rowCount = dataGridViewДомогосподарства.RowCount;
+
+            for (int i = 0; i < rowCount; i++)
+            {
+                try
+                {
+                    _manager.openConnection();
+
+                   
+                    string village = Convert.ToString(this.dataGridViewДомогосподарства.Rows[current].Cells[1].Value);
+                    string street = Convert.ToString(this.dataGridViewДомогосподарства.Rows[current].Cells[2].Value);
+                    string numb = Convert.ToString(this.dataGridViewДомогосподарства.Rows[current].Cells[3].Value);
+                   
+
+                    if (village != "" && street != "" && numb != "")
+                    {
+                       
+                        string equal = "SELECT * FROM houses WHERE village = '" + village + "' AND" +
+                           " street = '" + street + "' AND numb_of_house = '" + numb + "'";
+
+                        MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
+                        _reader = search.ExecuteReader();
+                        a = _reader.HasRows;
+                        _reader.Close();
+
+                        if (a)
+                        {
+                            current++;
+
+                        }
+                        else
+                        {
+                            try
+                            {
+
+
+                                    string _commandString = "INSERT INTO `houses`(`village`,`street`,`numb_of_house`,`lastname`,`name`,`surname`,`totalArea`,`livingArea`,`total_of_rooms`)" +
+                                  "VALUES(@village,@street,@numb_of_house,@lastname,@name,@surname,@totalArea,@livingArea,@total_of_rooms)";
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+
+                                    _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[1].Value;
+                                    _command.Parameters.Add("@street", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[2].Value;
+                                    _command.Parameters.Add("@numb_of_house", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[3].Value;
+                                    _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[4].Value;
+                                    _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[5].Value;
+                                    _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[6].Value;
+                                    _command.Parameters.Add("@totalArea", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[7].Value;
+                                    _command.Parameters.Add("@livingArea", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[8].Value;
+                                    _command.Parameters.Add("@total_of_rooms", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[9].Value;
+                                   
+
+                                    if (_command.ExecuteNonQuery() == 1)
+                                        add = true;
+
+                                    dataGridViewДомогосподарства.Rows.RemoveAt(current);
+
+                                    //dataGridViewДодати.Rows.RemoveAt(i);
+
+                                
+
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Помилка ! ");
+                            }
+
+                        }
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не всі поля заповнені !");
+                        return;
+                    }
+
+
+                }
+                catch
+                {
+                    MessageBox.Show("Помилка роботи з базою даних !");
+                }
+
+                finally
+                {
+                    _manager.closeConnection();
+                }
+                if (add && (i == rowCount - 1))
+                {
+                    MessageBox.Show("Дані добавлено !");
+
+                }
+                else if (!add && (i == rowCount - 1) && !a)
+
+                    MessageBox.Show("Помилка добавлення даних !");
+
+                if (a && dataGridViewДомогосподарства.Rows.Count > 0 && (i == rowCount - 1))
+
+                    MessageBox.Show("Такий запис вже існує !");
+
             }
         }
     }
