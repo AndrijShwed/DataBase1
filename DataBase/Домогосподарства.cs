@@ -35,5 +35,12 @@ namespace DataBase
             this.Hide();
             form.Show();    
         }
+
+        private void Пошук_Click(object sender, EventArgs e)
+        {
+            Домогосподарства_Пошук form = new Домогосподарства_Пошук();
+            this.Hide();
+            form.Show();
+        }
     }
 }

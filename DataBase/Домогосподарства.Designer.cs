@@ -34,8 +34,8 @@
             this.домогосподарстваToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Додати = new ClassLibrary1.RJButton();
-            this.Редагувати = new ClassLibrary1.RJButton();
             this.Пошук = new ClassLibrary1.RJButton();
+            this.Редагувати = new ClassLibrary1.RJButton();
             this.ДаніПоПлощах = new ClassLibrary1.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -100,25 +100,6 @@
             this.Додати.UseVisualStyleBackColor = false;
             this.Додати.Click += new System.EventHandler(this.Додати_Click);
             // 
-            // Редагувати
-            // 
-            this.Редагувати.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.Редагувати.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.Редагувати.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Редагувати.BackgroundImage")));
-            this.Редагувати.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Редагувати.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.Редагувати.BorderRadius = 30;
-            this.Редагувати.BorderSize = 0;
-            this.Редагувати.FlatAppearance.BorderSize = 0;
-            this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Редагувати.ForeColor = System.Drawing.Color.White;
-            this.Редагувати.Location = new System.Drawing.Point(527, 68);
-            this.Редагувати.Name = "Редагувати";
-            this.Редагувати.Size = new System.Drawing.Size(160, 160);
-            this.Редагувати.TabIndex = 2;
-            this.Редагувати.TextColor = System.Drawing.Color.White;
-            this.Редагувати.UseVisualStyleBackColor = false;
-            // 
             // Пошук
             // 
             this.Пошук.BackColor = System.Drawing.Color.MediumSlateBlue;
@@ -131,12 +112,32 @@
             this.Пошук.FlatAppearance.BorderSize = 0;
             this.Пошук.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Пошук.ForeColor = System.Drawing.Color.White;
-            this.Пошук.Location = new System.Drawing.Point(946, 68);
+            this.Пошук.Location = new System.Drawing.Point(527, 68);
             this.Пошук.Name = "Пошук";
             this.Пошук.Size = new System.Drawing.Size(160, 160);
-            this.Пошук.TabIndex = 3;
+            this.Пошук.TabIndex = 2;
             this.Пошук.TextColor = System.Drawing.Color.White;
             this.Пошук.UseVisualStyleBackColor = false;
+            this.Пошук.Click += new System.EventHandler(this.Пошук_Click);
+            // 
+            // Редагувати
+            // 
+            this.Редагувати.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.Редагувати.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.Редагувати.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Редагувати.BackgroundImage")));
+            this.Редагувати.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Редагувати.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Редагувати.BorderRadius = 30;
+            this.Редагувати.BorderSize = 0;
+            this.Редагувати.FlatAppearance.BorderSize = 0;
+            this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Редагувати.ForeColor = System.Drawing.Color.White;
+            this.Редагувати.Location = new System.Drawing.Point(946, 68);
+            this.Редагувати.Name = "Редагувати";
+            this.Редагувати.Size = new System.Drawing.Size(160, 160);
+            this.Редагувати.TabIndex = 3;
+            this.Редагувати.TextColor = System.Drawing.Color.White;
+            this.Редагувати.UseVisualStyleBackColor = false;
             // 
             // ДаніПоПлощах
             // 
@@ -212,8 +213,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ДаніПоПлощах);
-            this.Controls.Add(this.Пошук);
             this.Controls.Add(this.Редагувати);
+            this.Controls.Add(this.Пошук);
             this.Controls.Add(this.Додати);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -236,8 +237,8 @@
         private System.Windows.Forms.ToolStripMenuItem домогосподарстваToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
         private ClassLibrary1.RJButton Додати;
-        private ClassLibrary1.RJButton Редагувати;
         private ClassLibrary1.RJButton Пошук;
+        private ClassLibrary1.RJButton Редагувати;
         private ClassLibrary1.RJButton ДаніПоПлощах;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;

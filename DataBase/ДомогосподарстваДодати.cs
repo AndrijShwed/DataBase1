@@ -214,6 +214,7 @@ namespace DataBase
             comboBoxLastname.Items.Clear();
             comboBoxName.Items.Clear();
             comboBoxSurname.Items.Clear();
+            _dataL.Clear();
 
             string village = Convert.ToString(comboBoxVillage.Text).ToLower();
             string street = Convert.ToString(comboBoxStreets.Text).ToLower();
