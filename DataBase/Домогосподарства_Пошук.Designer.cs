@@ -41,9 +41,11 @@
             this.домогосподарстваПошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rjButton1 = new ClassLibrary1.RJButton();
-            this.Знайти = new DataBase.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.Очистити = new ClassLibrary1.RJButton();
+            this.Зберегти_зміни = new ClassLibrary1.RJButton();
+            this.Знайти = new DataBase.RJButton();
+            this.Редагувати = new ClassLibrary1.RJButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewДомогосподарства_Пошук)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -67,12 +69,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewДомогосподарства_Пошук.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewДомогосподарства_Пошук.Location = new System.Drawing.Point(12, 198);
+            this.dataGridViewДомогосподарства_Пошук.Location = new System.Drawing.Point(12, 201);
             this.dataGridViewДомогосподарства_Пошук.Name = "dataGridViewДомогосподарства_Пошук";
             this.dataGridViewДомогосподарства_Пошук.RowHeadersWidth = 51;
             this.dataGridViewДомогосподарства_Пошук.RowTemplate.Height = 24;
-            this.dataGridViewДомогосподарства_Пошук.Size = new System.Drawing.Size(1975, 456);
+            this.dataGridViewДомогосподарства_Пошук.Size = new System.Drawing.Size(2025, 456);
             this.dataGridViewДомогосподарства_Пошук.TabIndex = 21;
+            this.dataGridViewДомогосподарства_Пошук.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewДомогосподарства_Пошук_CellContentClick);
             // 
             // comboBoxNumb
             // 
@@ -169,21 +172,6 @@
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
             // 
-            // Знайти
-            // 
-            this.Знайти.BackColor = System.Drawing.Color.Orange;
-            this.Знайти.FlatAppearance.BorderSize = 0;
-            this.Знайти.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Знайти.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Знайти.ForeColor = System.Drawing.Color.White;
-            this.Знайти.Location = new System.Drawing.Point(27, 130);
-            this.Знайти.Name = "Знайти";
-            this.Знайти.Size = new System.Drawing.Size(358, 51);
-            this.Знайти.TabIndex = 22;
-            this.Знайти.Text = "Знайти";
-            this.Знайти.UseVisualStyleBackColor = false;
-            this.Знайти.Click += new System.EventHandler(this.Знайти_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -206,7 +194,7 @@
             this.Очистити.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Очистити.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Очистити.ForeColor = System.Drawing.Color.White;
-            this.Очистити.Location = new System.Drawing.Point(549, 130);
+            this.Очистити.Location = new System.Drawing.Point(434, 130);
             this.Очистити.Name = "Очистити";
             this.Очистити.Size = new System.Drawing.Size(393, 51);
             this.Очистити.TabIndex = 26;
@@ -215,12 +203,69 @@
             this.Очистити.UseVisualStyleBackColor = false;
             this.Очистити.Click += new System.EventHandler(this.Очистити_Click);
             // 
+            // Зберегти_зміни
+            // 
+            this.Зберегти_зміни.BackColor = System.Drawing.Color.Chocolate;
+            this.Зберегти_зміни.BackgroundColor = System.Drawing.Color.Chocolate;
+            this.Зберегти_зміни.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Зберегти_зміни.BorderRadius = 20;
+            this.Зберегти_зміни.BorderSize = 0;
+            this.Зберегти_зміни.FlatAppearance.BorderSize = 0;
+            this.Зберегти_зміни.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Зберегти_зміни.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Зберегти_зміни.ForeColor = System.Drawing.Color.White;
+            this.Зберегти_зміни.Location = new System.Drawing.Point(1273, 130);
+            this.Зберегти_зміни.Name = "Зберегти_зміни";
+            this.Зберегти_зміни.Size = new System.Drawing.Size(393, 51);
+            this.Зберегти_зміни.TabIndex = 27;
+            this.Зберегти_зміни.Text = "Зберегти зміни";
+            this.Зберегти_зміни.TextColor = System.Drawing.Color.White;
+            this.Зберегти_зміни.UseVisualStyleBackColor = false;
+            this.Зберегти_зміни.Click += new System.EventHandler(this.Зберегти_зміни_Click);
+            // 
+            // Знайти
+            // 
+            this.Знайти.BackColor = System.Drawing.Color.Orange;
+            this.Знайти.FlatAppearance.BorderSize = 0;
+            this.Знайти.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Знайти.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Знайти.ForeColor = System.Drawing.Color.White;
+            this.Знайти.Location = new System.Drawing.Point(27, 130);
+            this.Знайти.Name = "Знайти";
+            this.Знайти.Size = new System.Drawing.Size(358, 51);
+            this.Знайти.TabIndex = 22;
+            this.Знайти.Text = "Знайти";
+            this.Знайти.UseVisualStyleBackColor = false;
+            this.Знайти.Click += new System.EventHandler(this.Знайти_Click);
+            // 
+            // Редагувати
+            // 
+            this.Редагувати.BackColor = System.Drawing.Color.Peru;
+            this.Редагувати.BackgroundColor = System.Drawing.Color.Peru;
+            this.Редагувати.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Редагувати.BorderRadius = 20;
+            this.Редагувати.BorderSize = 0;
+            this.Редагувати.FlatAppearance.BorderSize = 0;
+            this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Редагувати.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Редагувати.ForeColor = System.Drawing.Color.White;
+            this.Редагувати.Location = new System.Drawing.Point(875, 130);
+            this.Редагувати.Name = "Редагувати";
+            this.Редагувати.Size = new System.Drawing.Size(350, 51);
+            this.Редагувати.TabIndex = 28;
+            this.Редагувати.Text = "Редагувати";
+            this.Редагувати.TextColor = System.Drawing.Color.White;
+            this.Редагувати.UseVisualStyleBackColor = false;
+            this.Редагувати.Click += new System.EventHandler(this.Редагувати_Click);
+            // 
             // Домогосподарства_Пошук
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(1924, 793);
+            this.Controls.Add(this.Редагувати);
+            this.Controls.Add(this.Зберегти_зміни);
             this.Controls.Add(this.Очистити);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rjButton1);
@@ -258,5 +303,7 @@
         internal ClassLibrary1.RJButton rjButton1;
         private System.Windows.Forms.Label label1;
         private ClassLibrary1.RJButton Очистити;
+        private ClassLibrary1.RJButton Зберегти_зміни;
+        private ClassLibrary1.RJButton Редагувати;
     }
 }

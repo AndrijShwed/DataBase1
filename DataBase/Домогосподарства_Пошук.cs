@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -46,24 +47,25 @@ namespace DataBase
             column1.Name = "idhouses";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
+            
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Населений пункт";
-            column2.Width = 150;
+            column2.Width = 180;
             column2.Name = "village";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
             var column3 = new DataGridViewColumn();
             column3.HeaderText = "Вулиця";
-            column3.Width = 180;
+            column3.Width = 190;
             column3.Name = "street";
             column3.Frozen = true;
             column3.CellTemplate = new DataGridViewTextBoxCell();
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Номер будинку";
-            column4.Width = 120;
+            column4.Width = 80;
             column4.Name = "numb_of_house";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
@@ -77,39 +79,45 @@ namespace DataBase
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Ім_я";
-            column6.Width = 180;
+            column6.Width = 190;
             column6.Name = "name";
             column6.Frozen = true;
             column6.CellTemplate = new DataGridViewTextBoxCell();
 
             var column7 = new DataGridViewColumn();
             column7.HeaderText = "Побатькові";
-            column7.Width = 180;
+            column7.Width = 190;
             column7.Name = "surname";
             column7.Frozen = true;
             column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Загальна площа";
-            column8.Width = 120;
+            column8.HeaderText = "Загальна площа, м.кв.";
+            column8.Width = 100;
             column8.Name = "totalArea";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
 
             var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Житлова площа";
-            column9.Width = 120;
+            column9.HeaderText = "Житлова площа, м.кв";
+            column9.Width = 100;
             column9.Name = "livingArea";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
             var column10 = new DataGridViewColumn();
             column10.HeaderText = "Кількість кімнат";
-            column10.Width = 120;
+            column10.Width = 100;
             column10.Name = "total_of_rooms";
             column10.Frozen = true;
             column10.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column11 = new DataGridViewColumn();
+            column11.HeaderText = "Видалити";
+            column11.Width = 90;
+            column11.Name = "delete";
+            column11.Frozen = true;
+            column11.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewДомогосподарства_Пошук.Columns.Add(column1);
             dataGridViewДомогосподарства_Пошук.Columns.Add(column2);
@@ -121,6 +129,8 @@ namespace DataBase
             dataGridViewДомогосподарства_Пошук.Columns.Add(column8);
             dataGridViewДомогосподарства_Пошук.Columns.Add(column9);
             dataGridViewДомогосподарства_Пошук.Columns.Add(column10);
+            dataGridViewДомогосподарства_Пошук.Columns.Add(column11);
+          
 
 
 
@@ -244,6 +254,11 @@ namespace DataBase
                 for (int i = 0; i < _dataH.Count; i++)
                 {
                     AddDataGrid(_dataH[i]);
+                    dataGridViewДомогосподарства_Пошук.Rows[i].Cells[10].Value = "Видалити";
+                    dataGridViewДомогосподарства_Пошук.Rows[i].Cells[10].Style.BackColor = Color.DarkRed;
+                    dataGridViewДомогосподарства_Пошук.Rows[i].Cells[10].Style.ForeColor = Color.White;
+                   
+                   
                     mess = true;
                    
                 }
@@ -284,6 +299,93 @@ namespace DataBase
             comboBoxVillage.Text = "Виберіть населений пункт";
             comboBoxStreets.Text = "";
             comboBoxNumb.Text = "";
+        }
+
+       
+
+        private void dataGridViewДомогосподарства_Пошук_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 10)
+            { 
+                DataGridViewRow row = dataGridViewДомогосподарства_Пошук.Rows[e.RowIndex];
+               
+
+                if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["idhouses"].Value), "Погоджуюсь", 
+                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    ConnectionClass _manager = new ConnectionClass();
+                    _manager.openConnection();
+
+                    string com = "DELETE FROM houses WHERE idhouses = '" + row.Cells["idhouses"].Value +"'";
+
+                    MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+                   
+
+                    if (dell.ExecuteNonQuery() == 1)
+                    {
+                        dataGridViewДомогосподарства_Пошук.Rows.RemoveAt(row.Index);
+                        MessageBox.Show("Дані успішно видалено ");
+                        _manager.closeConnection();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Помилка роботи з базою даних !!!");
+                    }
+
+                }
+            }
+           
+        }
+
+        private void Зберегти_зміни_Click(object sender, EventArgs e)
+        {
+
+            string idhouses = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[0].Value);
+            string village = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[1].Value);
+            string street = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[2].Value);
+            string numb_of_house = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[3].Value);
+            string lastname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[4].Value);
+            string name = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[5].Value);
+            string surname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[6].Value);
+            string totalArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[7].Value);
+            string livingArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[8].Value);
+            string total_of_rooms = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[9].Value);
+          
+
+            string change = "UPDATE houses SET village = '" + village + "', street = '" + street + "', " +
+                " numb_of_house = '" + numb_of_house + "', lastname = '" + lastname + "', name = '" + name + "'," +
+                "surname = '" + surname + "',totalArea = '" + totalArea + "', livingArea = '" + livingArea + "'," +
+                "total_of_rooms = '" + total_of_rooms + "' WHERE idhouses = '"+ idhouses+"'";
+
+            if(MessageBox.Show(string.Format("Ви дійсно бажаєте зберегти зміни ?", 0), "Погоджуюсь",
+                   MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                ConnectionClass _manager = new ConnectionClass();
+                _manager.openConnection();
+                MySqlCommand ch = new MySqlCommand(change, _manager.getConnection());
+
+
+                if (ch.ExecuteNonQuery() == 1)
+                {
+                    dataGridViewДомогосподарства_Пошук.Rows.RemoveAt(0);
+                    MessageBox.Show("Дані успішно змінено ");
+                    _manager.closeConnection();
+                }
+                else
+                {
+                    MessageBox.Show("Помилка роботи з базою даних !!!");
+                }
+
+
+            }
+            dataGridViewДомогосподарства_Пошук.ReadOnly = true;
+
+
+        }
+
+        private void Редагувати_Click(object sender, EventArgs e)
+        {
+            dataGridViewДомогосподарства_Пошук.ReadOnly = false;
         }
     }
 }
