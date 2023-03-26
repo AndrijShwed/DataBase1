@@ -226,7 +226,6 @@ namespace DataBase
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
           
-
             try
             {
                 _manager.openConnection();
