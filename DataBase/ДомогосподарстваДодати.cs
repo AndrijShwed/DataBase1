@@ -285,7 +285,7 @@ namespace DataBase
 
         private void ЗберегтиВТаблицю_Click(object sender, EventArgs e)
         {
-           
+            rowNumber = 0;
             bool a = false;
             bool add = false;
             int current = 0;

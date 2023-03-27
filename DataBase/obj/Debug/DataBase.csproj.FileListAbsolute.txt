@@ -1,5 +1,6 @@
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe.config
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\MySqlConnector.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Buffers.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.dll
@@ -22,12 +23,14 @@ C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Exte
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.AssemblyReference.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.ResolveComReference.cache
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства_Пошук.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Properties.Resources.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Авторизація.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ВікноПошуку.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ВивідДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Головна.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ДомогосподарстваДодати.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ЗмінаДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населені_Пункти.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населення.resources
@@ -39,10 +42,3 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CoreCompile
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.pdb
-<<<<<<< HEAD
-C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
-=======
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства.resources
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ДомогосподарстваДодати.resources
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства_Пошук.resources
->>>>>>> 69af2bd4c946e287b3bf31c2fa8a6fd24aa3d703
