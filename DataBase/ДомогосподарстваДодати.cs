@@ -215,71 +215,121 @@ namespace DataBase
             comboBoxName.Items.Clear();
             comboBoxSurname.Items.Clear();
             _dataL.Clear();
+            bool a = false;
 
-            string village = Convert.ToString(comboBoxVillage.Text).ToLower();
-            string street = Convert.ToString(comboBoxStreets.Text).ToLower();
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+
+            string village = Convert.ToString(comboBoxVillage.Text);
+            string street = Convert.ToString(comboBoxStreets.Text);
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
-            SQLCommand c = new SQLCommand();
 
-            c.com = "SELECT lastname,name,surname FROM people WHERE  LOWER(village) LIKE '" +
-                village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
-                numb_of_house + "'";
-
-            _manager.openConnection();
-
-            MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
-           
-            _reader = _command.ExecuteReader();
-           
-            while (_reader.Read())
+            if (village == "" || street == "" || numb_of_house == "")
             {
-                RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
-                _dataL.Add(row);
+                MessageBox.Show("Не всі поля адреси заповнені !");
             }
-            for (int i = 0; i < _dataL.Count; i++)
+            else
             {
-                comboBoxLastname.Items.Add(_dataL[i].lastname);
-                comboBoxName.Items.Add(_dataL[i].name);
-                comboBoxSurname.Items.Add(_dataL[i].surname);
-                mess = true;
+                try
+                {
+                    string equal = "SELECT * FROM houses WHERE village = '" + village + "' AND" +
+                          " street = '" + street + "' AND numb_of_house = '" + numb_of_house + "'";
+                    _manager.openConnection();
+                    MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
+                    _reader = search.ExecuteReader();
+                    a = _reader.HasRows;
+                    _reader.Close();
 
-            }
-           _manager.closeConnection();
+                    _manager.closeConnection();
 
-            comboBoxLastname.Text = "Виберіть прізвище";
-            string Lastname = comboBoxLastname.Text;
-            comboBoxName.Text = "Виберіть ім_я";
-            string Name = comboBoxName.Text;
-            comboBoxSurname.Text = "Виберіть побатькові";
-            string Surname = comboBoxSurname.Text;
 
-            if (mess == false)
-            {
-                MessageBox.Show("Запис не знайдено !");
+                    if (a)
+                    {
+                        MessageBox.Show("Таке домогосподарство вже записане !");
+                    }
+                    else
+                    {
+
+                        SQLCommand c = new SQLCommand();
+
+                        c.com = "SELECT lastname,name,surname FROM people WHERE  village LIKE '" +
+                            village + "' AND street LIKE '" + street + "' AND numb_of_house = '" +
+                            numb_of_house + "'";
+
+                        _manager.openConnection();
+
+                        MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
+
+                        _reader = _command.ExecuteReader();
+
+                        while (_reader.Read())
+                        {
+                            RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
+                            _dataL.Add(row);
+                           
+                        }
+                        _reader.Close();
+                        for (int i = 0; i < _dataL.Count; i++)
+                        {
+                            comboBoxLastname.Items.Add(_dataL[i].lastname);
+                            comboBoxName.Items.Add(_dataL[i].name);
+                            comboBoxSurname.Items.Add(_dataL[i].surname);
+                            mess = true;
+
+                        }
+                        _manager.closeConnection();
+
+                        comboBoxLastname.Text = "Виберіть прізвище";
+                        string Lastname = comboBoxLastname.Text;
+                        comboBoxName.Text = "Виберіть ім_я";
+                        string Name = comboBoxName.Text;
+                        comboBoxSurname.Text = "Виберіть побатькові";
+                        string Surname = comboBoxSurname.Text;
+
+                        if (mess == false)
+                        {
+                            MessageBox.Show("Запис не знайдено !");
+                        }
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Помилка !");
+                }
             }
         }
 
         private void Додати_пустий_рядок_Click(object sender, EventArgs e)
         {
-            dataGridViewДомогосподарства.DataSource = null;
-            dataGridViewДомогосподарства.ReadOnly = false;
+            if (comboBoxLastname.Text == "Виберіть прізвище" || comboBoxLastname.Text == "" ||
+               comboBoxName.Text == "Виберіть ім_я" || comboBoxName.Text == "" ||
+               comboBoxSurname.Text == "Виберіть побатькові" || comboBoxSurname.Text == "")
+            {
+                MessageBox.Show("Не вибрано або не вказано прізвище ім_я побатькові !");
+            }
+            else
+            {
 
-            this.dataGridViewДомогосподарства.Rows.Add();
+                dataGridViewДомогосподарства.DataSource = null;
+                dataGridViewДомогосподарства.ReadOnly = false;
 
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[0].ReadOnly = true;
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[1].Value = comboBoxVillage.Text.ToString();
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[2].Value = comboBoxStreets.Text.ToString();
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[3].Value = comboBoxNumb.Text.ToString();
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[4].Value = comboBoxLastname.Text.ToString();
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[5].Value = comboBoxName.Text.ToString();
-            dataGridViewДомогосподарства.Rows[rowNumber].Cells[6].Value = comboBoxSurname.Text.ToString();
+                this.dataGridViewДомогосподарства.Rows.Add();
 
-            rowNumber++;
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[0].ReadOnly = true;
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[1].Value = comboBoxVillage.Text.ToString();
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[2].Value = comboBoxStreets.Text.ToString();
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[3].Value = comboBoxNumb.Text.ToString();
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[4].Value = comboBoxLastname.Text.ToString();
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[5].Value = comboBoxName.Text.ToString();
+                dataGridViewДомогосподарства.Rows[rowNumber].Cells[6].Value = comboBoxSurname.Text.ToString();
+
+                rowNumber++;
+            }
         }
 
         private void ЗберегтиВТаблицю_Click(object sender, EventArgs e)
         {
-           
+            rowNumber = 0;
             bool a = false;
             bool add = false;
             int current = 0;
