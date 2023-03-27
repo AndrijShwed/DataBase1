@@ -249,9 +249,7 @@ namespace DataBase
                 mess = true;
 
             }
-<<<<<<< HEAD
-           
-=======
+
            _manager.closeConnection();
 
             comboBoxLastname.Text = "Виберіть прізвище";
@@ -260,7 +258,7 @@ namespace DataBase
             string Name = comboBoxName.Text;
             comboBoxSurname.Text = "Виберіть побатькові";
             string Surname = comboBoxSurname.Text;
->>>>>>> e804963bceec23abc526c5c45bd9242760455845
+
 
             if (mess == false)
             {

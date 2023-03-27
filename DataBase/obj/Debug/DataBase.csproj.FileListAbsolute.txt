@@ -1,6 +1,5 @@
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe.config
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.exe
-C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\MySqlConnector.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Buffers.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Diagnostics.DiagnosticSource.dll
@@ -28,6 +27,7 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Авторизац
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ВікноПошуку.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ВивідДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Головна.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ЗмінаДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населені_Пункти.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населення.resources
@@ -39,4 +39,4 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CoreCompile
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplete
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.pdb
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства.resources
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
