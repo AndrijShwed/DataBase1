@@ -17,7 +17,6 @@ namespace DataBase
     {
         private List<RowOfDataH> _dataH = new List<RowOfDataH>();
 
-        bool mess = false;
 
         public Домогосподарства_Пошук()
         {

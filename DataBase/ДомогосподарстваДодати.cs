@@ -225,18 +225,12 @@ namespace DataBase
                 village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
                 numb_of_house + "'";
 
-           
-            ConnectionClass _manager = new ConnectionClass();
-            MySqlDataReader _reader;
-           
             _manager.openConnection();
 
             MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
            
             _reader = _command.ExecuteReader();
            
-
-
             while (_reader.Read())
             {
                 RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
