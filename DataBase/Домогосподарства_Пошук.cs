@@ -17,7 +17,7 @@ namespace DataBase
     {
         private List<RowOfDataH> _dataH = new List<RowOfDataH>();
 
-        bool mess = false;
+       
 
         public Домогосподарства_Пошук()
         {
@@ -215,16 +215,18 @@ namespace DataBase
             dataGridViewДомогосподарства_Пошук.Rows.Add(row.idhouses, row.village, row.street, row.numb_of_house, row.lastname, row.name,
                 row.surname, row.totalArea, row.livingArea, row.total_of_rooms);
         }
+
         private void Знайти_Click(object sender, EventArgs e)
         {
+            bool mess = false;
 
             dataGridViewДомогосподарства_Пошук.DataSource = null;
             dataGridViewДомогосподарства_Пошук.Rows.Clear();
 
             _dataH.Clear();
 
-            string village = Convert.ToString(comboBoxVillage.Text).ToLower();
-            string street = Convert.ToString(comboBoxStreets.Text).ToLower();
+            string village = Convert.ToString(comboBoxVillage.Text);
+            string street = Convert.ToString(comboBoxStreets.Text);
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
             SQLCommand c = new SQLCommand();
 
@@ -251,6 +253,8 @@ namespace DataBase
                         _reader["totalArea"], _reader["livingArea"], _reader["total_of_rooms"]);
                     _dataH.Add(row);
                 }
+                _reader.Close();
+
                 for (int i = 0; i < _dataH.Count; i++)
                 {
                     AddDataGrid(_dataH[i]);
