@@ -137,6 +137,7 @@
             this.ДаніПоПлощах.TabIndex = 4;
             this.ДаніПоПлощах.TextColor = System.Drawing.Color.White;
             this.ДаніПоПлощах.UseVisualStyleBackColor = false;
+            this.ДаніПоПлощах.Click += new System.EventHandler(this.ДаніПоПлощах_Click);
             // 
             // label1
             // 
