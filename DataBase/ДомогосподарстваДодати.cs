@@ -217,7 +217,7 @@ namespace DataBase
             _dataL.Clear();
             bool a = false;
 
-<<<<<<< HEAD
+
             string village = Convert.ToString(comboBoxVillage.Text).ToLower();
             string street = Convert.ToString(comboBoxStreets.Text).ToLower();
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
@@ -293,7 +293,7 @@ namespace DataBase
                         MessageBox.Show("Запис не знайдено !");
                     }
                 }
-=======
+
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -373,7 +373,7 @@ namespace DataBase
                 {
                     MessageBox.Show("Помилка !");
                 }
->>>>>>> 0c83ad64187c3be9438726bffb26e14bd80a06a2
+
             }
              
            
