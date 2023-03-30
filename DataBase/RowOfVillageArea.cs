@@ -12,7 +12,7 @@ namespace DataBase
 {
     internal class RowOfVillageArea
     {
-        public object id { get; set; }
+        public object id_area { get; set; }
         public object year { get; set; }
         public object berezhnytsya_total { get; set; }
         public object berezhnytsya_living { get; set; }
@@ -29,12 +29,12 @@ namespace DataBase
 
         public RowOfVillageArea() { }
 
-        public RowOfVillageArea(object _id, object _year, object _berezhnytsya_total, object _berezhnytsya_living, 
+        public RowOfVillageArea(object _id_area, object _year, object _berezhnytsya_total, object _berezhnytsya_living, 
             object _zabolotivtsi_total, object _zabolotivtsi_living, object _rogizno_total, object _rogizno_living,
            object _zhuravkiv_total, object _zhuravkiv_living, object _zagurzchyna_total, object _zagurzchyna_living,
            object _all_total, object _all_living)
         {
-            id = _id;
+            id_area = _id_area;
             year = _year;
             berezhnytsya_total = _berezhnytsya_total;
             berezhnytsya_living = _berezhnytsya_living;
@@ -50,12 +50,12 @@ namespace DataBase
             all_living = _all_living;
         }
 
-        public void DataChange(object _id, object _year, object _berezhnytsya_total, object _berezhnytsya_living,
+        public void DataChange(object _id_area, object _year, object _berezhnytsya_total, object _berezhnytsya_living,
             object _zabolotivtsi_total, object _zabolotivtsi_living, object _rogizno_total, object _rogizno_living,
            object _zhuravkiv_total, object _zhuravkiv_living, object _zagurzchyna_total, object _zagurzchyna_living,
            object _all_total, object _all_living)
         {
-            id = _id;
+            id_area = _id_area;
             year = _year;
             berezhnytsya_total = _berezhnytsya_total;
             berezhnytsya_living = _berezhnytsya_living;
