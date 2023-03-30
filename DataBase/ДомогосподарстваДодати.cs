@@ -218,44 +218,46 @@ namespace DataBase
             bool a = false;
 
 
-            string village = Convert.ToString(comboBoxVillage.Text).ToLower();
-            string street = Convert.ToString(comboBoxStreets.Text).ToLower();
+            string village = Convert.ToString(comboBoxVillage.Text);
+            string street = Convert.ToString(comboBoxStreets.Text);
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
-
+           
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
-            if (village != "" || street != "" || numb_of_house != "")
+            if (village == "Виберіть населений пункт" || street == "Виберіть вулицю" ||
+                street == "" || numb_of_house == "")
             {
 
                 MessageBox.Show("Не повністю заповнена адреса !");
             }
             else
-            { 
+            {
+               try
+               {
+                    string equal = "SELECT * FROM houses WHERE village = '" + village + "' AND" +
+                     " street = '" + street + "' AND numb_of_house = '" + numb_of_house + "'";
 
-                string equal = "SELECT * FROM houses WHERE village = '" + village + "' AND" +
-                   " street = '" + street + "' AND numb_of_house = '" + numb_of_house + "'";
-
-                MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
-                _reader = search.ExecuteReader();
-                a = _reader.HasRows;
-                _reader.Close();
-
-                if (a)
-                {
+                   _manager.openConnection();
+                   MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
+                   _reader = search.ExecuteReader();
+                   a = _reader.HasRows;
+                   _reader.Close();
+                   _manager.closeConnection();
+  
+                  if (a)
+                  {
                     MessageBox.Show("Такий запис вже існує !");
                     
-                }
-                else
-                {
+                  }
+                  else
+                  {
 
-                    SQLCommand c = new SQLCommand();
+                     SQLCommand c = new SQLCommand();
 
-                    c.com = "SELECT lastname,name,surname FROM people WHERE  LOWER(village) LIKE '" +
-                     village + "' AND LOWER(street) LIKE '" + street + "' AND numb_of_house = '" +
+                     c.com = "SELECT lastname,name,surname FROM people WHERE  village = '" +
+                     village + "' AND street = '" + street + "' AND numb_of_house = '" +
                      numb_of_house + "'";
-
-
 
 
                     _manager.openConnection();
@@ -271,6 +273,8 @@ namespace DataBase
                         RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
                         _dataL.Add(row);
                     }
+                        _reader.Close();
+
                     for (int i = 0; i < _dataL.Count; i++)
                     {
                         comboBoxLastname.Items.Add(_dataL[i].lastname);
@@ -292,87 +296,13 @@ namespace DataBase
                     {
                         MessageBox.Show("Запис не знайдено !");
                     }
-                }
+                  }
 
-            ConnectionClass _manager = new ConnectionClass();
-            MySqlDataReader _reader;
-
-            string village = Convert.ToString(comboBoxVillage.Text);
-            string street = Convert.ToString(comboBoxStreets.Text);
-            string numb_of_house = Convert.ToString(comboBoxNumb.Text);
-
-            if (village == "" || street == "" || numb_of_house == "")
-            {
-                MessageBox.Show("Не всі поля адреси заповнені !");
-            }
-            else
-            {
-                try
-                {
-                    string equal = "SELECT * FROM houses WHERE village = '" + village + "' AND" +
-                          " street = '" + street + "' AND numb_of_house = '" + numb_of_house + "'";
-                    _manager.openConnection();
-                    MySqlCommand search = new MySqlCommand(equal, _manager.getConnection());
-                    _reader = search.ExecuteReader();
-                    a = _reader.HasRows;
-                    _reader.Close();
-
-                    _manager.closeConnection();
-
-
-                    if (a)
-                    {
-                        MessageBox.Show("Таке домогосподарство вже записане !");
-                    }
-                    else
-                    {
-
-                        SQLCommand c = new SQLCommand();
-
-                        c.com = "SELECT lastname,name,surname FROM people WHERE  village LIKE '" +
-                            village + "' AND street LIKE '" + street + "' AND numb_of_house = '" +
-                            numb_of_house + "'";
-
-                        _manager.openConnection();
-
-                        MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
-
-                        _reader = _command.ExecuteReader();
-
-                        while (_reader.Read())
-                        {
-                            RowOfDataL row = new RowOfDataL(_reader["lastname"], _reader["name"], _reader["surname"]);
-                            _dataL.Add(row);
-                           
-                        }
-                        _reader.Close();
-                        for (int i = 0; i < _dataL.Count; i++)
-                        {
-                            comboBoxLastname.Items.Add(_dataL[i].lastname);
-                            comboBoxName.Items.Add(_dataL[i].name);
-                            comboBoxSurname.Items.Add(_dataL[i].surname);
-                            mess = true;
-
-                        }
-                        _manager.closeConnection();
-
-                        comboBoxLastname.Text = "Виберіть прізвище";
-                        string Lastname = comboBoxLastname.Text;
-                        comboBoxName.Text = "Виберіть ім_я";
-                        string Name = comboBoxName.Text;
-                        comboBoxSurname.Text = "Виберіть побатькові";
-                        string Surname = comboBoxSurname.Text;
-
-                        if (mess == false)
-                        {
-                            MessageBox.Show("Запис не знайдено !");
-                        }
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("Помилка !");
-                }
+               }
+               catch
+               {
+                  MessageBox.Show("Помилка !");
+               }
 
             }
              
