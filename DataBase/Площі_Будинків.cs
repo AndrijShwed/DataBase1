@@ -123,7 +123,7 @@ namespace DataBase
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14= new DataGridViewColumn();
-            column14.HeaderText = "Всього заг. пл.";
+            column14.HeaderText = "Всього житл. пл.";
             column14.Width = 110;
             column14.Name = "all";
             column14.Frozen = true;
@@ -259,36 +259,36 @@ namespace DataBase
                 countRows = 1;
             }
 
-            double ber_total = 0;
-            double ber_living = 0;
-            double zab_total = 0;
-            double zab_living = 0;
-            double rog_total = 0;
-            double rog_living = 0;
-            double zhur_total = 0;
-            double zhur_living = 0;
-            double zag_total = 0;
-            double zag_living = 0;
+            decimal ber_total = 0;
+            decimal ber_living = 0;
+            decimal zab_total = 0;
+            decimal zab_living = 0;
+            decimal rog_total = 0;
+            decimal rog_living = 0;
+            decimal zhur_total = 0;
+            decimal zhur_living = 0;
+            decimal zag_total = 0;
+            decimal zag_living = 0;
             try
             {
-                ber_total = Convert.ToDouble(search_ber_total.ExecuteScalar());
-                ber_living = Convert.ToDouble(search_ber_living.ExecuteScalar());
-                zab_total = Convert.ToDouble(search_zab_total.ExecuteScalar());
-                zab_living = Convert.ToDouble(search_zab_living.ExecuteScalar());
-                rog_total = Convert.ToDouble(search_rog_total.ExecuteScalar());
-                rog_living = Convert.ToDouble(search_rog_living.ExecuteScalar());
-                zhur_total = Convert.ToDouble(search_zhur_total.ExecuteScalar());
-                zhur_living = Convert.ToDouble(search_zhur_living.ExecuteScalar());
-                zag_total = Convert.ToDouble(search_zag_total.ExecuteScalar());
-                zag_living = Convert.ToDouble(search_zag_living.ExecuteScalar());
+                ber_total = Convert.ToDecimal(search_ber_total.ExecuteScalar());
+                ber_living = Convert.ToDecimal(search_ber_living.ExecuteScalar());
+                zab_total = Convert.ToDecimal(search_zab_total.ExecuteScalar());
+                zab_living = Convert.ToDecimal(search_zab_living.ExecuteScalar());
+                rog_total = Convert.ToDecimal(search_rog_total.ExecuteScalar());
+                rog_living = Convert.ToDecimal(search_rog_living.ExecuteScalar());
+                zhur_total = Convert.ToDecimal(search_zhur_total.ExecuteScalar());
+                zhur_living = Convert.ToDecimal(search_zhur_living.ExecuteScalar());
+                zag_total = Convert.ToDecimal(search_zag_total.ExecuteScalar());
+                zag_living = Convert.ToDecimal(search_zag_living.ExecuteScalar());
             }
             catch
             {
                 MessageBox.Show("Помилка роботи з базою даних1 !");
             }
-           
-            double all_total = ber_total + zab_total + rog_total + zhur_total + zag_total;
-            double all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
+          
+            decimal all_total = ber_total + zab_total + rog_total + zhur_total + zag_total;
+            decimal all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
             string id = Convert.ToString(this.dataGridViewArea.Rows[countRows - 1].Cells[0].Value);
 
             dataGridViewArea.Rows[_data.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
@@ -314,7 +314,7 @@ namespace DataBase
                 if (yes == 0)
                 {
                     string addYear = "INSERT INTO `sql8597722`.`areas_of_houses` (`year`, `berezhnytsya_total`," +
-                        " `berezhnytsya_living`, `zabolotivtsi_total`, `zabolotivtsi_living`, `rogizno_toal`," +
+                        " `berezhnytsya_living`, `zabolotivtsi_total`, `zabolotivtsi_living`, `rogizno_total`," +
                         " `rogizno_living`, `zhuravkiv_total`, `zhuravkiv_living`, `zagurzchyna_total`," +
                         " `zagurzchyna_living`, `all_total`, `all_living`) VALUES('"+yearNow+"', '"+ber_total+"', '"+ber_living+"'," +
                         " '"+zab_total+"', '"+zab_living+"', '"+rog_total+"', '"+rog_living+"', " +
@@ -327,7 +327,7 @@ namespace DataBase
                 else
                 {
 
-                    string addYear = "UPDATE `sql8597722`.`areas_of_houses` SET `berezhnytsya_total` = '" + ber_total + "'," +
+                    string addYear = "UPDATE `sql8597722`.`areas_of_houses` SET `berezhnytsya_total` = '"+ber_total+"'," +
                         "`berezhnytsya_living`= '"+ber_living+"', `zabolotivtsi_total` = '" + zab_total + "'," +
                         " `zabolotivtsi_living`='"+zab_living+"', `rogizno_total` = '" + rog_total + "', " +
                         "`rogizno_living`= '"+rog_living+"', `zhuravkiv_total` = '" + zhur_total + "', " +
