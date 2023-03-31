@@ -286,10 +286,25 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка роботи з базою даних1 !");
             }
-          
+           
             decimal all_total = ber_total + zab_total + rog_total + zhur_total + zag_total;
             decimal all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
             string id = Convert.ToString(this.dataGridViewArea.Rows[countRows - 1].Cells[0].Value);
+
+            string b_t = (Convert.ToString(ber_total)).Replace(',', '.');
+            string b_l = (Convert.ToString(ber_living)).Replace(',', '.');
+            string z_t = (Convert.ToString(zab_total)).Replace(',', '.');
+            string z_l = (Convert.ToString(zab_total)).Replace(',', '.');
+            string r_t = (Convert.ToString(rog_total)).Replace(',', '.');
+            string r_l = (Convert.ToString(rog_living)).Replace(',', '.');
+            string zh_t = (Convert.ToString(zhur_total)).Replace(',', '.');
+            string zh_l = (Convert.ToString(zhur_living)).Replace(',', '.');
+            string za_t = (Convert.ToString(zab_total)).Replace(',', '.');
+            string za_l = (Convert.ToString(zab_living)).Replace(',', '.');
+            string a_t = (Convert.ToString(all_total)).Replace(',', '.');
+            string a_l = (Convert.ToString(all_living)).Replace(',', '.');
+           
+           
 
             dataGridViewArea.Rows[_data.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             dataGridViewArea.Rows[_data.Count].Cells[2].Value = ber_total;
@@ -316,10 +331,10 @@ namespace DataBase
                     string addYear = "INSERT INTO `sql8597722`.`areas_of_houses` (`year`, `berezhnytsya_total`," +
                         " `berezhnytsya_living`, `zabolotivtsi_total`, `zabolotivtsi_living`, `rogizno_total`," +
                         " `rogizno_living`, `zhuravkiv_total`, `zhuravkiv_living`, `zagurzchyna_total`," +
-                        " `zagurzchyna_living`, `all_total`, `all_living`) VALUES('"+yearNow+"', '"+ber_total+"', '"+ber_living+"'," +
-                        " '"+zab_total+"', '"+zab_living+"', '"+rog_total+"', '"+rog_living+"', " +
-                        "'"+zhur_total+"', '"+zhur_living+"', '"+zag_total+"', '"+zag_living+"', " +
-                        "'"+all_total+"', '"+all_living+"')";
+                        " `zagurzchyna_living`, `all_total`, `all_living`) VALUES('"+yearNow+"','"+b_t+"', '"+b_l+"'," +
+                        " '"+z_t+"', '"+z_l+"', '"+r_t+"', '"+r_l+"', " +
+                        "'"+zh_t+"', '"+zh_l+"', '"+za_t+"', '"+za_l+"', " +
+                        "'"+a_t+"', '"+a_l+"')";
                    
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
                     add.ExecuteNonQuery();
@@ -327,13 +342,13 @@ namespace DataBase
                 else
                 {
 
-                    string addYear = "UPDATE `sql8597722`.`areas_of_houses` SET `berezhnytsya_total` = '"+ber_total+"'," +
-                        "`berezhnytsya_living`= '"+ber_living+"', `zabolotivtsi_total` = '" + zab_total + "'," +
-                        " `zabolotivtsi_living`='"+zab_living+"', `rogizno_total` = '" + rog_total + "', " +
-                        "`rogizno_living`= '"+rog_living+"', `zhuravkiv_total` = '" + zhur_total + "', " +
-                        "`zhuravkiv_living`= '"+zhur_living+"', `zagurzchyna_total` = '" + zag_total + "', " +
-                        "`zagurzchyna_living`= '"+zag_living+"',`all_total` = '" + all_total + "', " +
-                        "`all_living` = '"+all_living+"' WHERE(`id_area` = '" + id + "')";
+                    string addYear = "UPDATE `sql8597722`.`areas_of_houses` SET `berezhnytsya_total` = '"+b_t+"'," +
+                        "`berezhnytsya_living`= '"+b_l+"', `zabolotivtsi_total` = '" + z_t+ "'," +
+                        " `zabolotivtsi_living`='"+z_l+"', `rogizno_total` = '" + r_t + "', " +
+                        "`rogizno_living`= '"+r_l+"', `zhuravkiv_total` = '" + zh_t + "', " +
+                        "`zhuravkiv_living`= '"+zh_l+"', `zagurzchyna_total` = '" + za_t + "', " +
+                        "`zagurzchyna_living`= '"+za_l+"',`all_total` = '" + a_t + "', " +
+                        "`all_living` = '"+a_l+"' WHERE(`id_area` = '" + id + "')";
 
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
                     add.ExecuteNonQuery();
