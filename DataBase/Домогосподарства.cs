@@ -50,6 +50,11 @@ namespace DataBase
             form.Show();
         }
 
-
+        private void По_Кількості_кімнат_Click(object sender, EventArgs e)
+        {
+            ПоКількостіКімнат form = new ПоКількостіКімнат();
+            this.Hide();
+            form.Show();
+        }
     }
 }

@@ -40,6 +40,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.По_Кількості_кімнат = new ClassLibrary1.RJButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -183,12 +185,45 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "Пошук за адресою";
             // 
+            // По_Кількості_кімнат
+            // 
+            this.По_Кількості_кімнат.BackColor = System.Drawing.Color.Chocolate;
+            this.По_Кількості_кімнат.BackgroundColor = System.Drawing.Color.Chocolate;
+            this.По_Кількості_кімнат.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("По_Кількості_кімнат.BackgroundImage")));
+            this.По_Кількості_кімнат.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.По_Кількості_кімнат.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.По_Кількості_кімнат.BorderRadius = 30;
+            this.По_Кількості_кімнат.BorderSize = 0;
+            this.По_Кількості_кімнат.FlatAppearance.BorderSize = 0;
+            this.По_Кількості_кімнат.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.По_Кількості_кімнат.ForeColor = System.Drawing.Color.White;
+            this.По_Кількості_кімнат.Location = new System.Drawing.Point(108, 324);
+            this.По_Кількості_кімнат.Name = "По_Кількості_кімнат";
+            this.По_Кількості_кімнат.Size = new System.Drawing.Size(160, 160);
+            this.По_Кількості_кімнат.TabIndex = 10;
+            this.По_Кількості_кімнат.TextColor = System.Drawing.Color.White;
+            this.По_Кількості_кімнат.UseVisualStyleBackColor = false;
+            this.По_Кількості_кімнат.Click += new System.EventHandler(this.По_Кількості_кімнат_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label5.Location = new System.Drawing.Point(57, 506);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(363, 46);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "По кількості кімнат";
+            // 
             // Домогосподарства
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(1182, 553);
+            this.ClientSize = new System.Drawing.Size(1182, 605);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.По_Кількості_кімнат);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -223,5 +258,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
+        private ClassLibrary1.RJButton По_Кількості_кімнат;
+        private System.Windows.Forms.Label label5;
     }
 }
