@@ -165,6 +165,7 @@ namespace DataBase
                     comboBoxStreets.Items.Add("Бандери С.");
                     comboBoxStreets.Items.Add("Рогізнянська");
                     comboBoxStreets.Items.Add("Ів.Франка");
+                    comboBoxStreets.Items.Add("Л.Українки");
                     comboBoxStreets.Items.Add("Космонавтів");
                     comboBoxStreets.Items.Add("Нова");
                     comboBoxStreets.Items.Add("Молодіжна");

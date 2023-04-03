@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -286,7 +287,10 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка роботи з базою даних1 !");
             }
+
            
+
+
             double all_total = ber_total + zab_total + rog_total + zhur_total + zag_total;
             double all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
             string id = Convert.ToString(this.dataGridViewArea.Rows[countRows - 1].Cells[0].Value);
