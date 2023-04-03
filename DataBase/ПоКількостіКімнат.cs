@@ -753,14 +753,7 @@ namespace DataBase
 
             int[] ber = new int[7];
             int c;
-            //int countRowsB = _dataBer.Count;
-
-            //if (countRowsB == 0)
-            //{
-            //    countRowsB = 1;
-
-            //}
-            //string id = Convert.ToString(this.dataGridViewBerTab.Rows[countRows - 1].Cells[0].Value);
+           
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
             {
@@ -783,7 +776,7 @@ namespace DataBase
 
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+              
                 MySqlCommand isYear = new MySqlCommand(Select("ber_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -830,7 +823,7 @@ namespace DataBase
 
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zab_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -877,7 +870,6 @@ namespace DataBase
 
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
                 MySqlCommand isYear = new MySqlCommand(Select("rog_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -923,7 +915,7 @@ namespace DataBase
 
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zhur_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -969,7 +961,7 @@ namespace DataBase
 
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zag_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
