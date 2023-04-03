@@ -105,7 +105,13 @@ namespace DataBase
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
-           
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Загальна";
+            column10.Width = 150;
+            column10.Name = "total";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
+
 
 
             dataGridViewBerTab.Columns.Add(column1);
@@ -117,6 +123,7 @@ namespace DataBase
             dataGridViewBerTab.Columns.Add(column7);
             dataGridViewBerTab.Columns.Add(column8);
             dataGridViewBerTab.Columns.Add(column9);
+            dataGridViewBerTab.Columns.Add(column10);
             
 
 
@@ -195,6 +202,12 @@ namespace DataBase
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Загальна";
+            column10.Width = 150;
+            column10.Name = "total";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
 
 
             dataGridViewZabTab.Columns.Add(column1);
@@ -206,6 +219,7 @@ namespace DataBase
             dataGridViewZabTab.Columns.Add(column7);
             dataGridViewZabTab.Columns.Add(column8);
             dataGridViewZabTab.Columns.Add(column9);
+            dataGridViewZabTab.Columns.Add(column10);
 
 
 
@@ -284,6 +298,12 @@ namespace DataBase
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Загальна";
+            column10.Width = 150;
+            column10.Name = "total";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
 
 
 
@@ -296,6 +316,7 @@ namespace DataBase
             dataGridViewRogTab.Columns.Add(column7);
             dataGridViewRogTab.Columns.Add(column8);
             dataGridViewRogTab.Columns.Add(column9);
+            dataGridViewRogTab.Columns.Add(column10);
 
 
 
@@ -374,6 +395,12 @@ namespace DataBase
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Загальна";
+            column10.Width = 150;
+            column10.Name = "total";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
 
 
 
@@ -386,6 +413,7 @@ namespace DataBase
             dataGridViewZhurTab.Columns.Add(column7);
             dataGridViewZhurTab.Columns.Add(column8);
             dataGridViewZhurTab.Columns.Add(column9);
+            dataGridViewZhurTab.Columns.Add(column10);
 
 
 
@@ -464,6 +492,13 @@ namespace DataBase
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Загальна";
+            column10.Width = 150;
+            column10.Name = "total";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
+
 
 
 
@@ -476,6 +511,7 @@ namespace DataBase
             dataGridViewZagTab.Columns.Add(column7);
             dataGridViewZagTab.Columns.Add(column8);
             dataGridViewZagTab.Columns.Add(column9);
+            dataGridViewZagTab.Columns.Add(column10);
 
 
 
@@ -512,31 +548,31 @@ namespace DataBase
         {
             dataGridViewBerTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms);
+                row.more_rooms, row.total);
         }
         private void AddDataGridZab(RowCountOfRooms row)
         {
             dataGridViewZabTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms);
+                row.more_rooms, row.total);
         }
         private void AddDataGridRog(RowCountOfRooms row)
         {
             dataGridViewRogTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms);
+                row.more_rooms, row.total);
         }
         private void AddDataGridZhur(RowCountOfRooms row)
         {
             dataGridViewZhurTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms);
+                row.more_rooms, row.total);
         }
         private void AddDataGridZag(RowCountOfRooms row)
         {
             dataGridViewZagTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms);
+                row.more_rooms, row.total);
         }
 
 
@@ -582,7 +618,7 @@ namespace DataBase
                 {
                     RowCountOfRooms row = new RowCountOfRooms(_reader["id"], _reader["year"], _reader["one_rooms"],
                         _reader["two_rooms"], _reader["three_rooms"], _reader["four_rooms"],
-                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"]);
+                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"], _reader["total"]);
                     _dataBer.Add(row);
                 }
 
@@ -606,7 +642,7 @@ namespace DataBase
                 {
                     RowCountOfRooms row = new RowCountOfRooms(_reader["id"], _reader["year"], _reader["one_rooms"],
                         _reader["two_rooms"], _reader["three_rooms"], _reader["four_rooms"],
-                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"]);
+                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"], _reader["total"]);
                     _dataZab.Add(row);
                 }
 
@@ -630,7 +666,7 @@ namespace DataBase
                 {
                     RowCountOfRooms row = new RowCountOfRooms(_reader["id"], _reader["year"], _reader["one_rooms"],
                         _reader["two_rooms"], _reader["three_rooms"], _reader["four_rooms"],
-                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"]);
+                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"], _reader["total"]);
                     _dataRog.Add(row);
                 }
 
@@ -653,7 +689,7 @@ namespace DataBase
                 {
                     RowCountOfRooms row = new RowCountOfRooms(_reader["id"], _reader["year"], _reader["one_rooms"],
                         _reader["two_rooms"], _reader["three_rooms"], _reader["four_rooms"],
-                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"]);
+                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"], _reader["total"]);
                     _dataZhur.Add(row);
                 }
 
@@ -676,7 +712,7 @@ namespace DataBase
                 {
                     RowCountOfRooms row = new RowCountOfRooms(_reader["id"], _reader["year"], _reader["one_rooms"],
                         _reader["two_rooms"], _reader["three_rooms"], _reader["four_rooms"],
-                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"]);
+                        _reader["five_rooms"], _reader["six_rooms"], _reader["more_rooms"], _reader["total"]);
                     _dataZag.Add(row);
                 }
 
@@ -727,25 +763,25 @@ namespace DataBase
                 return countRow;
             }
 
-            string AddYear(string _table, int one, int two, int three, int four, int five, int six, int more) 
+            string AddYear(string _table, int one, int two, int three, int four, int five, int six, int more, int total) 
             {
                 string table = _table;
                
                 string addYear = "INSERT INTO `sql8597722`.`"+table+"` (`year`, `one_rooms`," +
                         " `two_rooms`, `three_rooms`, `four_rooms`, `five_rooms`," +
-                        " `six_rooms`, `more_rooms`) VALUES('" + yearNow + "','" + one + "', '" + two + "'," +
+                        " `six_rooms`, `more_rooms`, `total`) VALUES('" + yearNow + "','" + one + "', '" + two + "'," +
                         " '" + three + "', '" + four + "', '" + five + "', '" + six + "', " +
-                        "'" + more + "')";
+                        "'" + more + "', '"+ total +"')";
                 return addYear;
             }
 
-            string Update(string _table, int one, int two, int three, int four, int five, int six, int more) 
+            string Update(string _table, int one, int two, int three, int four, int five, int six, int more, int total) 
             { 
                 string table = _table;
                 string addYear = "UPDATE `sql8597722`.`"+table+"` SET `one_rooms` = '" + one + "'," +
                        "`two_rooms`= '" + two + "', `three_rooms` = '" + three + "'," +
                        " `four_rooms`='" + four + "', `five_rooms` = '" + five + "', " +
-                       "`six_rooms`= '" + six + "', `more_rooms` = '" + more + "'";
+                       "`six_rooms`= '" + six + "', `more_rooms` = '" + more + "', `total` = '" + total +"'";
                 return addYear;
             }
 
@@ -753,6 +789,7 @@ namespace DataBase
 
             int[] ber = new int[7];
             int c;
+            int totalBer = 0;
             //int countRowsB = _dataBer.Count;
 
             //if (countRowsB == 0)
@@ -776,11 +813,11 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewBerTab.Rows[_dataBer.Count].Cells[i + 2].Value = ber[i];
+                totalBer = totalBer + ber[i];
             }
             search = new MySqlCommand(CountRoomsMore("Бережниця"), _manager.getConnection());
             ber[6] = Convert.ToInt32(search.ExecuteScalar());
-            dataGridViewBerTab.Rows[_dataBer.Count].Cells[8].Value = ber[6];
-
+            dataGridViewBerTab.Rows[_dataBer.Count].Cells[9].Value = totalBer;
             try
             {
                 //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
@@ -789,13 +826,13 @@ namespace DataBase
 
                 if (yes == 0)
                 {
-                    MySqlCommand add = new MySqlCommand(AddYear("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(AddYear("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6], totalBer), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    MySqlCommand add = new MySqlCommand(Update("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(Update("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6], totalBer), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 _manager.closeConnection();
@@ -806,7 +843,7 @@ namespace DataBase
             }
 
             _manager.openConnection();
-
+            int totalZab = 0;
             int[] zab = new int[7];
             dataGridViewZabTab.Rows[_dataZab.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
@@ -827,7 +864,7 @@ namespace DataBase
             search = new MySqlCommand(CountRoomsMore("Заболотівці"), _manager.getConnection());
             zab[6] = Convert.ToInt32(search.ExecuteScalar());
             dataGridViewZabTab.Rows[_dataZab.Count].Cells[8].Value = zab[6];
-
+            dataGridViewZabTab.Rows[_dataZab.Count].Cells[9].Value = totalZab;
             try
             {
                 //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
@@ -836,13 +873,13 @@ namespace DataBase
 
                 if (yes == 0)
                 {
-                    MySqlCommand add = new MySqlCommand(AddYear("zab_rooms", zab[0], zab[1], zab[2], zab[3], zab[4], zab[5], zab[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(AddYear("zab_rooms", zab[0], zab[1], zab[2], zab[3], zab[4], zab[5], zab[6], totalZab), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    MySqlCommand add = new MySqlCommand(Update("zab_rooms", zab[0], zab[1], zab[2], zab[3], zab[4], zab[5], zab[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(Update("zab_rooms", zab[0], zab[1], zab[2], zab[3], zab[4], zab[5], zab[6], totalZab), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 _manager.closeConnection();
@@ -852,8 +889,7 @@ namespace DataBase
                 MessageBox.Show("Помилка !!!");
             }
 
-            _manager.openConnection();
-
+            int totalRog = 0;
             int[] rog = new int[7];
             dataGridViewRogTab.Rows[_dataRog.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
@@ -874,7 +910,7 @@ namespace DataBase
             search = new MySqlCommand(CountRoomsMore("Рогізно"), _manager.getConnection());
             rog[6] = Convert.ToInt32(search.ExecuteScalar());
             dataGridViewRogTab.Rows[_dataRog.Count].Cells[8].Value = rog[6];
-
+            dataGridViewRogTab.Rows[_dataRog.Count].Cells[9].Value = totalRog;
             try
             {
                 //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
@@ -883,13 +919,13 @@ namespace DataBase
 
                 if (yes == 0)
                 {
-                    MySqlCommand add = new MySqlCommand(AddYear("rog_rooms", rog[0], rog[1], rog[2], rog[3], rog[4], rog[5], rog[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(AddYear("rog_rooms", rog[0], rog[1], rog[2], rog[3], rog[4], rog[5], rog[6], totalRog), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    MySqlCommand add = new MySqlCommand(Update("rog_rooms", rog[0], rog[1], rog[2], rog[3], rog[4], rog[5], rog[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(Update("rog_rooms", rog[0], rog[1], rog[2], rog[3], rog[4], rog[5], rog[6], totalRog), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 _manager.closeConnection();
@@ -899,7 +935,7 @@ namespace DataBase
                 MessageBox.Show("Помилка !!!");
             }
             _manager.openConnection();
-
+            int totalZhur = 0;
             int[] zhur = new int[7];
             dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
@@ -920,7 +956,7 @@ namespace DataBase
             search = new MySqlCommand(CountRoomsMore("Журавків"), _manager.getConnection());
             zhur[6] = Convert.ToInt32(search.ExecuteScalar());
             dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[8].Value = zhur[6];
-
+            dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[9].Value = totalZhur;
             try
             {
                 //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
@@ -929,13 +965,13 @@ namespace DataBase
 
                 if (yes == 0)
                 {
-                    MySqlCommand add = new MySqlCommand(AddYear("zhur_rooms", zhur[0], zhur[1], zhur[2], zhur[3], zhur[4], zhur[5], zhur[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(AddYear("zhur_rooms", zhur[0], zhur[1], zhur[2], zhur[3], zhur[4], zhur[5], zhur[6], totalZhur), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    MySqlCommand add = new MySqlCommand(Update("zhur_rooms", zhur[0], zhur[1], zhur[2], zhur[3], zhur[4], zhur[5], zhur[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(Update("zhur_rooms", zhur[0], zhur[1], zhur[2], zhur[3], zhur[4], zhur[5], zhur[6], totalZhur), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 _manager.closeConnection();
@@ -945,7 +981,7 @@ namespace DataBase
                 MessageBox.Show("Помилка !!!");
             }
             _manager.openConnection();
-
+            int totalZag = 0;
             int[] zag = new int[7];
             dataGridViewZagTab.Rows[_dataZag.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
@@ -966,7 +1002,7 @@ namespace DataBase
             search = new MySqlCommand(CountRoomsMore("Загурщина"), _manager.getConnection());
             zag[6] = Convert.ToInt32(search.ExecuteScalar());
             dataGridViewZagTab.Rows[_dataZag.Count].Cells[8].Value = zag[6];
-
+            dataGridViewZagTab.Rows[_dataZag.Count].Cells[9].Value = totalZag;
             try
             {
                 //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
@@ -975,13 +1011,13 @@ namespace DataBase
 
                 if (yes == 0)
                 {
-                    MySqlCommand add = new MySqlCommand(AddYear("zag_rooms", zag[0], zag[1], zag[2], zag[3], zag[4], zag[5], zag[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(AddYear("zag_rooms", zag[0], zag[1], zag[2], zag[3], zag[4], zag[5], zag[6], totalZag), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 else
                 {
 
-                    MySqlCommand add = new MySqlCommand(Update("zag_rooms", zag[0], zag[1], zag [2], zag[3], zag[4], zag[5], zag[6]), _manager.getConnection());
+                    MySqlCommand add = new MySqlCommand(Update("zag_rooms", zag[0], zag[1], zag [2], zag[3], zag[4], zag[5], zag[6], totalZag), _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
                 _manager.closeConnection();
