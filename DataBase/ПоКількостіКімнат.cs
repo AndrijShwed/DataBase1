@@ -730,9 +730,6 @@ namespace DataBase
                 _manager.closeConnection();
             }
 
-            _manager.openConnection();
-
-
             this.dataGridViewBerTab.Rows.Add();
             this.dataGridViewRogTab.Rows.Add();
             this.dataGridViewZabTab.Rows.Add();
@@ -789,19 +786,9 @@ namespace DataBase
 
             int[] ber = new int[7];
             int c;
-<<<<<<< HEAD
            
-=======
             int totalBer = 0;
-            //int countRowsB = _dataBer.Count;
 
-            //if (countRowsB == 0)
-            //{
-            //    countRowsB = 1;
-
-            //}
-            //string id = Convert.ToString(this.dataGridViewBerTab.Rows[countRows - 1].Cells[0].Value);
->>>>>>> 017d5f788da417b4a4ce0b3f7b11dc3f76607520
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
             {
