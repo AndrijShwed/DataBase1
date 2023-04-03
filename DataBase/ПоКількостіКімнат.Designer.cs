@@ -164,7 +164,7 @@
             this.dataGridViewZagTab.Name = "dataGridViewZagTab";
             this.dataGridViewZagTab.RowHeadersWidth = 51;
             this.dataGridViewZagTab.RowTemplate.Height = 24;
-            this.dataGridViewZagTab.Size = new System.Drawing.Size(1308, 300);
+            this.dataGridViewZagTab.Size = new System.Drawing.Size(1450, 300);
             this.dataGridViewZagTab.TabIndex = 17;
             // 
             // dataGridViewZhurTab
@@ -174,7 +174,7 @@
             this.dataGridViewZhurTab.Name = "dataGridViewZhurTab";
             this.dataGridViewZhurTab.RowHeadersWidth = 51;
             this.dataGridViewZhurTab.RowTemplate.Height = 24;
-            this.dataGridViewZhurTab.Size = new System.Drawing.Size(1308, 300);
+            this.dataGridViewZhurTab.Size = new System.Drawing.Size(1450, 300);
             this.dataGridViewZhurTab.TabIndex = 15;
             // 
             // label4
@@ -195,7 +195,7 @@
             this.dataGridViewRogTab.Name = "dataGridViewRogTab";
             this.dataGridViewRogTab.RowHeadersWidth = 51;
             this.dataGridViewRogTab.RowTemplate.Height = 24;
-            this.dataGridViewRogTab.Size = new System.Drawing.Size(1308, 300);
+            this.dataGridViewRogTab.Size = new System.Drawing.Size(1450, 300);
             this.dataGridViewRogTab.TabIndex = 13;
             // 
             // label3
@@ -216,7 +216,7 @@
             this.dataGridViewZabTab.Name = "dataGridViewZabTab";
             this.dataGridViewZabTab.RowHeadersWidth = 51;
             this.dataGridViewZabTab.RowTemplate.Height = 24;
-            this.dataGridViewZabTab.Size = new System.Drawing.Size(1308, 300);
+            this.dataGridViewZabTab.Size = new System.Drawing.Size(1450, 300);
             this.dataGridViewZabTab.TabIndex = 12;
             // 
             // label2
@@ -237,7 +237,7 @@
             this.dataGridViewBerTab.Name = "dataGridViewBerTab";
             this.dataGridViewBerTab.RowHeadersWidth = 51;
             this.dataGridViewBerTab.RowTemplate.Height = 24;
-            this.dataGridViewBerTab.Size = new System.Drawing.Size(1308, 300);
+            this.dataGridViewBerTab.Size = new System.Drawing.Size(1450, 300);
             this.dataGridViewBerTab.TabIndex = 11;
             // 
             // label1
