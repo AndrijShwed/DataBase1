@@ -783,12 +783,12 @@ namespace DataBase
             }
 
             MySqlCommand search;
-
+            _manager.openConnection();
             int[] ber = new int[7];
             int c;
-           
-            int totalBer = 0;
 
+            int totalBer = 0;
+           
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
             {
@@ -804,10 +804,11 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewBerTab.Rows[_dataBer.Count].Cells[i + 2].Value = ber[i];
-                totalBer = totalBer + ber[i];
+                totalBer += ber[i];
             }
             search = new MySqlCommand(CountRoomsMore("Бережниця"), _manager.getConnection());
             ber[6] = Convert.ToInt32(search.ExecuteScalar());
+            dataGridViewBerTab.Rows[_dataBer.Count].Cells[8].Value = ber[6];
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[9].Value = totalBer;
             try
             {
@@ -851,6 +852,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZabTab.Rows[_dataZab.Count].Cells[i + 2].Value = zab[i];
+                totalZab  +=  zab[i];
             }
             search = new MySqlCommand(CountRoomsMore("Заболотівці"), _manager.getConnection());
             zab[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -879,7 +881,7 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка !!!");
             }
-
+            _manager.openConnection();
             int totalRog = 0;
             int[] rog = new int[7];
             dataGridViewRogTab.Rows[_dataRog.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
@@ -897,6 +899,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewRogTab.Rows[_dataRog.Count].Cells[i + 2].Value = rog[i];
+                totalRog += rog[i];
             }
             search = new MySqlCommand(CountRoomsMore("Рогізно"), _manager.getConnection());
             rog[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -942,6 +945,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[i + 2].Value = zhur[i];
+                totalZhur += zhur[i];
             }
             search = new MySqlCommand(CountRoomsMore("Журавків"), _manager.getConnection());
             zhur[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -988,6 +992,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZagTab.Rows[_dataZag.Count].Cells[i + 2].Value = zag[i];
+                totalZag += zag[i];
             }
             search = new MySqlCommand(CountRoomsMore("Загурщина"), _manager.getConnection());
             zag[6] = Convert.ToInt32(search.ExecuteScalar());
