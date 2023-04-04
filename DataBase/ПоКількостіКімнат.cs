@@ -730,9 +730,6 @@ namespace DataBase
                 _manager.closeConnection();
             }
 
-            _manager.openConnection();
-
-
             this.dataGridViewBerTab.Rows.Add();
             this.dataGridViewRogTab.Rows.Add();
             this.dataGridViewZabTab.Rows.Add();
@@ -786,18 +783,12 @@ namespace DataBase
             }
 
             MySqlCommand search;
-
+            _manager.openConnection();
             int[] ber = new int[7];
             int c;
+
             int totalBer = 0;
-            //int countRowsB = _dataBer.Count;
-
-            //if (countRowsB == 0)
-            //{
-            //    countRowsB = 1;
-
-            //}
-            //string id = Convert.ToString(this.dataGridViewBerTab.Rows[countRows - 1].Cells[0].Value);
+           
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             for (int i = 0; i < 6; i++)
             {
@@ -813,14 +804,15 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewBerTab.Rows[_dataBer.Count].Cells[i + 2].Value = ber[i];
-                totalBer = totalBer + ber[i];
+                totalBer += ber[i];
             }
             search = new MySqlCommand(CountRoomsMore("Бережниця"), _manager.getConnection());
             ber[6] = Convert.ToInt32(search.ExecuteScalar());
+            dataGridViewBerTab.Rows[_dataBer.Count].Cells[8].Value = ber[6];
             dataGridViewBerTab.Rows[_dataBer.Count].Cells[9].Value = totalBer;
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+              
                 MySqlCommand isYear = new MySqlCommand(Select("ber_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -860,6 +852,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZabTab.Rows[_dataZab.Count].Cells[i + 2].Value = zab[i];
+                totalZab  +=  zab[i];
             }
             search = new MySqlCommand(CountRoomsMore("Заболотівці"), _manager.getConnection());
             zab[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -867,7 +860,7 @@ namespace DataBase
             dataGridViewZabTab.Rows[_dataZab.Count].Cells[9].Value = totalZab;
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zab_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -888,7 +881,7 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка !!!");
             }
-
+            _manager.openConnection();
             int totalRog = 0;
             int[] rog = new int[7];
             dataGridViewRogTab.Rows[_dataRog.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
@@ -906,6 +899,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewRogTab.Rows[_dataRog.Count].Cells[i + 2].Value = rog[i];
+                totalRog += rog[i];
             }
             search = new MySqlCommand(CountRoomsMore("Рогізно"), _manager.getConnection());
             rog[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -913,7 +907,6 @@ namespace DataBase
             dataGridViewRogTab.Rows[_dataRog.Count].Cells[9].Value = totalRog;
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
                 MySqlCommand isYear = new MySqlCommand(Select("rog_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -952,6 +945,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[i + 2].Value = zhur[i];
+                totalZhur += zhur[i];
             }
             search = new MySqlCommand(CountRoomsMore("Журавків"), _manager.getConnection());
             zhur[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -959,7 +953,7 @@ namespace DataBase
             dataGridViewZhurTab.Rows[_dataZhur.Count].Cells[9].Value = totalZhur;
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zhur_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
@@ -998,6 +992,7 @@ namespace DataBase
                     MessageBox.Show("Помилка !");
                 }
                 dataGridViewZagTab.Rows[_dataZag.Count].Cells[i + 2].Value = zag[i];
+                totalZag += zag[i];
             }
             search = new MySqlCommand(CountRoomsMore("Загурщина"), _manager.getConnection());
             zag[6] = Convert.ToInt32(search.ExecuteScalar());
@@ -1005,7 +1000,7 @@ namespace DataBase
             dataGridViewZagTab.Rows[_dataZag.Count].Cells[9].Value = totalZag;
             try
             {
-                //string count = "SELECT COUNT(*) FROM ber_rooms WHERE year = '" + yearNow + "'";
+               
                 MySqlCommand isYear = new MySqlCommand(Select("zag_rooms"), _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
 
