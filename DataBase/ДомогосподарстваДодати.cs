@@ -172,6 +172,7 @@ namespace DataBase
                     comboBoxStreets.Items.Add("Лісна");
                     comboBoxStreets.Items.Add("Садова");
                     comboBoxStreets.Items.Add("Зелена");
+                    comboBoxStreets.Items.Add("Польова");
 
                     break;
                 case "Рогізно":
@@ -181,6 +182,7 @@ namespace DataBase
                     comboBoxStreets.Items.Add("Зелена");
                     comboBoxStreets.Items.Add("Садова");
                     comboBoxStreets.Items.Add("Вузька");
+                    comboBoxStreets.Items.Add("Дорошенка");
                     break;
                 case "Заболотівці":
                     comboBoxStreets.Items.Add("Миру");
