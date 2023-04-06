@@ -35,10 +35,10 @@ namespace DataBase
        
         private void HeaderOfTheTableBer()
         {
-            this.dataGridViewBerTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewBerTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewBerTab.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewBerTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
             this.dataGridViewBerTab.EnableHeadersVisualStyles = false;
@@ -134,10 +134,10 @@ namespace DataBase
 
         private void HeaderOfTheTableZab()
         {
-            this.dataGridViewZabTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewZabTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewZabTab.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewZabTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
             this.dataGridViewZabTab.EnableHeadersVisualStyles = false;
@@ -230,10 +230,10 @@ namespace DataBase
         }
         private void HeaderOfTheTableRog()
         {
-            this.dataGridViewRogTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewRogTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewRogTab.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewRogTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
             this.dataGridViewRogTab.EnableHeadersVisualStyles = false;
@@ -328,10 +328,10 @@ namespace DataBase
         }
         private void HeaderOfTheTableZhur()
         {
-            this.dataGridViewZhurTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewZhurTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewZhurTab.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewZhurTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
             this.dataGridViewZhurTab.EnableHeadersVisualStyles = false;
@@ -426,10 +426,10 @@ namespace DataBase
         }
         private void HeaderOfTheTableZag()
         {
-            this.dataGridViewZagTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewZagTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridViewZagTab.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewZagTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
             this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
             this.dataGridViewZagTab.EnableHeadersVisualStyles = false;
