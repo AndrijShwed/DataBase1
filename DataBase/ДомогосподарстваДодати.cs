@@ -172,15 +172,17 @@ namespace DataBase
                     comboBoxStreets.Items.Add("Лісна");
                     comboBoxStreets.Items.Add("Садова");
                     comboBoxStreets.Items.Add("Зелена");
+                    comboBoxStreets.Items.Add("Польова");
 
                     break;
                 case "Рогізно":
                     comboBoxStreets.Items.Add("Шевченка");
                     comboBoxStreets.Items.Add("Ів.Франка");
-                    comboBoxStreets.Items.Add("Лесі Українки");
+                    comboBoxStreets.Items.Add("Л.Українки");
                     comboBoxStreets.Items.Add("Зелена");
                     comboBoxStreets.Items.Add("Садова");
                     comboBoxStreets.Items.Add("Вузька");
+                    comboBoxStreets.Items.Add("Дорошенка");
                     break;
                 case "Заболотівці":
                     comboBoxStreets.Items.Add("Миру");
