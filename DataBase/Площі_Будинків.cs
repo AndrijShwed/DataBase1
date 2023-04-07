@@ -297,11 +297,11 @@ namespace DataBase
             string z_t = (Convert.ToString(zab_total)).Replace(',', '.');
             string z_l = (Convert.ToString(zab_living)).Replace(',', '.');
             string r_t = (Convert.ToString(rog_total)).Replace(',', '.');
-            string r_l = (Convert.ToString(rog_living)).Replace(',', '.');
+            string r_l = (Convert.ToString(rog_total)).Replace(',', '.');
             string zh_t = (Convert.ToString(zhur_total)).Replace(',', '.');
             string zh_l = (Convert.ToString(zhur_living)).Replace(',', '.');
-            string za_t = (Convert.ToString(zag_total)).Replace(',', '.');
-            string za_l = (Convert.ToString(zag_living)).Replace(',', '.');
+            string za_t = (Convert.ToString(zab_total)).Replace(',', '.');
+            string za_l = (Convert.ToString(zab_living)).Replace(',', '.');
             string a_t = (Convert.ToString(all_total)).Replace(',', '.');
             string a_l = (Convert.ToString(all_living)).Replace(',', '.');
            
