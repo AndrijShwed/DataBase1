@@ -406,6 +406,7 @@ namespace DataBase
                 case "Загурщина":
                     comboBoxStreets.Items.Add("Шевченка");
                     comboBoxStreets.Items.Add("Зелена");
+                    comboBoxStreets.Items.Add("Нова");
                     break;
                 default:
                     return;
