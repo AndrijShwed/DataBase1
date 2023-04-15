@@ -22,34 +22,29 @@ namespace DataBase
         List<RowCountOfRooms> _dataRog = new List<RowCountOfRooms>();
         List<RowCountOfRooms> _dataZhur = new List<RowCountOfRooms>();
         List<RowCountOfRooms> _dataZag = new List<RowCountOfRooms>();
+        DataGridView dataGridView;
 
         public ПоКількостіКімнат()
         {
             InitializeComponent();
-            HeaderOfTheTableBer();
-            HeaderOfTheTableZab();
-            HeaderOfTheTableRog();
-            HeaderOfTheTableZhur();
-            HeaderOfTheTableZag();
-        }
-       
+            HeaderOfTheTable(dataGridViewBerTab);
+            HeaderOfTheTable(dataGridViewZabTab);
+            HeaderOfTheTable(dataGridViewRogTab);
+            HeaderOfTheTable(dataGridViewZhurTab);
+            HeaderOfTheTable(dataGridViewZagTab);
+           
         }
 
-        private void HeaderOfTheTableZab()
+        private void HeaderOfTheTable(DataGridView _dataGridView)
         {
-            this.dataGridViewZabTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewZabTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewZabTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewZabTab.EnableHeadersVisualStyles = false;
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
-            column1.Width = 100;
-            column1.Name = "id";
-            column1.Frozen = true;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
+            this.dataGridView = _dataGridView;
+            this.dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
+            this.dataGridView.DefaultCellStyle.BackColor = Color.Beige;
+            this.dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
+            this.dataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
+            this.dataGridView.EnableHeadersVisualStyles = false;
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Номер";
@@ -123,21 +118,21 @@ namespace DataBase
 
 
 
-            dataGridViewRogTab.Columns.Add(column1);
-            dataGridViewRogTab.Columns.Add(column2);
-            dataGridViewRogTab.Columns.Add(column3);
-            dataGridViewRogTab.Columns.Add(column4);
-            dataGridViewRogTab.Columns.Add(column5);
-            dataGridViewRogTab.Columns.Add(column6);
-            dataGridViewRogTab.Columns.Add(column7);
-            dataGridViewRogTab.Columns.Add(column8);
-            dataGridViewRogTab.Columns.Add(column9);
-            dataGridViewRogTab.Columns.Add(column10);
+            dataGridView.Columns.Add(column1);
+            dataGridView.Columns.Add(column2);
+            dataGridView.Columns.Add(column3);
+            dataGridView.Columns.Add(column4);
+            dataGridView.Columns.Add(column5);
+            dataGridView.Columns.Add(column6);
+            dataGridView.Columns.Add(column7);
+            dataGridView.Columns.Add(column8);
+            dataGridView.Columns.Add(column9);
+            dataGridView.Columns.Add(column10);
 
 
 
-            dataGridViewRogTab.AllowUserToAddRows = false;
-            dataGridViewRogTab.ReadOnly = true;
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.ReadOnly = true;
         }
 
 
@@ -166,33 +161,11 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
-        private void AddDataGridBer(RowCountOfRooms row)
+
+        private void AddDataGrid(RowCountOfRooms row, DataGridView _dataGridView)
         {
-            dataGridViewBerTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZab(RowCountOfRooms row)
-        {
-            dataGridViewZabTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridRog(RowCountOfRooms row)
-        {
-            dataGridViewRogTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZhur(RowCountOfRooms row)
-        {
-            dataGridViewZhurTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZag(RowCountOfRooms row)
-        {
-            dataGridViewZagTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
+            dataGridView = _dataGridView;
+            dataGridView.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
                 row.more_rooms, row.total);
         }
@@ -217,6 +190,8 @@ namespace DataBase
             _dataZag.Clear();
 
             user = new User();
+
+            MessageBox.Show("Зачекайте !");
 
             int yearNow = Convert.ToInt32(DateTime.Now.Year);
 
@@ -246,7 +221,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataBer.Count; i++)
                 {
-                    AddDataGridBer(_dataBer[i]);
+                    AddDataGrid(_dataBer[i], dataGridViewBerTab);
                 }
             }
             catch
@@ -270,7 +245,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZab.Count; i++)
                 {
-                    AddDataGridZab(_dataZab[i]);
+                    AddDataGrid(_dataZab[i], dataGridViewZabTab);
                 }
             }
             catch
@@ -294,7 +269,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataRog.Count; i++)
                 {
-                    AddDataGridRog(_dataRog[i]);
+                    AddDataGrid(_dataRog[i], dataGridViewRogTab);
                 }
             }
             catch
@@ -317,7 +292,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZhur.Count; i++)
                 {
-                    AddDataGridZhur(_dataZhur[i]);
+                    AddDataGrid(_dataZhur[i], dataGridViewZhurTab);
                 }
             }
             catch
@@ -340,7 +315,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZag.Count; i++)
                 {
-                    AddDataGridZag(_dataZag[i]);
+                    AddDataGrid(_dataZag[i], dataGridViewZagTab);
                 }
             }
             catch
@@ -643,7 +618,7 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка !!!");
             }
-
+            MessageBox.Show("Дані оновлено !");
         }
 
 
