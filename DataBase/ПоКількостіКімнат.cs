@@ -198,11 +198,11 @@ namespace DataBase
 
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();
-            MySqlCommand _commandBer = new MySqlCommand("SELECT * FROM sql8597722.ber_rooms", _manager.getConnection());
-            MySqlCommand _commandZab = new MySqlCommand("SELECT * FROM sql8597722.zab_rooms", _manager.getConnection());
-            MySqlCommand _commandRog = new MySqlCommand("SELECT * FROM sql8597722.rog_rooms", _manager.getConnection());
-            MySqlCommand _commandZhur = new MySqlCommand("SELECT * FROM sql8597722.zhur_rooms", _manager.getConnection());
-            MySqlCommand _commandZag = new MySqlCommand("SELECT * FROM sql8597722.zag_rooms", _manager.getConnection());
+            MySqlCommand _commandBer = new MySqlCommand("SELECT * FROM ber_rooms", _manager.getConnection());
+            MySqlCommand _commandZab = new MySqlCommand("SELECT * FROM zab_rooms", _manager.getConnection());
+            MySqlCommand _commandRog = new MySqlCommand("SELECT * FROM rog_rooms", _manager.getConnection());
+            MySqlCommand _commandZhur = new MySqlCommand("SELECT * FROM zhur_rooms", _manager.getConnection());
+            MySqlCommand _commandZag = new MySqlCommand("SELECT * FROM zag_rooms", _manager.getConnection());
             MySqlDataReader _reader;
 
             _reader = _commandBer.ExecuteReader();
@@ -361,7 +361,7 @@ namespace DataBase
             {
                 string table = _table;
                
-                string addYear = "INSERT INTO `sql8597722`.`"+table+"` (`year`, `one_rooms`," +
+                string addYear = "INSERT INTO `berezhnytsya`.`"+table+"` (`year`, `one_rooms`," +
                         " `two_rooms`, `three_rooms`, `four_rooms`, `five_rooms`," +
                         " `six_rooms`, `more_rooms`, `total`) VALUES('" + yearNow + "','" + one + "', '" + two + "'," +
                         " '" + three + "', '" + four + "', '" + five + "', '" + six + "', " +
@@ -372,7 +372,7 @@ namespace DataBase
             string Update(string _table, int one, int two, int three, int four, int five, int six, int more, int total) 
             { 
                 string table = _table;
-                string addYear = "UPDATE `sql8597722`.`"+table+"` SET `one_rooms` = '" + one + "'," +
+                string addYear = "UPDATE `berezhnytsya`.`"+table+"` SET `one_rooms` = '" + one + "'," +
                        "`two_rooms`= '" + two + "', `three_rooms` = '" + three + "'," +
                        " `four_rooms`='" + four + "', `five_rooms` = '" + five + "', " +
                        "`six_rooms`= '" + six + "', `more_rooms` = '" + more + "', `total` = '" + total +"'";
