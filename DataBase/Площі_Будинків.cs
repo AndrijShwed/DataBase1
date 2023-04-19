@@ -189,7 +189,7 @@ namespace DataBase
 
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();
-            MySqlCommand _command = new MySqlCommand("SELECT * FROM sql8597722.areas_of_houses", _manager.getConnection());
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM areas_of_houses", _manager.getConnection());
             MySqlDataReader _reader;
            
             _reader = _command.ExecuteReader();
@@ -329,7 +329,7 @@ namespace DataBase
                 // yes = 0;
                 if (yes == 0)
                 {
-                    string addYear = "INSERT INTO `sql8597722`.`areas_of_houses` (`year`, `berezhnytsya_total`," +
+                    string addYear = "INSERT INTO `areas_of_houses` (`year`, `berezhnytsya_total`," +
                         " `berezhnytsya_living`, `zabolotivtsi_total`, `zabolotivtsi_living`, `rogizno_total`," +
                         " `rogizno_living`, `zhuravkiv_total`, `zhuravkiv_living`, `zagurzchyna_total`," +
                         " `zagurzchyna_living`, `all_total`, `all_living`) VALUES('"+yearNow+"','"+b_t+"', '"+b_l+"'," +
@@ -343,7 +343,7 @@ namespace DataBase
                 else
                 {
 
-                    string addYear = "UPDATE `sql8597722`.`areas_of_houses` SET `berezhnytsya_total` = '"+b_t+"'," +
+                    string addYear = "UPDATE `areas_of_houses` SET `berezhnytsya_total` = '"+b_t+"'," +
                         "`berezhnytsya_living`= '"+b_l+"', `zabolotivtsi_total` = '" + z_t+ "'," +
                         " `zabolotivtsi_living`='"+z_l+"', `rogizno_total` = '" + r_t + "', " +
                         "`rogizno_living`= '"+r_l+"', `zhuravkiv_total` = '" + zh_t + "', " +
