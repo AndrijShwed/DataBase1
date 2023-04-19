@@ -217,7 +217,7 @@ namespace DataBase
                 if (yes == 0)
                 {
 
-                    string addYear = "INSERT INTO `sql8597722`.`count_peoples` (`year`, `berezhnytsya`, `zabolotivtsi`, `rogizno`, `zhuravkiv`, `zagurzchyna`, `all`)" +
+                    string addYear = "INSERT INTO `count_peoples` (`year`, `berezhnytsya`, `zabolotivtsi`, `rogizno`, `zhuravkiv`, `zagurzchyna`, `all`)" +
                         " VALUES('" + yearNow + "', '" + ber + "', '" + zab + "', '" + rog + "', '" + zhur + "', '" + zag + "', '" + all + "')";
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
                     add.ExecuteNonQuery();
@@ -225,7 +225,7 @@ namespace DataBase
                 else
                 {
 
-                    string addYear = "UPDATE `sql8597722`.`count_peoples` SET `berezhnytsya` = '" + ber + "', `zabolotivtsi` = '" + zab + "'," +
+                    string addYear = "UPDATE `count_peoples` SET `berezhnytsya` = '" + ber + "', `zabolotivtsi` = '" + zab + "'," +
                         " `rogizno` = '" + rog + "', `zhuravkiv` = '" + zhur + "', `zagurzchyna` = '" + zag + "', `all` = '" + all + "' WHERE(`id` = '" + id + "')";
 
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
