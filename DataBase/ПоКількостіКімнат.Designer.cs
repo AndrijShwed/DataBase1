@@ -65,7 +65,7 @@
             this.вихідToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1735, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1756, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -257,7 +257,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Maroon;
-            this.ClientSize = new System.Drawing.Size(1756, 1055);
+            this.ClientSize = new System.Drawing.Size(1777, 1055);
             this.Controls.Add(this.dataGridViewZagTab);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dataGridViewRogTab);

@@ -22,26 +22,29 @@ namespace DataBase
         List<RowCountOfRooms> _dataRog = new List<RowCountOfRooms>();
         List<RowCountOfRooms> _dataZhur = new List<RowCountOfRooms>();
         List<RowCountOfRooms> _dataZag = new List<RowCountOfRooms>();
+        DataGridView dataGridView;
 
         public ПоКількостіКімнат()
         {
             InitializeComponent();
-            HeaderOfTheTableBer();
-            HeaderOfTheTableZab();
-            HeaderOfTheTableRog();
-            HeaderOfTheTableZhur();
-            HeaderOfTheTableZag();
+            HeaderOfTheTable(dataGridViewBerTab);
+            HeaderOfTheTable(dataGridViewZabTab);
+            HeaderOfTheTable(dataGridViewRogTab);
+            HeaderOfTheTable(dataGridViewZhurTab);
+            HeaderOfTheTable(dataGridViewZagTab);
+           
         }
-       
-        private void HeaderOfTheTableBer()
+
+        private void HeaderOfTheTable(DataGridView _dataGridView)
         {
-            this.dataGridViewBerTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewBerTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewBerTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewBerTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewBerTab.EnableHeadersVisualStyles = false;
+            this.dataGridView = _dataGridView;
+            this.dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
+            this.dataGridView.DefaultCellStyle.BackColor = Color.Beige;
+            this.dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
+            this.dataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
+            this.dataGridView.EnableHeadersVisualStyles = false;
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Номер";
@@ -115,414 +118,23 @@ namespace DataBase
 
 
 
-            dataGridViewBerTab.Columns.Add(column1);
-            dataGridViewBerTab.Columns.Add(column2);
-            dataGridViewBerTab.Columns.Add(column3);
-            dataGridViewBerTab.Columns.Add(column4);
-            dataGridViewBerTab.Columns.Add(column5);
-            dataGridViewBerTab.Columns.Add(column6);
-            dataGridViewBerTab.Columns.Add(column7);
-            dataGridViewBerTab.Columns.Add(column8);
-            dataGridViewBerTab.Columns.Add(column9);
-            dataGridViewBerTab.Columns.Add(column10);
-            
+            dataGridView.Columns.Add(column1);
+            dataGridView.Columns.Add(column2);
+            dataGridView.Columns.Add(column3);
+            dataGridView.Columns.Add(column4);
+            dataGridView.Columns.Add(column5);
+            dataGridView.Columns.Add(column6);
+            dataGridView.Columns.Add(column7);
+            dataGridView.Columns.Add(column8);
+            dataGridView.Columns.Add(column9);
+            dataGridView.Columns.Add(column10);
 
 
-            dataGridViewBerTab.AllowUserToAddRows = false;
-            dataGridViewBerTab.ReadOnly = true;
+
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.ReadOnly = true;
         }
 
-        private void HeaderOfTheTableZab()
-        {
-            this.dataGridViewZabTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewZabTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewZabTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZabTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewZabTab.EnableHeadersVisualStyles = false;
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
-            column1.Width = 100;
-            column1.Name = "id";
-            column1.Frozen = true;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Рік";
-            column2.Width = 100;
-            column2.Name = "year";
-            column2.Frozen = true;
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Одно кімн.";
-            column3.Width = 150;
-            column3.Name = "one";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Дво кімн.";
-            column4.Width = 150;
-            column4.Name = "two";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Три кімн.";
-            column5.Width = 150;
-            column5.Name = "three";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Чотири кімн.";
-            column6.Width = 150;
-            column6.Name = "four";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "П'ять кімн.";
-            column7.Width = 150;
-            column7.Name = "five";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Шість кімн.";
-            column8.Width = 150;
-            column8.Name = "six";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Більше шести кімн.";
-            column9.Width = 150;
-            column9.Name = "more";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Загальна";
-            column10.Width = 150;
-            column10.Name = "total";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-
-            dataGridViewZabTab.Columns.Add(column1);
-            dataGridViewZabTab.Columns.Add(column2);
-            dataGridViewZabTab.Columns.Add(column3);
-            dataGridViewZabTab.Columns.Add(column4);
-            dataGridViewZabTab.Columns.Add(column5);
-            dataGridViewZabTab.Columns.Add(column6);
-            dataGridViewZabTab.Columns.Add(column7);
-            dataGridViewZabTab.Columns.Add(column8);
-            dataGridViewZabTab.Columns.Add(column9);
-            dataGridViewZabTab.Columns.Add(column10);
-
-
-
-            dataGridViewZabTab.AllowUserToAddRows = false;
-            dataGridViewZabTab.ReadOnly = true;
-        }
-        private void HeaderOfTheTableRog()
-        {
-            this.dataGridViewRogTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewRogTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewRogTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewRogTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewRogTab.EnableHeadersVisualStyles = false;
-
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
-            column1.Width = 100;
-            column1.Name = "id";
-            column1.Frozen = true;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Рік";
-            column2.Width = 100;
-            column2.Name = "year";
-            column2.Frozen = true;
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Одно кімн.";
-            column3.Width = 150;
-            column3.Name = "one";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Дво кімн.";
-            column4.Width = 150;
-            column4.Name = "two";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Три кімн.";
-            column5.Width = 150;
-            column5.Name = "three";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Чотири кімн.";
-            column6.Width = 150;
-            column6.Name = "four";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "П'ять кімн.";
-            column7.Width = 150;
-            column7.Name = "five";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Шість кімн.";
-            column8.Width = 150;
-            column8.Name = "six";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Більше шести кімн.";
-            column9.Width = 150;
-            column9.Name = "more";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Загальна";
-            column10.Width = 150;
-            column10.Name = "total";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-
-
-            dataGridViewRogTab.Columns.Add(column1);
-            dataGridViewRogTab.Columns.Add(column2);
-            dataGridViewRogTab.Columns.Add(column3);
-            dataGridViewRogTab.Columns.Add(column4);
-            dataGridViewRogTab.Columns.Add(column5);
-            dataGridViewRogTab.Columns.Add(column6);
-            dataGridViewRogTab.Columns.Add(column7);
-            dataGridViewRogTab.Columns.Add(column8);
-            dataGridViewRogTab.Columns.Add(column9);
-            dataGridViewRogTab.Columns.Add(column10);
-
-
-
-            dataGridViewRogTab.AllowUserToAddRows = false;
-            dataGridViewRogTab.ReadOnly = true;
-        }
-        private void HeaderOfTheTableZhur()
-        {
-            this.dataGridViewZhurTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewZhurTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewZhurTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZhurTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewZhurTab.EnableHeadersVisualStyles = false;
-
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
-            column1.Width = 100;
-            column1.Name = "id";
-            column1.Frozen = true;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Рік";
-            column2.Width = 100;
-            column2.Name = "year";
-            column2.Frozen = true;
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Одно кімн.";
-            column3.Width = 150;
-            column3.Name = "one";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Дво кімн.";
-            column4.Width = 150;
-            column4.Name = "two";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Три кімн.";
-            column5.Width = 150;
-            column5.Name = "three";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Чотири кімн.";
-            column6.Width = 150;
-            column6.Name = "four";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "П'ять кімн.";
-            column7.Width = 150;
-            column7.Name = "five";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Шість кімн.";
-            column8.Width = 150;
-            column8.Name = "six";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Більше шести кімн.";
-            column9.Width = 150;
-            column9.Name = "more";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Загальна";
-            column10.Width = 150;
-            column10.Name = "total";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-
-
-            dataGridViewZhurTab.Columns.Add(column1);
-            dataGridViewZhurTab.Columns.Add(column2);
-            dataGridViewZhurTab.Columns.Add(column3);
-            dataGridViewZhurTab.Columns.Add(column4);
-            dataGridViewZhurTab.Columns.Add(column5);
-            dataGridViewZhurTab.Columns.Add(column6);
-            dataGridViewZhurTab.Columns.Add(column7);
-            dataGridViewZhurTab.Columns.Add(column8);
-            dataGridViewZhurTab.Columns.Add(column9);
-            dataGridViewZhurTab.Columns.Add(column10);
-
-
-
-            dataGridViewZhurTab.AllowUserToAddRows = false;
-            dataGridViewZhurTab.ReadOnly = true;
-        }
-        private void HeaderOfTheTableZag()
-        {
-            this.dataGridViewZagTab.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
-            this.dataGridViewZagTab.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewZagTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Italic);
-            this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewZagTab.ColumnHeadersDefaultCellStyle.BackColor = Color.LightSkyBlue;
-            this.dataGridViewZagTab.EnableHeadersVisualStyles = false;
-
-            var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
-            column1.Width = 100;
-            column1.Name = "id";
-            column1.Frozen = true;
-            column1.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Рік";
-            column2.Width = 100;
-            column2.Name = "year";
-            column2.Frozen = true;
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Одно кімн.";
-            column3.Width = 150;
-            column3.Name = "one";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Дво кімн.";
-            column4.Width = 150;
-            column4.Name = "two";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Три кімн.";
-            column5.Width = 150;
-            column5.Name = "three";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Чотири кімн.";
-            column6.Width = 150;
-            column6.Name = "four";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "П'ять кімн.";
-            column7.Width = 150;
-            column7.Name = "five";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Шість кімн.";
-            column8.Width = 150;
-            column8.Name = "six";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Більше шести кімн.";
-            column9.Width = 150;
-            column9.Name = "more";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Загальна";
-            column10.Width = 150;
-            column10.Name = "total";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-
-
-
-            dataGridViewZagTab.Columns.Add(column1);
-            dataGridViewZagTab.Columns.Add(column2);
-            dataGridViewZagTab.Columns.Add(column3);
-            dataGridViewZagTab.Columns.Add(column4);
-            dataGridViewZagTab.Columns.Add(column5);
-            dataGridViewZagTab.Columns.Add(column6);
-            dataGridViewZagTab.Columns.Add(column7);
-            dataGridViewZagTab.Columns.Add(column8);
-            dataGridViewZagTab.Columns.Add(column9);
-            dataGridViewZagTab.Columns.Add(column10);
-
-
-
-            dataGridViewZagTab.AllowUserToAddRows = false;
-            dataGridViewZagTab.ReadOnly = true;
-        }
 
         private void домогосподарстваToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -549,33 +161,11 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
-        private void AddDataGridBer(RowCountOfRooms row)
+
+        private void AddDataGrid(RowCountOfRooms row, DataGridView _dataGridView)
         {
-            dataGridViewBerTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZab(RowCountOfRooms row)
-        {
-            dataGridViewZabTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridRog(RowCountOfRooms row)
-        {
-            dataGridViewRogTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZhur(RowCountOfRooms row)
-        {
-            dataGridViewZhurTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
-                row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
-                row.more_rooms, row.total);
-        }
-        private void AddDataGridZag(RowCountOfRooms row)
-        {
-            dataGridViewZagTab.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
+            dataGridView = _dataGridView;
+            dataGridView.Rows.Add(row.id, row.year, row.one_rooms, row.two_rooms,
                 row.three_rooms, row.four_rooms, row.five_rooms, row.six_rooms,
                 row.more_rooms, row.total);
         }
@@ -600,6 +190,8 @@ namespace DataBase
             _dataZag.Clear();
 
             user = new User();
+
+            MessageBox.Show("Зачекайте !");
 
             int yearNow = Convert.ToInt32(DateTime.Now.Year);
 
@@ -629,7 +221,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataBer.Count; i++)
                 {
-                    AddDataGridBer(_dataBer[i]);
+                    AddDataGrid(_dataBer[i], dataGridViewBerTab);
                 }
             }
             catch
@@ -653,7 +245,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZab.Count; i++)
                 {
-                    AddDataGridZab(_dataZab[i]);
+                    AddDataGrid(_dataZab[i], dataGridViewZabTab);
                 }
             }
             catch
@@ -677,7 +269,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataRog.Count; i++)
                 {
-                    AddDataGridRog(_dataRog[i]);
+                    AddDataGrid(_dataRog[i], dataGridViewRogTab);
                 }
             }
             catch
@@ -700,7 +292,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZhur.Count; i++)
                 {
-                    AddDataGridZhur(_dataZhur[i]);
+                    AddDataGrid(_dataZhur[i], dataGridViewZhurTab);
                 }
             }
             catch
@@ -723,7 +315,7 @@ namespace DataBase
 
                 for (int i = 0; i < _dataZag.Count; i++)
                 {
-                    AddDataGridZag(_dataZag[i]);
+                    AddDataGrid(_dataZag[i], dataGridViewZagTab);
                 }
             }
             catch
@@ -1026,7 +618,7 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка !!!");
             }
-
+            MessageBox.Show("Дані оновлено !");
         }
 
 
