@@ -143,7 +143,7 @@ namespace DataBase
 
         private void rjButton1_Click(object sender, EventArgs e)
         {
-            Головна form = new Головна();
+            Домогосподарства form = new Домогосподарства();
             this.Hide();
             form.Show();
         }
