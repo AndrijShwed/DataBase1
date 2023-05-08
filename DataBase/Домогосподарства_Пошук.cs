@@ -10,10 +10,11 @@ namespace DataBase
     {
         private List<RowOfDataH> _dataH = new List<RowOfDataH>();
 
+        private User user;
        
 
         public Домогосподарства_Пошук()
-        {
+        { 
             InitializeComponent();
             comboBoxVillage.Text = "Виберіть населений пункт";
             comboBoxVillage.Items.Add("Бережниця");
@@ -345,7 +346,9 @@ namespace DataBase
             string name = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[5].Value);
             string surname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[6].Value);
             string totalArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[7].Value);
+            totalArea = totalArea.Replace(',', '.');
             string livingArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[8].Value);
+            livingArea = livingArea.Replace(",", ".");
             string total_of_rooms = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[9].Value);
           
 
@@ -382,7 +385,16 @@ namespace DataBase
 
         private void Редагувати_Click(object sender, EventArgs e)
         {
-            dataGridViewДомогосподарства_Пошук.ReadOnly = false;
+            user = new User();
+
+            if (user.userName == "A")
+            {
+                dataGridViewДомогосподарства_Пошук.ReadOnly = false;
+            }
+            else
+            {
+                MessageBox.Show("У вас немає доступу до редагування даних !!!");
+            }
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
