@@ -584,6 +584,17 @@ namespace DataBase
                 choice = "По прізвищу імені і населеному пункту";
             }
             else
+            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
+                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
+                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
+                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
+                textBoxДатаНародженняДО.Text == "Дата народження до:"
+                )
+            {
+                choice = "По прізвищу побатькові і населеному пункту";
+            }
+            else
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                 textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
@@ -797,6 +808,11 @@ namespace DataBase
                 case "По прізвищу імені і населеному пункту":
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(village) LIKE '" + village + "%'";
+                    }
+                    break;
+                case "По прізвищу побатькові і населеному пункту":
+                    {
+                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По статі і населеному пункту":
