@@ -31,7 +31,6 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ВивідДани
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Головна.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ДомогосподарстваДодати.resources
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ЗмінаДаних.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населені_Пункти.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Населення.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПерейменуванняВулиць.resources

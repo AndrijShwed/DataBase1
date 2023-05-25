@@ -217,18 +217,6 @@ namespace DataBase
             form.Show();
         }
 
-        private void редагуватиДаніToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (user.userName == "A")
-            {
-                    ЗмінаДаних form = new ЗмінаДаних();
-                    this.Hide();
-                    form.Show();
-                
-            }
-            else
-                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
-        }
 
         private void оновитиДаніToolStripMenuItem_Click(object sender, EventArgs e)
         {

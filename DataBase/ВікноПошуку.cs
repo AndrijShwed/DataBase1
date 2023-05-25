@@ -95,21 +95,21 @@ namespace DataBase
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Побатькові";
-            column4.Width = 120;
+            column4.Width = 110;
             column4.Name = "surname";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
 
             var column5 = new DataGridViewColumn();
             column5.HeaderText = "Стать";
-            column5.Width = 60;
+            column5.Width = 50;
             column5.Name = "sex";
             column5.Frozen = true;
             column5.CellTemplate = new DataGridViewTextBoxCell();
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Дата народження";
-            column6.Width = 120;
+            column6.Width = 110;
             column6.Name = "date_of_birth";
             column6.Frozen = true;
             column6.DefaultCellStyle.Format = "d";
@@ -117,35 +117,35 @@ namespace DataBase
 
             var column7 = new DataGridViewColumn();
             column7.HeaderText = "Село";
-            column7.Width = 100;
+            column7.Width = 90;
             column7.Name = "village";
             column7.Frozen = true;
             column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Вулиця";
-            column8.Width = 120;
+            column8.Width = 110;
             column8.Name = "street";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
 
             var column9 = new DataGridViewColumn();
             column9.HeaderText = "Номер будинку";
-            column9.Width = 100;
+            column9.Width = 90;
             column9.Name = "numb_of_house";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
 
             var column10 = new DataGridViewColumn();
             column10.HeaderText = "Паспорт";
-            column10.Width = 100;
+            column10.Width = 90;
             column10.Name = "passport";
             column10.Frozen = true;
             column10.CellTemplate = new DataGridViewTextBoxCell();
 
             var column11 = new DataGridViewColumn();
             column11.HeaderText = "Ідент. код";
-            column11.Width = 100;
+            column11.Width = 90;
             column11.Name = "id_kod";
             column11.Frozen = true;
             column11.CellTemplate = new DataGridViewTextBoxCell();
@@ -159,17 +159,25 @@ namespace DataBase
 
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Статус";
-            column13.Width = 100;
+            column13.Width = 90;
             column13.Name = "status";
             column13.Frozen = true;
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Ел. пошта";
-            column14.Width = 120;
+            column14.Width = 110;
             column14.Name = "email";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
+
+            var column15= new DataGridViewColumn();
+            column15.HeaderText = "Видалити";
+            column15.Width = 110;
+            column15.Name = "Видалити";
+            column15.Name = "Видалити";
+            column15.Frozen = true;
+            column15.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
             dataGridViewВікноПошуку.Columns.Add(column2);
@@ -185,6 +193,7 @@ namespace DataBase
             dataGridViewВікноПошуку.Columns.Add(column12);
             dataGridViewВікноПошуку.Columns.Add(column13);
             dataGridViewВікноПошуку.Columns.Add(column14);
+            dataGridViewВікноПошуку.Columns.Add(column15);
            
 
             dataGridViewВікноПошуку.AllowUserToAddRows = false;
@@ -197,20 +206,7 @@ namespace DataBase
             user = new User();
         }
 
-        private void вихідУВікноЗміниДанихToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            user = new User();
-
-            if (user.userName == "A")
-            {
-                ЗмінаДаних form = new ЗмінаДаних();
-                this.Hide();
-                form.Show();
-
-            }
-            else
-                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
-        }
+       
 
         private void textBoxПрізвище_Enter(object sender, EventArgs e)
         {
@@ -953,6 +949,12 @@ namespace DataBase
                 for (int i = 0; i < _data.Count; i++)
                 {
                     AddDataGrid(_data[i]);
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Value = "Видалити";
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.BackColor = Color.DarkRed;
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.ForeColor = Color.White;
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                   
+
                     mess = true;
                 }
 
@@ -1071,5 +1073,214 @@ namespace DataBase
         {
             Application.Exit();
         }
+
+        private void Редагувати_Click(object sender, EventArgs e)
+        {
+            dataGridViewВікноПошуку.ReadOnly = false;
+            dataGridViewВікноПошуку.Columns[0].ReadOnly = true;
+        }
+
+        private void Зберегти_зміни_Click(object sender, EventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (dataGridViewВікноПошуку.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Не вибрано рядки для збереження внесених змін. Виберіть рядки !");
+
+                }
+                else
+                {
+                    ConnectionClass _manager = new ConnectionClass();
+
+                    bool changed = true;
+
+
+                    for (int i = 0; i < dataGridViewВікноПошуку.SelectedRows.Count; i++)
+                    {
+
+
+
+                        if (Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value) != "")
+
+                        {
+                            string people_id = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[0].Value);
+                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value);
+                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value);
+                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value);
+                            string sex = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value);
+                            string date_of_birth = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
+                            string village = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[6].Value);
+                            string street = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[7].Value);
+                            string numb_of_house = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[8].Value);
+                            string passport = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[9].Value);
+                            string id_kod = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[10].Value);
+                            string phone_numb = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[11].Value);
+                            string status = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[12].Value);
+                            string email = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+
+                            if (date_of_birth != "дд.мм.рррр")
+                            {
+
+                                try
+                                {
+                                    string s1 = date_of_birth.Substring(0, 2);
+                                    string s2 = date_of_birth.Substring(3, 2);
+                                    string s3 = date_of_birth.Substring(6, 4);
+                                    date_of_birth = s3 + '/' + s2 + '/' + s1;
+                                    DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
+
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                                    break;
+                                }
+
+                                if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
+                                {
+                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
+                                        " У рядку з номером: " + people_id);
+
+                                }
+                                else
+                                {
+                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                   "name = '" + name + "', " +
+                                   "surname = '" + surname + "', " +
+                                   "sex = '" + sex + "', " +
+                                   "date_of_birth = '" + date_of_birth + "', " +
+                                   "village = '" + village + "', " +
+                                   "street = '" + street + "', " +
+                                   "numb_of_house = '" + numb_of_house + "', " +
+                                   "passport = '" + passport + "', " +
+                                   "id_kod = '" + id_kod + "', " +
+                                   "phone_numb = '" + phone_numb + "', " +
+                                   "status = '" + status + "', " +
+                                   "email = '" + email + "' " +
+                                   "WHERE people_id = " + people_id;
+
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                    try
+                                    {
+                                        _manager.openConnection();
+                                        _command.ExecuteNonQuery();
+
+                                        dataGridViewВікноПошуку.ReadOnly = true;
+
+                                        if (_command.ExecuteNonQuery() != 1)
+                                            changed = false;
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Помилка роботи з базою даних !");
+                                    }
+                                }
+                            }
+                            else
+                            {
+
+                                string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                    "name = '" + name + "', " +
+                                    "surname = '" + surname + "', " +
+                                    "sex = '" + sex + "', " +
+                                    "village = '" + village + "', " +
+                                    "street = '" + street + "', " +
+                                    "numb_of_house = '" + numb_of_house + "', " +
+                                    "passport = '" + passport + "', " +
+                                    "id_kod = '" + id_kod + "', " +
+                                    "phone_numb = '" + phone_numb + "', " +
+                                    "status = '" + status + "', " +
+                                    "email = '" + email + "' " +
+                                    "WHERE people_id = " + people_id;
+                                MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                try
+                                {
+                                    _manager.openConnection();
+                                    _command.ExecuteNonQuery();
+                                    changed = true;
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка роботи з базою даних1 !");
+                                    break;
+                                }
+                                finally
+                                {
+                                    _manager.closeConnection();
+
+                                }
+                            }
+                        }
+                        else
+                            MessageBox.Show("Не всі поля заповнені !");
+                    }
+                    if (changed)
+                        MessageBox.Show("Дані змінено !");
+                    else
+                        MessageBox.Show("Не всі дані змінено !");
+
+                    dataGridViewВікноПошуку.ReadOnly = true;
+                    _manager.closeConnection();
+                }
+            }
+
+            else
+                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
+
+        }
+
+        private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (e.ColumnIndex == 14)
+                {
+                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
+
+
+                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
+                       MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ConnectionClass _manager = new ConnectionClass();
+                        _manager.openConnection();
+
+                        string com = "DELETE FROM peoples WHERE people_id = '" + row.Cells["people_id"].Value + "'";
+
+                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+                        if (dell.ExecuteNonQuery() == 1)
+                        {
+                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+                            MessageBox.Show("Дані успішно видалено ");
+                            _manager.closeConnection();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Помилка роботи з базою даних !!!");
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            }
+
+        }
+
     }
 }

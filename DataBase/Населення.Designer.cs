@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Населення));
             this.labelДодати = new System.Windows.Forms.Label();
-            this.labelРедагувати = new System.Windows.Forms.Label();
             this.labelПошук = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,7 +37,6 @@
             this.labelВивідДаних = new System.Windows.Forms.Label();
             this.rjButton1 = new DataBase.RJButton();
             this.ButtonПовернутись = new DataBase.RJButton();
-            this.rjButtonРедагувати = new DataBase.RJButton();
             this.rjButtonПовернутись = new DataBase.RJButton();
             this.rjButtonПошук = new DataBase.RJButton();
             this.rjButtonДодати = new DataBase.RJButton();
@@ -58,31 +56,18 @@
             this.labelДодати.TabIndex = 4;
             this.labelДодати.Text = "Додати";
             // 
-            // labelРедагувати
-            // 
-            this.labelРедагувати.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.labelРедагувати.AutoSize = true;
-            this.labelРедагувати.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelРедагувати.ForeColor = System.Drawing.Color.Black;
-            this.labelРедагувати.Location = new System.Drawing.Point(476, 232);
-            this.labelРедагувати.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.labelРедагувати.Name = "labelРедагувати";
-            this.labelРедагувати.Size = new System.Drawing.Size(198, 46);
-            this.labelРедагувати.TabIndex = 5;
-            this.labelРедагувати.Text = "Редагувати";
-            // 
             // labelПошук
             // 
             this.labelПошук.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labelПошук.AutoSize = true;
             this.labelПошук.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelПошук.ForeColor = System.Drawing.Color.Black;
-            this.labelПошук.Location = new System.Drawing.Point(898, 232);
+            this.labelПошук.Location = new System.Drawing.Point(504, 232);
             this.labelПошук.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelПошук.Name = "labelПошук";
-            this.labelПошук.Size = new System.Drawing.Size(125, 46);
+            this.labelПошук.Size = new System.Drawing.Size(507, 46);
             this.labelПошук.TabIndex = 6;
-            this.labelПошук.Text = "Пошук";
+            this.labelПошук.Text = "Пошук Редагування Видалення";
             // 
             // menuStrip1
             // 
@@ -154,23 +139,6 @@
             this.ButtonПовернутись.UseVisualStyleBackColor = false;
             this.ButtonПовернутись.Click += new System.EventHandler(this.ButtonПовернутись_Click);
             // 
-            // rjButtonРедагувати
-            // 
-            this.rjButtonРедагувати.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rjButtonРедагувати.BackColor = System.Drawing.Color.Orange;
-            this.rjButtonРедагувати.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButtonРедагувати.BackgroundImage")));
-            this.rjButtonРедагувати.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.rjButtonРедагувати.FlatAppearance.BorderSize = 0;
-            this.rjButtonРедагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtonРедагувати.ForeColor = System.Drawing.Color.White;
-            this.rjButtonРедагувати.Location = new System.Drawing.Point(474, 70);
-            this.rjButtonРедагувати.Margin = new System.Windows.Forms.Padding(2);
-            this.rjButtonРедагувати.Name = "rjButtonРедагувати";
-            this.rjButtonРедагувати.Size = new System.Drawing.Size(160, 160);
-            this.rjButtonРедагувати.TabIndex = 1;
-            this.rjButtonРедагувати.UseVisualStyleBackColor = false;
-            this.rjButtonРедагувати.Click += new System.EventHandler(this.rjButtonРедагувати_Click);
-            // 
             // rjButtonПовернутись
             // 
             this.rjButtonПовернутись.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -196,7 +164,7 @@
             this.rjButtonПошук.FlatAppearance.BorderSize = 0;
             this.rjButtonПошук.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButtonПошук.ForeColor = System.Drawing.Color.White;
-            this.rjButtonПошук.Location = new System.Drawing.Point(874, 70);
+            this.rjButtonПошук.Location = new System.Drawing.Point(627, 70);
             this.rjButtonПошук.Margin = new System.Windows.Forms.Padding(2);
             this.rjButtonПошук.Name = "rjButtonПошук";
             this.rjButtonПошук.Size = new System.Drawing.Size(160, 160);
@@ -230,10 +198,8 @@
             this.Controls.Add(this.labelВивідДаних);
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.ButtonПовернутись);
-            this.Controls.Add(this.rjButtonРедагувати);
             this.Controls.Add(this.rjButtonПовернутись);
             this.Controls.Add(this.labelПошук);
-            this.Controls.Add(this.labelРедагувати);
             this.Controls.Add(this.labelДодати);
             this.Controls.Add(this.rjButtonПошук);
             this.Controls.Add(this.rjButtonДодати);
@@ -255,10 +221,8 @@
         #endregion
 
         private RJButton rjButtonДодати;
-        private RJButton rjButtonРедагувати;
         private RJButton rjButtonПошук;
         private System.Windows.Forms.Label labelДодати;
-        private System.Windows.Forms.Label labelРедагувати;
         private System.Windows.Forms.Label labelПошук;
         private RJButton rjButtonПовернутись;
         private System.Windows.Forms.MenuStrip menuStrip1;

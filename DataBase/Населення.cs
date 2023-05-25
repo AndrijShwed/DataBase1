@@ -38,13 +38,7 @@ namespace DataBase
             form.Show();
         }
 
-        private void rjButtonРедагувати_Click(object sender, EventArgs e)
-        {
-            ЗмінаДаних form = new ЗмінаДаних();
-            this.Hide();
-            form.Show();
-        }
-
+       
         private void rjButtonДодати_Click(object sender, EventArgs e)
         {
             Додати form = new Додати();

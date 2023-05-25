@@ -120,13 +120,7 @@
             this.оновитиДаніToolStripMenuItem.Text = "Оновити дані";
             this.оновитиДаніToolStripMenuItem.Click += new System.EventHandler(this.оновитиДаніToolStripMenuItem_Click);
             // 
-            // редагуватиДаніToolStripMenuItem
-            // 
-            this.редагуватиДаніToolStripMenuItem.Name = "редагуватиДаніToolStripMenuItem";
-            this.редагуватиДаніToolStripMenuItem.Size = new System.Drawing.Size(247, 32);
-            this.редагуватиДаніToolStripMenuItem.Text = "Редагувати дані";
-            this.редагуватиДаніToolStripMenuItem.Click += new System.EventHandler(this.редагуватиДаніToolStripMenuItem_Click);
-            // 
+         
             // перейтиУВікноПошукуToolStripMenuItem
             // 
             this.перейтиУВікноПошукуToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
