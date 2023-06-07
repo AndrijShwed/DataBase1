@@ -1256,7 +1256,7 @@ namespace DataBase
                         ConnectionClass _manager = new ConnectionClass();
                         _manager.openConnection();
 
-                        string com = "DELETE FROM peoples WHERE people_id = '" + row.Cells["people_id"].Value + "'";
+                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
 
                         MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
 

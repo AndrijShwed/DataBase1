@@ -21,7 +21,6 @@ C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.AssemblyReference.cache
-C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.SuggestedBindingRedirects.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.ResolveComReference.cache
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Домогосподарства_Пошук.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Properties.Resources.resources
