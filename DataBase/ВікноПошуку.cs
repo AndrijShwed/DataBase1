@@ -623,6 +623,16 @@ namespace DataBase
             {
                 choice = "По даті народження від і до:";
             }
+            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
+                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
+                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
+                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
+                textBoxДатаНародженняДО.Text != "Дата народження до:")
+                )
+            {
+                choice = "По прізвищу, населеному пункту, статі, даті народження від і до:";
+            }
             else
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
@@ -769,6 +779,44 @@ namespace DataBase
                         }
 
                         c.com = "SELECT * FROM people WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                    }
+                    break;
+                case "По прізвищу, населеному пункту, статі, даті народження від і до:":
+                    {
+                        string date_start = Convert.ToString(textBoxДатаНародженняВІД.Text);
+                        string date_end = Convert.ToString(textBoxДатаНародженняДО.Text);
+                        if (textBoxДатаНародженняВІД.Text == "Дата народження від:")
+                        {
+                            date_start = "01/01/1900";
+                        }
+                        if (textBoxДатаНародженняДО.Text == "Дата народження до:")
+                        {
+                            date_end = DateTime.Now.ToShortDateString();
+                        }
+
+
+                        try
+                        {
+                            string s1 = date_start.Substring(0, 2);
+                            string s2 = date_start.Substring(3, 2);
+                            string s3 = date_start.Substring(6, 4);
+                            date_start = s3 + "-" + s2 + "-" + s1;
+                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
+                            string s4 = date_end.Substring(0, 2);
+                            string s5 = date_end.Substring(3, 2);
+                            string s6 = date_end.Substring(6, 4);
+                            date_end = s6 + "-" + s5 + "-" + s4;
+                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
+
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                            break;
+                        }
+
+                        c.com = "SELECT * FROM people WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "' AND LOWER(sex) LIKE '" + sex + "%'" +
+                            "AND LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(village) LIKE '"+ village + "%'";
                     }
                     break;
                 case "По прізвищу і імені":
