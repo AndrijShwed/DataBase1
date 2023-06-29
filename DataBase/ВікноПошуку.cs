@@ -816,7 +816,7 @@ namespace DataBase
                         }
 
                         c.com = "SELECT * FROM people WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "' AND LOWER(sex) LIKE '" + sex + "%'" +
-                            "AND LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(village) LIKE '"+ village + "%'";
+                            "AND LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По прізвищу і імені":
