@@ -222,7 +222,6 @@ namespace DataBase
             string village = Convert.ToString(comboBoxVillage.Text);
             string street = Convert.ToString(comboBoxStreets.Text);
             string numb_of_house = Convert.ToString(comboBoxNumb.Text);
-            SQLCommand c = new SQLCommand();
 
             c.com = "SELECT * FROM houses WHERE village = '" +
                 village + "' AND street = '" + street + "' AND numb_of_house = '" +
