@@ -1441,14 +1441,26 @@ namespace DataBase
                 string Село = dataGridViewВікноПошуку.Rows[i - 1].Cells[6].Value.ToString();    
                 string Вулиця = dataGridViewВікноПошуку.Rows[i - 1].Cells[7].Value.ToString();    
                 string Номер = dataGridViewВікноПошуку.Rows[i - 1].Cells[8].Value.ToString();
-
+                string іпн = dataGridViewВікноПошуку.Rows[i - 1].Cells[10].Value.ToString();
+                string pass = dataGridViewВікноПошуку.Rows[i - 1].Cells[9].Value.ToString();
+                string серія = null;
+                string номПас = null;
+                if (pass != "")
+                {
+                    серія = pass.Substring(0, 2);
+                    номПас = pass.Substring(2, 6);
+                }
+               
                 var items = new Dictionary<string, string>
                 {
                     { "Прізвище Ім'я Побатькові", ПІП },
                     { "dd mm yyyy", date },
+                    { "іденткод", іпн },
+                    { "СЕРІЯ", серія },
+                    { "номПас", номПас },
                     { "Село", Село },
                     { "Вулиця", Вулиця },
-                    { "Номер", Номер }
+                    { "Номербуд", Номер }
                 };
                 string fileName = ПІП;
 
@@ -1457,21 +1469,39 @@ namespace DataBase
                 Object missing = Type.Missing;
 
                 app.Documents.Open(file);
-                foreach(var item in items)
+
+                foreach (var item in items)
                 {
-                    Word.Find find = app.Selection.Find;
-                    find.ClearFormatting();
-                    find.Text = item.Key;
-                    find.Replacement.ClearFormatting();
-                    find.Replacement.Text = item.Value;
+                    if (item.Value == null)
+                    {
+                        Word.Find find = app.Selection.Find;
+                        find.ClearFormatting();
+                        find.Text = item.Key;
+                        find.Replacement.ClearFormatting();
+                        find.Replacement.Text = "______";
 
-                    object replaceAll = Word.WdReplace.wdReplaceAll;
-                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                        object replaceAll = Word.WdReplace.wdReplaceAll;
+                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
+                    }
+                    else
+                    {
+                        Word.Find find = app.Selection.Find;
+                        find.ClearFormatting();
+                        find.Text = item.Key;
+                        find.Replacement.ClearFormatting();
+                        find.Replacement.Text = item.Value;
+
+                        object replaceAll = Word.WdReplace.wdReplaceAll;
+                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    }
                 }
-
-                Object newFileName = Path.GetFileName(fileName);
+                   
+                string newFileName = @"D:\Картки\Картки_П_О\"+fileName+".doc";
                 app.ActiveDocument.SaveAs2(newFileName);
                 app.ActiveDocument.Close();
                 app.Quit();
