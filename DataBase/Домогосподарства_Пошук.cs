@@ -36,7 +36,7 @@ namespace DataBase
             this.dataGridViewДомогосподарства_Пошук.EnableHeadersVisualStyles = false;
 
             var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
+            column1.HeaderText = "Id";
             column1.Width = 55;
             column1.Name = "idhouses";
             column1.Frozen = true;
@@ -173,7 +173,7 @@ namespace DataBase
                 case "Рогізно":
                     comboBoxStreets.Items.Add("Шевченка");
                     comboBoxStreets.Items.Add("Ів.Франка");
-                    comboBoxStreets.Items.Add("Лесі Українки");
+                    comboBoxStreets.Items.Add("Л.Українки");
                     comboBoxStreets.Items.Add("Зелена");
                     comboBoxStreets.Items.Add("Садова");
                     comboBoxStreets.Items.Add("Вузька");
@@ -219,17 +219,32 @@ namespace DataBase
 
             _dataH.Clear();
 
-            string village = Convert.ToString(comboBoxVillage.Text);
-            string street = Convert.ToString(comboBoxStreets.Text);
-            string numb_of_house = Convert.ToString(comboBoxNumb.Text);
+            SQLCommand c = new SQLCommand();
 
-            c.com = "SELECT * FROM houses WHERE village = '" +
-                village + "' AND street = '" + street + "' AND numb_of_house = '" +
-                numb_of_house + "'";
+            if (comboBoxNumb.Text != "")
+            {
 
+                string village = Convert.ToString(comboBoxVillage.Text);
+                string street = Convert.ToString(comboBoxStreets.Text);
+                string numb_of_house = Convert.ToString(comboBoxNumb.Text);
+               
 
-            ConnectionClass _manager = new ConnectionClass();
-            MySqlDataReader _reader;
+                c.com = "SELECT * FROM houses WHERE village = '" +
+                    village + "' AND street = '" + street + "' AND numb_of_house = '" +
+                    numb_of_house + "'";
+        }
+            else
+            {
+
+                string village = Convert.ToString(comboBoxVillage.Text);
+                string street = Convert.ToString(comboBoxStreets.Text);
+
+                    c.com = "SELECT * FROM houses WHERE village = '" +
+                    village + "' AND street = '" + street + "'";
+            }
+
+                   ConnectionClass _manager = new ConnectionClass();
+                   MySqlDataReader _reader;
           
             try
             {

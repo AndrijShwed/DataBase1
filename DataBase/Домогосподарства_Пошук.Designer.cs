@@ -73,7 +73,7 @@
             this.dataGridViewДомогосподарства_Пошук.Name = "dataGridViewДомогосподарства_Пошук";
             this.dataGridViewДомогосподарства_Пошук.RowHeadersWidth = 51;
             this.dataGridViewДомогосподарства_Пошук.RowTemplate.Height = 24;
-            this.dataGridViewДомогосподарства_Пошук.Size = new System.Drawing.Size(2025, 456);
+            this.dataGridViewДомогосподарства_Пошук.Size = new System.Drawing.Size(2025, 700);
             this.dataGridViewДомогосподарства_Пошук.TabIndex = 21;
             this.dataGridViewДомогосподарства_Пошук.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewДомогосподарства_Пошук_CellContentClick);
             // 
@@ -164,7 +164,7 @@
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Segoe Script", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(1582, 727);
+            this.rjButton1.Location = new System.Drawing.Point(1670, 910);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(330, 54);
             this.rjButton1.TabIndex = 24;
@@ -264,7 +264,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(1924, 793);
+            this.ClientSize = new System.Drawing.Size(1924, 965);
             this.Controls.Add(this.Редагувати);
             this.Controls.Add(this.Зберегти_зміни);
             this.Controls.Add(this.Очистити);
