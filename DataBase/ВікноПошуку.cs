@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
+using Word = Microsoft.Office.Interop.Word;
 
 
 namespace DataBase
@@ -1427,5 +1429,56 @@ namespace DataBase
 
         }
 
+        private void Картки_Click(object sender, EventArgs e)
+        {
+            for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
+            {
+                string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
+                             + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
+                             + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
+                string dd_mm_yyy = dataGridViewВікноПошуку.Rows[i - 1].Cells[5].Value.ToString();
+                string date = dd_mm_yyy.Substring(0, 10) + "p.";
+                string Село = dataGridViewВікноПошуку.Rows[i - 1].Cells[6].Value.ToString();    
+                string Вулиця = dataGridViewВікноПошуку.Rows[i - 1].Cells[7].Value.ToString();    
+                string Номер = dataGridViewВікноПошуку.Rows[i - 1].Cells[8].Value.ToString();
+
+                var items = new Dictionary<string, string>
+                {
+                    { "Прізвище Ім'я Побатькові", ПІП },
+                    { "dd mm yyyy", date },
+                    { "Село", Село },
+                    { "Вулиця", Вулиця },
+                    { "Номер", Номер }
+                };
+                string fileName = ПІП;
+
+                var app = new Word.Application();
+                Object file = @"D:\Картки\Картка_Шаблон.doc";
+                Object missing = Type.Missing;
+
+                app.Documents.Open(file);
+                foreach(var item in items)
+                {
+                    Word.Find find = app.Selection.Find;
+                    find.ClearFormatting();
+                    find.Text = item.Key;
+                    find.Replacement.ClearFormatting();
+                    find.Replacement.Text = item.Value;
+
+                    object replaceAll = Word.WdReplace.wdReplaceAll;
+                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                }
+
+                Object newFileName = Path.GetFileName(fileName);
+                app.ActiveDocument.SaveAs2(newFileName);
+                app.ActiveDocument.Close();
+                app.Quit();
+
+            }
+
+            MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
+        }
     }
 }
