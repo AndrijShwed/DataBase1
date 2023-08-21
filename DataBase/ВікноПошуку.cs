@@ -438,283 +438,6 @@ namespace DataBase
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
             }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать"  && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" && 
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:" 
-                )
-            {
-                choice = "По прізвищу";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По імені";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По побатькові";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text != "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По статусу";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text != "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По статусу і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу і імені";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По імені і побатькові";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По імені і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу імені і побатькові";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу і побатькові";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text != "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу імені і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text != "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По прізвищу побатькові і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По статі";
-            }
-            else
-             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По статі і населеному пункту";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По прізвищу, даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По прізвищу, населеному пункту, статі, даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По прізвищу, населеному пункту, даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-               ( textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По статі і даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По населеному пункту і даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text != "Стать" && textBoxВулиця.Text == "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text != "Дата народження від:" ||
-                textBoxДатаНародженняДО.Text != "Дата народження до:")
-                )
-            {
-                choice = "По статі, населеному пункту і даті народження від і до:";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text != "Вулиця" &&
-                textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:"
-                )
-            {
-                choice = "По населеному пункту і вулиці";
-            }
-            else
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text != "Населений пункт" &&
-                textBoxСтать.Text == "Стать" && textBoxВулиця.Text != "Вулиця" &&
-                textBoxНомерБудинку.Text != "Номер будинку" && textBoxСтатус.Text == "Статус" &&
-                (textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                textBoxДатаНародженняДО.Text == "Дата народження до:")
-                )
-            {
-                choice = "По населеному пункту, вулиці і номеру будинку";
-            }
-            else
-                choice = "По всіх параметрах";
 
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
@@ -743,10 +466,6 @@ namespace DataBase
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%'";
                     }
-                    break;
-                case "По побатькові":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По населеному пункту":
@@ -763,10 +482,6 @@ namespace DataBase
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(status) LIKE '%" + status + "%'";
                     }
-                    break;
-                case "По статусу і населеному пункту":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(status) LIKE '%" + status + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По даті народження від і до:":
@@ -781,29 +496,8 @@ namespace DataBase
                         {
                             date_end = DateTime.Now.ToShortDateString();
                         }
-                       
-
-                        try
-                        {
-                            string s1 = date_start.Substring(0, 2);
-                            string s2 = date_start.Substring(3, 2);
-                            string s3 = date_start.Substring(6, 4);
-                            date_start = s3 + "-" + s2 + "-" + s1;
-                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
-                            string s4 = date_end.Substring(0, 2);
-                            string s5 = date_end.Substring(3, 2);
-                            string s6 = date_end.Substring(6, 4);
-                            date_end = s6 + "-" + s5 + "-" + s4;
-                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
-
                         }
-                        catch
-                        {
-                            MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
-                            break;
                         }
-
-                        c.com = "SELECT * FROM people WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По прізвищу, даті народження від і до:":
@@ -818,21 +512,6 @@ namespace DataBase
                         {
                             date_end = DateTime.Now.ToShortDateString();
                         }
-
-
-                        try
-                        {
-                            string s1 = date_start.Substring(0, 2);
-                            string s2 = date_start.Substring(3, 2);
-                            string s3 = date_start.Substring(6, 4);
-                            date_start = s3 + "-" + s2 + "-" + s1;
-                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
-                            string s4 = date_end.Substring(0, 2);
-                            string s5 = date_end.Substring(3, 2);
-                            string s6 = date_end.Substring(6, 4);
-                            date_end = s6 + "-" + s5 + "-" + s4;
-                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
-
                         }
                         catch
                         {
@@ -855,29 +534,12 @@ namespace DataBase
                         {
                             date_end = DateTime.Now.ToShortDateString();
                         }
-
-
-                        try
-                        {
-                            string s1 = date_start.Substring(0, 2);
-                            string s2 = date_start.Substring(3, 2);
-                            string s3 = date_start.Substring(6, 4);
-                            date_start = s3 + "-" + s2 + "-" + s1;
-                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
-                            string s4 = date_end.Substring(0, 2);
-                            string s5 = date_end.Substring(3, 2);
-                            string s6 = date_end.Substring(6, 4);
-                            date_end = s6 + "-" + s5 + "-" + s4;
-                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
-
                         }
                         catch
                         {
                             MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
                             break;
                         }
-
-                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%'AND LOWER(village) LIKE '" + village + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По прізвищу, населеному пункту, статі, даті народження від і до:":
@@ -892,21 +554,6 @@ namespace DataBase
                         {
                             date_end = DateTime.Now.ToShortDateString();
                         }
-
-
-                        try
-                        {
-                            string s1 = date_start.Substring(0, 2);
-                            string s2 = date_start.Substring(3, 2);
-                            string s3 = date_start.Substring(6, 4);
-                            date_start = s3 + "-" + s2 + "-" + s1;
-                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
-                            string s4 = date_end.Substring(0, 2);
-                            string s5 = date_end.Substring(3, 2);
-                            string s6 = date_end.Substring(6, 4);
-                            date_end = s6 + "-" + s5 + "-" + s4;
-                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
-
                         }
                         catch
                         {
@@ -927,10 +574,6 @@ namespace DataBase
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
-                    break;
-                case "По прізвищу і населеному пункту":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По імені і побатькові":
@@ -942,34 +585,18 @@ namespace DataBase
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(name) LIKE '" + name + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
-                    break;
-                case "По прізвищу імені і побатькові":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(surname) LIKE '" + surname + "%'";
                     }
                     break;
                 case "По прізвищу імені і населеному пункту":
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(name) LIKE '" + name + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
-                    break;
-                case "По прізвищу побатькові і населеному пункту":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%' AND LOWER(surname) LIKE '" + surname + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
                     break;
                 case "По статі і населеному пункту":
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(sex) LIKE '" + sex + "%' AND LOWER(village) LIKE '" + village + "%'";
                     }
-                    break;
-                case "По статі і даті народження від і до:":
-                    {
-                        string date_start = Convert.ToString(textBoxДатаНародженняВІД.Text);
-                        string date_end = Convert.ToString(textBoxДатаНародженняДО.Text);
-                        if (textBoxДатаНародженняВІД.Text == "Дата народження від:")
-                        {
-                            date_start = "01/01/1900";
                         }
                         if (textBoxДатаНародженняДО.Text == "Дата народження до:")
                         {
@@ -989,12 +616,7 @@ namespace DataBase
                             DateTime date_of_birth2 = Convert.ToDateTime(date_end);
 
                         }
-                        catch
-                        {
-                            MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
-                            break;
                         }
-                        c.com = "SELECT * FROM people WHERE LOWER(sex) LIKE '" + sex + "%' AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                     }
                     break;
                 case "По населеному пункту і даті народження від і до:":
@@ -1043,18 +665,6 @@ namespace DataBase
                         {
                             date_end = DateTime.Now.ToShortDateString();
                         }
-                        try
-                        {
-                            string s1 = date_start.Substring(0, 2);
-                            string s2 = date_start.Substring(3, 2);
-                            string s3 = date_start.Substring(6, 4);
-                            date_start = s3 + "-" + s2 + "-" + s1;
-                            DateTime date_of_birth1 = Convert.ToDateTime(date_start);
-                            string s4 = date_end.Substring(0, 2);
-                            string s5 = date_end.Substring(3, 2);
-                            string s6 = date_end.Substring(6, 4);
-                            date_end = s6 + "-" + s5 + "-" + s4;
-                            DateTime date_of_birth2 = Convert.ToDateTime(date_end);
 
                         }
                         catch
@@ -1069,14 +679,9 @@ namespace DataBase
                     {
                         c.com = "SELECT * FROM people WHERE LOWER(village) LIKE '" + village + "%' AND LOWER(street) LIKE '" + street + "%'";
                     }
-                    break;
-                case "По населеному пункту, вулиці і номеру будинку":
-                    {
-                        c.com = "SELECT * FROM people WHERE LOWER(village) LIKE '" + village + "%' AND LOWER(street) LIKE '" + street + "%' AND numb_of_house = '" + numb_of_house + "'";
                     }
                 break;
 
-            }
             try
             {
                 _manager.openConnection();
