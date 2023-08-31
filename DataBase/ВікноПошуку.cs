@@ -609,12 +609,9 @@ namespace DataBase
                 }
             }
 
-
-
             try
             {
                 _manager.openConnection();
-               // c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                 MySqlCommand _command = new MySqlCommand(c.com,_manager.getConnection());
                 _reader = _command.ExecuteReader();
 
