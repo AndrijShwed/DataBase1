@@ -427,7 +427,7 @@ namespace DataBase
             _data.Clear();
 
             bool mess = false;
-            string choice;
+            
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                    textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
@@ -438,6 +438,7 @@ namespace DataBase
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
             }
+<<<<<<< HEAD
             else
             if (textBoxПрізвище.Text != "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                 textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
@@ -727,6 +728,9 @@ namespace DataBase
             else
                 choice = "По всіх параметрах";
 
+=======
+           
+>>>>>>> 0852d78ebf3ba0f52cc309d7d6a75e375aa8cc84
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -740,10 +744,13 @@ namespace DataBase
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
-           
+            
+            bool first = true;
+            c.com = "SELECT * FROM people ";
 
-            switch (choice)
+            if(textBoxПрізвище.Text != "Прізвище")
             {
+<<<<<<< HEAD
               
                 case "По прізвищу":
                     {
@@ -1125,11 +1132,165 @@ namespace DataBase
                     }
                 break;
 
+=======
+                if(first == true)
+                {
+                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
+                }
+>>>>>>> 0852d78ebf3ba0f52cc309d7d6a75e375aa8cc84
             }
+            if (textBoxІм_я.Text != "Ім'я")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'";
+                }
+            }
+            if (textBoxПобатькові.Text != "Побатькові")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'";
+                }
+            }
+            if (textBoxНаселенийПункт.Text != "Населений пункт")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                }
+            }
+            if (textBoxСтать.Text != "Стать")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'";
+                }
+            }
+            if (textBoxВулиця.Text != "Вулиця")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'";
+                }
+            }
+            if (textBoxНомерБудинку.Text != "Номер будинку")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                }
+            }
+            if (textBoxНаселенийПункт.Text != "Населений пункт")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                }
+            }
+            if (textBoxСтатус.Text != "Статус")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                }
+            }
+            if (textBoxДатаНародженняВІД.Text != "Дата народження від:" || textBoxДатаНародженняДО.Text != "Дата народження до:")
+            {
+                string date_start = Convert.ToString(textBoxДатаНародженняВІД.Text);
+                string date_end = Convert.ToString(textBoxДатаНародженняДО.Text);
+                if (textBoxДатаНародженняВІД.Text == "Дата народження від:")
+                {
+                    date_start = "01/01/1900";
+                }
+                if (textBoxДатаНародженняДО.Text == "Дата народження до:")
+                {
+                    date_end = DateTime.Now.ToShortDateString();
+                }
+
+
+                try
+                {
+                    string s1 = date_start.Substring(0, 2);
+                    string s2 = date_start.Substring(3, 2);
+                    string s3 = date_start.Substring(6, 4);
+                    date_start = s3 + "-" + s2 + "-" + s1;
+                    DateTime date_of_birth1 = Convert.ToDateTime(date_start);
+                    string s4 = date_end.Substring(0, 2);
+                    string s5 = date_end.Substring(3, 2);
+                    string s6 = date_end.Substring(6, 4);
+                    date_end = s6 + "-" + s5 + "-" + s4;
+                    DateTime date_of_birth2 = Convert.ToDateTime(date_end);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                    return;
+                }
+
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                }
+                else
+                {
+                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                }
+            }
+
+
+
             try
             {
                 _manager.openConnection();
-
+               // c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                 MySqlCommand _command = new MySqlCommand(c.com,_manager.getConnection());
                 _reader = _command.ExecuteReader();
 
