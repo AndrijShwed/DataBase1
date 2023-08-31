@@ -600,7 +600,6 @@ namespace DataBase
 
                 if (first)
                 {
-                    first = false;
                     c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                 }
                 else
