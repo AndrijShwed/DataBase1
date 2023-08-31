@@ -428,17 +428,6 @@ namespace DataBase
 
             bool mess = false;
             
-            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
-                   textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
-                   textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
-                   textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                   textBoxДатаНародженняДО.Text == "Дата народження до:" &&
-                   textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" )
-            {
-                MessageBox.Show("Жодне поле пошуку не заповнено !");
-                return;
-            }
-           
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -458,7 +447,9 @@ namespace DataBase
 
             if(textBoxПрізвище.Text != "Прізвище")
             {
-                if(first == true)
+
+              
+                if(first)
                 {
                     c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     first = false;
@@ -467,6 +458,7 @@ namespace DataBase
                 {
                     c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
                 }
+
             }
             if (textBoxІм_я.Text != "Ім'я")
             {
