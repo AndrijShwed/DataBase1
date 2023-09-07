@@ -428,6 +428,19 @@ namespace DataBase
 
             bool mess = false;
             
+
+            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                   textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
+                   textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
+                   textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
+                   textBoxДатаНародженняДО.Text == "Дата народження до:" &&
+                   textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" )
+            {
+                MessageBox.Show("Жодне поле пошуку не заповнено !");
+                return;
+            }
+
+
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -448,8 +461,12 @@ namespace DataBase
             if(textBoxПрізвище.Text != "Прізвище")
             {
 
+
+                if(first == true)
+
               
                 if(first)
+
                 {
                     c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     first = false;
@@ -603,6 +620,7 @@ namespace DataBase
             try
             {
                 _manager.openConnection();
+
                 MySqlCommand _command = new MySqlCommand(c.com,_manager.getConnection());
                 _reader = _command.ExecuteReader();
 
@@ -670,33 +688,38 @@ namespace DataBase
 
         private void buttonExportInExcel_Click(object sender, EventArgs e)
         {
-            string fileName = Convert.ToString(textBoxFileName.Text);
-
-            if (fileName == "")
+            if (textBoxFileName.Text != "Назва файлу")
             {
-                MessageBox.Show("Введіть назву файлу ! ");
+                string fileName = Convert.ToString(textBoxFileName.Text);
+
+                if (fileName == "")
+                {
+                    MessageBox.Show("Введіть назву файлу ! ");
+                }
+                else
+                {
+                    string path = "D:\\БазаДаних\\" + fileName + ".xlsx";
+
+                    Excel.Application exApp = new Excel.Application();
+                    Excel.Workbook workbook = exApp.Workbooks.Add();
+                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+
+                    for (int i = 1; i < dataGridViewВікноПошуку.RowCount + 1; i++)
+                    {
+                        for (int j = 1; j < dataGridViewВікноПошуку.ColumnCount + 1; j++)
+                        {
+                            worksheet.Rows[i].Columns[j] = dataGridViewВікноПошуку.Rows[i - 1].Cells[j - 1].Value;
+                        }
+                    }
+                    exApp.AlertBeforeOverwriting = false;
+                    worksheet.SaveAs(path);
+                    exApp.Quit();
+                }
+
+                MessageBox.Show("Файл збережено на диск D в папку БазаДаних");
             }
             else
-            {
-                string path = "D:\\БазаДаних\\" + fileName + ".xlsx";
-
-                Excel.Application exApp = new Excel.Application();
-                Excel.Workbook workbook = exApp.Workbooks.Add();
-                Excel.Worksheet worksheet = workbook.ActiveSheet;
-
-                for (int i = 1; i < dataGridViewВікноПошуку.RowCount + 1; i++)
-                {
-                    for (int j = 1; j < dataGridViewВікноПошуку.ColumnCount + 1; j++)
-                    {
-                        worksheet.Rows[i].Columns[j] = dataGridViewВікноПошуку.Rows[i - 1].Cells[j - 1].Value;
-                    }
-                }
-                exApp.AlertBeforeOverwriting = false;
-                worksheet.SaveAs(path);
-                exApp.Quit();
-            }
-
-            MessageBox.Show("Файл збережено на диск D в папку БазаДаних");
+                MessageBox.Show("Спочатку введіть назву файлу !!!");
         }
 
         private void textBoxСтатус_Enter(object sender, EventArgs e)
