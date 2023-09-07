@@ -428,6 +428,7 @@ namespace DataBase
 
             bool mess = false;
             
+<<<<<<< HEAD
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                    textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
@@ -439,6 +440,8 @@ namespace DataBase
                 return;
             }
 
+=======
+>>>>>>> c98790dfaaa976c7f33ae8e9ea6787581da1aa47
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -459,7 +462,12 @@ namespace DataBase
             if(textBoxПрізвище.Text != "Прізвище")
             {
 
+<<<<<<< HEAD
                 if(first == true)
+=======
+              
+                if(first)
+>>>>>>> c98790dfaaa976c7f33ae8e9ea6787581da1aa47
                 {
                     c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     first = false;
@@ -602,7 +610,6 @@ namespace DataBase
 
                 if (first)
                 {
-                    first = false;
                     c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                 }
                 else
@@ -611,12 +618,13 @@ namespace DataBase
                 }
             }
 
-
-
             try
             {
                 _manager.openConnection();
+<<<<<<< HEAD
               
+=======
+>>>>>>> c98790dfaaa976c7f33ae8e9ea6787581da1aa47
                 MySqlCommand _command = new MySqlCommand(c.com,_manager.getConnection());
                 _reader = _command.ExecuteReader();
 
