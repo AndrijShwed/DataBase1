@@ -458,7 +458,7 @@ namespace DataBase
 
             if(textBoxПрізвище.Text != "Прізвище")
             {
-                       
+
                 if(first == true)
                 {
                     c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
@@ -468,7 +468,7 @@ namespace DataBase
                 {
                     c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
                 }
->>>>>>> 0852d78ebf3ba0f52cc309d7d6a75e375aa8cc84
+
             }
             if (textBoxІм_я.Text != "Ім'я")
             {
@@ -616,7 +616,7 @@ namespace DataBase
             try
             {
                 _manager.openConnection();
-               // c.com = "SELECT * FROM people WHERE LOWER(lastname) LIKE '" + lastname + "%'";
+              
                 MySqlCommand _command = new MySqlCommand(c.com,_manager.getConnection());
                 _reader = _command.ExecuteReader();
 
