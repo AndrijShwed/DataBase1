@@ -139,6 +139,7 @@
     <Compile Include="ConnectionClass.cs" />
     <Compile Include="RowCountOfRooms.cs" />
     <Compile Include="RowOfDataH.cs" />
+    <Compile Include="RowOfDataAnymals.cs" />
     <Compile Include="RowOfVillageArea.cs" />
     <Compile Include="Домогосподарства_Пошук.cs">
       <SubType>Form</SubType>
@@ -235,6 +236,18 @@
     <Compile Include="Додати.Designer.cs">
       <DependentUpon>Додати.cs</DependentUpon>
     </Compile>
+    <Compile Include="ХудобаТаПтиця.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ХудобаТаПтиця.Designer.cs">
+      <DependentUpon>ХудобаТаПтиця.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ХудобаТаПтицяПошук.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ХудобаТаПтицяПошук.Designer.cs">
+      <DependentUpon>ХудобаТаПтицяПошук.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Домогосподарства_Пошук.resx">
       <DependentUpon>Домогосподарства_Пошук.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +299,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Додати.resx">
       <DependentUpon>Додати.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ХудобаТаПтиця.resx">
+      <DependentUpon>ХудобаТаПтиця.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ХудобаТаПтицяПошук.resx">
+      <DependentUpon>ХудобаТаПтицяПошук.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
