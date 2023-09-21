@@ -586,7 +586,6 @@ namespace DataBase
                     date_end = DateTime.Now.ToShortDateString();
                 }
 
-
                 try
                 {
                     string s1 = date_start.Substring(0, 2);

@@ -36,7 +36,6 @@ namespace DataBase
             lastname = _Прізвище;
             name = _Ім_я;
             surname = _Побатькові;
-            year = _Рік;
             village = _Село;
             anymals = _ВРХ;
             covs = _Корови;
@@ -58,7 +57,6 @@ namespace DataBase
             lastname = _Прізвище;
             name = _Ім_я;
             surname = _Побатькові;
-            year = _Рік;
             village = _Село;
             anymals = _ВРХ;
             covs = _Корови;
