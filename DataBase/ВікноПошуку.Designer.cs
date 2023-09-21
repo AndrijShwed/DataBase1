@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ВікноПошуку));
             this.dataGridViewВікноПошуку = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Картки = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Зберегти_зміни = new DataBase.RJButton();
             this.Редагувати = new DataBase.RJButton();
@@ -40,10 +41,10 @@
             this.buttonОчиститиПоля = new System.Windows.Forms.Button();
             this.textBoxСтатус = new System.Windows.Forms.TextBox();
             this.textBoxНомерБудинку = new System.Windows.Forms.TextBox();
-            this.textBoxДатаНародженняВІД = new System.Windows.Forms.TextBox();
+            this.textBoxВікВІД = new System.Windows.Forms.TextBox();
             this.textBoxВулиця = new System.Windows.Forms.TextBox();
             this.textBoxНаселенийПункт = new System.Windows.Forms.TextBox();
-            this.textBoxДатаНародженняДО = new System.Windows.Forms.TextBox();
+            this.textBoxВікДО = new System.Windows.Forms.TextBox();
             this.textBoxІм_я = new System.Windows.Forms.TextBox();
             this.textBoxПобатькові = new System.Windows.Forms.TextBox();
             this.textBoxСтать = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rjButtonПовернутись = new DataBase.RJButton();
-            this.Картки = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewВікноПошуку)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStripВихід.SuspendLayout();
@@ -89,10 +89,10 @@
             this.groupBox1.Controls.Add(this.buttonОчиститиПоля);
             this.groupBox1.Controls.Add(this.textBoxСтатус);
             this.groupBox1.Controls.Add(this.textBoxНомерБудинку);
-            this.groupBox1.Controls.Add(this.textBoxДатаНародженняВІД);
+            this.groupBox1.Controls.Add(this.textBoxВікВІД);
             this.groupBox1.Controls.Add(this.textBoxВулиця);
             this.groupBox1.Controls.Add(this.textBoxНаселенийПункт);
-            this.groupBox1.Controls.Add(this.textBoxДатаНародженняДО);
+            this.groupBox1.Controls.Add(this.textBoxВікДО);
             this.groupBox1.Controls.Add(this.textBoxІм_я);
             this.groupBox1.Controls.Add(this.textBoxПобатькові);
             this.groupBox1.Controls.Add(this.textBoxСтать);
@@ -108,6 +108,20 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметри пошуку";
+            // 
+            // Картки
+            // 
+            this.Картки.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Картки.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Картки.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.Картки.Location = new System.Drawing.Point(1244, 69);
+            this.Картки.Margin = new System.Windows.Forms.Padding(4);
+            this.Картки.Name = "Картки";
+            this.Картки.Size = new System.Drawing.Size(250, 41);
+            this.Картки.TabIndex = 18;
+            this.Картки.Text = "Картки перв.обл.";
+            this.Картки.UseVisualStyleBackColor = false;
+            this.Картки.Click += new System.EventHandler(this.Картки_Click);
             // 
             // button1
             // 
@@ -218,16 +232,16 @@
             this.textBoxНомерБудинку.Enter += new System.EventHandler(this.textBoxНомерБудинку_Enter);
             this.textBoxНомерБудинку.Leave += new System.EventHandler(this.textBoxНомерБудинку_Leave);
             // 
-            // textBoxДатаНародженняВІД
+            // textBoxВікВІД
             // 
-            this.textBoxДатаНародженняВІД.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxДатаНародженняВІД.Location = new System.Drawing.Point(324, 82);
-            this.textBoxДатаНародженняВІД.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxДатаНародженняВІД.Name = "textBoxДатаНародженняВІД";
-            this.textBoxДатаНародженняВІД.Size = new System.Drawing.Size(220, 34);
-            this.textBoxДатаНародженняВІД.TabIndex = 8;
-            this.textBoxДатаНародженняВІД.Enter += new System.EventHandler(this.textBoxДатаНародженняВІД_Enter);
-            this.textBoxДатаНародженняВІД.Leave += new System.EventHandler(this.textBoxДатаНародженняВІД_Leave);
+            this.textBoxВікВІД.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxВікВІД.Location = new System.Drawing.Point(324, 82);
+            this.textBoxВікВІД.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxВікВІД.Name = "textBoxВікВІД";
+            this.textBoxВікВІД.Size = new System.Drawing.Size(220, 34);
+            this.textBoxВікВІД.TabIndex = 8;
+            this.textBoxВікВІД.Enter += new System.EventHandler(this.textBoxВікВІД_Enter);
+            this.textBoxВікВІД.Leave += new System.EventHandler(this.textBoxВікВІД_Leave);
             // 
             // textBoxВулиця
             // 
@@ -251,16 +265,16 @@
             this.textBoxНаселенийПункт.Enter += new System.EventHandler(this.textBoxНаселенийПункт_Enter);
             this.textBoxНаселенийПункт.Leave += new System.EventHandler(this.textBoxНаселенийПункт_Leave);
             // 
-            // textBoxДатаНародженняДО
+            // textBoxВікДО
             // 
-            this.textBoxДатаНародженняДО.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxДатаНародженняДО.Location = new System.Drawing.Point(550, 82);
-            this.textBoxДатаНародженняДО.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxДатаНародженняДО.Name = "textBoxДатаНародженняДО";
-            this.textBoxДатаНародженняДО.Size = new System.Drawing.Size(220, 34);
-            this.textBoxДатаНародженняДО.TabIndex = 5;
-            this.textBoxДатаНародженняДО.Enter += new System.EventHandler(this.textBoxДатаНародженняДО_Enter);
-            this.textBoxДатаНародженняДО.Leave += new System.EventHandler(this.textBoxДатаНародженняДО_Leave);
+            this.textBoxВікДО.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxВікДО.Location = new System.Drawing.Point(550, 82);
+            this.textBoxВікДО.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxВікДО.Name = "textBoxВікДО";
+            this.textBoxВікДО.Size = new System.Drawing.Size(220, 34);
+            this.textBoxВікДО.TabIndex = 5;
+            this.textBoxВікДО.Enter += new System.EventHandler(this.textBoxВікДО_Enter);
+            this.textBoxВікДО.Leave += new System.EventHandler(this.textBoxВікДО_Leave);
             // 
             // textBoxІм_я
             // 
@@ -430,20 +444,6 @@
             this.rjButtonПовернутись.UseVisualStyleBackColor = false;
             this.rjButtonПовернутись.Click += new System.EventHandler(this.rjButtonПовернутись_Click);
             // 
-            // Картки
-            // 
-            this.Картки.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Картки.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Картки.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.Картки.Location = new System.Drawing.Point(1244, 69);
-            this.Картки.Margin = new System.Windows.Forms.Padding(4);
-            this.Картки.Name = "Картки";
-            this.Картки.Size = new System.Drawing.Size(250, 41);
-            this.Картки.TabIndex = 18;
-            this.Картки.Text = "Картки перв.обл.";
-            this.Картки.UseVisualStyleBackColor = false;
-            this.Картки.Click += new System.EventHandler(this.Картки_Click);
-            // 
             // ВікноПошуку
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -485,10 +485,10 @@
         private System.Windows.Forms.Button buttonОчиститиПоля;
         private System.Windows.Forms.TextBox textBoxСтатус;
         private System.Windows.Forms.TextBox textBoxНомерБудинку;
-        private System.Windows.Forms.TextBox textBoxДатаНародженняВІД;
+        private System.Windows.Forms.TextBox textBoxВікВІД;
         private System.Windows.Forms.TextBox textBoxВулиця;
         private System.Windows.Forms.TextBox textBoxНаселенийПункт;
-        private System.Windows.Forms.TextBox textBoxДатаНародженняДО;
+        private System.Windows.Forms.TextBox textBoxВікДО;
         private System.Windows.Forms.TextBox textBoxІм_я;
         private System.Windows.Forms.TextBox textBoxПобатькові;
         private System.Windows.Forms.TextBox textBoxСтать;

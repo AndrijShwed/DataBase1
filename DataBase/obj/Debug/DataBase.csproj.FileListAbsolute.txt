@@ -42,3 +42,6 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.csproj.CopyComplet
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.pdb
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DataBase.pdb
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаПтиця.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаПтицяПошук.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаПтицяДодати.resources

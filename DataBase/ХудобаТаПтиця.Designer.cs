@@ -154,6 +154,7 @@
             this.rjButtonДодати.Size = new System.Drawing.Size(160, 160);
             this.rjButtonДодати.TabIndex = 12;
             this.rjButtonДодати.UseVisualStyleBackColor = false;
+            this.rjButtonДодати.Click += new System.EventHandler(this.rjButtonДодати_Click);
             // 
             // ХудобаТаПтиця
             // 

@@ -42,11 +42,11 @@ namespace DataBase
             textBoxНаселенийПункт.Text = "Населений пункт";
             textBoxНаселенийПункт.ForeColor = Color.Gray;
 
-            textBoxДатаНародженняВІД.Text = "Дата народження від:";
-            textBoxДатаНародженняВІД.ForeColor = Color.Gray;
+            textBoxВікВІД.Text = "Вік від:";
+            textBoxВікВІД.ForeColor = Color.Gray;
 
-            textBoxДатаНародженняДО.Text = "Дата народження до:";
-            textBoxДатаНародженняДО.ForeColor = Color.Gray;
+            textBoxВікДО.Text = "Вік до:";
+            textBoxВікДО.ForeColor = Color.Gray;
 
             textBoxВулиця.Text = "Вулиця";
             textBoxВулиця.ForeColor = Color.Gray;
@@ -282,41 +282,41 @@ namespace DataBase
             }
         }
 
-        private void textBoxДатаНародженняВІД_Enter(object sender, EventArgs e)
+        private void textBoxВікВІД_Enter(object sender, EventArgs e)
         {
 
-            if (textBoxДатаНародженняВІД.Text == "Дата народження від:")
+            if (textBoxВікВІД.Text == "Вік від:")
             {
-                textBoxДатаНародженняВІД.Text = "";
-                textBoxДатаНародженняВІД.ForeColor = Color.Black;
+                textBoxВікВІД.Text = "";
+                textBoxВікВІД.ForeColor = Color.Black;
             }
         }
 
-        private void textBoxДатаНародженняВІД_Leave(object sender, EventArgs e)
+        private void textBoxВікВІД_Leave(object sender, EventArgs e)
         {
-            if (textBoxДатаНародженняВІД.Text == "")
+            if (textBoxВікВІД.Text == "")
             {
-                textBoxДатаНародженняВІД.Text = "Дата народження від:";
-                textBoxДатаНародженняВІД.ForeColor = Color.Gray;
+                textBoxВікВІД.Text = "Вік від:";
+                textBoxВікВІД.ForeColor = Color.Gray;
             }
         }
 
-        private void textBoxДатаНародженняДО_Enter(object sender, EventArgs e)
+        private void textBoxВікДО_Enter(object sender, EventArgs e)
         {
 
-            if (textBoxДатаНародженняДО.Text == "Дата народження до:")
+            if (textBoxВікДО.Text == "Вік до:")
             {
-                textBoxДатаНародженняДО.Text = "";
-                textBoxДатаНародженняДО.ForeColor = Color.Black;
+                textBoxВікДО.Text = "";
+                textBoxВікДО.ForeColor = Color.Black;
             }
         }
 
-        private void textBoxДатаНародженняДО_Leave(object sender, EventArgs e)
+        private void textBoxВікДО_Leave(object sender, EventArgs e)
         {
-            if (textBoxДатаНародженняДО.Text == "")
+            if (textBoxВікДО.Text == "")
             {
-                textBoxДатаНародженняДО.Text = "Дата народження до:";
-                textBoxДатаНародженняДО.ForeColor = Color.Gray;
+                textBoxВікДО.Text = "Вік до:";
+                textBoxВікДО.ForeColor = Color.Gray;
             }
         }
 
@@ -393,11 +393,11 @@ namespace DataBase
             textBoxНаселенийПункт.Text = "Населений пункт";
             textBoxНаселенийПункт.ForeColor = Color.Gray;
 
-            textBoxДатаНародженняВІД.Text = "Дата народження від:";
-            textBoxДатаНародженняВІД.ForeColor = Color.Gray;
+            textBoxВікВІД.Text = "Вік від:";
+            textBoxВікВІД.ForeColor = Color.Gray;
 
-            textBoxДатаНародженняДО.Text = "Дата народження до:";
-            textBoxДатаНародженняДО.ForeColor = Color.Gray;
+            textBoxВікДО.Text = "Вік до:";
+            textBoxВікДО.ForeColor = Color.Gray;
 
             textBoxВулиця.Text = "Вулиця";
             textBoxВулиця.ForeColor = Color.Gray;
@@ -432,8 +432,8 @@ namespace DataBase
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                    textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
-                   textBoxДатаНародженняВІД.Text == "Дата народження від:" &&
-                   textBoxДатаНародженняДО.Text == "Дата народження до:" &&
+                   textBoxВікВІД.Text == "Вік від:" &&
+                   textBoxВікДО.Text == "Вік до:" &&
                    textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" )
             {
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
@@ -573,17 +573,31 @@ namespace DataBase
                     c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
                 }
             }
-            if (textBoxДатаНародженняВІД.Text != "Дата народження від:" || textBoxДатаНародженняДО.Text != "Дата народження до:")
+            if (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:")
             {
-                string date_start = Convert.ToString(textBoxДатаНародженняВІД.Text);
-                string date_end = Convert.ToString(textBoxДатаНародженняДО.Text);
-                if (textBoxДатаНародженняВІД.Text == "Дата народження від:")
-                {
-                    date_start = "01/01/1900";
-                }
-                if (textBoxДатаНародженняДО.Text == "Дата народження до:")
+                
+                int yearNow = Convert.ToInt32(DateTime.Now.Year);
+                string date_start;
+                string date_end;
+               
+                if (textBoxВікВІД.Text == "Вік від:")
                 {
                     date_end = DateTime.Now.ToShortDateString();
+                }
+                else
+                {
+                    int dateFrom = Convert.ToInt32(textBoxВікВІД.Text);
+                    date_end = "31/12/" + (yearNow - dateFrom);
+                }
+                if (textBoxВікДО.Text == "Вік до:")
+                {
+                    date_start = "01/01/1900";
+                    
+                }
+                else
+                {
+                    int dateTo = Convert.ToInt32(textBoxВікДО.Text);
+                    date_start = "01/01/" + (yearNow - dateTo);
                 }
 
                 try
