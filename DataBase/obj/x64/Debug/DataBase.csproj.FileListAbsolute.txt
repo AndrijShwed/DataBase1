@@ -38,3 +38,5 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.csproj.CoreCom
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.csproj.CopyComplete
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.exe
 C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.pdb
+C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.ХудобаТаПтиця.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\x64\Debug\DataBase.ХудобаТаПтицяПошук.resources

@@ -39,6 +39,8 @@
             this.ButtonПідприємства = new DataBase.RJButton();
             this.ButtonДомогосподарства = new DataBase.RJButton();
             this.ButtonНаселення = new DataBase.RJButton();
+            this.rjButtonДодати = new DataBase.RJButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +58,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(916, 207);
+            this.label3.Location = new System.Drawing.Point(949, 207);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 38);
             this.label3.TabIndex = 6;
@@ -129,7 +131,6 @@
             // 
             // ButtonПідприємства
             // 
-            this.ButtonПідприємства.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonПідприємства.BackColor = System.Drawing.Color.LightPink;
             this.ButtonПідприємства.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonПідприємства.BackgroundImage")));
             this.ButtonПідприємства.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -159,8 +160,6 @@
             // 
             // ButtonНаселення
             // 
-            this.ButtonНаселення.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonНаселення.BackColor = System.Drawing.Color.PaleTurquoise;
             this.ButtonНаселення.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ButtonНаселення.BackgroundImage")));
             this.ButtonНаселення.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -170,9 +169,35 @@
             this.ButtonНаселення.Location = new System.Drawing.Point(520, 44);
             this.ButtonНаселення.Name = "ButtonНаселення";
             this.ButtonНаселення.Size = new System.Drawing.Size(200, 160);
-            this.ButtonНаселення.TabIndex = 8;
+            this.ButtonНаселення.TabIndex = 9;
             this.ButtonНаселення.UseVisualStyleBackColor = false;
             this.ButtonНаселення.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ButtonНаселення_MouseClick);
+            // 
+            // rjButtonДодати
+            // 
+            this.rjButtonДодати.BackColor = System.Drawing.Color.Moccasin;
+            this.rjButtonДодати.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButtonДодати.BackgroundImage")));
+            this.rjButtonДодати.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.rjButtonДодати.FlatAppearance.BorderSize = 0;
+            this.rjButtonДодати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtonДодати.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.rjButtonДодати.Location = new System.Drawing.Point(975, 311);
+            this.rjButtonДодати.Margin = new System.Windows.Forms.Padding(2);
+            this.rjButtonДодати.Name = "rjButtonДодати";
+            this.rjButtonДодати.Size = new System.Drawing.Size(160, 160);
+            this.rjButtonДодати.TabIndex = 14;
+            this.rjButtonДодати.UseVisualStyleBackColor = false;
+            this.rjButtonДодати.Click += new System.EventHandler(this.rjButtonДодати_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(924, 487);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(247, 38);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Худоба та птиця";
             // 
             // Головна
             // 
@@ -180,6 +205,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSkyBlue;
             this.ClientSize = new System.Drawing.Size(1282, 953);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.rjButtonДодати);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ПерейменуванняВулиць);
             this.Controls.Add(this.label2);
@@ -210,5 +237,7 @@
         private System.Windows.Forms.Label label2;
         private ClassLibrary1.RJButton ПерейменуванняВулиць;
         private System.Windows.Forms.Label label5;
+        private RJButton rjButtonДодати;
+        private System.Windows.Forms.Label label6;
     }
 }

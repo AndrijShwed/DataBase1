@@ -46,5 +46,12 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void rjButtonДодати_Click(object sender, EventArgs e)
+        {
+            ХудобаТаПтиця form = new ХудобаТаПтиця();
+            this.Hide();
+            form.Show();
+        }
     }
 }
