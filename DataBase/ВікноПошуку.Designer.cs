@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ВікноПошуку));
             this.dataGridViewВікноПошуку = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBoxM_Year = new System.Windows.Forms.TextBox();
             this.Картки = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.Зберегти_зміни = new DataBase.RJButton();
             this.Редагувати = new DataBase.RJButton();
             this.textBoxFileName = new System.Windows.Forms.TextBox();
@@ -68,7 +68,7 @@
             // dataGridViewВікноПошуку
             // 
             this.dataGridViewВікноПошуку.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewВікноПошуку.Location = new System.Drawing.Point(14, 298);
+            this.dataGridViewВікноПошуку.Location = new System.Drawing.Point(14, 340);
             this.dataGridViewВікноПошуку.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewВікноПошуку.Name = "dataGridViewВікноПошуку";
             this.dataGridViewВікноПошуку.RowHeadersWidth = 51;
@@ -79,8 +79,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxM_Year);
             this.groupBox1.Controls.Add(this.Картки);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Зберегти_зміни);
             this.groupBox1.Controls.Add(this.Редагувати);
             this.groupBox1.Controls.Add(this.textBoxFileName);
@@ -104,10 +104,21 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1499, 204);
+            this.groupBox1.Size = new System.Drawing.Size(1499, 231);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметри пошуку";
+            // 
+            // textBoxM_Year
+            // 
+            this.textBoxM_Year.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxM_Year.Location = new System.Drawing.Point(776, 137);
+            this.textBoxM_Year.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxM_Year.Name = "textBoxM_Year";
+            this.textBoxM_Year.Size = new System.Drawing.Size(220, 34);
+            this.textBoxM_Year.TabIndex = 19;
+            this.textBoxM_Year.Enter += new System.EventHandler(this.textBoxM_Year_Enter);
+            this.textBoxM_Year.Leave += new System.EventHandler(this.textBoxM_Year_Leave);
             // 
             // Картки
             // 
@@ -123,13 +134,6 @@
             this.Картки.UseVisualStyleBackColor = false;
             this.Картки.Click += new System.EventHandler(this.Картки_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            // 
             // Зберегти_зміни
             // 
             this.Зберегти_зміни.BackColor = System.Drawing.Color.OrangeRed;
@@ -137,7 +141,7 @@
             this.Зберегти_зміни.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Зберегти_зміни.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Зберегти_зміни.ForeColor = System.Drawing.Color.White;
-            this.Зберегти_зміни.Location = new System.Drawing.Point(1003, 131);
+            this.Зберегти_зміни.Location = new System.Drawing.Point(550, 178);
             this.Зберегти_зміни.Name = "Зберегти_зміни";
             this.Зберегти_зміни.Size = new System.Drawing.Size(220, 40);
             this.Зберегти_зміни.TabIndex = 17;
@@ -152,7 +156,7 @@
             this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Редагувати.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Редагувати.ForeColor = System.Drawing.Color.White;
-            this.Редагувати.Location = new System.Drawing.Point(777, 133);
+            this.Редагувати.Location = new System.Drawing.Point(325, 178);
             this.Редагувати.Name = "Редагувати";
             this.Редагувати.Size = new System.Drawing.Size(219, 40);
             this.Редагувати.TabIndex = 16;
@@ -339,7 +343,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(13, 262);
+            this.label1.Location = new System.Drawing.Point(15, 298);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(286, 32);
@@ -353,7 +357,7 @@
             this.buttonОчиститиТаблицю.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(100)))), ((int)(((byte)(108)))));
             this.buttonОчиститиТаблицю.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonОчиститиТаблицю.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonОчиститиТаблицю.Location = new System.Drawing.Point(1080, 251);
+            this.buttonОчиститиТаблицю.Location = new System.Drawing.Point(1080, 283);
             this.buttonОчиститиТаблицю.Margin = new System.Windows.Forms.Padding(4);
             this.buttonОчиститиТаблицю.Name = "buttonОчиститиТаблицю";
             this.buttonОчиститиТаблицю.Size = new System.Drawing.Size(425, 44);
@@ -411,7 +415,7 @@
             // textBoxCount
             // 
             this.textBoxCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxCount.Location = new System.Drawing.Point(295, 257);
+            this.textBoxCount.Location = new System.Drawing.Point(305, 292);
             this.textBoxCount.Name = "textBoxCount";
             this.textBoxCount.Size = new System.Drawing.Size(104, 38);
             this.textBoxCount.TabIndex = 17;
@@ -421,7 +425,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.SystemColors.Window;
-            this.label3.Location = new System.Drawing.Point(415, 262);
+            this.label3.Location = new System.Drawing.Point(427, 295);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 32);
             this.label3.TabIndex = 18;
@@ -435,7 +439,7 @@
             this.rjButtonПовернутись.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButtonПовернутись.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rjButtonПовернутись.ForeColor = System.Drawing.Color.White;
-            this.rjButtonПовернутись.Location = new System.Drawing.Point(1280, 560);
+            this.rjButtonПовернутись.Location = new System.Drawing.Point(1280, 858);
             this.rjButtonПовернутись.Margin = new System.Windows.Forms.Padding(4);
             this.rjButtonПовернутись.Name = "rjButtonПовернутись";
             this.rjButtonПовернутись.Size = new System.Drawing.Size(225, 40);
@@ -449,7 +453,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.ClientSize = new System.Drawing.Size(1526, 618);
+            this.ClientSize = new System.Drawing.Size(1526, 876);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.rjButtonПовернутись);
@@ -508,7 +512,7 @@
         private System.Windows.Forms.Label label3;
         private RJButton Зберегти_зміни;
         private RJButton Редагувати;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Картки;
+        private System.Windows.Forms.TextBox textBoxM_Year;
     }
 }

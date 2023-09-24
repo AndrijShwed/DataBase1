@@ -60,6 +60,9 @@ namespace DataBase
             textBoxСтатус.Text = "Статус";
             textBoxСтатус.ForeColor = Color.Gray;
 
+            textBoxM_Year.Text = "Рік зміни статусу";
+            textBoxM_Year.ForeColor = Color.Gray;
+
             textBoxCount.Text = "0";
 
         }
@@ -174,10 +177,9 @@ namespace DataBase
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15= new DataGridViewColumn();
-            column15.HeaderText = "Видалити";
+            column15.HeaderText = "Рік зміни статусу";
             column15.Width = 110;
-            column15.Name = "Видалити";
-            column15.Name = "Видалити";
+            column15.Name = "M_Year";
             column15.Frozen = true;
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -376,6 +378,42 @@ namespace DataBase
             }
         }
 
+        private void textBoxСтатус_Enter(object sender, EventArgs e)
+        {
+            if (textBoxСтатус.Text == "Статус")
+            {
+                textBoxСтатус.Text = "";
+                textBoxСтатус.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxСтатус_Leave(object sender, EventArgs e)
+        {
+            if (textBoxСтатус.Text == "")
+            {
+                textBoxСтатус.Text = "Статус";
+                textBoxСтатус.ForeColor = Color.Gray;
+            }
+        }
+       
+        private void textBoxM_Year_Enter(object sender, EventArgs e)
+        {
+            if (textBoxM_Year.Text == "Рік зміни статусу")
+            {
+                textBoxM_Year.Text = "";
+                textBoxM_Year.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxM_Year_Leave(object sender, EventArgs e)
+        {
+            if (textBoxM_Year.Text == "")
+            {
+                textBoxM_Year.Text = "Рік зміни статусу";
+                textBoxM_Year.ForeColor = Color.Gray;
+            }
+        }
+
         private void buttonОчиститиПоля_Click(object sender, EventArgs e)
         {
             textBoxПрізвище.Text = "Прізвище";
@@ -405,6 +443,9 @@ namespace DataBase
             textBoxСтатус.Text = "Статус";
             textBoxСтатус.ForeColor = Color.Gray;
 
+            textBoxM_Year.Text = "Рік зміни статусу";
+            textBoxСтатус.ForeColor = Color.Gray;
+
             textBoxНомерБудинку.Text = "Номер будинку";
             textBoxНомерБудинку.ForeColor = Color.Gray;
 
@@ -416,7 +457,7 @@ namespace DataBase
         {
             dataGridViewВікноПошуку.Rows.Add(row.people_id, row.lastname, row.name, row.surname, row.sex,
                 row.date_of_birth, row.village, row.street, row.numb_of_house, row.passport,
-                row.id_kod, row.phone_numb, row.status, row.email);
+                row.id_kod, row.phone_numb, row.status, row.email, row.M_Year);
         }
 
         private void button1Пошук_Click(object sender, EventArgs e)
@@ -434,7 +475,9 @@ namespace DataBase
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
                    textBoxВікВІД.Text == "Вік від:" &&
                    textBoxВікДО.Text == "Вік до:" &&
-                   textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" )
+                   textBoxНомерБудинку.Text == "Номер будинку" &&
+                   textBoxСтатус.Text == "Статус" &&
+                   textBoxM_Year.Text == "Рік зміни статусу")
             {
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
@@ -454,26 +497,56 @@ namespace DataBase
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
-            
+           
+
+
             bool first = true;
             c.com = "SELECT * FROM people ";
+            
+            string m = "AND LOWER(status) != 'вибув' " +
+                "AND LOWER(status) != 'не зареєстрований' " +
+                "AND LOWER(status) !=  'помер' " +
+                "AND LOWER(status) !=  'загинув на війні'";
 
-            if(textBoxПрізвище.Text != "Прізвище")
+            if (textBoxСтатус.Text != "Статус")
             {
 
-
-                if(first == true)
-
-              
-                if(first)
-
+                if (first)
                 {
-                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
                     first = false;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                }
+
+            }
+            if(textBoxM_Year.Text != "Рік зміни статусу")
+            {
+                int year = Convert.ToInt32(textBoxM_Year.Text);
+                if (first)
+                {
+                    c.com = c.com + "WHERE year(m_date) = '" + year + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                }
+
+            }
+            if (textBoxПрізвище.Text != "Прізвище")
+            {
+               
+                if(first)
+                {
+                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'" + m;
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'" + m;
                 }
 
             }
@@ -482,11 +555,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'";
+                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'";
+                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'" + m;
                 }
             }
             if (textBoxПобатькові.Text != "Побатькові")
@@ -494,11 +567,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'";
+                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'";
+                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'" + m;
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -506,11 +579,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
                 }
             }
             if (textBoxСтать.Text != "Стать")
@@ -518,11 +591,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'";
+                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'";
+                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'" + m;
                 }
             }
             if (textBoxВулиця.Text != "Вулиця")
@@ -530,11 +603,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'";
+                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'";
+                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'" + m;
                 }
             }
             if (textBoxНомерБудинку.Text != "Номер будинку")
@@ -542,11 +615,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -554,23 +627,26 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
                 }
             }
-            if (textBoxСтатус.Text != "Статус")
+            if (textBoxСтатус.Text != "Статус" && (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:" ||
+                textBoxНаселенийПункт.Text != "Населений пункт" || textBoxНомерБудинку.Text != "Номер будинку" ||
+                textBoxВулиця.Text != "Вулиця" || textBoxСтать.Text != "Стать" || textBoxНаселенийПункт.Text != "Населений пункт" ||
+                textBoxПобатькові.Text != "Побатькові" || textBoxІм_я.Text != "Ім'я" || textBoxПрізвище.Text != "Прізвище"))
             {
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'" + m;
                 }
             }
             if (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:")
@@ -622,11 +698,11 @@ namespace DataBase
 
                 if (first)
                 {
-                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
                 }
             }
 
@@ -643,18 +719,13 @@ namespace DataBase
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
                         _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
                         _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["email"]);
+                        _reader["phone_numb"], _reader["status"], _reader["email"], _reader["m_date"]);
                     _data.Add(row);
+                   
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
                     AddDataGrid(_data[i]);
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Value = "Видалити";
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.BackColor = Color.DarkRed;
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.ForeColor = Color.White;
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                   
-
                     mess = true;
                 }
 
@@ -733,24 +804,6 @@ namespace DataBase
             }
             else
                 MessageBox.Show("Спочатку введіть назву файлу !!!");
-        }
-
-        private void textBoxСтатус_Enter(object sender, EventArgs e)
-        {
-            if (textBoxСтатус.Text == "Статус")
-            {
-                textBoxСтатус.Text = "";
-                textBoxСтатус.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxСтатус_Leave(object sender, EventArgs e)
-        {
-            if (textBoxСтатус.Text == "")
-            {
-                textBoxСтатус.Text = "Статус";
-                textBoxСтатус.ForeColor = Color.Gray;
-            }
         }
 
         private void rjButtonПовернутись_Click(object sender, EventArgs e)
@@ -1068,5 +1121,7 @@ namespace DataBase
 
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
+
+       
     }
 }
