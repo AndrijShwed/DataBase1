@@ -299,8 +299,6 @@ namespace DataBase
 
                                     dataGridViewДодати.Rows.RemoveAt(current);
 
-                                    //dataGridViewДодати.Rows.RemoveAt(i);
-
                                 }
 
                             }
