@@ -882,7 +882,7 @@ namespace DataBase
                             string email = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
                             string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
-                            if (date_of_birth != "дд.мм.рррр")
+                            if (date_of_birth != "дд.мм.рррр" || M_Year != "")
                             {
                                 try
                                 {
@@ -891,7 +891,11 @@ namespace DataBase
                                     string s3 = date_of_birth.Substring(6, 4);
                                     date_of_birth = s3 + '/' + s2 + '/' + s1;
                                     DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
-
+                                    string s4 = M_Year.Substring(0, 2);
+                                    string s5 = M_Year.Substring(3, 2);
+                                    string s6 = M_Year.Substring(6, 4);
+                                    M_Year = s6 + '/' + s5 + '/' + s4;
+                                    DateTime M_Year1 = Convert.ToDateTime(M_Year);
                                 }
                                 catch
                                 {
@@ -919,7 +923,8 @@ namespace DataBase
                                    "id_kod = '" + id_kod + "', " +
                                    "phone_numb = '" + phone_numb + "', " +
                                    "status = '" + status + "', " +
-                                   "email = '" + email + "' " +
+                                   "email = '" + email + "', " +
+                                   "m_date = '" + M_Year + "' " +
                                    "WHERE people_id = " + people_id;
 
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
@@ -936,7 +941,7 @@ namespace DataBase
                                     }
                                     catch
                                     {
-                                        MessageBox.Show("Помилка роботи з базою даних !");
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
                                     }
                                 }
                             }

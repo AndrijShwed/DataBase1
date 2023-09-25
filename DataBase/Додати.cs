@@ -53,7 +53,7 @@ namespace DataBase
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Прізвище";
-            column2.Width = 120;
+            column2.Width = 110;
             column2.Name = "lastname";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
@@ -81,7 +81,7 @@ namespace DataBase
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Дата народження";
-            column6.Width = 120;
+            column6.Width = 110;
             column6.Name = "date_of_birth";
             column6.Frozen = true;
             column6.DefaultCellStyle.Format = "d";
@@ -96,14 +96,14 @@ namespace DataBase
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Вулиця";
-            column8.Width = 120;
+            column8.Width = 110;
             column8.Name = "street";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
 
             var column9 = new DataGridViewColumn();
             column9.HeaderText = "Номер будинку";
-            column9.Width = 100;
+            column9.Width = 90;
             column9.Name = "numb_of_house";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
@@ -117,35 +117,35 @@ namespace DataBase
 
             var column11 = new DataGridViewColumn();
             column11.HeaderText = "Ідент. код";
-            column11.Width = 100;
+            column11.Width = 90;
             column11.Name = "id_kod";
             column11.Frozen = true;
             column11.CellTemplate = new DataGridViewTextBoxCell();
 
             var column12 = new DataGridViewColumn();
             column12.HeaderText = "Номер телефону";
-            column12.Width = 120;
+            column12.Width = 110;
             column12.Name = "phone_numb";
             column12.Frozen = true;
             column12.CellTemplate = new DataGridViewTextBoxCell();
 
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Статус";
-            column13.Width = 100;
+            column13.Width = 90;
             column13.Name = "status";
             column13.Frozen = true;
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Ел. пошта";
-            column14.Width = 120;
+            column14.Width = 110;
             column14.Name = "email";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15 = new DataGridViewColumn();
             column15.HeaderText = "Дата зміни статусу";
-            column15.Width = 120;
+            column15.Width = 110;
             column15.Name = "m_date";
             column15.Frozen = true;
             column15.DefaultCellStyle.Format = "d";
