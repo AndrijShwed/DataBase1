@@ -469,7 +469,6 @@ namespace DataBase
 
             bool mess = false;
             
-
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                    textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
@@ -482,7 +481,6 @@ namespace DataBase
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
             }
-
 
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
@@ -510,7 +508,6 @@ namespace DataBase
 
             if (textBoxСтатус.Text != "Статус")
             {
-
                 if (first)
                 {
                     c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
