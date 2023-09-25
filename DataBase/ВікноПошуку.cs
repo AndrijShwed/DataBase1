@@ -181,6 +181,7 @@ namespace DataBase
             column15.Width = 110;
             column15.Name = "M_Year";
             column15.Frozen = true;
+            column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
@@ -879,10 +880,10 @@ namespace DataBase
                             string phone_numb = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[11].Value);
                             string status = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[12].Value);
                             string email = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+                            string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
                             if (date_of_birth != "дд.мм.рррр")
                             {
-
                                 try
                                 {
                                     string s1 = date_of_birth.Substring(0, 2);

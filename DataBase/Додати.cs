@@ -143,6 +143,14 @@ namespace DataBase
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
+            var column15 = new DataGridViewColumn();
+            column15.HeaderText = "Дата зміни статусу";
+            column15.Width = 120;
+            column15.Name = "m_date";
+            column15.Frozen = true;
+            column15.DefaultCellStyle.Format = "d";
+            column15.CellTemplate = new DataGridViewTextBoxCell();
+
             dataGridViewДодати.Columns.Add(column1);
             dataGridViewДодати.Columns.Add(column2);
             dataGridViewДодати.Columns.Add(column3);
@@ -157,6 +165,7 @@ namespace DataBase
             dataGridViewДодати.Columns.Add(column12);
             dataGridViewДодати.Columns.Add(column13);
             dataGridViewДодати.Columns.Add(column14);
+            dataGridViewДодати.Columns.Add(column15);
 
 
             dataGridViewДодати.AllowUserToAddRows = false;
@@ -238,9 +247,13 @@ namespace DataBase
                     string surname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[3].Value);
                     string sex = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[4].Value);
                     string date_of_birth = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[5].Value);
+                    string m_date = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[14].Value);
                     string s1 = date_of_birth.Substring(0, 2);
                     string s2 = date_of_birth.Substring(3, 2);
                     string s3 = date_of_birth.Substring(6, 4);
+                    string s4 = m_date.Substring(0, 2);
+                    string s5 = m_date.Substring(3, 2);
+                    string s6 = m_date.Substring(6, 4);
 
                     if (lastname != "" && name != "" && surname != "" && sex != "" && date_of_birth != "дд.мм.рррр")
                     {
@@ -263,6 +276,11 @@ namespace DataBase
                         {
                             try
                             {
+                                if(m_date != "")
+                                {
+                                    m_date = s6 + '/' + s5 + '/' + s4;
+                                }
+                                DateTime m_date1 = Convert.ToDateTime(m_date);
 
                                 date_of_birth = s3 + '/' + s2 + '/' + s1;
                                 DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
@@ -273,8 +291,8 @@ namespace DataBase
                                 else
                                 {
 
-                                    string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`)" +
-                                  "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email)";
+                                    string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`,`m_date`)" +
+                                  "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email,@m_date)";
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
 
@@ -292,6 +310,7 @@ namespace DataBase
                                     _command.Parameters.Add("@phone_numb", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
                                     _command.Parameters.Add("@status", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
                                     _command.Parameters.Add("@email", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
+                                    _command.Parameters.Add("@m_date", MySqlDbType.VarChar).Value = m_date;
 
                                     if (_command.ExecuteNonQuery() == 1)
                                         add = true;
