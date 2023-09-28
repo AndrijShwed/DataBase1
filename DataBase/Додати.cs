@@ -137,9 +137,9 @@ namespace DataBase
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
-            column14.HeaderText = "Ел. пошта";
+            column14.HeaderText = "Реєстрація";
             column14.Width = 110;
-            column14.Name = "email";
+            column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -218,6 +218,7 @@ namespace DataBase
             dataGridViewДодати.Rows[rowNumber].Cells[5].Value = "дд.мм.рррр";
             dataGridViewДодати.Rows[rowNumber].Cells[6].Value = comboBoxVillage.Text.ToString();
             dataGridViewДодати.Rows[rowNumber].Cells[7].Value = comboBoxStreets.Text.ToString();
+            dataGridViewДодати.Rows[rowNumber].Cells[14].Value = "дд.мм.рррр";
 
             rowNumber++;
 
@@ -248,6 +249,7 @@ namespace DataBase
                     string sex = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[4].Value);
                     string date_of_birth = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[5].Value);
                     string m_date = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[14].Value);
+                    
                     string s1 = date_of_birth.Substring(0, 2);
                     string s2 = date_of_birth.Substring(3, 2);
                     string s3 = date_of_birth.Substring(6, 4);
@@ -276,48 +278,48 @@ namespace DataBase
                         {
                             try
                             {
-                                if(m_date != "")
-                                {
+                                
                                     m_date = s6 + '/' + s5 + '/' + s4;
-                                DateTime m_date1 = Convert.ToDateTime(m_date);
+                                    DateTime m_date1 = Convert.ToDateTime(m_date);
+                                
+                                    date_of_birth = s3 + '/' + s2 + '/' + s1;
+                                    DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
+                                    if (date_of_birth1 > DateTime.Now)
+                                    {
+                                        MessageBox.Show("Дата народження не може бути новішою за поточну дату !");
+                                    }
+                                    else
+                                    {
 
-                                date_of_birth = s3 + '/' + s2 + '/' + s1;
-                                DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
-                                if (date_of_birth1 > DateTime.Now)
-                                {
-                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !");
-                                }
-                                else
-                                {
-
-                                    string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`email`,`m_date`)" +
-                                  "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@email,@m_date)";
-                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+                                        string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`sex`,`date_of_birth`,`village`,`street`,`numb_of_house`,`passport`,`id_kod`,`phone_numb`,`status`,`registr`,`m_date`)" +
+                                      "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@registr,@m_date)";
+                                        MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
 
 
-                                    _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
-                                    _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
-                                    _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
-                                    _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
-                                    _command.Parameters.Add("@date_of_birth", MySqlDbType.VarChar).Value = date_of_birth;
-                                    _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
-                                    _command.Parameters.Add("@street", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
-                                    _command.Parameters.Add("@numb_of_house", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
-                                    _command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
-                                    _command.Parameters.Add("@id_kod", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
-                                    _command.Parameters.Add("@phone_numb", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
-                                    _command.Parameters.Add("@status", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
-                                    _command.Parameters.Add("@email", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
-                                    _command.Parameters.Add("@m_date", MySqlDbType.VarChar).Value = m_date;
+                                        _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
+                                        _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
+                                        _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
+                                        _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
+                                        _command.Parameters.Add("@date_of_birth", MySqlDbType.VarChar).Value = date_of_birth;
+                                        _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
+                                        _command.Parameters.Add("@street", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
+                                        _command.Parameters.Add("@numb_of_house", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
+                                        _command.Parameters.Add("@passport", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
+                                        _command.Parameters.Add("@id_kod", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
+                                        _command.Parameters.Add("@phone_numb", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
+                                        _command.Parameters.Add("@status", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
+                                        _command.Parameters.Add("@registr", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
+                                        _command.Parameters.Add("@m_date", MySqlDbType.VarChar).Value = m_date;
 
-                                    if (_command.ExecuteNonQuery() == 1)
-                                        add = true;
+                                       if (_command.ExecuteNonQuery() == 1)
+                                            add = true;
 
-                                    dataGridViewДодати.Rows.RemoveAt(current);
+                                        dataGridViewДодати.Rows.RemoveAt(current);
 
-                                }
-
+                                    }
+                                
+                                
                             }
                             catch
                             {

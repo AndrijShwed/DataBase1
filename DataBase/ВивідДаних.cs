@@ -153,7 +153,7 @@ namespace DataBase
         {
             dataGridView1.Rows.Add(row.people_id, row.lastname, row.name, row.surname, row.sex,
                 row.date_of_birth, row.village, row.street, row.numb_of_house, row.passport,
-                row.id_kod, row.phone_numb, row.status, row.email);
+                row.id_kod, row.phone_numb, row.status, row.registr, row.M_Year);
         }
 
         private void ВивідДаних_Shown(object sender, EventArgs e)
@@ -178,7 +178,7 @@ namespace DataBase
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
                         _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
                         _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["email"], _reader["m_date"]);
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
                     _data.Add(row);
                 }
 
@@ -243,7 +243,7 @@ namespace DataBase
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
                         _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
                         _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["email"], _reader["m_date"]);
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
                     _data.Add(row);
                 }
 

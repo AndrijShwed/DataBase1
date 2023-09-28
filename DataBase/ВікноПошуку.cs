@@ -170,9 +170,9 @@ namespace DataBase
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
-            column14.HeaderText = "Ел. пошта";
+            column14.HeaderText = "Рестрація";
             column14.Width = 110;
-            column14.Name = "email";
+            column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -181,6 +181,7 @@ namespace DataBase
             column15.Width = 110;
             column15.Name = "M_Year";
             column15.Frozen = true;
+            column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
@@ -457,7 +458,7 @@ namespace DataBase
         {
             dataGridViewВікноПошуку.Rows.Add(row.people_id, row.lastname, row.name, row.surname, row.sex,
                 row.date_of_birth, row.village, row.street, row.numb_of_house, row.passport,
-                row.id_kod, row.phone_numb, row.status, row.email, row.M_Year);
+                row.id_kod, row.phone_numb, row.status, row.registr, row.M_Year);
         }
 
         private void button1Пошук_Click(object sender, EventArgs e)
@@ -500,11 +501,9 @@ namespace DataBase
 
             bool first = true;
             c.com = "SELECT * FROM people ";
-            
-            string m = "AND LOWER(status) != 'вибув' " +
-                "AND LOWER(status) != 'не зареєстрований' " +
-                "AND LOWER(status) !=  'помер' " +
-                "AND LOWER(status) !=  'загинув на війні'";
+
+            string m = "AND LOWER(registr) = 'так'";
+                
 
             if (textBoxСтатус.Text != "Статус")
             {
@@ -538,12 +537,12 @@ namespace DataBase
                
                 if(first)
                 {
-                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     first = false;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'" + m;
+                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
                 }
 
             }
@@ -716,7 +715,7 @@ namespace DataBase
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
                         _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
                         _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["email"], _reader["m_date"]);
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
                     _data.Add(row);
                    
                 }
@@ -878,7 +877,7 @@ namespace DataBase
                             string id_kod = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[10].Value);
                             string phone_numb = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[11].Value);
                             string status = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[12].Value);
-                            string email = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+                            string registr = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
                             string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
                             if (date_of_birth != "дд.мм.рррр" || M_Year != "")
@@ -922,7 +921,7 @@ namespace DataBase
                                    "id_kod = '" + id_kod + "', " +
                                    "phone_numb = '" + phone_numb + "', " +
                                    "status = '" + status + "', " +
-                                   "email = '" + email + "', " +
+                                   "email = '" + registr + "', " +
                                    "m_date = '" + M_Year + "' " +
                                    "WHERE people_id = " + people_id;
 
@@ -958,7 +957,7 @@ namespace DataBase
                                     "id_kod = '" + id_kod + "', " +
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
-                                    "email = '" + email + "' " +
+                                    "email = '" + registr + "' " +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
@@ -998,49 +997,49 @@ namespace DataBase
 
         }
 
-        private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            user = new User();
+        //private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    user = new User();
 
-            if (user.userName == "A")
-            {
+        //    if (user.userName == "A")
+        //    {
 
-                if (e.ColumnIndex == 14)
-                {
-                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
-
-
-                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        ConnectionClass _manager = new ConnectionClass();
-                        _manager.openConnection();
-
-                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
-
-                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+        //        if (e.ColumnIndex == 14)
+        //        {
+        //            DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
 
 
-                        if (dell.ExecuteNonQuery() == 1)
-                        {
-                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
-                            MessageBox.Show("Дані успішно видалено ");
-                            _manager.closeConnection();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Помилка роботи з базою даних !!!");
-                        }
+        //            if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
+        //               MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //            {
+        //                ConnectionClass _manager = new ConnectionClass();
+        //                _manager.openConnection();
 
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
+        //                string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
 
-        }
+        //                MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+        //                if (dell.ExecuteNonQuery() == 1)
+        //                {
+        //                    dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+        //                    MessageBox.Show("Дані успішно видалено ");
+        //                    _manager.closeConnection();
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Помилка роботи з базою даних !!!");
+        //                }
+
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+        //    }
+
+        //}
 
         private void Картки_Click(object sender, EventArgs e)
         {

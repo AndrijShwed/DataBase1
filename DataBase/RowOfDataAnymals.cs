@@ -8,7 +8,7 @@ namespace DataBase
 {
     class RowOfDataAnymals
     {
-        public object anymalsid { get; set; }
+        public object anymalsId { get; set; }
         public object year { get; set; }
         public object lastname { get; set; }
         public object name { get; set; }
@@ -28,11 +28,11 @@ namespace DataBase
 
         public RowOfDataAnymals() { }
 
-        public RowOfDataAnymals(object _anymalsid, object _Прізвище, object _Ім_я, object _Побатькові,
+        public RowOfDataAnymals(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Село, object _ВРХ, object _Корови, object _Свині,
             object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли)
         {
-            anymalsid = _anymalsid;
+            anymalsId = _anymalsId;
             lastname = _Прізвище;
             name = _Ім_я;
             surname = _Побатькові;
@@ -49,11 +49,11 @@ namespace DataBase
 
         }
 
-        public void DataChange(object _anymalsid, object _Прізвище, object _Ім_я, object _Побатькові,
+        public void DataChange(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Село, object _ВРХ, object _Корови, object _Свині,
             object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли)
         {
-            anymalsid = _anymalsid;
+            anymalsId = _anymalsId;
             lastname = _Прізвище;
             name = _Ім_я;
             surname = _Побатькові;
