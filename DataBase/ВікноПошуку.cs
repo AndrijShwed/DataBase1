@@ -181,7 +181,6 @@ namespace DataBase
             column15.Width = 110;
             column15.Name = "M_Year";
             column15.Frozen = true;
-            column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);

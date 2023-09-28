@@ -279,7 +279,6 @@ namespace DataBase
                                 if(m_date != "")
                                 {
                                     m_date = s6 + '/' + s5 + '/' + s4;
-                                }
                                 DateTime m_date1 = Convert.ToDateTime(m_date);
 
                                 date_of_birth = s3 + '/' + s2 + '/' + s1;
