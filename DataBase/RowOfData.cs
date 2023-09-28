@@ -21,14 +21,15 @@ namespace DataBase
         public object id_kod { get; set; }
         public object phone_numb { get; set; }
         public object status { get; set; }
-        public object email { get; set; }
+        public object registr { get; set; }
+        public object M_Year { get; set; }
       
 
         public RowOfData() { }
 
         public RowOfData(object _people_id, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Стать, object _Дата_народження, object _Село, object _Вулиця, object _Номер_будинку,
-            object _Паспорт, object _Ідент_код, object _Номер_телефону, object _Статус, object _Ел_пошта)
+            object _Паспорт, object _Ідент_код, object _Номер_телефону, object _Статус, object _Реєстрація, object year)
         {
             people_id = _people_id;
             lastname = _Прізвище;
@@ -43,13 +44,13 @@ namespace DataBase
             id_kod = _Ідент_код;
             phone_numb = _Номер_телефону;
             status = _Статус;
-            email = _Ел_пошта;
-           
+            registr = _Реєстрація;
+            M_Year = year;
         }
 
         public void DataChange(object _people_id, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Стать, object _Дата_народження, object _Село, object _Вулиця, object _Номер_будинку,
-            object _Паспорт, object _Ідент_код, object _Номер_телефону, object _Статус, object _Ел_пошта)
+            object _Паспорт, object _Ідент_код, object _Номер_телефону, object _Статус, object _Реєстрація, object year)
         {
             people_id = _people_id;
             lastname = _Прізвище;
@@ -64,8 +65,8 @@ namespace DataBase
             id_kod = _Ідент_код;
             phone_numb = _Номер_телефону;
             status = _Статус;
-            email = _Ел_пошта;
-           
+            registr = _Реєстрація;
+            M_Year = year;
 
         }
 

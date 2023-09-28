@@ -45,7 +45,7 @@ namespace DataBase
             var column0 = new DataGridViewColumn();
             column0.HeaderText = "Номер";
             column0.Width = 55;
-            column0.Name = "anymalsid";
+            column0.Name = "anymalsId";
             column0.Frozen = true;
             column0.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -136,7 +136,7 @@ namespace DataBase
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Бджоли";
             column14.Width = 98;
-            column14.Name = "bees";
+            column14.Name = "beeses";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -242,48 +242,32 @@ namespace DataBase
                         if (a)
                         {
                             current++;
-
                         }
                         else
                         {
                             
-                            
+                              string _commandString = "INSERT INTO `anymals`(`lastname`,`name`,`surname`,`village`,`anymals`,`covs`,`pigs`,`sheeps`,`goats`,`horses`,`birds`,`rabbits`,`beeses`)" +
+                                                     "VALUES(@lastname,@name,@surname,@village,@anymals,@covs,@pigs,@sheeps,@goats,@horses,@birds,@rabbits,@beeses)";
+                              MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
-                               
-                                
+                             _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
+                             _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
+                             _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
+                             _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
+                             _command.Parameters.Add("@anymals", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[5].Value;
+                             _command.Parameters.Add("@covs", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
+                             _command.Parameters.Add("@pigs", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
+                             _command.Parameters.Add("@sheeps", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
+                             _command.Parameters.Add("@goats", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
+                             _command.Parameters.Add("@horses", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
+                             _command.Parameters.Add("@birds", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
+                             _command.Parameters.Add("@rabbits", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
+                             _command.Parameters.Add("@beeses", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
 
-                                    string _commandString = "INSERT INTO `people`(`lastname`,`name`,`surname`,`village`,`anymals`,`covs`,`pigs`,`sheeps`,`goats`,`horses`,`bids`,`rabbits`,`bees`)" +
-                                  "VALUES(@lastname,@name,@surname,@village,@anymals,@covs,@pigs,@sheeps,@goats,@horses,@birds,@rabbits,@bees)";
-                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+                              if (_command.ExecuteNonQuery() == 1)
+                                    add = true;
 
-
-
-                                    _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
-                                    _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
-                                    _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
-                                    _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
-                                    _command.Parameters.Add("@anymals", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[5].Value;
-                                _command.Parameters.Add("@covs", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
-                                    _command.Parameters.Add("@pigs", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
-                                    _command.Parameters.Add("@sheeps", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
-                                    _command.Parameters.Add("@goats", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
-                                    _command.Parameters.Add("@horses", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
-                                    _command.Parameters.Add("@birds", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
-                                    _command.Parameters.Add("@rabbits", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
-                                    _command.Parameters.Add("@bees", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
-
-                                    if (_command.ExecuteNonQuery() == 1)
-                                        add = true;
-
-                                    dataGridViewДодати.Rows.RemoveAt(current);
-
-                                    //dataGridViewДодати.Rows.RemoveAt(i);
-
-                                
-
-                            
-                           
-
+                                dataGridViewДодати.Rows.RemoveAt(current);
                         }
 
                     }

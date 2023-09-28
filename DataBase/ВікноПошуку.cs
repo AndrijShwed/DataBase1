@@ -60,6 +60,9 @@ namespace DataBase
             textBoxСтатус.Text = "Статус";
             textBoxСтатус.ForeColor = Color.Gray;
 
+            textBoxM_Year.Text = "Рік зміни статусу";
+            textBoxM_Year.ForeColor = Color.Gray;
+
             textBoxCount.Text = "0";
 
         }
@@ -167,18 +170,18 @@ namespace DataBase
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
-            column14.HeaderText = "Ел. пошта";
+            column14.HeaderText = "Рестрація";
             column14.Width = 110;
-            column14.Name = "email";
+            column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15= new DataGridViewColumn();
-            column15.HeaderText = "Видалити";
+            column15.HeaderText = "Рік зміни статусу";
             column15.Width = 110;
-            column15.Name = "Видалити";
-            column15.Name = "Видалити";
+            column15.Name = "M_Year";
             column15.Frozen = true;
+            column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
@@ -376,6 +379,42 @@ namespace DataBase
             }
         }
 
+        private void textBoxСтатус_Enter(object sender, EventArgs e)
+        {
+            if (textBoxСтатус.Text == "Статус")
+            {
+                textBoxСтатус.Text = "";
+                textBoxСтатус.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxСтатус_Leave(object sender, EventArgs e)
+        {
+            if (textBoxСтатус.Text == "")
+            {
+                textBoxСтатус.Text = "Статус";
+                textBoxСтатус.ForeColor = Color.Gray;
+            }
+        }
+       
+        private void textBoxM_Year_Enter(object sender, EventArgs e)
+        {
+            if (textBoxM_Year.Text == "Рік зміни статусу")
+            {
+                textBoxM_Year.Text = "";
+                textBoxM_Year.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxM_Year_Leave(object sender, EventArgs e)
+        {
+            if (textBoxM_Year.Text == "")
+            {
+                textBoxM_Year.Text = "Рік зміни статусу";
+                textBoxM_Year.ForeColor = Color.Gray;
+            }
+        }
+
         private void buttonОчиститиПоля_Click(object sender, EventArgs e)
         {
             textBoxПрізвище.Text = "Прізвище";
@@ -405,6 +444,9 @@ namespace DataBase
             textBoxСтатус.Text = "Статус";
             textBoxСтатус.ForeColor = Color.Gray;
 
+            textBoxM_Year.Text = "Рік зміни статусу";
+            textBoxСтатус.ForeColor = Color.Gray;
+
             textBoxНомерБудинку.Text = "Номер будинку";
             textBoxНомерБудинку.ForeColor = Color.Gray;
 
@@ -416,7 +458,7 @@ namespace DataBase
         {
             dataGridViewВікноПошуку.Rows.Add(row.people_id, row.lastname, row.name, row.surname, row.sex,
                 row.date_of_birth, row.village, row.street, row.numb_of_house, row.passport,
-                row.id_kod, row.phone_numb, row.status, row.email);
+                row.id_kod, row.phone_numb, row.status, row.registr, row.M_Year);
         }
 
         private void button1Пошук_Click(object sender, EventArgs e)
@@ -428,18 +470,18 @@ namespace DataBase
 
             bool mess = false;
             
-
             if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
                    textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
                    textBoxВулиця.Text == "Вулиця" && textBoxСтать.Text == "Стать" &&
                    textBoxВікВІД.Text == "Вік від:" &&
                    textBoxВікДО.Text == "Вік до:" &&
-                   textBoxНомерБудинку.Text == "Номер будинку" && textBoxСтатус.Text == "Статус" )
+                   textBoxНомерБудинку.Text == "Номер будинку" &&
+                   textBoxСтатус.Text == "Статус" &&
+                   textBoxM_Year.Text == "Рік зміни статусу")
             {
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
             }
-
 
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
@@ -454,19 +496,46 @@ namespace DataBase
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
-            
+           
+
+
             bool first = true;
             c.com = "SELECT * FROM people ";
 
-            if(textBoxПрізвище.Text != "Прізвище")
+            string m = "AND LOWER(registr) = 'так'";
+                
+
+            if (textBoxСтатус.Text != "Статус")
             {
+                if (first)
+                {
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                }
 
+            }
+            if(textBoxM_Year.Text != "Рік зміни статусу")
+            {
+                int year = Convert.ToInt32(textBoxM_Year.Text);
+                if (first)
+                {
+                    c.com = c.com + "WHERE year(m_date) = '" + year + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                }
 
-                if(first == true)
-
-              
+            }
+            if (textBoxПрізвище.Text != "Прізвище")
+            {
+               
                 if(first)
-
                 {
                     c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
                     first = false;
@@ -482,11 +551,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'";
+                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'";
+                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'" + m;
                 }
             }
             if (textBoxПобатькові.Text != "Побатькові")
@@ -494,11 +563,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'";
+                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'";
+                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'" + m;
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -506,11 +575,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
                 }
             }
             if (textBoxСтать.Text != "Стать")
@@ -518,11 +587,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'";
+                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'";
+                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'" + m;
                 }
             }
             if (textBoxВулиця.Text != "Вулиця")
@@ -530,11 +599,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'";
+                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'";
+                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'" + m;
                 }
             }
             if (textBoxНомерБудинку.Text != "Номер будинку")
@@ -542,11 +611,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
+                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -554,23 +623,26 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
                 }
             }
-            if (textBoxСтатус.Text != "Статус")
+            if (textBoxСтатус.Text != "Статус" && (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:" ||
+                textBoxНаселенийПункт.Text != "Населений пункт" || textBoxНомерБудинку.Text != "Номер будинку" ||
+                textBoxВулиця.Text != "Вулиця" || textBoxСтать.Text != "Стать" || textBoxНаселенийПункт.Text != "Населений пункт" ||
+                textBoxПобатькові.Text != "Побатькові" || textBoxІм_я.Text != "Ім'я" || textBoxПрізвище.Text != "Прізвище"))
             {
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'" + m;
                 }
             }
             if (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:")
@@ -622,11 +694,11 @@ namespace DataBase
 
                 if (first)
                 {
-                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
                 }
                 else
                 {
-                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
+                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
                 }
             }
 
@@ -643,18 +715,13 @@ namespace DataBase
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
                         _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
                         _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["email"]);
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
                     _data.Add(row);
+                   
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
                     AddDataGrid(_data[i]);
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Value = "Видалити";
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.BackColor = Color.DarkRed;
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.ForeColor = Color.White;
-                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                   
-
                     mess = true;
                 }
 
@@ -735,24 +802,6 @@ namespace DataBase
                 MessageBox.Show("Спочатку введіть назву файлу !!!");
         }
 
-        private void textBoxСтатус_Enter(object sender, EventArgs e)
-        {
-            if (textBoxСтатус.Text == "Статус")
-            {
-                textBoxСтатус.Text = "";
-                textBoxСтатус.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxСтатус_Leave(object sender, EventArgs e)
-        {
-            if (textBoxСтатус.Text == "")
-            {
-                textBoxСтатус.Text = "Статус";
-                textBoxСтатус.ForeColor = Color.Gray;
-            }
-        }
-
         private void rjButtonПовернутись_Click(object sender, EventArgs e)
         {
             Населення form = new Населення();
@@ -828,11 +877,11 @@ namespace DataBase
                             string id_kod = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[10].Value);
                             string phone_numb = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[11].Value);
                             string status = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[12].Value);
-                            string email = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+                            string registr = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+                            string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
-                            if (date_of_birth != "дд.мм.рррр")
+                            if (date_of_birth != "дд.мм.рррр" || M_Year != "")
                             {
-
                                 try
                                 {
                                     string s1 = date_of_birth.Substring(0, 2);
@@ -840,7 +889,11 @@ namespace DataBase
                                     string s3 = date_of_birth.Substring(6, 4);
                                     date_of_birth = s3 + '/' + s2 + '/' + s1;
                                     DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
-
+                                    string s4 = M_Year.Substring(0, 2);
+                                    string s5 = M_Year.Substring(3, 2);
+                                    string s6 = M_Year.Substring(6, 4);
+                                    M_Year = s6 + '/' + s5 + '/' + s4;
+                                    DateTime M_Year1 = Convert.ToDateTime(M_Year);
                                 }
                                 catch
                                 {
@@ -868,7 +921,8 @@ namespace DataBase
                                    "id_kod = '" + id_kod + "', " +
                                    "phone_numb = '" + phone_numb + "', " +
                                    "status = '" + status + "', " +
-                                   "email = '" + email + "' " +
+                                   "email = '" + registr + "', " +
+                                   "m_date = '" + M_Year + "' " +
                                    "WHERE people_id = " + people_id;
 
                                     MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
@@ -885,7 +939,7 @@ namespace DataBase
                                     }
                                     catch
                                     {
-                                        MessageBox.Show("Помилка роботи з базою даних !");
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
                                     }
                                 }
                             }
@@ -903,7 +957,7 @@ namespace DataBase
                                     "id_kod = '" + id_kod + "', " +
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
-                                    "email = '" + email + "' " +
+                                    "email = '" + registr + "' " +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
@@ -943,49 +997,49 @@ namespace DataBase
 
         }
 
-        private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            user = new User();
+        //private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    user = new User();
 
-            if (user.userName == "A")
-            {
+        //    if (user.userName == "A")
+        //    {
 
-                if (e.ColumnIndex == 14)
-                {
-                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
-
-
-                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        ConnectionClass _manager = new ConnectionClass();
-                        _manager.openConnection();
-
-                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
-
-                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+        //        if (e.ColumnIndex == 14)
+        //        {
+        //            DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
 
 
-                        if (dell.ExecuteNonQuery() == 1)
-                        {
-                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
-                            MessageBox.Show("Дані успішно видалено ");
-                            _manager.closeConnection();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Помилка роботи з базою даних !!!");
-                        }
+        //            if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
+        //               MessageBoxButtons.YesNo) == DialogResult.Yes)
+        //            {
+        //                ConnectionClass _manager = new ConnectionClass();
+        //                _manager.openConnection();
 
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
+        //                string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
 
-        }
+        //                MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+        //                if (dell.ExecuteNonQuery() == 1)
+        //                {
+        //                    dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+        //                    MessageBox.Show("Дані успішно видалено ");
+        //                    _manager.closeConnection();
+        //                }
+        //                else
+        //                {
+        //                    MessageBox.Show("Помилка роботи з базою даних !!!");
+        //                }
+
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+        //    }
+
+        //}
 
         private void Картки_Click(object sender, EventArgs e)
         {
@@ -1068,5 +1122,7 @@ namespace DataBase
 
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
+
+       
     }
 }
