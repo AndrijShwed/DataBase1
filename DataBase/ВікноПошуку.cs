@@ -528,7 +528,7 @@ namespace DataBase
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(m_date) LIKE '" + year + "%'";
                 }
 
             }
