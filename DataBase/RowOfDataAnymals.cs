@@ -22,7 +22,7 @@ namespace DataBase
         public object horses { get; set; }
         public object birds { get; set; }
         public object rabbits { get; set; }
-        public object bees { get; set; }
+        public object beeses { get; set; }
        
 
 
@@ -45,7 +45,7 @@ namespace DataBase
             horses = _Коні;
             birds = _Птиця;
             rabbits = _Кролі;
-            bees = _Бджоли;
+            beeses = _Бджоли;
 
         }
 
@@ -66,7 +66,7 @@ namespace DataBase
             horses = _Коні;
             birds = _Птиця;
             rabbits = _Кролі;
-            bees = _Бджоли;
+            beeses = _Бджоли;
 
         }
 

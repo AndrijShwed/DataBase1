@@ -30,7 +30,6 @@
         {
             this.buttonОчиститиТаблицю = new System.Windows.Forms.Button();
             this.вихідToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.textBoxFileName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonExportInExcel = new System.Windows.Forms.Button();
@@ -52,10 +51,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Зберегти_зміни = new DataBase.RJButton();
-            this.Редагувати = new DataBase.RJButton();
             this.dataGridViewВікноПошуку = new System.Windows.Forms.DataGridView();
             this.rjButtonПовернутись = new DataBase.RJButton();
+            this.Зберегти_зміни = new DataBase.RJButton();
+            this.Редагувати = new DataBase.RJButton();
             this.menuStripВихід.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewВікноПошуку)).BeginInit();
@@ -75,6 +74,7 @@
             this.buttonОчиститиТаблицю.TabIndex = 22;
             this.buttonОчиститиТаблицю.Text = "Очистити таблицю";
             this.buttonОчиститиТаблицю.UseVisualStyleBackColor = false;
+            this.buttonОчиститиТаблицю.Click += new System.EventHandler(this.buttonОчиститиТаблицю_Click);
             // 
             // вихідToolStripMenuItem
             // 
@@ -83,13 +83,6 @@
             this.вихідToolStripMenuItem.Size = new System.Drawing.Size(114, 32);
             this.вихідToolStripMenuItem.Text = "Головна /";
             this.вихідToolStripMenuItem.Click += new System.EventHandler(this.вихідToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
             // 
             // textBoxFileName
             // 
@@ -136,6 +129,7 @@
             this.buttonОчиститиПоля.TabIndex = 13;
             this.buttonОчиститиПоля.Text = "Очистити поля";
             this.buttonОчиститиПоля.UseVisualStyleBackColor = false;
+            this.buttonОчиститиПоля.Click += new System.EventHandler(this.buttonОчиститиПоля_Click);
             // 
             // населенняToolStripMenuItem
             // 
@@ -172,6 +166,8 @@
             this.textBoxНаселенийПункт.Name = "textBoxНаселенийПункт";
             this.textBoxНаселенийПункт.Size = new System.Drawing.Size(220, 34);
             this.textBoxНаселенийПункт.TabIndex = 6;
+            this.textBoxНаселенийПункт.Enter += new System.EventHandler(this.textBoxНаселенийПункт_Enter);
+            this.textBoxНаселенийПункт.Leave += new System.EventHandler(this.textBoxНаселенийПункт_Leave);
             // 
             // textBoxCount
             // 
@@ -221,6 +217,8 @@
             this.textBoxКількістьКорів.Name = "textBoxКількістьКорів";
             this.textBoxКількістьКорів.Size = new System.Drawing.Size(220, 34);
             this.textBoxКількістьКорів.TabIndex = 7;
+            this.textBoxКількістьКорів.Enter += new System.EventHandler(this.textBoxКількістьКорів_Enter);
+            this.textBoxКількістьКорів.Leave += new System.EventHandler(this.textBoxКількістьКорів_Leave);
             // 
             // textBoxІм_я
             // 
@@ -230,6 +228,8 @@
             this.textBoxІм_я.Name = "textBoxІм_я";
             this.textBoxІм_я.Size = new System.Drawing.Size(220, 34);
             this.textBoxІм_я.TabIndex = 4;
+            this.textBoxІм_я.Enter += new System.EventHandler(this.textBoxІм_я_Enter1);
+            this.textBoxІм_я.Leave += new System.EventHandler(this.textBoxІм_я_Leave1);
             // 
             // textBoxПобатькові
             // 
@@ -239,6 +239,8 @@
             this.textBoxПобатькові.Name = "textBoxПобатькові";
             this.textBoxПобатькові.Size = new System.Drawing.Size(220, 34);
             this.textBoxПобатькові.TabIndex = 3;
+            this.textBoxПобатькові.Enter += new System.EventHandler(this.textBoxПобатькові_Enter1);
+            this.textBoxПобатькові.Leave += new System.EventHandler(this.textBoxПобатькові_Leave1);
             // 
             // textBoxПрізвище
             // 
@@ -248,6 +250,8 @@
             this.textBoxПрізвище.Name = "textBoxПрізвище";
             this.textBoxПрізвище.Size = new System.Drawing.Size(220, 34);
             this.textBoxПрізвище.TabIndex = 1;
+            this.textBoxПрізвище.Enter += new System.EventHandler(this.textBoxПрізвище_Enter);
+            this.textBoxПрізвище.Leave += new System.EventHandler(this.textBoxПрізвище_Leave1);
             // 
             // button1Пошук
             // 
@@ -261,6 +265,7 @@
             this.button1Пошук.TabIndex = 0;
             this.button1Пошук.Text = "Пошук ";
             this.button1Пошук.UseVisualStyleBackColor = false;
+            this.button1Пошук.Click += new System.EventHandler(this.button1Пошук_Click);
             // 
             // label3
             // 
@@ -292,7 +297,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.Color.DarkGreen;
             this.groupBox1.Controls.Add(this.buttonОчиститиТаблицю);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.Зберегти_зміни);
             this.groupBox1.Controls.Add(this.Редагувати);
             this.groupBox1.Controls.Add(this.textBoxFileName);
@@ -315,34 +319,6 @@
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметри пошуку";
-            // 
-            // Зберегти_зміни
-            // 
-            this.Зберегти_зміни.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.Зберегти_зміни.FlatAppearance.BorderSize = 0;
-            this.Зберегти_зміни.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Зберегти_зміни.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Зберегти_зміни.ForeColor = System.Drawing.Color.White;
-            this.Зберегти_зміни.Location = new System.Drawing.Point(307, 184);
-            this.Зберегти_зміни.Name = "Зберегти_зміни";
-            this.Зберегти_зміни.Size = new System.Drawing.Size(243, 40);
-            this.Зберегти_зміни.TabIndex = 17;
-            this.Зберегти_зміни.Text = "Зберегти зміни";
-            this.Зберегти_зміни.UseVisualStyleBackColor = false;
-            // 
-            // Редагувати
-            // 
-            this.Редагувати.BackColor = System.Drawing.Color.MediumTurquoise;
-            this.Редагувати.FlatAppearance.BorderSize = 0;
-            this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Редагувати.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Редагувати.ForeColor = System.Drawing.Color.White;
-            this.Редагувати.Location = new System.Drawing.Point(69, 184);
-            this.Редагувати.Name = "Редагувати";
-            this.Редагувати.Size = new System.Drawing.Size(207, 40);
-            this.Редагувати.TabIndex = 16;
-            this.Редагувати.Text = "Редагувати";
-            this.Редагувати.UseVisualStyleBackColor = false;
             // 
             // dataGridViewВікноПошуку
             // 
@@ -374,6 +350,35 @@
             this.rjButtonПовернутись.Text = "<<<  Повернутись";
             this.rjButtonПовернутись.UseVisualStyleBackColor = false;
             // 
+            // Зберегти_зміни
+            // 
+            this.Зберегти_зміни.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.Зберегти_зміни.FlatAppearance.BorderSize = 0;
+            this.Зберегти_зміни.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Зберегти_зміни.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Зберегти_зміни.ForeColor = System.Drawing.Color.White;
+            this.Зберегти_зміни.Location = new System.Drawing.Point(307, 184);
+            this.Зберегти_зміни.Name = "Зберегти_зміни";
+            this.Зберегти_зміни.Size = new System.Drawing.Size(243, 40);
+            this.Зберегти_зміни.TabIndex = 17;
+            this.Зберегти_зміни.Text = "Зберегти зміни";
+            this.Зберегти_зміни.UseVisualStyleBackColor = false;
+            // 
+            // Редагувати
+            // 
+            this.Редагувати.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.Редагувати.FlatAppearance.BorderSize = 0;
+            this.Редагувати.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Редагувати.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Редагувати.ForeColor = System.Drawing.Color.White;
+            this.Редагувати.Location = new System.Drawing.Point(69, 184);
+            this.Редагувати.Name = "Редагувати";
+            this.Редагувати.Size = new System.Drawing.Size(207, 40);
+            this.Редагувати.TabIndex = 16;
+            this.Редагувати.Text = "Редагувати";
+            this.Редагувати.UseVisualStyleBackColor = false;
+            this.Редагувати.Click += new System.EventHandler(this.Редагувати_Click);
+            // 
             // ХудобаТаПтицяПошук
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -404,7 +409,6 @@
 
         private System.Windows.Forms.Button buttonОчиститиТаблицю;
         private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private RJButton Зберегти_зміни;
         private RJButton Редагувати;
         private System.Windows.Forms.TextBox textBoxFileName;

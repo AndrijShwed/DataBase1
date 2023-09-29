@@ -1,17 +1,17 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySqlConnector;
 
 namespace DataBase
 {
     public partial class ХудобаТаПтицяПошук : Form
     {
+        private List<RowOfDataAnymals> _data = new List<RowOfDataAnymals>();
+        private User user;
+
         public ХудобаТаПтицяПошук()
         {
             InitializeComponent();
@@ -145,13 +145,7 @@ namespace DataBase
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column15 = new DataGridViewColumn();
-            column15.HeaderText = "Видалити";
-            column15.Width = 98;
-            column15.Name = "Видалити";
-            column15.Name = "Видалити";
-            column15.Frozen = true;
-            column15.CellTemplate = new DataGridViewTextBoxCell();
+           
 
             dataGridViewВікноПошуку.Columns.Add(column0);
             dataGridViewВікноПошуку.Columns.Add(column2);
@@ -167,12 +161,71 @@ namespace DataBase
             dataGridViewВікноПошуку.Columns.Add(column12);
             dataGridViewВікноПошуку.Columns.Add(column13);
             dataGridViewВікноПошуку.Columns.Add(column14);
-            dataGridViewВікноПошуку.Columns.Add(column15);
+            
 
 
             dataGridViewВікноПошуку.AllowUserToAddRows = false;
             dataGridViewВікноПошуку.ReadOnly = true;
         }
+
+        private void ВікноПошуку_Shown(object sender, EventArgs e)
+        {
+            HeaderOfTheTable();
+            user = new User();
+        }
+        private void textBoxПрізвище_Enter(object sender, EventArgs e)
+        {
+            if (textBoxПрізвище.Text == "Прізвище")
+            {
+                textBoxПрізвище.Text = "";
+                textBoxПрізвище.ForeColor = Color.Black;
+            }
+        }
+        private void textBoxПрізвище_Leave1(object sender, EventArgs e)
+        {
+            if (textBoxПрізвище.Text == "")
+            {
+                textBoxПрізвище.Text = "Прізвище";
+                textBoxПрізвище.ForeColor = Color.Gray;
+            }
+        }
+       
+        private void textBoxІм_я_Enter1(object sender, EventArgs e)
+        {
+            if (textBoxІм_я.Text == "Ім'я")
+            {
+                textBoxІм_я.Text = "";
+                textBoxІм_я.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxІм_я_Leave1(object sender, EventArgs e)
+        {
+            if (textBoxІм_я.Text == "")
+            {
+                textBoxІм_я.Text = "Ім'я";
+                textBoxІм_я.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxПобатькові_Enter1(object sender, EventArgs e)
+        {
+            if (textBoxПобатькові.Text == "Побатькові")
+            {
+                textBoxПобатькові.Text = "";
+                textBoxПобатькові.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxПобатькові_Leave1(object sender, EventArgs e)
+        {
+            if (textBoxПобатькові.Text == "")
+            {
+                textBoxПобатькові.Text = "Побатькові";
+                textBoxПобатькові.ForeColor = Color.Gray;
+            }
+        }
+
         private void вихідЗПрограмиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -191,5 +244,215 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void textBoxНаселенийПункт_Enter(object sender, EventArgs e)
+        {
+            if (textBoxНаселенийПункт.Text == "Населений пункт")
+            {
+                textBoxНаселенийПункт.Text = "";
+                textBoxНаселенийПункт.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxНаселенийПункт_Leave(object sender, EventArgs e)
+        {
+            if (textBoxНаселенийПункт.Text == "")
+            {
+                textBoxНаселенийПункт   .Text = "Населений пункт";
+                textBoxНаселенийПункт.ForeColor = Color.Gray;
+            }
+        }
+
+        private void textBoxКількістьКорів_Enter(object sender, EventArgs e)
+        {
+            if (textBoxКількістьКорів.Text == "Кількість корів")
+            {
+                textBoxКількістьКорів.Text = "";
+                textBoxКількістьКорів.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxКількістьКорів_Leave(object sender, EventArgs e)
+        {
+            if (textBoxКількістьКорів.Text == "")
+            {
+                textBoxКількістьКорів   .Text = "Кількість корів";
+                textBoxКількістьКорів.ForeColor = Color.Gray;
+            }
+        }
+
+        private void buttonОчиститиПоля_Click(object sender, EventArgs e)
+        {
+            textBoxПрізвище.Text = "Прізвище";
+            textBoxПрізвище.ForeColor = Color.Gray;
+
+            textBoxІм_я.Text = "Ім'я";
+            textBoxІм_я.ForeColor = Color.Gray;
+
+            textBoxПобатькові.Text = "Побатькові";
+            textBoxПобатькові.ForeColor = Color.Gray;
+
+            textBoxНаселенийПункт.Text = "Населений пункт";
+            textBoxНаселенийПункт.ForeColor = Color.Gray;
+
+            textBoxКількістьКорів.Text = "Кількість корів";
+            textBoxКількістьКорів.ForeColor = Color.Gray;
+
+        }
+
+        private void AddDataGrid(RowOfDataAnymals row)
+        {
+            dataGridViewВікноПошуку.Rows.Add(row.anymalsId, row.lastname, row.name, row.surname, row.village,
+                row.anymals, row.covs, row.pigs, row.sheeps,
+                row.goats, row.horses, row.birds, row.rabbits, row.beeses);
+        }
+
+        private void button1Пошук_Click(object sender, EventArgs e)
+        {
+            dataGridViewВікноПошуку.DataSource = null;
+            dataGridViewВікноПошуку.Rows.Clear();
+
+            _data.Clear();
+
+            bool mess = false;
+
+            if (textBoxПрізвище.Text == "Прізвище" && textBoxІм_я.Text == "Ім'я" &&
+                  textBoxПобатькові.Text == "Побатькові" && textBoxНаселенийПункт.Text == "Населений пункт" &&
+                  textBoxКількістьКорів.Text == "Кількість корів")
+            {
+                MessageBox.Show("Жодне поле пошуку не заповнено !");
+                return;
+            }
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+
+            SQLCommand c = new SQLCommand();
+
+            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower();
+            string name = Convert.ToString(textBoxІм_я.Text).ToLower();
+            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower();
+            string village = Convert.ToString(textBoxНаселенийПункт.Text).ToLower();
+
+            bool first = true;
+            c.com = "SELECT * FROM anymals ";
+
+            if (textBoxПрізвище.Text != "Прізвище")
+            {
+
+                if (first)
+                {
+                    c.com = c.com + "WHERE LOWER(lastname) LIKE '" + lastname + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(lastname) LIKE '" + lastname + "%'";
+                }
+
+            }
+            if (textBoxІм_я.Text != "Ім'я")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'";
+                }
+            }
+            if (textBoxПобатькові.Text != "Побатькові")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'";
+                }
+            }
+            if (textBoxНаселенийПункт.Text != "Населений пункт")
+            {
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
+                }
+                else
+                {
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
+                }
+            }
+            if (textBoxКількістьКорів.Text != "Кількість корів")
+            {
+                int coveCount = Convert.ToInt32(textBoxКількістьКорів.Text);
+
+                if (first)
+                {
+                    first = false;
+                    c.com = c.com + "WHERE covs ='" + coveCount + "'";
+                }
+                else
+                {
+                    c.com = c.com + " AND covs ='" + coveCount + "'";
+                }
+            }
+            try 
+            {
+                _manager.openConnection();
+
+                MySqlCommand _command = new MySqlCommand(c.com, _manager.getConnection());
+                _reader = _command.ExecuteReader();
+
+
+                while (_reader.Read())
+                {
+                    RowOfDataAnymals row = new RowOfDataAnymals(_reader["anymalsId"], _reader["lastname"], _reader["name"],
+                        _reader["surname"],  _reader["village"], _reader["anymals"], _reader["covs"],
+                        _reader["pigs"], _reader["sheeps"], _reader["goats"], _reader["horses"],
+                        _reader["birds"], _reader["rabbits"], _reader["beeses"]);
+                    _data.Add(row);
+
+                }
+                for (int i = 0; i < _data.Count; i++)
+                {
+                    AddDataGrid(_data[i]);
+                    mess = true;
+                }
+
+                if (mess == false)
+                {
+                    MessageBox.Show("Запис не знайдено !");
+                }
+            }
+            catch 
+            {
+                MessageBox.Show("Помилка роботи з базою даних !");
+            }
+            finally 
+            {
+                _manager.closeConnection(); 
+            }
+            textBoxCount.Text = Convert.ToString(_data.Count);
+
+        }
+
+        private void buttonОчиститиТаблицю_Click(object sender, EventArgs e)
+        {
+            dataGridViewВікноПошуку.Rows.Clear();
+            textBoxCount.Text = "0";
+        }
+
+        private void Редагувати_Click(object sender, EventArgs e)
+        {
+            dataGridViewВікноПошуку.ReadOnly = false;
+            dataGridViewВікноПошуку.Columns[0].ReadOnly = true;
+        }
     }
+   
+   
 }

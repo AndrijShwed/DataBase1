@@ -218,8 +218,6 @@ namespace DataBase
             {
                 try
                 {
-
-
                     _manager.openConnection();
 
                     string lastname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[1].Value);

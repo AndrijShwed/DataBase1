@@ -1,15 +1,8 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -528,7 +521,7 @@ namespace DataBase
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(m_date) LIKE '" + year + "%'";
                 }
 
             }
@@ -921,7 +914,7 @@ namespace DataBase
                                    "id_kod = '" + id_kod + "', " +
                                    "phone_numb = '" + phone_numb + "', " +
                                    "status = '" + status + "', " +
-                                   "email = '" + registr + "', " +
+                                   "registr = '" + registr + "', " +
                                    "m_date = '" + M_Year + "' " +
                                    "WHERE people_id = " + people_id;
 
@@ -957,7 +950,7 @@ namespace DataBase
                                     "id_kod = '" + id_kod + "', " +
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
-                                    "email = '" + registr + "' " +
+                                    "registr = '" + registr + "' " +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
@@ -1123,6 +1116,6 @@ namespace DataBase
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
 
-       
+        
     }
 }
