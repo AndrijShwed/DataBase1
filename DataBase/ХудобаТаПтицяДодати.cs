@@ -144,7 +144,6 @@ namespace DataBase
             column15.HeaderText = "Видалити";
             column15.Width = 98;
             column15.Name = "Видалити";
-            column15.Name = "Видалити";
             column15.Frozen = true;
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
