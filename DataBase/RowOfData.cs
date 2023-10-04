@@ -23,6 +23,7 @@ namespace DataBase
         public object status { get; set; }
         public object registr { get; set; }
         public object M_Year { get; set; }
+        
       
 
         public RowOfData() { }
@@ -46,6 +47,8 @@ namespace DataBase
             status = _Статус;
             registr = _Реєстрація;
             M_Year = year;
+            
+           
         }
 
         public void DataChange(object _people_id, object _Прізвище, object _Ім_я, object _Побатькові,
@@ -67,6 +70,7 @@ namespace DataBase
             status = _Статус;
             registr = _Реєстрація;
             M_Year = year;
+            
 
         }
 

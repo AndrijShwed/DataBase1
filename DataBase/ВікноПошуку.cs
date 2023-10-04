@@ -79,7 +79,7 @@ namespace DataBase
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Прізвище";
-            column2.Width = 120;
+            column2.Width = 110;
             column2.Name = "lastname";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
@@ -93,7 +93,7 @@ namespace DataBase
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Побатькові";
-            column4.Width = 110;
+            column4.Width = 100;
             column4.Name = "surname";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
@@ -107,7 +107,7 @@ namespace DataBase
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Дата народження";
-            column6.Width = 110;
+            column6.Width = 100;
             column6.Name = "date_of_birth";
             column6.Frozen = true;
             column6.DefaultCellStyle.Format = "d";
@@ -122,7 +122,7 @@ namespace DataBase
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Вулиця";
-            column8.Width = 110;
+            column8.Width = 100;
             column8.Name = "street";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
@@ -150,32 +150,39 @@ namespace DataBase
 
             var column12 = new DataGridViewColumn();
             column12.HeaderText = "Номер телефону";
-            column12.Width = 120;
+            column12.Width = 100;
             column12.Name = "phone_numb";
             column12.Frozen = true;
             column12.CellTemplate = new DataGridViewTextBoxCell();
 
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Статус";
-            column13.Width = 90;
+            column13.Width = 80;
             column13.Name = "status";
             column13.Frozen = true;
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Рестрація";
-            column14.Width = 110;
+            column14.Width = 100;
             column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15= new DataGridViewColumn();
             column15.HeaderText = "Рік зміни статусу";
-            column15.Width = 110;
+            column15.Width = 100;
             column15.Name = "M_Year";
             column15.Frozen = true;
             column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
+
+            var column16 = new DataGridViewColumn();
+            column16.HeaderText = "Видалити";
+            column16.Width = 100;
+            column16.Name = "Видалити";
+            column16.Frozen = true;
+             column16.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
             dataGridViewВікноПошуку.Columns.Add(column2);
@@ -192,6 +199,7 @@ namespace DataBase
             dataGridViewВікноПошуку.Columns.Add(column13);
             dataGridViewВікноПошуку.Columns.Add(column14);
             dataGridViewВікноПошуку.Columns.Add(column15);
+            dataGridViewВікноПошуку.Columns.Add(column16);
            
 
             dataGridViewВікноПошуку.AllowUserToAddRows = false;
@@ -714,7 +722,12 @@ namespace DataBase
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
+                   
                     AddDataGrid(_data[i]);
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Value = "Видалити";
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Style.BackColor = Color.DarkRed;
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Style.ForeColor = Color.White;
+                    dataGridViewВікноПошуку.Rows[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     mess = true;
                 }
 
@@ -873,7 +886,7 @@ namespace DataBase
                             string registr = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
                             string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
-                            if (date_of_birth != "дд.мм.рррр" || M_Year != "")
+                            if (date_of_birth != "дд.мм.рррр" && M_Year != "")
                             {
                                 try
                                 {
@@ -990,50 +1003,6 @@ namespace DataBase
 
         }
 
-        //private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    user = new User();
-
-        //    if (user.userName == "A")
-        //    {
-
-        //        if (e.ColumnIndex == 14)
-        //        {
-        //            DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
-
-
-        //            if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
-        //               MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //            {
-        //                ConnectionClass _manager = new ConnectionClass();
-        //                _manager.openConnection();
-
-        //                string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
-
-        //                MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
-
-
-        //                if (dell.ExecuteNonQuery() == 1)
-        //                {
-        //                    dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
-        //                    MessageBox.Show("Дані успішно видалено ");
-        //                    _manager.closeConnection();
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Помилка роботи з базою даних !!!");
-        //                }
-
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-        //    }
-
-        //}
-
         private void Картки_Click(object sender, EventArgs e)
         {
             for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
@@ -1116,6 +1085,48 @@ namespace DataBase
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
 
-        
+        private void dataGridViewВікноПошуку_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (e.ColumnIndex == 15)
+                {
+                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
+
+
+                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
+                       MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ConnectionClass _manager = new ConnectionClass();
+                        _manager.openConnection();
+
+                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
+
+                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+                        if (dell.ExecuteNonQuery() == 1)
+                        {
+                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+                            MessageBox.Show("Дані успішно видалено ");
+                            _manager.closeConnection();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Помилка роботи з базою даних !!!");
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            }
+
+        }
     }
 }

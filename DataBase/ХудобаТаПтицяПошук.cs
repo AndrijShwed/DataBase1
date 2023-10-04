@@ -428,6 +428,7 @@ namespace DataBase
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
+
                     AddDataGrid(_data[i]);
                 
                     mess = true;

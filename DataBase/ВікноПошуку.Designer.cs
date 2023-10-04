@@ -75,6 +75,7 @@
             this.dataGridViewВікноПошуку.RowTemplate.Height = 24;
             this.dataGridViewВікноПошуку.Size = new System.Drawing.Size(1499, 430);
             this.dataGridViewВікноПошуку.TabIndex = 8;
+            this.dataGridViewВікноПошуку.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewВікноПошуку_CellContentClick_1);
             // 
             // groupBox1
             // 
