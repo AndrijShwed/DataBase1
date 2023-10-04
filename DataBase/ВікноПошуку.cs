@@ -722,8 +722,6 @@ namespace DataBase
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
-                    dataGridViewВікноПошуку.Rows[i].Cells[15].Value = "Видалити";
-                    AddDataGrid(_data[i]);
                     
                     mess = true;
                 }
