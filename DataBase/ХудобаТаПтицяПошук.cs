@@ -145,7 +145,14 @@ namespace DataBase
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
-           
+            var column15 = new DataGridViewColumn();
+            column15.HeaderText = "Видалити";
+            column15.Width = 98;
+            column15.Name = "Видалити";
+            column15.Frozen = true;
+            column15.CellTemplate = new DataGridViewTextBoxCell();
+
+
 
             dataGridViewВікноПошуку.Columns.Add(column0);
             dataGridViewВікноПошуку.Columns.Add(column2);
@@ -161,6 +168,7 @@ namespace DataBase
             dataGridViewВікноПошуку.Columns.Add(column12);
             dataGridViewВікноПошуку.Columns.Add(column13);
             dataGridViewВікноПошуку.Columns.Add(column14);
+            dataGridViewВікноПошуку.Columns.Add(column15);
             
 
 
@@ -422,6 +430,7 @@ namespace DataBase
                 {
 
                     AddDataGrid(_data[i]);
+                
                     mess = true;
                 }
 
