@@ -949,6 +949,123 @@ namespace DataBase
                                     }
                                 }
                             }
+                            else if (date_of_birth != "дд.мм.рррр")
+                            {
+                                try
+                                {
+                                    string s1 = date_of_birth.Substring(0, 2);
+                                    string s2 = date_of_birth.Substring(3, 2);
+                                    string s3 = date_of_birth.Substring(6, 4);
+                                    date_of_birth = s3 + '/' + s2 + '/' + s1;
+                                    DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
+                                    M_Year = "1900/01/01";
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                                    break;
+                                }
+
+                                if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
+                                {
+                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
+                                        " У рядку з номером: " + people_id);
+
+                                }
+                                else
+                                {
+                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                   "name = '" + name + "', " +
+                                   "surname = '" + surname + "', " +
+                                   "sex = '" + sex + "', " +
+                                   "date_of_birth = '" + date_of_birth + "', " +
+                                   "village = '" + village + "', " +
+                                   "street = '" + street + "', " +
+                                   "numb_of_house = '" + numb_of_house + "', " +
+                                   "passport = '" + passport + "', " +
+                                   "id_kod = '" + id_kod + "', " +
+                                   "phone_numb = '" + phone_numb + "', " +
+                                   "status = '" + status + "', " +
+                                   "registr = '" + registr + "', " +
+                                   "m_date = '" + M_Year + "' " +
+                                   "WHERE people_id = " + people_id;
+
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                    try
+                                    {
+                                        _manager.openConnection();
+                                        _command.ExecuteNonQuery();
+
+                                        dataGridViewВікноПошуку.ReadOnly = true;
+
+                                        if (_command.ExecuteNonQuery() != 1)
+                                            changed = false;
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
+                                    }
+                                }
+                            }
+                            else if(M_Year != "")
+                            {
+                                try
+                                {
+                                    
+                                    string s4 = M_Year.Substring(0, 2);
+                                    string s5 = M_Year.Substring(3, 2);
+                                    string s6 = M_Year.Substring(6, 4);
+                                    M_Year = s6 + '/' + s5 + '/' + s4;
+                                    DateTime M_Year1 = Convert.ToDateTime(M_Year);
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                                    break;
+                                }
+
+                                if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
+                                {
+                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
+                                        " У рядку з номером: " + people_id);
+
+                                }
+                                else
+                                {
+                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                   "name = '" + name + "', " +
+                                   "surname = '" + surname + "', " +
+                                   "sex = '" + sex + "', " +
+                                   "village = '" + village + "', " +
+                                   "street = '" + street + "', " +
+                                   "numb_of_house = '" + numb_of_house + "', " +
+                                   "passport = '" + passport + "', " +
+                                   "id_kod = '" + id_kod + "', " +
+                                   "phone_numb = '" + phone_numb + "', " +
+                                   "status = '" + status + "', " +
+                                   "registr = '" + registr + "', " +
+                                   "m_date = '" + M_Year + "' " +
+                                   "WHERE people_id = " + people_id;
+
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                    try
+                                    {
+                                        _manager.openConnection();
+                                        _command.ExecuteNonQuery();
+
+                                        dataGridViewВікноПошуку.ReadOnly = true;
+
+                                        if (_command.ExecuteNonQuery() != 1)
+                                            changed = false;
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
+                                    }
+                                }
+                            }
                             else
                             {
 
