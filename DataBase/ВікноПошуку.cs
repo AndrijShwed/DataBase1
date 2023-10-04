@@ -72,7 +72,7 @@ namespace DataBase
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Номер";
-            column1.Width = 55;
+            column1.Width = 50;
             column1.Name = "people_id";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
@@ -129,7 +129,7 @@ namespace DataBase
 
             var column9 = new DataGridViewColumn();
             column9.HeaderText = "Номер будинку";
-            column9.Width = 90;
+            column9.Width = 80;
             column9.Name = "numb_of_house";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
@@ -164,7 +164,7 @@ namespace DataBase
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Рестрація";
-            column14.Width = 100;
+            column14.Width = 90;
             column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
