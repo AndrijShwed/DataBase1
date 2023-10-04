@@ -79,7 +79,7 @@ namespace DataBase
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Прізвище";
-            column2.Width = 120;
+            column2.Width = 110;
             column2.Name = "lastname";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
@@ -93,7 +93,7 @@ namespace DataBase
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Побатькові";
-            column4.Width = 110;
+            column4.Width = 100;
             column4.Name = "surname";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
@@ -107,7 +107,7 @@ namespace DataBase
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Дата народження";
-            column6.Width = 110;
+            column6.Width = 100;
             column6.Name = "date_of_birth";
             column6.Frozen = true;
             column6.DefaultCellStyle.Format = "d";
@@ -122,7 +122,7 @@ namespace DataBase
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Вулиця";
-            column8.Width = 110;
+            column8.Width = 100;
             column8.Name = "street";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
@@ -150,32 +150,39 @@ namespace DataBase
 
             var column12 = new DataGridViewColumn();
             column12.HeaderText = "Номер телефону";
-            column12.Width = 120;
+            column12.Width = 100;
             column12.Name = "phone_numb";
             column12.Frozen = true;
             column12.CellTemplate = new DataGridViewTextBoxCell();
 
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Статус";
-            column13.Width = 90;
+            column13.Width = 80;
             column13.Name = "status";
             column13.Frozen = true;
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Рестрація";
-            column14.Width = 110;
+            column14.Width = 100;
             column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15= new DataGridViewColumn();
             column15.HeaderText = "Рік зміни статусу";
-            column15.Width = 110;
+            column15.Width = 100;
             column15.Name = "M_Year";
             column15.Frozen = true;
             column15.DefaultCellStyle.Format = "d";
             column15.CellTemplate = new DataGridViewTextBoxCell();
+
+            var column16 = new DataGridViewColumn();
+            column16.HeaderText = "Видалити";
+            column16.Width = 100;
+            column16.Name = "Видалити";
+            column16.Frozen = true;
+             column16.CellTemplate = new DataGridViewTextBoxCell();
 
             dataGridViewВікноПошуку.Columns.Add(column1);
             dataGridViewВікноПошуку.Columns.Add(column2);
@@ -192,6 +199,7 @@ namespace DataBase
             dataGridViewВікноПошуку.Columns.Add(column13);
             dataGridViewВікноПошуку.Columns.Add(column14);
             dataGridViewВікноПошуку.Columns.Add(column15);
+            dataGridViewВікноПошуку.Columns.Add(column16);
            
 
             dataGridViewВікноПошуку.AllowUserToAddRows = false;
@@ -714,7 +722,9 @@ namespace DataBase
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
+                    //dataGridViewВікноПошуку.Rows[i].Cells[16].Value = "Видалити";
                     AddDataGrid(_data[i]);
+                    
                     mess = true;
                 }
 
