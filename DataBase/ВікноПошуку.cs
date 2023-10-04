@@ -722,7 +722,12 @@ namespace DataBase
                 }
                 for (int i = 0; i < _data.Count; i++)
                 {
-                    
+                   
+                    AddDataGrid(_data[i]);
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Value = "Видалити";
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Style.BackColor = Color.DarkRed;
+                    dataGridViewВікноПошуку.Rows[i].Cells[15].Style.ForeColor = Color.White;
+                    dataGridViewВікноПошуку.Rows[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     mess = true;
                 }
 
@@ -881,7 +886,7 @@ namespace DataBase
                             string registr = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
                             string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
-                            if (date_of_birth != "дд.мм.рррр" || M_Year != "")
+                            if (date_of_birth != "дд.мм.рррр" && M_Year != "")
                             {
                                 try
                                 {
@@ -998,50 +1003,6 @@ namespace DataBase
 
         }
 
-        //private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    user = new User();
-
-        //    if (user.userName == "A")
-        //    {
-
-        //        if (e.ColumnIndex == 14)
-        //        {
-        //            DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
-
-
-        //            if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
-        //               MessageBoxButtons.YesNo) == DialogResult.Yes)
-        //            {
-        //                ConnectionClass _manager = new ConnectionClass();
-        //                _manager.openConnection();
-
-        //                string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
-
-        //                MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
-
-
-        //                if (dell.ExecuteNonQuery() == 1)
-        //                {
-        //                    dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
-        //                    MessageBox.Show("Дані успішно видалено ");
-        //                    _manager.closeConnection();
-        //                }
-        //                else
-        //                {
-        //                    MessageBox.Show("Помилка роботи з базою даних !!!");
-        //                }
-
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-        //    }
-
-        //}
-
         private void Картки_Click(object sender, EventArgs e)
         {
             for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
@@ -1124,6 +1085,48 @@ namespace DataBase
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
 
-        
+        private void dataGridViewВікноПошуку_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (e.ColumnIndex == 15)
+                {
+                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
+
+
+                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
+                       MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ConnectionClass _manager = new ConnectionClass();
+                        _manager.openConnection();
+
+                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
+
+                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+                        if (dell.ExecuteNonQuery() == 1)
+                        {
+                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+                            MessageBox.Show("Дані успішно видалено ");
+                            _manager.closeConnection();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Помилка роботи з базою даних !!!");
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            }
+
+        }
     }
 }
