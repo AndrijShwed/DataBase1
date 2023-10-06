@@ -72,7 +72,7 @@ namespace DataBase
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Номер";
-            column1.Width = 55;
+            column1.Width = 50;
             column1.Name = "people_id";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
@@ -129,7 +129,7 @@ namespace DataBase
 
             var column9 = new DataGridViewColumn();
             column9.HeaderText = "Номер будинку";
-            column9.Width = 90;
+            column9.Width = 80;
             column9.Name = "numb_of_house";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
@@ -164,7 +164,7 @@ namespace DataBase
 
             var column14 = new DataGridViewColumn();
             column14.HeaderText = "Рестрація";
-            column14.Width = 100;
+            column14.Width = 90;
             column14.Name = "registr";
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
@@ -886,7 +886,7 @@ namespace DataBase
                             string registr = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
                             string M_Year = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[14].Value);
 
-                            if (date_of_birth != "дд.мм.рррр" && M_Year != "")
+                            if (date_of_birth != "" && M_Year != "")
                             {
                                 try
                                 {
@@ -949,6 +949,119 @@ namespace DataBase
                                     }
                                 }
                             }
+                            else if (date_of_birth != "")
+                            {
+                                try
+                                {
+                                    string s1 = date_of_birth.Substring(0, 2);
+                                    string s2 = date_of_birth.Substring(3, 2);
+                                    string s3 = date_of_birth.Substring(6, 4);
+                                    date_of_birth = s3 + '/' + s2 + '/' + s1;
+                                    DateTime date_of_birth1 = Convert.ToDateTime(date_of_birth);
+                                   
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                                    break;
+                                }
+
+                                if (Convert.ToDateTime(date_of_birth) > DateTime.Now)
+                                {
+                                    MessageBox.Show("Дата народження не може бути новішою за поточну дату !" +
+                                        " У рядку з номером: " + people_id);
+
+                                }
+                                else
+                                {
+                                   
+                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                   "name = '" + name + "', " +
+                                   "surname = '" + surname + "', " +
+                                   "sex = '" + sex + "', " +
+                                   "date_of_birth = '" + date_of_birth + "', " +
+                                   "village = '" + village + "', " +
+                                   "street = '" + street + "', " +
+                                   "numb_of_house = '" + numb_of_house + "', " +
+                                   "passport = '" + passport + "', " +
+                                   "id_kod = '" + id_kod + "', " +
+                                   "phone_numb = '" + phone_numb + "', " +
+                                   "status = '" + status + "', " +
+                                   "registr = '" + registr + "', " +
+                                   "m_date = NULL" +
+                                   " WHERE people_id = " + people_id ;
+
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                    try
+                                    {
+                                        _manager.openConnection();
+                                        _command.ExecuteNonQuery();
+
+                                        dataGridViewВікноПошуку.ReadOnly = true;
+
+                                        if (_command.ExecuteNonQuery() != 1)
+                                            changed = false;
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
+                                    }
+                                }
+                            }
+                            else if(M_Year != "")
+                            {
+                                try
+                                {
+                                    
+                                    string s4 = M_Year.Substring(0, 2);
+                                    string s5 = M_Year.Substring(3, 2);
+                                    string s6 = M_Year.Substring(6, 4);
+                                    M_Year = s6 + '/' + s5 + '/' + s4;
+                                    DateTime M_Year1 = Convert.ToDateTime(M_Year);
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Помилка введення дати ! Дату потрібно вводити у форматі - дд.мм.рррр ");
+                                    break;
+                                }
+
+                               
+                                    string _commandString = "UPDATE people SET lastname = '" + lastname + "', " +
+                                   "name = '" + name + "', " +
+                                   "surname = '" + surname + "', " +
+                                   "sex = '" + sex + "', " +
+                                   "date_of_birth = NULL," +
+                                   "village = '" + village + "', " +
+                                   "street = '" + street + "', " +
+                                   "numb_of_house = '" + numb_of_house + "', " +
+                                   "passport = '" + passport + "', " +
+                                   "id_kod = '" + id_kod + "', " +
+                                   "phone_numb = '" + phone_numb + "', " +
+                                   "status = '" + status + "', " +
+                                   "registr = '" + registr + "', " +
+                                   "m_date = '" + M_Year + "'" +
+                                   "WHERE people_id = " + people_id;
+
+                                    MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                                    try
+                                    {
+                                        _manager.openConnection();
+                                        _command.ExecuteNonQuery();
+
+                                        dataGridViewВікноПошуку.ReadOnly = true;
+
+                                        if (_command.ExecuteNonQuery() != 1)
+                                            changed = false;
+                                    }
+                                    catch
+                                    {
+                                        MessageBox.Show("Помилка роботи з базою даних !!");
+                                    }
+                                
+                            }
+                           
                             else
                             {
 
@@ -956,6 +1069,7 @@ namespace DataBase
                                     "name = '" + name + "', " +
                                     "surname = '" + surname + "', " +
                                     "sex = '" + sex + "', " +
+                                    "date_of_birth = NULL ," +
                                     "village = '" + village + "', " +
                                     "street = '" + street + "', " +
                                     "numb_of_house = '" + numb_of_house + "', " +
@@ -963,7 +1077,8 @@ namespace DataBase
                                     "id_kod = '" + id_kod + "', " +
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
-                                    "registr = '" + registr + "' " +
+                                    "registr = '" + registr + "', " +
+                                    "m_date = NULL" +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
