@@ -1078,7 +1078,7 @@ namespace DataBase
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
                                     "registr = '" + registr + "', " +
-                                    "m_date = NULL" +
+                                    "m_date = NULL " +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
