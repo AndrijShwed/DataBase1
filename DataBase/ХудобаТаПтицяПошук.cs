@@ -430,7 +430,11 @@ namespace DataBase
                 {
 
                     AddDataGrid(_data[i]);
-                
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Value = "Видалити";
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.BackColor = Color.DarkRed;
+                    dataGridViewВікноПошуку.Rows[i].Cells[14].Style.ForeColor = Color.White;
+                    dataGridViewВікноПошуку.Rows[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
                     mess = true;
                 }
 
@@ -461,6 +465,140 @@ namespace DataBase
         {
             dataGridViewВікноПошуку.ReadOnly = false;
             dataGridViewВікноПошуку.Columns[0].ReadOnly = true;
+        }
+
+        private void dataGridViewВікноПошуку_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (e.ColumnIndex == 14)
+                {
+                    DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
+
+
+                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["anymalsId"].Value), "Погоджуюсь",
+                       MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        ConnectionClass _manager = new ConnectionClass();
+                        _manager.openConnection();
+
+                        string com = "DELETE FROM anymals WHERE anymalsId = '" + row.Cells["anymalsId"].Value + "'";
+
+                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
+
+
+                        if (dell.ExecuteNonQuery() == 1)
+                        {
+                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
+                            MessageBox.Show("Дані успішно видалено ");
+                            _manager.closeConnection();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Помилка роботи з базою даних !!!");
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            }
+        }
+
+        private void Зберегти_зміни_Click(object sender, EventArgs e)
+        {
+            user = new User();
+
+            if (user.userName == "A")
+            {
+
+                if (dataGridViewВікноПошуку.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Не вибрано рядки для збереження внесених змін. Виберіть рядки !");
+
+                }
+                else
+                {
+                    ConnectionClass _manager = new ConnectionClass();
+
+                    bool changed = true;
+
+                    for (int i = 0; i < dataGridViewВікноПошуку.SelectedRows.Count; i++)
+                    {
+
+                        if (Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value) != "" &&
+                            Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value) != "")
+
+                        {
+                            string anymalsId = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[0].Value);
+                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value);
+                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value);
+                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value);
+                            string village = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value);
+                            int anymals = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
+                            int covs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
+                            int pigs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[7].Value);
+                            int sheeps = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[8].Value);
+                            int goats = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[9].Value);
+                            int horses = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[10].Value);
+                            int birds = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[11].Value);
+                            int rabbits = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[12].Value);
+                            int beeses = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[13].Value);
+                            
+                            string _commandString = "UPDATE anymals SET lastname = '" + lastname + "', " +
+                           "name = '" + name + "', " +
+                           "surname = '" + surname + "', " +
+                           "anymals = '" + anymals + "', " +
+                           "covs = '" + covs + "', " +
+                           "village = '" + village + "', " +
+                           "pigs = '" + pigs + "', " +
+                           "sheeps = '" + sheeps + "', " +
+                           "goats = '" + goats + "', " +
+                           "horses = '" + horses + "', " +
+                           "birds = '" + birds + "', " +
+                           "rabbits = '" + rabbits + "', " +
+                           "beeses = '" + beeses + "' " +
+                           "WHERE anymalsId = " + anymalsId;
+
+                            MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
+
+                            try
+                            {
+                                _manager.openConnection();
+                                _command.ExecuteNonQuery();
+
+                                dataGridViewВікноПошуку.ReadOnly = true;
+
+                                if (_command.ExecuteNonQuery() != 1)
+                                    changed = false;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Помилка роботи з базою даних !!");
+                            }
+
+                        }
+                        else
+                            MessageBox.Show("Не всі поля заповнені !");
+                    }
+                    if (changed)
+                        MessageBox.Show("Дані змінено !");
+                    else
+                        MessageBox.Show("Не всі дані змінено !");
+
+                    dataGridViewВікноПошуку.ReadOnly = true;
+                    _manager.closeConnection();
+                }
+            }
+            else
+                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
         }
     }
    

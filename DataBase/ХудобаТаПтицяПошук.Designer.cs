@@ -333,6 +333,7 @@
             this.dataGridViewВікноПошуку.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewВікноПошуку.Size = new System.Drawing.Size(1705, 430);
             this.dataGridViewВікноПошуку.TabIndex = 19;
+            this.dataGridViewВікноПошуку.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewВікноПошуку_CellContentClick);
             // 
             // rjButtonПовернутись
             // 
@@ -363,6 +364,7 @@
             this.Зберегти_зміни.TabIndex = 17;
             this.Зберегти_зміни.Text = "Зберегти зміни";
             this.Зберегти_зміни.UseVisualStyleBackColor = false;
+            this.Зберегти_зміни.Click += new System.EventHandler(this.Зберегти_зміни_Click);
             // 
             // Редагувати
             // 

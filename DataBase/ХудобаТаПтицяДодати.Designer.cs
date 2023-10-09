@@ -114,8 +114,8 @@
             // 
             this.населенняToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.населенняToolStripMenuItem.Name = "населенняToolStripMenuItem";
-            this.населенняToolStripMenuItem.Size = new System.Drawing.Size(132, 32);
-            this.населенняToolStripMenuItem.Text = "Населення/";
+            this.населенняToolStripMenuItem.Size = new System.Drawing.Size(183, 32);
+            this.населенняToolStripMenuItem.Text = "Худоба та птиця/";
             this.населенняToolStripMenuItem.Click += new System.EventHandler(this.населенняToolStripMenuItem_Click);
             // 
             // ДодатиToolStripMenuItem
