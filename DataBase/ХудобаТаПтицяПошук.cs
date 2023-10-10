@@ -422,7 +422,7 @@ namespace DataBase
                     RowOfDataAnymals row = new RowOfDataAnymals(_reader["anymalsId"], _reader["lastname"], _reader["name"],
                         _reader["surname"],  _reader["village"], _reader["anymals"], _reader["covs"],
                         _reader["pigs"], _reader["sheeps"], _reader["goats"], _reader["horses"],
-                        _reader["birds"], _reader["rabbits"], _reader["beeses"], _reader["year"]);
+                        _reader["birds"], _reader["rabbits"], _reader["beeses"]);
                     _data.Add(row);
 
                 }

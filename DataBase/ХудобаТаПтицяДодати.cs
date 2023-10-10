@@ -42,37 +42,32 @@ namespace DataBase
             this.dataGridViewДодати.EnableHeadersVisualStyles = false;
 
 
-            var column0 = new DataGridViewColumn();
-            column0.HeaderText = "Номер";
-            column0.Width = 55;
-            column0.Name = "anymalsId";
-            column0.Frozen = true;
-            column0.CellTemplate = new DataGridViewTextBoxCell();
+           
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Прізвище";
-            column2.Width = 120;
+            column2.Width = 130;
             column2.Name = "lastname";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
             var column3 = new DataGridViewColumn();
             column3.HeaderText = "Ім'я";
-            column3.Width = 100;
+            column3.Width = 130;
             column3.Name = "name";
             column3.Frozen = true;
             column3.CellTemplate = new DataGridViewTextBoxCell();
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Побатькові";
-            column4.Width = 110;
+            column4.Width = 130;
             column4.Name = "surname";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
 
             var column5 = new DataGridViewColumn();
             column5.HeaderText = "Населений пункт";
-            column5.Width = 110;
+            column5.Width = 120;
             column5.Name = "village";
             column5.Frozen = true;
             column5.CellTemplate = new DataGridViewTextBoxCell();
@@ -140,7 +135,7 @@ namespace DataBase
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
-            dataGridViewДодати.Columns.Add(column0);
+           
             dataGridViewДодати.Columns.Add(column2);
             dataGridViewДодати.Columns.Add(column3);
             dataGridViewДодати.Columns.Add(column4);
@@ -154,7 +149,7 @@ namespace DataBase
             dataGridViewДодати.Columns.Add(column12);
             dataGridViewДодати.Columns.Add(column13);
             dataGridViewДодати.Columns.Add(column14);
-
+          
             dataGridViewДодати.AllowUserToAddRows = false;
             dataGridViewДодати.ReadOnly = true;
         }
@@ -184,9 +179,9 @@ namespace DataBase
 
             this.dataGridViewДодати.Rows.Add();
 
-            dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
+            //dataGridViewДодати.Rows[rowNumber].Cells[0].ReadOnly = true;
           
-            dataGridViewДодати.Rows[rowNumber].Cells[4].Value = comboBoxVillage.Text.ToString();
+            dataGridViewДодати.Rows[rowNumber].Cells[3].Value = comboBoxVillage.Text.ToString();
            
 
             rowNumber++;
@@ -210,10 +205,10 @@ namespace DataBase
                 {
                     _manager.openConnection();
 
-                    string lastname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[1].Value);
-                    string name = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[2].Value);
-                    string surname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[3].Value);
-                    string village = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[4].Value);
+                    string lastname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[0].Value);
+                    string name = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[1].Value);
+                    string surname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[2].Value);
+                    string village = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[3].Value);
                    
 
                     if (lastname != "" && name != "" && surname != "" && village != "")
@@ -242,55 +237,56 @@ namespace DataBase
                             int birds = 0;
                             int rabbits = 0;
                             int beeses = 0;
+                          
 
+                            if (dataGridViewДодати.Rows[current].Cells[4].ToString() != "")
+                            {
+                                anymals = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[4].Value);
+                            }
                             if (dataGridViewДодати.Rows[current].Cells[5].ToString() != "")
                             {
-                                anymals = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[5].Value);
+                                covs = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[5].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[6].ToString() != "")
                             {
-                                covs = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[6].Value);
+                                pigs = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[6].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[7].ToString() != "")
                             {
-                                pigs = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[7].Value);
+                                sheeps = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[7].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[8].ToString() != "")
                             {
-                                sheeps = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[8].Value);
+                                goats = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[8].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[9].ToString() != "")
                             {
-                                goats = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[9].Value);
+                                horses = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[9].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[10].ToString() != "")
                             {
-                                horses = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[10].Value);
+                                birds = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[10].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[11].ToString() != "")
                             {
-                                birds = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[11].Value);
+                                rabbits = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[11].Value);
                             }
                             if (dataGridViewДодати.Rows[current].Cells[12].ToString() != "")
                             {
-                                rabbits = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[12].Value);
-                            }
-                            if (dataGridViewДодати.Rows[current].Cells[13].ToString() != "")
-                            {
-                                beeses = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[13].Value);
+                                beeses = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[12].Value);
                             }
                            
                             string _commandString = "INSERT INTO `anymals`(`lastname`,`name`,`surname`,`village`,`anymals`," +
-                                                                          "`covs`,`pigs`,`sheeps`,`goats`,`horses`,`birds`,`rabbits`,`beeses`,`year`)" +
+                                                                          "`covs`,`pigs`,`sheeps`,`goats`,`horses`,`birds`,`rabbits`,`beeses`)" +
                                                      "VALUES(@lastname,@name,@surname,@village,'"+anymals+"','"+covs+"','"+pigs+"','"+sheeps+"'," +
-                                                                   "'"+goats+"','"+horses+"','"+birds+"','"+rabbits+"','"+beeses+"','"+year+"')";
+                                                                   "'"+goats+"','"+horses+"','"+birds+"','"+rabbits+"','"+beeses+"')";
 
                               MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
-                            _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
-                            _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
-                            _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
-                            _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
+                            _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[0].Value;
+                            _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
+                            _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
+                            _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
 
 
                             if (_command.ExecuteNonQuery() == 1)
