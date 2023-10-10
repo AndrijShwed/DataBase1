@@ -140,13 +140,6 @@ namespace DataBase
             column14.Frozen = true;
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column15 = new DataGridViewColumn();
-            column15.HeaderText = "Рік";
-            column15.Width = 98;
-            column15.Name = "Year";
-            column15.Frozen = true;
-            column15.CellTemplate = new DataGridViewTextBoxCell();
-
             dataGridViewДодати.Columns.Add(column0);
             dataGridViewДодати.Columns.Add(column2);
             dataGridViewДодати.Columns.Add(column3);
@@ -161,8 +154,6 @@ namespace DataBase
             dataGridViewДодати.Columns.Add(column12);
             dataGridViewДодати.Columns.Add(column13);
             dataGridViewДодати.Columns.Add(column14);
-            dataGridViewДодати.Columns.Add(column15);
-
 
             dataGridViewДодати.AllowUserToAddRows = false;
             dataGridViewДодати.ReadOnly = true;
@@ -251,7 +242,6 @@ namespace DataBase
                             int birds = 0;
                             int rabbits = 0;
                             int beeses = 0;
-                            int year = Convert.ToInt32(DateTime.Now.Year);
 
                             if (dataGridViewДодати.Rows[current].Cells[5].ToString() != "")
                             {

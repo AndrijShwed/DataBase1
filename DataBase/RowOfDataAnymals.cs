@@ -9,7 +9,6 @@ namespace DataBase
     class RowOfDataAnymals
     {
         public object anymalsId { get; set; }
-        public object year { get; set; }
         public object lastname { get; set; }
         public object name { get; set; }
         public object surname { get; set; }
