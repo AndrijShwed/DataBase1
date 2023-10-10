@@ -23,6 +23,7 @@ namespace DataBase
         public object birds { get; set; }
         public object rabbits { get; set; }
         public object beeses { get; set; }
+     
        
 
 
@@ -30,7 +31,7 @@ namespace DataBase
 
         public RowOfDataAnymals(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Село, object _ВРХ, object _Корови, object _Свині,
-            object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли)
+            object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли, object _year)
         {
             anymalsId = _anymalsId;
             lastname = _Прізвище;
@@ -46,12 +47,12 @@ namespace DataBase
             birds = _Птиця;
             rabbits = _Кролі;
             beeses = _Бджоли;
-
+            year = _year;
         }
 
         public void DataChange(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,
             object _Село, object _ВРХ, object _Корови, object _Свині,
-            object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли)
+            object _Вівці, object _Кози, object _Коні, object _Птиця, object _Кролі, object _Бджоли, object _year)
         {
             anymalsId = _anymalsId;
             lastname = _Прізвище;
@@ -67,7 +68,7 @@ namespace DataBase
             birds = _Птиця;
             rabbits = _Кролі;
             beeses = _Бджоли;
-
+            year = _year;
         }
 
     }

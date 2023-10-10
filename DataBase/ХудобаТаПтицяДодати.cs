@@ -141,9 +141,9 @@ namespace DataBase
             column14.CellTemplate = new DataGridViewTextBoxCell();
 
             var column15 = new DataGridViewColumn();
-            column15.HeaderText = "Видалити";
+            column15.HeaderText = "Рік";
             column15.Width = 98;
-            column15.Name = "Видалити";
+            column15.Name = "Year";
             column15.Frozen = true;
             column15.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -251,6 +251,8 @@ namespace DataBase
                             int birds = 0;
                             int rabbits = 0;
                             int beeses = 0;
+                            int year = Convert.ToInt32(DateTime.Now.Year);
+
                             if (dataGridViewДодати.Rows[current].Cells[5].ToString() != "")
                             {
                                 anymals = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[5].Value);
@@ -287,11 +289,11 @@ namespace DataBase
                             {
                                 beeses = Convert.ToInt32(dataGridViewДодати.Rows[current].Cells[13].Value);
                             }
-
+                           
                             string _commandString = "INSERT INTO `anymals`(`lastname`,`name`,`surname`,`village`,`anymals`," +
-                                                                          "`covs`,`pigs`,`sheeps`,`goats`,`horses`,`birds`,`rabbits`,`beeses`)" +
+                                                                          "`covs`,`pigs`,`sheeps`,`goats`,`horses`,`birds`,`rabbits`,`beeses`,`year`)" +
                                                      "VALUES(@lastname,@name,@surname,@village,'"+anymals+"','"+covs+"','"+pigs+"','"+sheeps+"'," +
-                                                                   "'"+goats+"','"+horses+"','"+birds+"','"+rabbits+"','"+beeses+"')";
+                                                                   "'"+goats+"','"+horses+"','"+birds+"','"+rabbits+"','"+beeses+"','"+year+"')";
 
                               MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
