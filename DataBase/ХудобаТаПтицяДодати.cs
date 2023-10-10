@@ -300,14 +300,6 @@ namespace DataBase
                             _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
                             _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
 
-                            //_command.Parameters.Add("@covs", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
-                            //_command.Parameters.Add("@pigs", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[7].Value;
-                            //_command.Parameters.Add("@sheeps", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[8].Value;
-                            //_command.Parameters.Add("@goats", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[9].Value;
-                            //_command.Parameters.Add("@horses", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[10].Value;
-                            //_command.Parameters.Add("@birds", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[11].Value;
-                            //_command.Parameters.Add("@rabbits", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[12].Value;
-                            //_command.Parameters.Add("@beeses", MySqlDbType.Int32).Value = this.dataGridViewДодати.Rows[current].Cells[13].Value;
 
                             if (_command.ExecuteNonQuery() == 1)
                                     add = true;
