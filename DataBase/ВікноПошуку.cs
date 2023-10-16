@@ -510,12 +510,12 @@ namespace DataBase
             {
                 if (first)
                 {
-                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + "WHERE LOWER(status) LIKE '%" + status + "%'";
                     first = false;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(status) LIKE '%" + status + "%'";
                 }
 
             }
