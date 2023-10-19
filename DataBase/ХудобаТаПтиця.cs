@@ -37,5 +37,12 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void Statistic_Click(object sender, EventArgs e)
+        {
+            ХудобаТаПтицяСтатистика form = new ХудобаТаПтицяСтатистика();
+            this.Hide();
+            form.Show();
+        }
     }
 }

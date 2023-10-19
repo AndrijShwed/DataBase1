@@ -35,7 +35,7 @@
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.населенняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
-            this.rjButton1 = new DataBase.RJButton();
+            this.Statistic = new DataBase.RJButton();
             this.rjButtonПошук = new DataBase.RJButton();
             this.rjButtonДодати = new DataBase.RJButton();
             this.menuStrip1.SuspendLayout();
@@ -108,19 +108,20 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Статистика";
             // 
-            // rjButton1
+            // Statistic
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.LimeGreen;
-            this.rjButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton1.BackgroundImage")));
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(138, 319);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(160, 160);
-            this.rjButton1.TabIndex = 17;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.Statistic.BackColor = System.Drawing.Color.LimeGreen;
+            this.Statistic.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Statistic.BackgroundImage")));
+            this.Statistic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Statistic.FlatAppearance.BorderSize = 0;
+            this.Statistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Statistic.ForeColor = System.Drawing.Color.White;
+            this.Statistic.Location = new System.Drawing.Point(138, 319);
+            this.Statistic.Name = "Statistic";
+            this.Statistic.Size = new System.Drawing.Size(160, 160);
+            this.Statistic.TabIndex = 17;
+            this.Statistic.UseVisualStyleBackColor = false;
+            this.Statistic.Click += new System.EventHandler(this.Statistic_Click);
             // 
             // rjButtonПошук
             // 
@@ -163,7 +164,7 @@
             this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(1106, 549);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.Statistic);
             this.Controls.Add(this.labelПошук);
             this.Controls.Add(this.labelДодати);
             this.Controls.Add(this.rjButtonПошук);
@@ -180,7 +181,7 @@
 
         #endregion
 
-        private RJButton rjButton1;
+        private RJButton Statistic;
         private System.Windows.Forms.Label labelПошук;
         private System.Windows.Forms.Label labelДодати;
         private RJButton rjButtonПошук;
