@@ -510,12 +510,12 @@ namespace DataBase
             {
                 if (first)
                 {
-                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + "WHERE LOWER(status) LIKE '%" + status + "%'";
                     first = false;
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
+                    c.com = c.com + " AND LOWER(status) LIKE '%" + status + "%'";
                 }
 
             }
@@ -1078,7 +1078,7 @@ namespace DataBase
                                     "phone_numb = '" + phone_numb + "', " +
                                     "status = '" + status + "', " +
                                     "registr = '" + registr + "', " +
-                                    "m_date = NULL" +
+                                    "m_date = NULL " +
                                     "WHERE people_id = " + people_id;
                                 MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 

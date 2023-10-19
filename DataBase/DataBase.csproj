@@ -254,6 +254,12 @@
     <Compile Include="ХудобаТаПтицяПошук.Designer.cs">
       <DependentUpon>ХудобаТаПтицяПошук.cs</DependentUpon>
     </Compile>
+    <Compile Include="ХудобаТаПтицяСтатистика.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ХудобаТаПтицяСтатистика.Designer.cs">
+      <DependentUpon>ХудобаТаПтицяСтатистика.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Домогосподарства_Пошук.resx">
       <DependentUpon>Домогосподарства_Пошук.cs</DependentUpon>
     </EmbeddedResource>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ХудобаТаПтицяПошук.resx">
       <DependentUpon>ХудобаТаПтицяПошук.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ХудобаТаПтицяСтатистика.resx">
+      <DependentUpon>ХудобаТаПтицяСтатистика.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
