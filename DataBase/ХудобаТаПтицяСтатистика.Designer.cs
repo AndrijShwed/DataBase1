@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.пошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.головнаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.додатиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.пошукToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вийтиЗПрограмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewBer = new System.Windows.Forms.DataGridView();
             this.dataGridViewZhur = new System.Windows.Forms.DataGridView();
             this.dataGridViewRog = new System.Windows.Forms.DataGridView();
@@ -43,13 +44,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.вийтиЗПрограмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewAll = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.ОновитиДані = new DataBase.RJButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZhur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRog)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZab)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZag)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -64,9 +68,17 @@
             this.вийтиЗПрограмиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1482, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1461, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // пошукToolStripMenuItem
+            // 
+            this.пошукToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.пошукToolStripMenuItem.Name = "пошукToolStripMenuItem";
+            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(111, 32);
+            this.пошукToolStripMenuItem.Text = "Головна/";
+            this.пошукToolStripMenuItem.Click += new System.EventHandler(this.пошукToolStripMenuItem_Click);
             // 
             // головнаToolStripMenuItem
             // 
@@ -84,20 +96,20 @@
             this.додатиToolStripMenuItem.Text = "Додати /";
             this.додатиToolStripMenuItem.Click += new System.EventHandler(this.додатиToolStripMenuItem_Click);
             // 
-            // пошукToolStripMenuItem
-            // 
-            this.пошукToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.пошукToolStripMenuItem.Name = "пошукToolStripMenuItem";
-            this.пошукToolStripMenuItem.Size = new System.Drawing.Size(111, 32);
-            this.пошукToolStripMenuItem.Text = "Головна/";
-            this.пошукToolStripMenuItem.Click += new System.EventHandler(this.пошукToolStripMenuItem_Click);
-            // 
             // статистикаToolStripMenuItem
             // 
             this.статистикаToolStripMenuItem.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.статистикаToolStripMenuItem.Name = "статистикаToolStripMenuItem";
             this.статистикаToolStripMenuItem.Size = new System.Drawing.Size(146, 32);
             this.статистикаToolStripMenuItem.Text = "Статистика";
+            // 
+            // вийтиЗПрограмиToolStripMenuItem
+            // 
+            this.вийтиЗПрограмиToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.вийтиЗПрограмиToolStripMenuItem.Name = "вийтиЗПрограмиToolStripMenuItem";
+            this.вийтиЗПрограмиToolStripMenuItem.Size = new System.Drawing.Size(197, 32);
+            this.вийтиЗПрограмиToolStripMenuItem.Text = "Вийти з програми";
+            this.вийтиЗПрограмиToolStripMenuItem.Click += new System.EventHandler(this.вийтиЗПрограмиToolStripMenuItem_Click);
             // 
             // dataGridViewBer
             // 
@@ -204,13 +216,41 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Загурщина";
             // 
-            // вийтиЗПрограмиToolStripMenuItem
+            // dataGridViewAll
             // 
-            this.вийтиЗПрограмиToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.вийтиЗПрограмиToolStripMenuItem.Name = "вийтиЗПрограмиToolStripMenuItem";
-            this.вийтиЗПрограмиToolStripMenuItem.Size = new System.Drawing.Size(197, 32);
-            this.вийтиЗПрограмиToolStripMenuItem.Text = "Вийти з програми";
-            this.вийтиЗПрограмиToolStripMenuItem.Click += new System.EventHandler(this.вийтиЗПрограмиToolStripMenuItem_Click);
+            this.dataGridViewAll.BackgroundColor = System.Drawing.Color.PaleGreen;
+            this.dataGridViewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAll.Location = new System.Drawing.Point(12, 875);
+            this.dataGridViewAll.Name = "dataGridViewAll";
+            this.dataGridViewAll.RowHeadersWidth = 51;
+            this.dataGridViewAll.RowTemplate.Height = 24;
+            this.dataGridViewAll.Size = new System.Drawing.Size(1400, 100);
+            this.dataGridViewAll.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(12, 834);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 38);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Загальні";
+            // 
+            // ОновитиДані
+            // 
+            this.ОновитиДані.BackColor = System.Drawing.Color.MediumSpringGreen;
+            this.ОновитиДані.FlatAppearance.BorderSize = 0;
+            this.ОновитиДані.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ОновитиДані.Font = new System.Drawing.Font("Segoe Script", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ОновитиДані.ForeColor = System.Drawing.Color.Black;
+            this.ОновитиДані.Location = new System.Drawing.Point(419, 34);
+            this.ОновитиДані.Name = "ОновитиДані";
+            this.ОновитиДані.Size = new System.Drawing.Size(234, 40);
+            this.ОновитиДані.TabIndex = 13;
+            this.ОновитиДані.Text = "Оновити дані";
+            this.ОновитиДані.UseVisualStyleBackColor = false;
+            this.ОновитиДані.Click += new System.EventHandler(this.ОновитиДані_Click);
             // 
             // ХудобаТаПтицяСтатистика
             // 
@@ -219,6 +259,9 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.ClientSize = new System.Drawing.Size(1482, 953);
+            this.Controls.Add(this.ОновитиДані);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dataGridViewAll);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -241,6 +284,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRog)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZab)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZag)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -264,5 +308,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem вийтиЗПрограмиToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridViewAll;
+        private System.Windows.Forms.Label label1;
+        private RJButton ОновитиДані;
     }
 }
