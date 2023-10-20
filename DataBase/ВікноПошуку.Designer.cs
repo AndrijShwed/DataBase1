@@ -60,6 +60,7 @@
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.rjButtonПовернутись = new DataBase.RJButton();
+            this.textBoxРеєстрація = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewВікноПошуку)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.menuStripВихід.SuspendLayout();
@@ -79,6 +80,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBoxРеєстрація);
             this.groupBox1.Controls.Add(this.textBoxM_Year);
             this.groupBox1.Controls.Add(this.Картки);
             this.groupBox1.Controls.Add(this.Зберегти_зміни);
@@ -448,6 +450,17 @@
             this.rjButtonПовернутись.UseVisualStyleBackColor = false;
             this.rjButtonПовернутись.Click += new System.EventHandler(this.rjButtonПовернутись_Click);
             // 
+            // textBoxРеєстрація
+            // 
+            this.textBoxРеєстрація.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxРеєстрація.Location = new System.Drawing.Point(1003, 137);
+            this.textBoxРеєстрація.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxРеєстрація.Name = "textBoxРеєстрація";
+            this.textBoxРеєстрація.Size = new System.Drawing.Size(220, 34);
+            this.textBoxРеєстрація.TabIndex = 20;
+            this.textBoxРеєстрація.Enter += new System.EventHandler(this.textBoxРеєстрація_Enter);
+            this.textBoxРеєстрація.Leave += new System.EventHandler(this.textBoxРеєстрація_Leave);
+            // 
             // ВікноПошуку
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -514,5 +527,6 @@
         private RJButton Редагувати;
         private System.Windows.Forms.Button Картки;
         private System.Windows.Forms.TextBox textBoxM_Year;
+        private System.Windows.Forms.TextBox textBoxРеєстрація;
     }
 }
