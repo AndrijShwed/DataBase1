@@ -51,10 +51,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridViewВікноПошуку = new System.Windows.Forms.DataGridView();
-            this.rjButtonПовернутись = new DataBase.RJButton();
             this.Зберегти_зміни = new DataBase.RJButton();
             this.Редагувати = new DataBase.RJButton();
+            this.dataGridViewВікноПошуку = new System.Windows.Forms.DataGridView();
+            this.rjButtonПовернутись = new DataBase.RJButton();
             this.menuStripВихід.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewВікноПошуку)).BeginInit();
@@ -320,37 +320,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Параметри пошуку";
             // 
-            // dataGridViewВікноПошуку
-            // 
-            this.dataGridViewВікноПошуку.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewВікноПошуку.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewВікноПошуку.Location = new System.Drawing.Point(14, 350);
-            this.dataGridViewВікноПошуку.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridViewВікноПошуку.Name = "dataGridViewВікноПошуку";
-            this.dataGridViewВікноПошуку.RowHeadersWidth = 51;
-            this.dataGridViewВікноПошуку.RowTemplate.Height = 24;
-            this.dataGridViewВікноПошуку.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridViewВікноПошуку.Size = new System.Drawing.Size(1705, 430);
-            this.dataGridViewВікноПошуку.TabIndex = 19;
-            this.dataGridViewВікноПошуку.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewВікноПошуку_CellContentClick);
-            // 
-            // rjButtonПовернутись
-            // 
-            this.rjButtonПовернутись.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjButtonПовернутись.BackColor = System.Drawing.Color.Red;
-            this.rjButtonПовернутись.FlatAppearance.BorderSize = 0;
-            this.rjButtonПовернутись.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButtonПовернутись.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.rjButtonПовернутись.ForeColor = System.Drawing.Color.White;
-            this.rjButtonПовернутись.Location = new System.Drawing.Point(1790, 568);
-            this.rjButtonПовернутись.Margin = new System.Windows.Forms.Padding(4);
-            this.rjButtonПовернутись.Name = "rjButtonПовернутись";
-            this.rjButtonПовернутись.Size = new System.Drawing.Size(225, 40);
-            this.rjButtonПовернутись.TabIndex = 24;
-            this.rjButtonПовернутись.Text = "<<<  Повернутись";
-            this.rjButtonПовернутись.UseVisualStyleBackColor = false;
-            // 
             // Зберегти_зміни
             // 
             this.Зберегти_зміни.BackColor = System.Drawing.Color.MediumSeaGreen;
@@ -380,6 +349,37 @@
             this.Редагувати.Text = "Редагувати";
             this.Редагувати.UseVisualStyleBackColor = false;
             this.Редагувати.Click += new System.EventHandler(this.Редагувати_Click);
+            // 
+            // dataGridViewВікноПошуку
+            // 
+            this.dataGridViewВікноПошуку.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewВікноПошуку.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewВікноПошуку.Location = new System.Drawing.Point(14, 350);
+            this.dataGridViewВікноПошуку.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridViewВікноПошуку.Name = "dataGridViewВікноПошуку";
+            this.dataGridViewВікноПошуку.RowHeadersWidth = 51;
+            this.dataGridViewВікноПошуку.RowTemplate.Height = 24;
+            this.dataGridViewВікноПошуку.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewВікноПошуку.Size = new System.Drawing.Size(1705, 580);
+            this.dataGridViewВікноПошуку.TabIndex = 19;
+            this.dataGridViewВікноПошуку.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewВікноПошуку_CellContentClick);
+            // 
+            // rjButtonПовернутись
+            // 
+            this.rjButtonПовернутись.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.rjButtonПовернутись.BackColor = System.Drawing.Color.Red;
+            this.rjButtonПовернутись.FlatAppearance.BorderSize = 0;
+            this.rjButtonПовернутись.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButtonПовернутись.Font = new System.Drawing.Font("Segoe Script", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.rjButtonПовернутись.ForeColor = System.Drawing.Color.White;
+            this.rjButtonПовернутись.Location = new System.Drawing.Point(1790, 568);
+            this.rjButtonПовернутись.Margin = new System.Windows.Forms.Padding(4);
+            this.rjButtonПовернутись.Name = "rjButtonПовернутись";
+            this.rjButtonПовернутись.Size = new System.Drawing.Size(225, 40);
+            this.rjButtonПовернутись.TabIndex = 24;
+            this.rjButtonПовернутись.Text = "<<<  Повернутись";
+            this.rjButtonПовернутись.UseVisualStyleBackColor = false;
             // 
             // ХудобаТаПтицяПошук
             // 
