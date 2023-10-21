@@ -162,9 +162,6 @@ namespace DataBase
             _manager.openConnection();
             MySqlCommand _commandBer = new MySqlCommand(a, _manager.getConnection());
 
-            int anymalsCount = Convert.ToInt32(_commandBer.ExecuteScalar());
-            dataGridViewBer.Rows.Add();
-            dataGridViewBer.Rows[0].Cells[0].Value= anymalsCount;
             _manager.closeConnection();
         }
     }
