@@ -56,6 +56,9 @@ namespace DataBase
             textBoxM_Year.Text = "Рік зміни статусу";
             textBoxM_Year.ForeColor = Color.Gray;
 
+            textBoxРеєстрація.Text = "Реєстрація";
+            textBoxРеєстрація.ForeColor = Color.Gray;
+
             textBoxCount.Text = "0";
 
         }
@@ -416,6 +419,24 @@ namespace DataBase
             }
         }
 
+        private void textBoxРеєстрація_Enter(object sender, EventArgs e)
+        {
+            if (textBoxРеєстрація.Text == "Реєстрація")
+            {
+                textBoxРеєстрація.Text = "";
+                textBoxРеєстрація.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxРеєстрація_Leave(object sender, EventArgs e)
+        {
+            if (textBoxРеєстрація.Text == "")
+            {
+                textBoxРеєстрація.Text = "Реєстрація";
+                textBoxРеєстрація.ForeColor = Color.Gray;
+            }
+        }
+
         private void buttonОчиститиПоля_Click(object sender, EventArgs e)
         {
             textBoxПрізвище.Text = "Прізвище";
@@ -478,7 +499,8 @@ namespace DataBase
                    textBoxВікДО.Text == "Вік до:" &&
                    textBoxНомерБудинку.Text == "Номер будинку" &&
                    textBoxСтатус.Text == "Статус" &&
-                   textBoxM_Year.Text == "Рік зміни статусу")
+                   textBoxM_Year.Text == "Рік зміни статусу" &&
+                   textBoxРеєстрація.Text == "Реєстрація")
             {
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
@@ -497,6 +519,7 @@ namespace DataBase
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
+            string registr = Convert.ToString(textBoxРеєстрація.Text).ToLower();
            
 
 
@@ -505,7 +528,19 @@ namespace DataBase
 
             string m = "AND LOWER(registr) = 'так'";
                 
+            if(textBoxРеєстрація.Text != "Реєстрація")
+            {
+                if(first)
+                {
+                    c.com = c.com + "WHERE LOWER(registr) LIKE '%" + registr + "%'";
+                    first = false;
+                }
+                else
+                {
+                    c.com = c.com + "AND LOWER(registr) LIKE '%" + registr + "%'";
+                }
 
+            }    
             if (textBoxСтатус.Text != "Статус")
             {
                 if (first)
@@ -1243,5 +1278,7 @@ namespace DataBase
             }
 
         }
+
+       
     }
 }

@@ -1,11 +1,7 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DataBase
@@ -18,6 +14,7 @@ namespace DataBase
         private List<RowOfDataAnymals> _dataRog = new List<RowOfDataAnymals>();
         private List<RowOfDataAnymals> _dataZhur = new List<RowOfDataAnymals>();
         private List<RowOfDataAnymals> _dataZag = new List<RowOfDataAnymals>();
+        private List<RowOfDataAnymals> _dataAll = new List<RowOfDataAnymals>();
         private User user;
         DataGridView dataGridView;
 
@@ -29,6 +26,7 @@ namespace DataBase
             HeaderOfTheTable(dataGridViewRog);
             HeaderOfTheTable(dataGridViewZhur);
             HeaderOfTheTable(dataGridViewZag);
+            HeaderOfTheTable(dataGridViewAll);
         }
 
         private void HeaderOfTheTable(DataGridView _dataGridView)
@@ -43,63 +41,63 @@ namespace DataBase
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "ВРХ";
-            column1.Width = 100;
+            column1.Width = 110;
             column1.Name = "anymals";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
 
             var column2 = new DataGridViewColumn();
             column2.HeaderText = "Корови";
-            column2.Width = 100;
+            column2.Width = 110;
             column2.Name = "covs";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
             var column3 = new DataGridViewColumn();
             column3.HeaderText = "Свині";
-            column3.Width = 100;
+            column3.Width = 110;
             column3.Name = "pigs";
             column3.Frozen = true;
             column3.CellTemplate = new DataGridViewTextBoxCell();
 
             var column4 = new DataGridViewColumn();
             column4.HeaderText = "Вівці";
-            column4.Width = 100;
+            column4.Width = 110;
             column4.Name = "sheeps";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
 
             var column5 = new DataGridViewColumn();
             column5.HeaderText = "Кози";
-            column5.Width = 100;
+            column5.Width = 110;
             column5.Name = "goats";
             column5.Frozen = true;
             column5.CellTemplate = new DataGridViewTextBoxCell();
 
             var column6 = new DataGridViewColumn();
             column6.HeaderText = "Коні";
-            column6.Width = 100;
+            column6.Width = 110;
             column6.Name = "horses";
             column6.Frozen = true;
             column6.CellTemplate = new DataGridViewTextBoxCell();
 
             var column7 = new DataGridViewColumn();
             column7.HeaderText = "Птиця";
-            column7.Width = 100;
+            column7.Width = 110;
             column7.Name = "birds";
             column7.Frozen = true;
             column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Кролі";
-            column8.Width = 100;
+            column8.Width = 110;
             column8.Name = "rabbits";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
 
             var column9 = new DataGridViewColumn();
             column9.HeaderText = "Бджоли";
-            column9.Width = 100;
+            column9.Width = 110;
             column9.Name = "bees";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
@@ -146,5 +144,30 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void AddDataGrid(RowOfDataAnymals row, DataGridView _dataGridView)
+        {
+            dataGridView = _dataGridView;
+            dataGridView.Rows.Add(row.anymals, row.covs, row.pigs, row.sheeps,
+                row.goats, row.horses, row.birds, row.rabbits,row.beeses);
+        }
+
+        
+        
+        private void ОновитиДані_Click(object sender, EventArgs e)
+        {
+            string a = "SELECT SUM(anymals) FROM anymals WHERE village = 'Бережниця'";
+            dataGridViewBer.DataSource = null;
+            ConnectionClass _manager = new ConnectionClass();
+            _manager.openConnection();
+            MySqlCommand _commandBer = new MySqlCommand(a, _manager.getConnection());
+
+            int anymalsCount = Convert.ToInt32(_commandBer.ExecuteScalar());
+            dataGridViewBer.Rows.Add();
+            dataGridViewBer.Rows[0].Cells[0].Value= anymalsCount;
+            _manager.closeConnection();
+        }
     }
+
+
 }
