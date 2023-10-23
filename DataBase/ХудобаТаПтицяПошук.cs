@@ -543,7 +543,7 @@ namespace DataBase
                             string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value);
                             string village = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value);
                             int anymals = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
-                            int covs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
+                            int covs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[6].Value);
                             int pigs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[7].Value);
                             int sheeps = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[8].Value);
                             int goats = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[9].Value);
