@@ -156,16 +156,166 @@ namespace DataBase
         
         private void ОновитиДані_Click(object sender, EventArgs e)
         {
-            string a = "SELECT SUM(anymals) FROM anymals WHERE village = 'Бережниця'";
-            dataGridViewBer.DataSource = null;
+            StatisticFill(dataGridViewBer, "Бережниця");
+            StatisticFill(dataGridViewZab, "Заболотівці");
+            StatisticFill(dataGridViewRog, "Рогізно");
+            StatisticFill(dataGridViewZhur, "Журавків");
+            StatisticFill(dataGridViewZag, "Загурщина");
+            StatisticFillAll(dataGridViewAll);
+        }
+
+        private void StatisticFill(DataGridView _dataGridView, string _village)
+        {
+            string village = _village;
+            dataGridView = _dataGridView;
+            dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            dataGridView.DefaultCellStyle.BackColor = Color.Beige;
+            dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.DataSource = null;
+            dataGridView.Rows.Add();
+           
+            string a = "SELECT SUM(anymals) FROM anymals WHERE village = '" + village +"'";
+            string c = "SELECT SUM(covs) FROM anymals WHERE village = '" + village +"'";
+            string p = "SELECT SUM(pigs) FROM anymals WHERE village = '" + village +"'";
+            string s = "SELECT SUM(sheeps) FROM anymals WHERE village = '" + village +"'";
+            string g = "SELECT SUM(goats) FROM anymals WHERE village = '" + village +"'";
+            string h = "SELECT SUM(horses) FROM anymals WHERE village = '" + village +"'";
+            string b = "SELECT SUM(birds) FROM anymals WHERE village = '" + village +"'";
+            string r = "SELECT SUM(rabbits) FROM anymals WHERE village = '" + village +"'";
+            string be = "SELECT SUM(beeses) FROM anymals WHERE village = '" + village +"'";
+
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();
-            MySqlCommand _commandBer = new MySqlCommand(a, _manager.getConnection());
 
-            int anymalsCount = Convert.ToInt32(_commandBer.ExecuteScalar());
-            dataGridViewBer.Rows.Add();
-            dataGridViewBer.Rows[0].Cells[0].Value= anymalsCount;
+            MySqlCommand _commandA = new MySqlCommand(a, _manager.getConnection());
+            MySqlCommand _commandC = new MySqlCommand(c, _manager.getConnection());
+            MySqlCommand _commandP = new MySqlCommand(p, _manager.getConnection());
+            MySqlCommand _commandS = new MySqlCommand(s, _manager.getConnection());
+            MySqlCommand _commandG = new MySqlCommand(g, _manager.getConnection());
+            MySqlCommand _commandH= new MySqlCommand(h, _manager.getConnection());
+            MySqlCommand _commandB = new MySqlCommand(b, _manager.getConnection());
+            MySqlCommand _commandR = new MySqlCommand(r, _manager.getConnection());
+            MySqlCommand _commandBE = new MySqlCommand(be, _manager.getConnection());
+
+            int anymalsCount = 0;
+            int covsCount = 0;
+            int pigsCount = 0;
+            int sheepsCount = 0;
+            int goatsCount = 0;
+            int horsesCount = 0;
+            int birdsCount = 0;
+            int rabbitsCount = 0;
+            int beesesCount = 0;
+
+            if (_commandA.ExecuteScalar() != DBNull.Value)
+                anymalsCount = Convert.ToInt32(_commandA.ExecuteScalar());
+            if (_commandC.ExecuteScalar() != DBNull.Value)
+                 covsCount = Convert.ToInt32(_commandC.ExecuteScalar());
+            if (_commandP.ExecuteScalar() != DBNull.Value)
+                 pigsCount = Convert.ToInt32(_commandP.ExecuteScalar());
+            if (_commandS.ExecuteScalar() != DBNull.Value)
+                 sheepsCount = Convert.ToInt32(_commandS.ExecuteScalar());
+            if (_commandG.ExecuteScalar() != DBNull.Value)
+                 goatsCount = Convert.ToInt32(_commandG.ExecuteScalar());
+            if (_commandH.ExecuteScalar() != DBNull.Value)
+                 horsesCount = Convert.ToInt32(_commandH.ExecuteScalar());
+            if (_commandB.ExecuteScalar() != DBNull.Value)
+                 birdsCount = Convert.ToInt32(_commandB.ExecuteScalar());
+            if (_commandR.ExecuteScalar() != DBNull.Value)
+                 rabbitsCount = Convert.ToInt32(_commandR.ExecuteScalar());
+            if (_commandBE.ExecuteScalar() != DBNull.Value)
+                 beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
+
+            dataGridView.Rows[0].Cells[0].Value = anymalsCount;
+            dataGridView.Rows[0].Cells[1].Value = covsCount;
+            dataGridView.Rows[0].Cells[2].Value = pigsCount;
+            dataGridView.Rows[0].Cells[3].Value = sheepsCount;
+            dataGridView.Rows[0].Cells[4].Value = goatsCount;
+            dataGridView.Rows[0].Cells[5].Value = horsesCount;
+            dataGridView.Rows[0].Cells[6].Value = birdsCount;
+            dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
+            dataGridView.Rows[0].Cells[8].Value = beesesCount;
+
             _manager.closeConnection();
+
+        }
+
+        private void StatisticFillAll(DataGridView _dataGridView)
+        {
+           
+            dataGridView = _dataGridView;
+            dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            dataGridView.DefaultCellStyle.BackColor = Color.Coral;
+            dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkRed;
+            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            dataGridView.DataSource = null;
+            dataGridView.Rows.Add();
+
+            string a = "SELECT SUM(anymals) FROM anymals ";
+            string c = "SELECT SUM(covs) FROM anymals ";
+            string p = "SELECT SUM(pigs) FROM anymals ";
+            string s = "SELECT SUM(sheeps) FROM anymals ";
+            string g = "SELECT SUM(goats) FROM anymals ";
+            string h = "SELECT SUM(horses) FROM anymals ";
+            string b = "SELECT SUM(birds) FROM anymals ";
+            string r = "SELECT SUM(rabbits) FROM anymals ";
+            string be = "SELECT SUM(beeses) FROM anymals ";
+
+            ConnectionClass _manager = new ConnectionClass();
+            _manager.openConnection();
+
+            MySqlCommand _commandA = new MySqlCommand(a, _manager.getConnection());
+            MySqlCommand _commandC = new MySqlCommand(c, _manager.getConnection());
+            MySqlCommand _commandP = new MySqlCommand(p, _manager.getConnection());
+            MySqlCommand _commandS = new MySqlCommand(s, _manager.getConnection());
+            MySqlCommand _commandG = new MySqlCommand(g, _manager.getConnection());
+            MySqlCommand _commandH = new MySqlCommand(h, _manager.getConnection());
+            MySqlCommand _commandB = new MySqlCommand(b, _manager.getConnection());
+            MySqlCommand _commandR = new MySqlCommand(r, _manager.getConnection());
+            MySqlCommand _commandBE = new MySqlCommand(be, _manager.getConnection());
+
+            int anymalsCount = 0;
+            int covsCount = 0;
+            int pigsCount = 0;
+            int sheepsCount = 0;
+            int goatsCount = 0;
+            int horsesCount = 0;
+            int birdsCount = 0;
+            int rabbitsCount = 0;
+            int beesesCount = 0;
+
+            if (_commandA.ExecuteScalar() != DBNull.Value)
+                anymalsCount = Convert.ToInt32(_commandA.ExecuteScalar());
+            if (_commandC.ExecuteScalar() != DBNull.Value)
+                covsCount = Convert.ToInt32(_commandC.ExecuteScalar());
+            if (_commandP.ExecuteScalar() != DBNull.Value)
+                pigsCount = Convert.ToInt32(_commandP.ExecuteScalar());
+            if (_commandS.ExecuteScalar() != DBNull.Value)
+                sheepsCount = Convert.ToInt32(_commandS.ExecuteScalar());
+            if (_commandG.ExecuteScalar() != DBNull.Value)
+                goatsCount = Convert.ToInt32(_commandG.ExecuteScalar());
+            if (_commandH.ExecuteScalar() != DBNull.Value)
+                horsesCount = Convert.ToInt32(_commandH.ExecuteScalar());
+            if (_commandB.ExecuteScalar() != DBNull.Value)
+                birdsCount = Convert.ToInt32(_commandB.ExecuteScalar());
+            if (_commandR.ExecuteScalar() != DBNull.Value)
+                rabbitsCount = Convert.ToInt32(_commandR.ExecuteScalar());
+            if (_commandBE.ExecuteScalar() != DBNull.Value)
+                beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
+
+            dataGridView.Rows[0].Cells[0].Value = anymalsCount;
+            dataGridView.Rows[0].Cells[1].Value = covsCount;
+            dataGridView.Rows[0].Cells[2].Value = pigsCount;
+            dataGridView.Rows[0].Cells[3].Value = sheepsCount;
+            dataGridView.Rows[0].Cells[4].Value = goatsCount;
+            dataGridView.Rows[0].Cells[5].Value = horsesCount;
+            dataGridView.Rows[0].Cells[6].Value = birdsCount;
+            dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
+            dataGridView.Rows[0].Cells[8].Value = beesesCount;
+
+            _manager.closeConnection();
+
         }
     }
 
