@@ -587,11 +587,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(name) LIKE '" + name + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'" + m;
+                    c.com = c.com + " AND LOWER(name) LIKE '" + name + "%'";
                 }
             }
             if (textBoxПобатькові.Text != "Побатькові")
@@ -599,11 +599,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(surname) LIKE '" + surname + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'" + m;
+                    c.com = c.com + " AND LOWER(surname) LIKE '" + surname + "%'";
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -611,11 +611,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
                 }
             }
             if (textBoxСтать.Text != "Стать")
@@ -623,11 +623,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(sex) LIKE '" + sex + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'" + m;
+                    c.com = c.com + " AND LOWER(sex) LIKE '" + sex + "%'";
                 }
             }
             if (textBoxВулиця.Text != "Вулиця")
@@ -635,11 +635,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(street) LIKE '" + street + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'" + m;
+                    c.com = c.com + " AND LOWER(street) LIKE '" + street + "%'";
                 }
             }
             if (textBoxНомерБудинку.Text != "Номер будинку")
@@ -647,11 +647,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'" + m;
+                    c.com = c.com + " AND LOWER(numb_of_house) LIKE '" + numb_of_house + "%'";
                 }
             }
             if (textBoxНаселенийПункт.Text != "Населений пункт")
@@ -659,11 +659,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(village) LIKE '" + village + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'" + m;
+                    c.com = c.com + " AND LOWER(village) LIKE '" + village + "%'";
                 }
             }
             if (textBoxСтатус.Text != "Статус" && (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:" ||
@@ -674,11 +674,11 @@ namespace DataBase
                 if (first)
                 {
                     first = false;
-                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'" + m;
+                    c.com = c.com + "WHERE LOWER(status) LIKE '" + status + "%'";
                 }
                 else
                 {
-                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'" + m;
+                    c.com = c.com + " AND LOWER(status) LIKE '" + status + "%'";
                 }
             }
             if (textBoxВікВІД.Text != "Вік від:" || textBoxВікДО.Text != "Вік до:")
@@ -730,11 +730,11 @@ namespace DataBase
 
                 if (first)
                 {
-                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
+                    c.com = c.com + "WHERE date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                 }
                 else
                 {
-                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'" + m;
+                    c.com = c.com + " AND date_of_birth between '" + date_start + "' AND '" + date_end + "'";
                 }
             }
 
