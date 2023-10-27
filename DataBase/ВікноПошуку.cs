@@ -506,6 +506,11 @@ namespace DataBase
                 return;
             }
 
+            if (textBoxРеєстрація.Text == "Реєстрація")
+            {
+                MessageBox.Show("Вкажіть реєстрацію : так або ні ");
+                return;
+            }
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
