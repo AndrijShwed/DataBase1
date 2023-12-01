@@ -531,7 +531,7 @@ namespace DataBase
             bool first = true;
             c.com = "SELECT * FROM people ";
 
-            string m = "AND LOWER(registr) = 'так'";
+            //string m = "AND LOWER(registr) = 'так'";
                 
             if(textBoxРеєстрація.Text != "Реєстрація")
             {
