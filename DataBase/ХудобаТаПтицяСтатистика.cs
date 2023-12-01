@@ -145,15 +145,6 @@ namespace DataBase
             form.Show();
         }
 
-        private void AddDataGrid(RowOfDataAnymals row, DataGridView _dataGridView)
-        {
-            dataGridView = _dataGridView;
-            dataGridView.Rows.Add(row.anymals, row.covs, row.pigs, row.sheeps,
-                row.goats, row.horses, row.birds, row.rabbits,row.beeses);
-        }
-
-        
-        
         private void ОновитиДані_Click(object sender, EventArgs e)
         {
             StatisticFill(dataGridViewBer, "Бережниця");
