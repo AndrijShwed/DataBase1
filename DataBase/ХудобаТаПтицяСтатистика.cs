@@ -20,6 +20,7 @@ namespace DataBase
 
         public ХудобаТаПтицяСтатистика()
         {
+           
             InitializeComponent();
             HeaderOfTheTable(dataGridViewBer);
             HeaderOfTheTable(dataGridViewZab);
@@ -147,6 +148,7 @@ namespace DataBase
 
         private void ОновитиДані_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Дані формуються !!!");
             StatisticFill(dataGridViewBer, "Бережниця");
             StatisticFill(dataGridViewZab, "Заболотівці");
             StatisticFill(dataGridViewRog, "Рогізно");
