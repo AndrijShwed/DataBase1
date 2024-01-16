@@ -20,6 +20,7 @@ namespace DataBase
 
         public ХудобаТаПтицяСтатистика()
         {
+           
             InitializeComponent();
             HeaderOfTheTable(dataGridViewBer);
             HeaderOfTheTable(dataGridViewZab);
@@ -145,17 +146,9 @@ namespace DataBase
             form.Show();
         }
 
-        private void AddDataGrid(RowOfDataAnymals row, DataGridView _dataGridView)
-        {
-            dataGridView = _dataGridView;
-            dataGridView.Rows.Add(row.anymals, row.covs, row.pigs, row.sheeps,
-                row.goats, row.horses, row.birds, row.rabbits,row.beeses);
-        }
-
-        
-        
         private void ОновитиДані_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Дані формуються !!!");
             StatisticFill(dataGridViewBer, "Бережниця");
             StatisticFill(dataGridViewZab, "Заболотівці");
             StatisticFill(dataGridViewRog, "Рогізно");

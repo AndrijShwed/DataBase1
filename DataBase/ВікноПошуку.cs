@@ -509,7 +509,13 @@ namespace DataBase
             bool first = true;
             c.com = "SELECT * FROM people ";
 
+<<<<<<< HEAD
             if (first)
+=======
+            //string m = "AND LOWER(registr) = 'так'";
+                
+            if(textBoxРеєстрація.Text != "Реєстрація")
+>>>>>>> 5097f32a58b50a885a63e0e86f6c2a7b22726814
             {
                 c.com = c.com + "WHERE LOWER(registr) LIKE '%" + registr + "%'";
                 first = false;
