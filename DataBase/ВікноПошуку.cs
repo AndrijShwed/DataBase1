@@ -56,9 +56,6 @@ namespace DataBase
             textBoxM_Year.Text = "Рік зміни статусу";
             textBoxM_Year.ForeColor = Color.Gray;
 
-            textBoxРеєстрація.Text = "Реєстрація";
-            textBoxРеєстрація.ForeColor = Color.Gray;
-
             textBoxCount.Text = "0";
 
         }
@@ -214,8 +211,6 @@ namespace DataBase
             HeaderOfTheTable();
             user = new User();
         }
-
-       
 
         private void textBoxПрізвище_Enter(object sender, EventArgs e)
         {
@@ -419,24 +414,6 @@ namespace DataBase
             }
         }
 
-        private void textBoxРеєстрація_Enter(object sender, EventArgs e)
-        {
-            if (textBoxРеєстрація.Text == "Реєстрація")
-            {
-                textBoxРеєстрація.Text = "";
-                textBoxРеєстрація.ForeColor = Color.Black;
-            }
-        }
-
-        private void textBoxРеєстрація_Leave(object sender, EventArgs e)
-        {
-            if (textBoxРеєстрація.Text == "")
-            {
-                textBoxРеєстрація.Text = "Реєстрація";
-                textBoxРеєстрація.ForeColor = Color.Gray;
-            }
-        }
-
         private void buttonОчиститиПоля_Click(object sender, EventArgs e)
         {
             textBoxПрізвище.Text = "Прізвище";
@@ -506,11 +483,6 @@ namespace DataBase
                 return;
             }
 
-            if (textBoxРеєстрація.Text == "Реєстрація")
-            {
-                MessageBox.Show("Вкажіть реєстрацію : так або ні ");
-                return;
-            }
             ConnectionClass _manager = new ConnectionClass();
             MySqlDataReader _reader;
 
@@ -524,7 +496,6 @@ namespace DataBase
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
-            string registr = Convert.ToString(textBoxРеєстрація.Text).ToLower();
            
 
 
