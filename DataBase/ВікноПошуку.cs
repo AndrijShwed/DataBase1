@@ -58,6 +58,9 @@ namespace DataBase
 
             textBoxCount.Text = "0";
 
+            Реєстрація.CheckState = CheckState.Checked;
+            Реєстрація.BackColor = Color.AliceBlue;
+
         }
 
         private void HeaderOfTheTable()
@@ -211,7 +214,7 @@ namespace DataBase
             HeaderOfTheTable();
             user = new User();
         }
-
+       
         private void textBoxПрізвище_Enter(object sender, EventArgs e)
         {
             if (textBoxПрізвище.Text == "Прізвище")
@@ -476,8 +479,7 @@ namespace DataBase
                    textBoxВікДО.Text == "Вік до:" &&
                    textBoxНомерБудинку.Text == "Номер будинку" &&
                    textBoxСтатус.Text == "Статус" &&
-                   textBoxM_Year.Text == "Рік зміни статусу" &&
-                   textBoxРеєстрація.Text == "Реєстрація")
+                   textBoxM_Year.Text == "Рік зміни статусу")
             {
                 MessageBox.Show("Жодне поле пошуку не заповнено !");
                 return;
@@ -497,26 +499,27 @@ namespace DataBase
             string numb_of_house = Convert.ToString(textBoxНомерБудинку.Text);
             string status = Convert.ToString(textBoxСтатус.Text).ToLower();
            
+            string registr = "так";
 
+            if (Реєстрація.CheckState == CheckState.Unchecked)
+            {
+                 registr = "ні";
+            }
 
             bool first = true;
             c.com = "SELECT * FROM people ";
 
-            string m = "AND LOWER(registr) = 'так'";
-                
-            if(textBoxРеєстрація.Text != "Реєстрація")
+            if (first)
             {
-                if(first)
-                {
-                    c.com = c.com + "WHERE LOWER(registr) LIKE '%" + registr + "%'";
-                    first = false;
-                }
-                else
-                {
-                    c.com = c.com + "AND LOWER(registr) LIKE '%" + registr + "%'";
-                }
+                c.com = c.com + "WHERE LOWER(registr) LIKE '%" + registr + "%'";
+                first = false;
+            }
+            else
+            {
+                c.com = c.com + "AND LOWER(registr) LIKE '%" + registr + "%'";
+            }
 
-            }    
+
             if (textBoxСтатус.Text != "Статус")
             {
                 if (first)
