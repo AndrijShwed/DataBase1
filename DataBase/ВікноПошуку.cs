@@ -509,7 +509,7 @@ namespace DataBase
             bool first = true;
             c.com = "SELECT * FROM people ";
 
-<<<<<<< HEAD
+
             if (first)
             {
                 c.com = c.com + "WHERE LOWER(registr) LIKE '%" + registr + "%'";
