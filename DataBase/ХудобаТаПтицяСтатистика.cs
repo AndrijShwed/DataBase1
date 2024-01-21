@@ -9,7 +9,18 @@ namespace DataBase
     public partial class ХудобаТаПтицяСтатистика : Form
     {
         private List<VillageStreet> data = new List<VillageStreet>();
+<<<<<<< HEAD
 
+=======
+       
+        //private List<RowOfDataAnymals> _dataBer = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZab = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataRog = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZhur = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZag = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataAll = new List<RowOfDataAnymals>();
+        //private User user;
+>>>>>>> Home
         DataGridView dataGridView;
 
         public ХудобаТаПтицяСтатистика()
@@ -250,7 +261,19 @@ namespace DataBase
             if (_commandBE.ExecuteScalar() != DBNull.Value)
                  beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
 
+<<<<<<< HEAD
            
+=======
+            //dataGridView.Rows[0].Cells[0].Value = anymalsCount;
+            //dataGridView.Rows[0].Cells[1].Value = covsCount;
+            //dataGridView.Rows[0].Cells[2].Value = pigsCount;
+            //dataGridView.Rows[0].Cells[3].Value = sheepsCount;
+            //dataGridView.Rows[0].Cells[4].Value = goatsCount;
+            //dataGridView.Rows[0].Cells[5].Value = horsesCount;
+            //dataGridView.Rows[0].Cells[6].Value = birdsCount;
+            //dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
+            //dataGridView.Rows[0].Cells[8].Value = beesesCount;
+>>>>>>> Home
 
             AddDataGrid(village, anymalsCount, covsCount, pigsCount, sheepsCount, goatsCount, horsesCount, birdsCount, rabbitsCount, beesesCount);
 
@@ -269,7 +292,17 @@ namespace DataBase
         private void StatisticFillAll(DataGridView _dataGridView)
         {
            
+<<<<<<< HEAD
            
+=======
+            //dataGridView = _dataGridView;
+            //dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            //dataGridView.DefaultCellStyle.BackColor = Color.Coral;
+            //dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkRed;
+            //dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            //dataGridView.DataSource = null;
+>>>>>>> Home
            
 
             string a = "SELECT SUM(anymals) FROM anymals ";
