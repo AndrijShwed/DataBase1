@@ -42,8 +42,6 @@ namespace DataBase
             if (user.userName == "A")
             {
 
-
-                string OldName = Convert.ToString(textBoxСтараНазва.Text);
                 string NewName = Convert.ToString(НоваНазва.Text);
 
                 if (textBoxСтараНазва.Text == "" || НоваНазва.Text == "")
@@ -53,9 +51,6 @@ namespace DataBase
                 }
                 else
                 {
-
-                    ConnectionClass _manager = new ConnectionClass();
-
                     string _commandString = "UPDATE people SET street = '" + NewName + "'" +
                         " WHERE street = '" + OldName + "'";
 
@@ -65,8 +60,6 @@ namespace DataBase
                     {
                         _manager.openConnection();
                         _command.ExecuteNonQuery();
-
-
 
                         if (_command.ExecuteNonQuery() != 1)
 

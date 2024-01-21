@@ -1,14 +1,9 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DataBase
 {
@@ -21,8 +16,6 @@ namespace DataBase
         public Додати()
         {
             InitializeComponent();
-
-           
 
             comboBoxVillage.Text = "Виберіть населений пункт";
             comboBoxVillage.Items.Add("Бережниця");
@@ -416,7 +409,6 @@ namespace DataBase
         private void comboBoxVillage_SelectedIndexChanged(object sender, EventArgs e)
         {
            
-
             comboBoxStreets.Items.Clear();
 
             string village = comboBoxVillage.Text;
