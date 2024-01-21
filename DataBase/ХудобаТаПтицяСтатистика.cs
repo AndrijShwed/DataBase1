@@ -250,7 +250,7 @@ namespace DataBase
             if (_commandBE.ExecuteScalar() != DBNull.Value)
                  beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
 
-           
+
 
             AddDataGrid(village, anymalsCount, covsCount, pigsCount, sheepsCount, goatsCount, horsesCount, birdsCount, rabbitsCount, beesesCount);
 
