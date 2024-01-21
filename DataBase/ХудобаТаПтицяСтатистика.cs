@@ -9,13 +9,6 @@ namespace DataBase
     public partial class ХудобаТаПтицяСтатистика : Form
     {
 
-        private List<RowOfDataAnymals> _dataBer = new List<RowOfDataAnymals>();
-        private List<RowOfDataAnymals> _dataZab = new List<RowOfDataAnymals>();
-        private List<RowOfDataAnymals> _dataRog = new List<RowOfDataAnymals>();
-        private List<RowOfDataAnymals> _dataZhur = new List<RowOfDataAnymals>();
-        private List<RowOfDataAnymals> _dataZag = new List<RowOfDataAnymals>();
-        private List<RowOfDataAnymals> _dataAll = new List<RowOfDataAnymals>();
-        private User user;
         DataGridView dataGridView;
 
         public ХудобаТаПтицяСтатистика()
@@ -297,15 +290,6 @@ namespace DataBase
             if (_commandBE.ExecuteScalar() != DBNull.Value)
                 beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
 
-            dataGridView.Rows[0].Cells[0].Value = anymalsCount;
-            dataGridView.Rows[0].Cells[1].Value = covsCount;
-            dataGridView.Rows[0].Cells[2].Value = pigsCount;
-            dataGridView.Rows[0].Cells[3].Value = sheepsCount;
-            dataGridView.Rows[0].Cells[4].Value = goatsCount;
-            dataGridView.Rows[0].Cells[5].Value = horsesCount;
-            dataGridView.Rows[0].Cells[6].Value = birdsCount;
-            dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
-            dataGridView.Rows[0].Cells[8].Value = beesesCount;
 
             _manager.closeConnection();
 
