@@ -53,5 +53,12 @@ namespace DataBase
             this.Hide();
             form.Show();
         }
+
+        private void rjButton1_MouseClick(object sender, MouseEventArgs e)
+        {
+            ПочатокРоботи form = new ПочатокРоботи();
+            this.Hide();
+            form.Show();
+        }
     }
 }
