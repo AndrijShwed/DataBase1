@@ -35,25 +35,10 @@
             this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вийтиЗПрограмиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewBer = new System.Windows.Forms.DataGridView();
-            this.dataGridViewZhur = new System.Windows.Forms.DataGridView();
-            this.dataGridViewRog = new System.Windows.Forms.DataGridView();
-            this.dataGridViewZab = new System.Windows.Forms.DataGridView();
-            this.dataGridViewZag = new System.Windows.Forms.DataGridView();
             this.Бережниця = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dataGridViewAll = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.ОновитиДані = new DataBase.RJButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZhur)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRog)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZab)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZag)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -68,7 +53,7 @@
             this.вийтиЗПрограмиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1461, 36);
+            this.menuStrip1.Size = new System.Drawing.Size(1550, 36);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -119,52 +104,8 @@
             this.dataGridViewBer.Name = "dataGridViewBer";
             this.dataGridViewBer.RowHeadersWidth = 51;
             this.dataGridViewBer.RowTemplate.Height = 24;
-            this.dataGridViewBer.Size = new System.Drawing.Size(1400, 100);
+            this.dataGridViewBer.Size = new System.Drawing.Size(1510, 300);
             this.dataGridViewBer.TabIndex = 1;
-            // 
-            // dataGridViewZhur
-            // 
-            this.dataGridViewZhur.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.dataGridViewZhur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewZhur.Location = new System.Drawing.Point(12, 560);
-            this.dataGridViewZhur.Name = "dataGridViewZhur";
-            this.dataGridViewZhur.RowHeadersWidth = 51;
-            this.dataGridViewZhur.RowTemplate.Height = 24;
-            this.dataGridViewZhur.Size = new System.Drawing.Size(1400, 100);
-            this.dataGridViewZhur.TabIndex = 2;
-            // 
-            // dataGridViewRog
-            // 
-            this.dataGridViewRog.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.dataGridViewRog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRog.Location = new System.Drawing.Point(12, 400);
-            this.dataGridViewRog.Name = "dataGridViewRog";
-            this.dataGridViewRog.RowHeadersWidth = 51;
-            this.dataGridViewRog.RowTemplate.Height = 24;
-            this.dataGridViewRog.Size = new System.Drawing.Size(1400, 100);
-            this.dataGridViewRog.TabIndex = 3;
-            // 
-            // dataGridViewZab
-            // 
-            this.dataGridViewZab.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.dataGridViewZab.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewZab.Location = new System.Drawing.Point(12, 240);
-            this.dataGridViewZab.Name = "dataGridViewZab";
-            this.dataGridViewZab.RowHeadersWidth = 51;
-            this.dataGridViewZab.RowTemplate.Height = 24;
-            this.dataGridViewZab.Size = new System.Drawing.Size(1400, 100);
-            this.dataGridViewZab.TabIndex = 4;
-            // 
-            // dataGridViewZag
-            // 
-            this.dataGridViewZag.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.dataGridViewZag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewZag.Location = new System.Drawing.Point(12, 720);
-            this.dataGridViewZag.Name = "dataGridViewZag";
-            this.dataGridViewZag.RowHeadersWidth = 51;
-            this.dataGridViewZag.RowTemplate.Height = 24;
-            this.dataGridViewZag.Size = new System.Drawing.Size(1400, 100);
-            this.dataGridViewZag.TabIndex = 5;
             // 
             // Бережниця
             // 
@@ -172,70 +113,9 @@
             this.Бережниця.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Бережниця.Location = new System.Drawing.Point(20, 36);
             this.Бережниця.Name = "Бережниця";
-            this.Бережниця.Size = new System.Drawing.Size(168, 38);
+            this.Бережниця.Size = new System.Drawing.Size(264, 38);
             this.Бережниця.TabIndex = 6;
-            this.Бережниця.Text = "Бережниця";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(12, 519);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 38);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Журавків";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(12, 190);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(176, 38);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Заболотівці";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(12, 355);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(110, 38);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Рогізно";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe Script", 13.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(12, 672);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(164, 38);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Загурщина";
-            // 
-            // dataGridViewAll
-            // 
-            this.dataGridViewAll.BackgroundColor = System.Drawing.Color.PaleGreen;
-            this.dataGridViewAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAll.Location = new System.Drawing.Point(12, 875);
-            this.dataGridViewAll.Name = "dataGridViewAll";
-            this.dataGridViewAll.RowHeadersWidth = 51;
-            this.dataGridViewAll.RowTemplate.Height = 24;
-            this.dataGridViewAll.Size = new System.Drawing.Size(1400, 100);
-            this.dataGridViewAll.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe Script", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(621, 823);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(166, 50);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Загальні";
+            this.Бережниця.Text = "Домашні тварини";
             // 
             // ОновитиДані
             // 
@@ -258,19 +138,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1482, 953);
+            this.ClientSize = new System.Drawing.Size(1550, 400);
             this.Controls.Add(this.ОновитиДані);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridViewAll);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.Бережниця);
-            this.Controls.Add(this.dataGridViewZag);
-            this.Controls.Add(this.dataGridViewZab);
-            this.Controls.Add(this.dataGridViewRog);
-            this.Controls.Add(this.dataGridViewZhur);
             this.Controls.Add(this.dataGridViewBer);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -280,11 +150,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZhur)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRog)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZab)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewZag)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAll)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -298,18 +163,8 @@
         private System.Windows.Forms.ToolStripMenuItem пошукToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem статистикаToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridViewBer;
-        private System.Windows.Forms.DataGridView dataGridViewZhur;
-        private System.Windows.Forms.DataGridView dataGridViewRog;
-        private System.Windows.Forms.DataGridView dataGridViewZab;
-        private System.Windows.Forms.DataGridView dataGridViewZag;
         private System.Windows.Forms.Label Бережниця;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem вийтиЗПрограмиToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataGridViewAll;
-        private System.Windows.Forms.Label label1;
         private RJButton ОновитиДані;
     }
 }

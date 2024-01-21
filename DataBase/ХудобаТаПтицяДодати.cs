@@ -14,22 +14,54 @@ namespace DataBase
     public partial class ХудобаТаПтицяДодати : Form
     {
         private List<RowOfDataAnymals> _data = new List<RowOfDataAnymals>();
-        private User user;
+        private List<VillageStreet> data = new List<VillageStreet>();
+        //private User user;
 
         int rowNumber = 0;
 
         public ХудобаТаПтицяДодати()
         {
             InitializeComponent();
+            comboBoxVillage.Text = "Виберіть населений пункт";
+            bool mess = false;
+            data.Clear();
+            comboBoxVillage.Items.Clear();
 
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+            _reader.Close();
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                AddDataGrid(data[i]);
+                mess = true;
+            }
+            if (mess == false)
+            {
+                MessageBox.Show("Помилка роботи з базою даних !");
+            }
+            _manager.closeConnection();
 
             comboBoxVillage.Text = "Виберіть населений пункт";
-            comboBoxVillage.Items.Add("Бережниця");
-            comboBoxVillage.Items.Add("Заболотівці");
-            comboBoxVillage.Items.Add("Рогізно");
-            comboBoxVillage.Items.Add("Журавків");
-            comboBoxVillage.Items.Add("Загурщина");
+           
             HeaderOfTheTable();
+        }
+
+        private void AddDataGrid(VillageStreet row)
+        {
+            comboBoxVillage.Items.Add(row.village);
         }
 
         private void HeaderOfTheTable()
@@ -153,6 +185,7 @@ namespace DataBase
             dataGridViewДодати.AllowUserToAddRows = false;
             dataGridViewДодати.ReadOnly = true;
         }
+
         private void головнаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Головна form = new Головна();

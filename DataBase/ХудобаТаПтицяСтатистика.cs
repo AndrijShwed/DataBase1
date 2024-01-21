@@ -8,7 +8,15 @@ namespace DataBase
 {
     public partial class ХудобаТаПтицяСтатистика : Form
     {
-
+        private List<VillageStreet> data = new List<VillageStreet>();
+       
+        //private List<RowOfDataAnymals> _dataBer = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZab = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataRog = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZhur = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataZag = new List<RowOfDataAnymals>();
+        //private List<RowOfDataAnymals> _dataAll = new List<RowOfDataAnymals>();
+        //private User user;
         DataGridView dataGridView;
 
         public ХудобаТаПтицяСтатистика()
@@ -16,11 +24,7 @@ namespace DataBase
            
             InitializeComponent();
             HeaderOfTheTable(dataGridViewBer);
-            HeaderOfTheTable(dataGridViewZab);
-            HeaderOfTheTable(dataGridViewRog);
-            HeaderOfTheTable(dataGridViewZhur);
-            HeaderOfTheTable(dataGridViewZag);
-            HeaderOfTheTable(dataGridViewAll);
+           
         }
 
         private void HeaderOfTheTable(DataGridView _dataGridView)
@@ -34,67 +38,74 @@ namespace DataBase
             this.dataGridView.EnableHeadersVisualStyles = false;
 
             var column1 = new DataGridViewColumn();
-            column1.HeaderText = "ВРХ";
+            column1.HeaderText = "Населений пункт";
             column1.Width = 110;
-            column1.Name = "anymals";
+            column1.Name = "village";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
 
             var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Корови";
+            column2.HeaderText = "ВРХ";
             column2.Width = 110;
-            column2.Name = "covs";
+            column2.Name = "anymals";
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Свині";
+            var column3= new DataGridViewColumn();
+            column3.HeaderText = "Корови";
             column3.Width = 110;
-            column3.Name = "pigs";
+            column3.Name = "covs";
             column3.Frozen = true;
             column3.CellTemplate = new DataGridViewTextBoxCell();
 
             var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Вівці";
+            column4.HeaderText = "Свині";
             column4.Width = 110;
-            column4.Name = "sheeps";
+            column4.Name = "pigs";
             column4.Frozen = true;
             column4.CellTemplate = new DataGridViewTextBoxCell();
 
             var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Кози";
+            column5.HeaderText = "Вівці";
             column5.Width = 110;
-            column5.Name = "goats";
+            column5.Name = "sheeps";
             column5.Frozen = true;
             column5.CellTemplate = new DataGridViewTextBoxCell();
 
             var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Коні";
+            column6.HeaderText = "Кози";
             column6.Width = 110;
-            column6.Name = "horses";
+            column6.Name = "goats";
             column6.Frozen = true;
             column6.CellTemplate = new DataGridViewTextBoxCell();
 
             var column7 = new DataGridViewColumn();
-            column7.HeaderText = "Птиця";
+            column7.HeaderText = "Коні";
             column7.Width = 110;
-            column7.Name = "birds";
+            column7.Name = "horses";
             column7.Frozen = true;
             column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Кролі";
+            column8.HeaderText = "Птиця";
             column8.Width = 110;
-            column8.Name = "rabbits";
+            column8.Name = "birds";
             column8.Frozen = true;
             column8.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Бджоли";
+            var column9= new DataGridViewColumn();
+            column9.HeaderText = "Кролі";
             column9.Width = 110;
-            column9.Name = "bees";
+            column9.Name = "rabbits";
             column9.Frozen = true;
             column9.CellTemplate = new DataGridViewTextBoxCell();
+
+            var column10 = new DataGridViewColumn();
+            column10.HeaderText = "Бджоли";
+            column10.Width = 110;
+            column10.Name = "bees";
+            column10.Frozen = true;
+            column10.CellTemplate = new DataGridViewTextBoxCell();
 
 
             dataGridView.Columns.Add(column1);
@@ -106,6 +117,7 @@ namespace DataBase
             dataGridView.Columns.Add(column7);
             dataGridView.Columns.Add(column8);
             dataGridView.Columns.Add(column9);
+            dataGridView.Columns.Add(column10);
            
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
@@ -142,12 +154,45 @@ namespace DataBase
         private void ОновитиДані_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Дані формуються !!!");
-            StatisticFill(dataGridViewBer, "Бережниця");
-            StatisticFill(dataGridViewZab, "Заболотівці");
-            StatisticFill(dataGridViewRog, "Рогізно");
-            StatisticFill(dataGridViewZhur, "Журавків");
-            StatisticFill(dataGridViewZag, "Загурщина");
-            StatisticFillAll(dataGridViewAll);
+            bool mess = false;
+            data.Clear();
+            
+            
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+            _reader.Close();
+
+            string[] village = new string[data.Count];
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                village[i] = data[i].village.ToString();
+                mess = true;
+            }
+            if (mess == false)
+            {
+                MessageBox.Show("Помилка роботи з базою даних !");
+            }
+            _manager.closeConnection();
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                StatisticFill(dataGridViewBer, data[i].village.ToString());
+            }
+           
+            StatisticFillAll(dataGridViewBer);
         }
 
         private void StatisticFill(DataGridView _dataGridView, string _village)
@@ -158,7 +203,7 @@ namespace DataBase
             dataGridView.DefaultCellStyle.BackColor = Color.Beige;
             dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridView.DataSource = null;
-            dataGridView.Rows.Add();
+           
            
             string a = "SELECT SUM(anymals) FROM anymals WHERE village = '" + village +"'";
             string c = "SELECT SUM(covs) FROM anymals WHERE village = '" + village +"'";
@@ -212,31 +257,41 @@ namespace DataBase
             if (_commandBE.ExecuteScalar() != DBNull.Value)
                  beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
 
-            dataGridView.Rows[0].Cells[0].Value = anymalsCount;
-            dataGridView.Rows[0].Cells[1].Value = covsCount;
-            dataGridView.Rows[0].Cells[2].Value = pigsCount;
-            dataGridView.Rows[0].Cells[3].Value = sheepsCount;
-            dataGridView.Rows[0].Cells[4].Value = goatsCount;
-            dataGridView.Rows[0].Cells[5].Value = horsesCount;
-            dataGridView.Rows[0].Cells[6].Value = birdsCount;
-            dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
-            dataGridView.Rows[0].Cells[8].Value = beesesCount;
+            //dataGridView.Rows[0].Cells[0].Value = anymalsCount;
+            //dataGridView.Rows[0].Cells[1].Value = covsCount;
+            //dataGridView.Rows[0].Cells[2].Value = pigsCount;
+            //dataGridView.Rows[0].Cells[3].Value = sheepsCount;
+            //dataGridView.Rows[0].Cells[4].Value = goatsCount;
+            //dataGridView.Rows[0].Cells[5].Value = horsesCount;
+            //dataGridView.Rows[0].Cells[6].Value = birdsCount;
+            //dataGridView.Rows[0].Cells[7].Value = rabbitsCount;
+            //dataGridView.Rows[0].Cells[8].Value = beesesCount;
+
+            AddDataGrid(village, anymalsCount, covsCount, pigsCount, sheepsCount, goatsCount, horsesCount, birdsCount, rabbitsCount, beesesCount);
 
             _manager.closeConnection();
 
         }
 
+        private void AddDataGrid(string village, int anymalsCount, int covsCount, int pigsCount, int sheepsCount,int goatsCount,
+            int horsesCount, int birdsCount, int rabbitsCount, int beesCount)
+        {
+            dataGridView.Rows.Add(village, anymalsCount, covsCount, pigsCount, sheepsCount, goatsCount, horsesCount,
+               birdsCount, rabbitsCount, beesCount );
+        }
+
+
         private void StatisticFillAll(DataGridView _dataGridView)
         {
            
-            dataGridView = _dataGridView;
-            dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
-            dataGridView.DefaultCellStyle.BackColor = Color.Coral;
-            dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkRed;
-            dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dataGridView.DataSource = null;
-            dataGridView.Rows.Add();
+            //dataGridView = _dataGridView;
+            //dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            //dataGridView.DefaultCellStyle.BackColor = Color.Coral;
+            //dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            //dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkRed;
+            //dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            //dataGridView.DataSource = null;
+           
 
             string a = "SELECT SUM(anymals) FROM anymals ";
             string c = "SELECT SUM(covs) FROM anymals ";
@@ -290,7 +345,9 @@ namespace DataBase
             if (_commandBE.ExecuteScalar() != DBNull.Value)
                 beesesCount = Convert.ToInt32(_commandBE.ExecuteScalar());
 
-
+           
+            string village = "Загальні";
+            AddDataGrid(village, anymalsCount, covsCount, pigsCount, sheepsCount, goatsCount, horsesCount, birdsCount, rabbitsCount, beesesCount);
             _manager.closeConnection();
 
         }
