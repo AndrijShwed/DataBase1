@@ -4,20 +4,61 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace DataBase
 {
     public partial class Населені_Пункти : Form
     {
         private User user;
         List<RowOfVillage> _data = new List<RowOfVillage>();
+        List<VillageStreet> data = new List<VillageStreet>();
 
         public Населені_Пункти()
         {
             InitializeComponent();
             HeaderOfTheTable();
+           
+
+            //for (int i = 0; i < data.Count; i++)
+            //{
+            //    AddDataGrid(data[i]);
+            //    mess = true;
+            //}
+            //if (mess == false)
+            //{
+            //    MessageBox.Show("Таблиця населених пунктів і вулиць пуста, спочатку заповніть дані !");
+            //}
+           
         }
+
+        //private void AddDataGrid(VillageStreet row)
+        //{
+        //    ListVillage.Items.Add(row.village);
+        //}
+
         private void HeaderOfTheTable()
         {
+
+            bool mess = false;
+            data.Clear();
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+            _reader.Close();
+            _manager.closeConnection();
+
             this.dataGridViewНаселені_Пункти.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
             this.dataGridViewНаселені_Пункти.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewНаселені_Пункти.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
@@ -39,41 +80,47 @@ namespace DataBase
             column2.Frozen = true;
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Бережниця";
-            column3.Width = 120;
-            column3.Name = "berezhnytsya";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
+            List<DataGridViewColumn> col = new List<DataGridViewColumn>();
 
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Заболотівці";
-            column4.Width = 120;
-            column4.Name = "zabolotivtsi";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
+            for (int i = 3; i < data.Count + 3; i++)
+            {
+                var columni = new DataGridViewColumn();
+                columni.HeaderText = data[i-3].village.ToString();
+                columni.Width = 120;
+                columni.Name = data[i-3].village.ToString();
+                columni.Frozen = true;
+                columni.CellTemplate = new DataGridViewTextBoxCell();
+                col.Add(columni);
+            }
 
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Рогізно";
-            column5.Width = 120;
-            column5.Name = "rogizno";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
+            //var column4 = new DataGridViewColumn();
+            //column4.HeaderText = "Заболотівці";
+            //column4.Width = 120;
+            //column4.Name = "zabolotivtsi";
+            //column4.Frozen = true;
+            //column4.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Журавків";
-            column6.Width = 120;
-            column6.Name = "zhuravkiv";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
+            //var column5 = new DataGridViewColumn();
+            //column5.HeaderText = "Рогізно";
+            //column5.Width = 120;
+            //column5.Name = "rogizno";
+            //column5.Frozen = true;
+            //column5.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "Загурщина";
-            column7.Width = 120;
-            column7.Name = "zagurzchyna";
-            column7.Frozen = true;
-            column7.DefaultCellStyle.Format = "d";
-            column7.CellTemplate = new DataGridViewTextBoxCell();
+            //var column6 = new DataGridViewColumn();
+            //column6.HeaderText = "Журавків";
+            //column6.Width = 120;
+            //column6.Name = "zhuravkiv";
+            //column6.Frozen = true;
+            //column6.CellTemplate = new DataGridViewTextBoxCell();
+
+            //var column7 = new DataGridViewColumn();
+            //column7.HeaderText = "Загурщина";
+            //column7.Width = 120;
+            //column7.Name = "zagurzchyna";
+            //column7.Frozen = true;
+            //column7.DefaultCellStyle.Format = "d";
+            //column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Всього";
@@ -86,11 +133,15 @@ namespace DataBase
 
             dataGridViewНаселені_Пункти.Columns.Add(column1);
             dataGridViewНаселені_Пункти.Columns.Add(column2);
-            dataGridViewНаселені_Пункти.Columns.Add(column3);
-            dataGridViewНаселені_Пункти.Columns.Add(column4);
-            dataGridViewНаселені_Пункти.Columns.Add(column5);
-            dataGridViewНаселені_Пункти.Columns.Add(column6);
-            dataGridViewНаселені_Пункти.Columns.Add(column7);
+            for(int i = 0; i < col.Count; i++)
+            {
+                dataGridViewНаселені_Пункти.Columns.Add(col[i]);
+            }
+            //dataGridViewНаселені_Пункти.Columns.Add(column3);
+            //dataGridViewНаселені_Пункти.Columns.Add(column4);
+            //dataGridViewНаселені_Пункти.Columns.Add(column5);
+            //dataGridViewНаселені_Пункти.Columns.Add(column6);
+            //dataGridViewНаселені_Пункти.Columns.Add(column7);
             dataGridViewНаселені_Пункти.Columns.Add(column8);
 
 
