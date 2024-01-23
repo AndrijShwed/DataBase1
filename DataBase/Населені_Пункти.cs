@@ -18,23 +18,7 @@ namespace DataBase
             InitializeComponent();
             HeaderOfTheTable();
            
-
-            //for (int i = 0; i < data.Count; i++)
-            //{
-            //    AddDataGrid(data[i]);
-            //    mess = true;
-            //}
-            //if (mess == false)
-            //{
-            //    MessageBox.Show("Таблиця населених пунктів і вулиць пуста, спочатку заповніть дані !");
-            //}
-           
         }
-
-        //private void AddDataGrid(VillageStreet row)
-        //{
-        //    ListVillage.Items.Add(row.village);
-        //}
 
         private void HeaderOfTheTable()
         {
@@ -93,34 +77,6 @@ namespace DataBase
                 col.Add(columni);
             }
 
-            //var column4 = new DataGridViewColumn();
-            //column4.HeaderText = "Заболотівці";
-            //column4.Width = 120;
-            //column4.Name = "zabolotivtsi";
-            //column4.Frozen = true;
-            //column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column5 = new DataGridViewColumn();
-            //column5.HeaderText = "Рогізно";
-            //column5.Width = 120;
-            //column5.Name = "rogizno";
-            //column5.Frozen = true;
-            //column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column6 = new DataGridViewColumn();
-            //column6.HeaderText = "Журавків";
-            //column6.Width = 120;
-            //column6.Name = "zhuravkiv";
-            //column6.Frozen = true;
-            //column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column7 = new DataGridViewColumn();
-            //column7.HeaderText = "Загурщина";
-            //column7.Width = 120;
-            //column7.Name = "zagurzchyna";
-            //column7.Frozen = true;
-            //column7.DefaultCellStyle.Format = "d";
-            //column7.CellTemplate = new DataGridViewTextBoxCell();
 
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Всього";
