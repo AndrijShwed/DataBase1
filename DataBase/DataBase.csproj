@@ -141,6 +141,7 @@
     <Compile Include="RowOfDataH.cs" />
     <Compile Include="RowOfDataAnymals.cs" />
     <Compile Include="RowOfVillageArea.cs" />
+    <Compile Include="VillageStreet.cs" />
     <Compile Include="Домогосподарства_Пошук.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +225,12 @@
     <Compile Include="ПоКількостіКімнат.Designer.cs">
       <DependentUpon>ПоКількостіКімнат.cs</DependentUpon>
     </Compile>
+    <Compile Include="ПочатокРоботи.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ПочатокРоботи.Designer.cs">
+      <DependentUpon>ПочатокРоботи.cs</DependentUpon>
+    </Compile>
     <Compile Include="Реєстрація.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ПоКількостіКімнат.resx">
       <DependentUpon>ПоКількостіКімнат.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ПочатокРоботи.resx">
+      <DependentUpon>ПочатокРоботи.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Реєстрація.resx">
       <DependentUpon>Реєстрація.cs</DependentUpon>

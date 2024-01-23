@@ -38,7 +38,9 @@
             this.ВведітьСтаруНазвуВулиці = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.ЗамінитиІЗберегти = new ClassLibrary1.RJButton();
-            this.textBoxСтараНазва = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBoxСтараНазваВулиці = new System.Windows.Forms.ComboBox();
+            this.comboBoxНаселенийПункт = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +92,7 @@
             // НоваНазва
             // 
             this.НоваНазва.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.НоваНазва.Location = new System.Drawing.Point(553, 170);
+            this.НоваНазва.Location = new System.Drawing.Point(537, 231);
             this.НоваНазва.Name = "НоваНазва";
             this.НоваНазва.Size = new System.Drawing.Size(400, 34);
             this.НоваНазва.TabIndex = 2;
@@ -101,11 +103,11 @@
             this.ВведітьСтаруНазвуВулиці.BackColor = System.Drawing.Color.Salmon;
             this.ВведітьСтаруНазвуВулиці.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ВведітьСтаруНазвуВулиці.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ВведітьСтаруНазвуВулиці.Location = new System.Drawing.Point(81, 103);
+            this.ВведітьСтаруНазвуВулиці.Location = new System.Drawing.Point(81, 170);
             this.ВведітьСтаруНазвуВулиці.Name = "ВведітьСтаруНазвуВулиці";
-            this.ВведітьСтаруНазвуВулиці.Size = new System.Drawing.Size(379, 38);
+            this.ВведітьСтаруНазвуВулиці.Size = new System.Drawing.Size(400, 38);
             this.ВведітьСтаруНазвуВулиці.TabIndex = 3;
-            this.ВведітьСтаруНазвуВулиці.Text = "Введіть стару назву вулиці";
+            this.ВведітьСтаруНазвуВулиці.Text = "Виберіть стару назву вулиці";
             // 
             // label2
             // 
@@ -113,7 +115,7 @@
             this.label2.BackColor = System.Drawing.Color.Salmon;
             this.label2.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(580, 103);
+            this.label2.Location = new System.Drawing.Point(550, 170);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(357, 38);
             this.label2.TabIndex = 4;
@@ -139,13 +141,34 @@
             this.ЗамінитиІЗберегти.UseVisualStyleBackColor = false;
             this.ЗамінитиІЗберегти.Click += new System.EventHandler(this.ЗамінитиІЗберегти_Click);
             // 
-            // textBoxСтараНазва
+            // label1
             // 
-            this.textBoxСтараНазва.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxСтараНазва.Location = new System.Drawing.Point(76, 170);
-            this.textBoxСтараНазва.Name = "textBoxСтараНазва";
-            this.textBoxСтараНазва.Size = new System.Drawing.Size(384, 34);
-            this.textBoxСтараНазва.TabIndex = 6;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Salmon;
+            this.label1.Font = new System.Drawing.Font("Segoe Script", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(327, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(372, 38);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Виберіть населений пункт";
+            // 
+            // comboBoxСтараНазваВулиці
+            // 
+            this.comboBoxСтараНазваВулиці.FormattingEnabled = true;
+            this.comboBoxСтараНазваВулиці.Location = new System.Drawing.Point(79, 231);
+            this.comboBoxСтараНазваВулиці.Name = "comboBoxСтараНазваВулиці";
+            this.comboBoxСтараНазваВулиці.Size = new System.Drawing.Size(393, 33);
+            this.comboBoxСтараНазваВулиці.TabIndex = 9;
+            // 
+            // comboBoxНаселенийПункт
+            // 
+            this.comboBoxНаселенийПункт.FormattingEnabled = true;
+            this.comboBoxНаселенийПункт.Location = new System.Drawing.Point(315, 106);
+            this.comboBoxНаселенийПункт.Name = "comboBoxНаселенийПункт";
+            this.comboBoxНаселенийПункт.Size = new System.Drawing.Size(393, 33);
+            this.comboBoxНаселенийПункт.TabIndex = 10;
+            this.comboBoxНаселенийПункт.SelectedIndexChanged += new System.EventHandler(this.comboBoxНаселенийПункт_SelectedIndexChanged);
             // 
             // ПерейменуванняВулиць
             // 
@@ -153,7 +176,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1089, 534);
-            this.Controls.Add(this.textBoxСтараНазва);
+            this.Controls.Add(this.comboBoxНаселенийПункт);
+            this.Controls.Add(this.comboBoxСтараНазваВулиці);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ЗамінитиІЗберегти);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ВведітьСтаруНазвуВулиці);
@@ -183,6 +208,8 @@
         private System.Windows.Forms.Label label2;
         private ClassLibrary1.RJButton ЗамінитиІЗберегти;
         private System.Windows.Forms.ToolStripMenuItem вихідToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBoxСтараНазва;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboBoxСтараНазваВулиці;
+        private System.Windows.Forms.ComboBox comboBoxНаселенийПункт;
     }
 }
