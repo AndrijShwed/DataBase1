@@ -13,13 +13,13 @@ namespace DataBase
     {
         public object id { get; set; }
         public object year { get; set; }
-        public object berezhnytsya { get; set; }
+        public object  berezhnytsya { get; set; }
         public object zabolotivtsi { get; set; }
         public object rogizno { get; set; }
         public object zhuravkiv { get; set; }
         public object zagurzchyna { get; set; }
         public object all { get; set; }
-
+       
         public RowOfVillage() { }
 
         public RowOfVillage(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno,
