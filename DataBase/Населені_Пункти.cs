@@ -18,23 +18,7 @@ namespace DataBase
             InitializeComponent();
             HeaderOfTheTable();
            
-
-            //for (int i = 0; i < data.Count; i++)
-            //{
-            //    AddDataGrid(data[i]);
-            //    mess = true;
-            //}
-            //if (mess == false)
-            //{
-            //    MessageBox.Show("Таблиця населених пунктів і вулиць пуста, спочатку заповніть дані !");
-            //}
-           
         }
-
-        //private void AddDataGrid(VillageStreet row)
-        //{
-        //    ListVillage.Items.Add(row.village);
-        //}
 
         private void HeaderOfTheTable()
         {
@@ -54,8 +38,9 @@ namespace DataBase
             {
                 VillageStreet row = new VillageStreet(_reader["village"]);
                 data.Add(row);
-
+               
             }
+           
             _reader.Close();
             _manager.closeConnection();
 
@@ -93,35 +78,7 @@ namespace DataBase
                 col.Add(columni);
             }
 
-            //var column4 = new DataGridViewColumn();
-            //column4.HeaderText = "Заболотівці";
-            //column4.Width = 120;
-            //column4.Name = "zabolotivtsi";
-            //column4.Frozen = true;
-            //column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column5 = new DataGridViewColumn();
-            //column5.HeaderText = "Рогізно";
-            //column5.Width = 120;
-            //column5.Name = "rogizno";
-            //column5.Frozen = true;
-            //column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column6 = new DataGridViewColumn();
-            //column6.HeaderText = "Журавків";
-            //column6.Width = 120;
-            //column6.Name = "zhuravkiv";
-            //column6.Frozen = true;
-            //column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            //var column7 = new DataGridViewColumn();
-            //column7.HeaderText = "Загурщина";
-            //column7.Width = 120;
-            //column7.Name = "zagurzchyna";
-            //column7.Frozen = true;
-            //column7.DefaultCellStyle.Format = "d";
-            //column7.CellTemplate = new DataGridViewTextBoxCell();
-
+            
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Всього";
             column8.Width = 120;
@@ -137,11 +94,7 @@ namespace DataBase
             {
                 dataGridViewНаселені_Пункти.Columns.Add(col[i]);
             }
-            //dataGridViewНаселені_Пункти.Columns.Add(column3);
-            //dataGridViewНаселені_Пункти.Columns.Add(column4);
-            //dataGridViewНаселені_Пункти.Columns.Add(column5);
-            //dataGridViewНаселені_Пункти.Columns.Add(column6);
-            //dataGridViewНаселені_Пункти.Columns.Add(column7);
+           
             dataGridViewНаселені_Пункти.Columns.Add(column8);
 
 
@@ -185,10 +138,9 @@ namespace DataBase
             _manager.openConnection();
             _reader = _command.ExecuteReader();
 
+            
             try
             {
-
-
                 while (_reader.Read())
                 {
                     RowOfVillage row = new RowOfVillage(_reader["id"], _reader["year"], _reader["berezhnytsya"], _reader["zabolotivtsi"],
@@ -216,11 +168,11 @@ namespace DataBase
 
             this.dataGridViewНаселені_Пункти.Rows.Add();
 
-            string count_ber = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця'";
-            string count_zab = "SELECT COUNT(*) FROM people WHERE village = 'Заболотівці'";
-            string count_rog = "SELECT COUNT(*) FROM people WHERE village = 'Рогізно'";
-            string count_zhur = "SELECT COUNT(*) FROM people WHERE village = 'Журавків'";
-            string count_zag = "SELECT COUNT(*) FROM people WHERE village = 'Загурщина'";
+            string count_ber = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця' AND registr = 'так'";
+            string count_zab = "SELECT COUNT(*) FROM people WHERE village = 'Заболотівці' AND registr = 'так'";
+            string count_rog = "SELECT COUNT(*) FROM people WHERE village = 'Рогізно' AND registr = 'так'";
+            string count_zhur = "SELECT COUNT(*) FROM people WHERE village = 'Журавків' AND registr = 'так'";
+            string count_zag = "SELECT COUNT(*) FROM people WHERE village = 'Загурщина' AND registr = 'так'";
             MySqlCommand search_ber = new MySqlCommand(count_ber, _manager.getConnection());
 
             MySqlCommand search_zab = new MySqlCommand(count_zab, _manager.getConnection());
