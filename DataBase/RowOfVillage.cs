@@ -13,41 +13,34 @@ namespace DataBase
     {
         public object id { get; set; }
         public object year { get; set; }
-        public object  berezhnytsya { get; set; }
-        public object zabolotivtsi { get; set; }
-        public object rogizno { get; set; }
-        public object zhuravkiv { get; set; }
-        public object zagurzchyna { get; set; }
-        public object all { get; set; }
+        public object  village { get; set; }
+        public object count { get; set; }
+       
        
         public RowOfVillage() { }
 
-        public RowOfVillage(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno,
-           object _zhuravkiv, object _zagurzchyna, object _all)
+        public RowOfVillage(object _id, object _year, object _village, object _count)
         {
             id = _id;
             year = _year;
-            berezhnytsya = _berezhnytsya;
-            zabolotivtsi = _zabolotivtsi;
-            rogizno = _rogizno;
-            zhuravkiv = _zhuravkiv;
-            zagurzchyna = _zagurzchyna;
-            all = _all;
+            village = _village;
+            count = _count;
+          
         }
 
-        public void DataChange(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno, object _zhuravkiv,
-            object _zagurzchyna, object _all)
-        {
-            id = _id;
-            year = _year;
-            berezhnytsya = _berezhnytsya;
-            zabolotivtsi = _zabolotivtsi;
-            rogizno = _rogizno;
-            zhuravkiv = _zhuravkiv;
-            zagurzchyna = _zagurzchyna;
-            all = _all;
+        //public void DataChange(object _id, object _year, object _berezhnytsya, object _zabolotivtsi, object _rogizno, object _zhuravkiv,
+        //    object _zagurzchyna, object _all)
+        //{
+        //    id = _id;
+        //    year = _year;
+        //    berezhnytsya = _berezhnytsya;
+        //    zabolotivtsi = _zabolotivtsi;
+        //    rogizno = _rogizno;
+        //    zhuravkiv = _zhuravkiv;
+        //    zagurzchyna = _zagurzchyna;
+        //    all = _all;
 
-        }
+        //}
 
 
 
