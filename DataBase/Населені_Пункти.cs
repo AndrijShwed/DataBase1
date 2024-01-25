@@ -17,7 +17,7 @@ namespace DataBase
         {
             InitializeComponent();
             HeaderOfTheTable();
-           
+
         }
 
         private void HeaderOfTheTable()
@@ -38,14 +38,15 @@ namespace DataBase
             {
                 VillageStreet row = new VillageStreet(_reader["village"]);
                 data.Add(row);
-               
+
             }
-           
+
             _reader.Close();
             _manager.closeConnection();
 
             this.dataGridViewНаселені_Пункти.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
             this.dataGridViewНаселені_Пункти.DefaultCellStyle.BackColor = Color.Beige;
+            this.dataGridViewНаселені_Пункти.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewНаселені_Пункти.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
             this.dataGridViewНаселені_Пункти.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewНаселені_Пункти.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkOrange;
@@ -70,15 +71,15 @@ namespace DataBase
             for (int i = 3; i < data.Count + 3; i++)
             {
                 var columni = new DataGridViewColumn();
-                columni.HeaderText = data[i-3].village.ToString();
+                columni.HeaderText = data[i - 3].village.ToString();
                 columni.Width = 120;
-                columni.Name = data[i-3].village.ToString();
+                columni.Name = data[i - 3].village.ToString();
                 columni.Frozen = true;
                 columni.CellTemplate = new DataGridViewTextBoxCell();
                 col.Add(columni);
             }
 
-            
+
             var column8 = new DataGridViewColumn();
             column8.HeaderText = "Всього";
             column8.Width = 120;
@@ -90,11 +91,11 @@ namespace DataBase
 
             dataGridViewНаселені_Пункти.Columns.Add(column1);
             dataGridViewНаселені_Пункти.Columns.Add(column2);
-            for(int i = 0; i < col.Count; i++)
+            for (int i = 0; i < col.Count; i++)
             {
                 dataGridViewНаселені_Пункти.Columns.Add(col[i]);
             }
-           
+
             dataGridViewНаселені_Пункти.Columns.Add(column8);
 
 
@@ -114,11 +115,6 @@ namespace DataBase
             this.Close();
             form.Show();
         }
-        private void AddDataGrid(RowOfVillage row)
-        {
-            dataGridViewНаселені_Пункти.Rows.Add(row.id, row.year, row.berezhnytsya, row.zabolotivtsi, row.rogizno, row.zhuravkiv,
-                row.zagurzchyna, row.all);
-        }
 
         private void buttonОновити_Click(object sender, EventArgs e)
         {
@@ -130,27 +126,53 @@ namespace DataBase
 
             int yearNow = Convert.ToInt32(DateTime.Now.Year);
 
-           
             ConnectionClass _manager = new ConnectionClass();
-            MySqlCommand _command = new MySqlCommand("SELECT * FROM count_peoples", _manager.getConnection());
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM c_people", _manager.getConnection());
             MySqlDataReader _reader;
 
             _manager.openConnection();
             _reader = _command.ExecuteReader();
 
-            
+            int r = 0;
+            int k = 0;
+            this.dataGridViewНаселені_Пункти.Rows.Add();
             try
             {
                 while (_reader.Read())
                 {
-                    RowOfVillage row = new RowOfVillage(_reader["id"], _reader["year"], _reader["berezhnytsya"], _reader["zabolotivtsi"],
-                        _reader["rogizno"], _reader["zhuravkiv"], _reader["zagurzchyna"], _reader["all"]);
+                    RowOfVillage row = new RowOfVillage(_reader["id"], _reader["year"], _reader["village"], _reader["count"]);
                     _data.Add(row);
                 }
 
+                int year = Convert.ToInt32(_data[0].year);
+
+                int s = 0;
+
                 for (int i = 0; i < _data.Count; i++)
                 {
-                    AddDataGrid(_data[i]);
+                    if (year == Convert.ToInt32(_data[i].year))
+                    {
+                        dataGridViewНаселені_Пункти.Rows[r].Cells[0].Value = r + 1;
+                        dataGridViewНаселені_Пункти.Rows[r].Cells[1].Value = year.ToString();
+                        dataGridViewНаселені_Пункти.Rows[r].Cells[k + 2].Value = Convert.ToInt32(_data[i].count);
+                        s += Convert.ToInt32(_data[i].count);
+                        dataGridViewНаселені_Пункти.Rows[r].Cells[data.Count + 2].Value = s;
+                        k++;
+                    }
+                    else
+                    {
+                        dataGridViewНаселені_Пункти.Rows.Add();
+                        r++;
+                        s = 0;
+                        k = 0;
+                        dataGridViewНаселені_Пункти.Rows[r].Cells[k + 2].Value = Convert.ToInt32(_data[i].count);
+                        s += Convert.ToInt32(_data[i].count);
+                        k = 1;
+
+                        year = Convert.ToInt32(_data[i].year);
+
+                    }
+
                 }
             }
             catch
@@ -165,69 +187,63 @@ namespace DataBase
 
             _manager.openConnection();
 
-
+            List<string> count_v = new List<string>();
             this.dataGridViewНаселені_Пункти.Rows.Add();
 
-            string count_ber = "SELECT COUNT(*) FROM people WHERE village = 'Бережниця' AND registr = 'так'";
-            string count_zab = "SELECT COUNT(*) FROM people WHERE village = 'Заболотівці' AND registr = 'так'";
-            string count_rog = "SELECT COUNT(*) FROM people WHERE village = 'Рогізно' AND registr = 'так'";
-            string count_zhur = "SELECT COUNT(*) FROM people WHERE village = 'Журавків' AND registr = 'так'";
-            string count_zag = "SELECT COUNT(*) FROM people WHERE village = 'Загурщина' AND registr = 'так'";
-            MySqlCommand search_ber = new MySqlCommand(count_ber, _manager.getConnection());
-
-            MySqlCommand search_zab = new MySqlCommand(count_zab, _manager.getConnection());
-
-            MySqlCommand search_rog = new MySqlCommand(count_rog, _manager.getConnection());
-
-            MySqlCommand search_zhur = new MySqlCommand(count_zhur, _manager.getConnection());
-
-            MySqlCommand search_zag = new MySqlCommand(count_zag, _manager.getConnection());
-
-            int countRows = _data.Count;
-
-            if (countRows == 0)
+            for (int i = 0; i < data.Count; i++)
             {
-                countRows = 1;
+                string count1 = "SELECT COUNT(*) FROM people WHERE village = '" + data[i].village.ToString() + "' AND registr = 'так'";
+                count_v.Add(count1);
             }
 
-            int ber = Convert.ToInt32(search_ber.ExecuteScalar());
-            int zab = Convert.ToInt32(search_zab.ExecuteScalar());
-            int rog = Convert.ToInt32(search_rog.ExecuteScalar());
-            int zhur = Convert.ToInt32(search_zhur.ExecuteScalar());
-            int zag = Convert.ToInt32(search_zag.ExecuteScalar());
-            int all = ber + zab + rog + zhur + zag;
-            string id = Convert.ToString(this.dataGridViewНаселені_Пункти.Rows[countRows - 1].Cells[0].Value);
 
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[2].Value = ber;
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[3].Value = zab;
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[4].Value = rog;
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[5].Value = zhur;
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[6].Value = zag;
-            dataGridViewНаселені_Пункти.Rows[_data.Count].Cells[7].Value = all;
+            int all = 0;
+            List<int> sum_v = new List<int>();
+            for (int i = 0; i < data.Count; i++)
+            {
+                MySqlCommand search = new MySqlCommand(count_v[i], _manager.getConnection());
+                int sum = Convert.ToInt32(search.ExecuteScalar());
+                all += sum;
+                sum_v.Add(sum);
+            }
+
+            dataGridViewНаселені_Пункти.Rows[r + 1].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
+            for (int i = 0; i < data.Count; i++)
+            {
+                dataGridViewНаселені_Пункти.Rows[r + 1].Cells[i + 2].Value = sum_v[i];
+            }
+
+            dataGridViewНаселені_Пункти.Rows[r + 1].Cells[7].Value = all;
 
             try
             {
-                string count = "SELECT COUNT(*) FROM count_peoples WHERE year = '" + yearNow + "'";
+                string count = "SELECT COUNT(*) FROM c_people WHERE year = '" + yearNow + "'";
                 MySqlCommand isYear = new MySqlCommand(count, _manager.getConnection());
                 int yes = Convert.ToInt32(isYear.ExecuteScalar());
                 //int yes = 0;
                 if (yes == 0)
                 {
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        string addYear = "INSERT INTO `c_people` (`village`,`year`, `count`)" +
+                       " VALUES('" + data[i].village.ToString() + "', '" + yearNow + "', '" + sum_v[i] + "')";
+                        MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
+                        add.ExecuteNonQuery();
+                    }
 
-                    string addYear = "INSERT INTO `count_peoples` (`year`, `berezhnytsya`, `zabolotivtsi`, `rogizno`, `zhuravkiv`, `zagurzchyna`, `all`)" +
-                        " VALUES('" + yearNow + "', '" + ber + "', '" + zab + "', '" + rog + "', '" + zhur + "', '" + zag + "', '" + all + "')";
-                    MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
-                    add.ExecuteNonQuery();
                 }
                 else
                 {
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        string addYear = "UPDATE `c_people` SET `count` = '" + sum_v[i] + "' WHERE(`year` = '" + yearNow + "' " +
+                        "AND `village` = '" + _data[i].village.ToString() + "')";
 
-                    string addYear = "UPDATE `count_peoples` SET `berezhnytsya` = '" + ber + "', `zabolotivtsi` = '" + zab + "'," +
-                        " `rogizno` = '" + rog + "', `zhuravkiv` = '" + zhur + "', `zagurzchyna` = '" + zag + "', `all` = '" + all + "' WHERE(`id` = '" + id + "')";
+                        MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
+                        add.ExecuteNonQuery();
+                    }
 
-                    MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
-                    add.ExecuteNonQuery();
+
                 }
                 _manager.closeConnection();
             }
@@ -235,7 +251,6 @@ namespace DataBase
             {
                 MessageBox.Show("Помилка !!!");
             }
-
         }
 
         private void buttonВихідЗПрограми_Click(object sender, EventArgs e)
@@ -243,4 +258,4 @@ namespace DataBase
             Application.Exit();
         }
     }
-}
+}  
