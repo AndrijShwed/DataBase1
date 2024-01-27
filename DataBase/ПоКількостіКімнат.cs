@@ -10,26 +10,42 @@ namespace DataBase
     {
 
         private User user;
-        List<RowCountOfRooms> _dataBer = new List<RowCountOfRooms>();
-        List<RowCountOfRooms> _dataZab = new List<RowCountOfRooms>();
-        List<RowCountOfRooms> _dataRog = new List<RowCountOfRooms>();
-        List<RowCountOfRooms> _dataZhur = new List<RowCountOfRooms>();
-        List<RowCountOfRooms> _dataZag = new List<RowCountOfRooms>();
+        List<RowCountOfRooms> _data = new List<RowCountOfRooms>();
+        List<VillageStreet> data = new List<VillageStreet>();
+      
         DataGridView dataGridView;
 
         public ПоКількостіКімнат()
         {
             InitializeComponent();
-            HeaderOfTheTable(dataGridViewBerTab);
-            HeaderOfTheTable(dataGridViewZabTab);
-            HeaderOfTheTable(dataGridViewRogTab);
-            HeaderOfTheTable(dataGridViewZhurTab);
-            HeaderOfTheTable(dataGridViewZagTab);
+            HeaderOfTheTable(dataGridViewTab);
+           
            
         }
 
         private void HeaderOfTheTable(DataGridView _dataGridView)
         {
+            bool mess = false;
+            data.Clear();
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+
+            _reader.Close();
+            _manager.closeConnection();
+
             this.dataGridView = _dataGridView;
             this.dataGridView.DefaultCellStyle.Font = new Font("TimeNewRoman", 12);
             this.dataGridView.DefaultCellStyle.BackColor = Color.Beige;
@@ -40,9 +56,9 @@ namespace DataBase
             this.dataGridView.EnableHeadersVisualStyles = false;
 
             var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
+            column1.HeaderText = "Населений пункт";
             column1.Width = 100;
-            column1.Name = "id";
+            column1.Name = "village";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
 
@@ -109,6 +125,8 @@ namespace DataBase
             column10.Frozen = true;
             column10.CellTemplate = new DataGridViewTextBoxCell();
 
+
+
             dataGridView.Columns.Add(column1);
             dataGridView.Columns.Add(column2);
             dataGridView.Columns.Add(column3);
@@ -119,6 +137,8 @@ namespace DataBase
             dataGridView.Columns.Add(column8);
             dataGridView.Columns.Add(column9);
             dataGridView.Columns.Add(column10);
+
+
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
@@ -162,22 +182,12 @@ namespace DataBase
 
         private void Оновити_дані_Click(object sender, EventArgs e)
         {
-            dataGridViewBerTab.DataSource = null;
-            dataGridViewZabTab.DataSource = null;
-            dataGridViewRogTab.DataSource = null;
-            dataGridViewZhurTab.DataSource = null;
-            dataGridViewZagTab.DataSource = null;
-            dataGridViewBerTab.Rows.Clear();
-            dataGridViewZabTab.Rows.Clear();
-            dataGridViewRogTab.Rows.Clear();
-            dataGridViewZhurTab.Rows.Clear();
-            dataGridViewZagTab.Rows.Clear();
-            _dataBer.Clear();
-            _dataZab.Clear();
-            _dataRog.Clear();
-            _dataZhur.Clear();
-            _dataZag.Clear();
-
+            dataGridViewTab.DataSource = null;
+          
+            dataGridViewTab.Rows.Clear();
+           
+            _data.Clear();
+           
             user = new User();
 
             MessageBox.Show("Зачекайте !");
@@ -199,93 +209,45 @@ namespace DataBase
                 string count = "SELECT COUNT(*) FROM houses WHERE village = '" + village + "' AND total_of_rooms > '"+ k +"'";
                 return count;
             }
-
+           
             MySqlCommand search;
             _manager.openConnection();
-            int[] ber = new int[7];
+            int[] vill = new int[7];
             int c;
 
-            int totalBer = 0;
-           
-            dataGridViewBerTab.Rows[_dataBer.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
-            for (int i = 0; i < 6; i++)
+            int total = 0;
+            for (int k = 0; k < data.Count; k++)
             {
-                c = i + 1;
-                search = new MySqlCommand(CountRooms("Бережниця", c), _manager.getConnection());
+                dataGridViewTab.Rows.Add();
+                dataGridViewTab.Rows[k].Cells[0].Value = data[k].village.ToString();
+                dataGridViewTab.Rows[k].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
+                total = 0;
+                for (int i = 0; i < 6; i++)
+                {
+                    c = i + 1;
+                    search = new MySqlCommand(CountRooms(data[k].village.ToString(), c), _manager.getConnection());
 
-                try
-                {
-                    ber[i] = Convert.ToInt32(search.ExecuteScalar());
+                    try
+                    {
+                        vill[i] = Convert.ToInt32(search.ExecuteScalar());
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Помилка !");
+                    }
+                    dataGridViewTab.Rows[k].Cells[i + 2].Value = vill[i];
+                    total += vill[i];
                 }
-                catch
-                {
-                    MessageBox.Show("Помилка !");
-                }
-                dataGridViewBerTab.Rows[_dataBer.Count].Cells[i + 2].Value = ber[i];
-                totalBer += ber[i];
-            }
-            search = new MySqlCommand(CountRoomsMore("Бережниця"), _manager.getConnection());
-            ber[6] = Convert.ToInt32(search.ExecuteScalar());
-            dataGridViewBerTab.Rows[_dataBer.Count].Cells[8].Value = ber[6];
-            dataGridViewBerTab.Rows[_dataBer.Count].Cells[9].Value = totalBer;
-            try
-            {
-              
-                MySqlCommand isYear = new MySqlCommand(Select("ber_rooms"), _manager.getConnection());
-                int yes = Convert.ToInt32(isYear.ExecuteScalar());
-
-                if (yes == 0)
-                {
-                    MySqlCommand add = new MySqlCommand(AddYear("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6], totalBer), _manager.getConnection());
-                    add.ExecuteNonQuery();
-                }
-                else
-                {
-
-                    MySqlCommand add = new MySqlCommand(Update("ber_rooms", ber[0], ber[1], ber[2], ber[3], ber[4], ber[5], ber[6], totalBer), _manager.getConnection());
-                    add.ExecuteNonQuery();
-                }
-                _manager.closeConnection();
-            }
-            catch
-            {
-                MessageBox.Show("Помилка !!!");
-            }
-
-            _manager.openConnection();
-            int totalZab = 0;
-            int[] zab = new int[7];
-            dataGridViewZabTab.Rows[_dataZab.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
-            for (int i = 0; i < 6; i++)
-            {
-                c = i + 1;
-                search = new MySqlCommand(CountRooms("Заболотівці", c), _manager.getConnection());
-
-                try
-                {
-                    zab[i] = Convert.ToInt32(search.ExecuteScalar());
-                }
-                catch
-                {
-                    MessageBox.Show("Помилка !");
-                }
-                dataGridViewZabTab.Rows[_dataZab.Count].Cells[i + 2].Value = zab[i];
-                totalZab  +=  zab[i];
-            }
-            search = new MySqlCommand(CountRoomsMore("Заболотівці"), _manager.getConnection());
-            zab[6] = Convert.ToInt32(search.ExecuteScalar());
-            dataGridViewZabTab.Rows[_dataZab.Count].Cells[8].Value = zab[6];
-            dataGridViewZabTab.Rows[_dataZab.Count].Cells[9].Value = totalZab;
-            try
-            {
+                search = new MySqlCommand(CountRoomsMore(data[k].village.ToString()), _manager.getConnection());
+                vill[6] = Convert.ToInt32(search.ExecuteScalar());
+                dataGridViewTab.Rows[k].Cells[8].Value = vill[6];
+                total += vill[6];
+                dataGridViewTab.Rows[k].Cells[9].Value = total;
                
-                MySqlCommand isYear = new MySqlCommand(Select("zab_rooms"), _manager.getConnection());
-                int yes = Convert.ToInt32(isYear.ExecuteScalar());
+            }
 
-                }
-
-                _manager.closeConnection();
-
+            _manager.closeConnection();
+           
         }
 
 
