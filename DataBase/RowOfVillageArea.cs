@@ -50,27 +50,7 @@ namespace DataBase
             all_living = _all_living;
         }
 
-        public void DataChange(object _id_area, object _year, object _berezhnytsya_total, object _berezhnytsya_living,
-            object _zabolotivtsi_total, object _zabolotivtsi_living, object _rogizno_total, object _rogizno_living,
-           object _zhuravkiv_total, object _zhuravkiv_living, object _zagurzchyna_total, object _zagurzchyna_living,
-           object _all_total, object _all_living)
-        {
-            id_area = _id_area;
-            year = _year;
-            berezhnytsya_total = _berezhnytsya_total;
-            berezhnytsya_living = _berezhnytsya_living;
-            zabolotivtsi_total = _zabolotivtsi_total;
-            zabolotivtsi_living = _zabolotivtsi_living;
-            rogizno_total = _rogizno_total;
-            rogizno_living = _rogizno_living;
-            zhuravkiv_total = _zhuravkiv_total;
-            zhuravkiv_living = _zhuravkiv_living;
-            zagurzchyna_total = _zagurzchyna_total;
-            zagurzchyna_living = _zagurzchyna_living;
-            all_total = _all_total;
-            all_living = _all_living;
         }
-
 
     }
 }

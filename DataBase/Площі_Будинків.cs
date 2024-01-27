@@ -53,69 +53,6 @@ namespace DataBase
             column3.Frozen = true;
             column3.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Бережниця житл. пл.";
-            column4.Width = 110;
-            column4.Name = "berezhnytsya";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Заболотівці заг. пл.";
-            column5.Width = 110;
-            column5.Name = "zabolotivtsi";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Заболотівці житл. пл.";
-            column6.Width = 110;
-            column6.Name = "zabolotivtsi";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "Рогізно заг. пл.";
-            column7.Width = 110;
-            column7.Name = "rogizno";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Рогізно житл. пл.";
-            column8.Width = 110;
-            column8.Name = "rogizno";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Журавків заг. пл.";
-            column9.Width = 110;
-            column9.Name = "zhuravkiv";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Журавків житл. пл.";
-            column10.Width = 110;
-            column10.Name = "zhuravkiv";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column11 = new DataGridViewColumn();
-            column11.HeaderText = "Загурщина заг. пл.";
-            column11.Width = 110;
-            column11.Name = "zagurzchyna";
-            column11.Frozen = true;
-            column11.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column12 = new DataGridViewColumn();
-            column12.HeaderText = "Загурщина житл. пл.";
-            column12.Width = 110;
-            column12.Name = "zagurzchyna";
-            column12.Frozen = true;
-            column12.CellTemplate = new DataGridViewTextBoxCell();
-
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Всього заг. пл.";
             column13.Width = 110;
@@ -292,32 +229,11 @@ namespace DataBase
             decimal all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
             string id = Convert.ToString(this.dataGridViewArea.Rows[countRows - 1].Cells[0].Value);
 
-            string b_t = (Convert.ToString(ber_total)).Replace(',', '.');
-            string b_l = (Convert.ToString(ber_living)).Replace(',', '.');
-            string z_t = (Convert.ToString(zab_total)).Replace(',', '.');
-            string z_l = (Convert.ToString(zab_living)).Replace(',', '.');
-            string r_t = (Convert.ToString(rog_total)).Replace(',', '.');
-            string r_l = (Convert.ToString(rog_living)).Replace(',', '.');
-            string zh_t = (Convert.ToString(zhur_total)).Replace(',', '.');
-            string zh_l = (Convert.ToString(zhur_living)).Replace(',', '.');
-            string za_t = (Convert.ToString(zag_total)).Replace(',', '.');
-            string za_l = (Convert.ToString(zag_living)).Replace(',', '.');
             string a_t = (Convert.ToString(all_total)).Replace(',', '.');
             string a_l = (Convert.ToString(all_living)).Replace(',', '.');
            
            
 
-            dataGridViewArea.Rows[_data.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
-            dataGridViewArea.Rows[_data.Count].Cells[2].Value = ber_total;
-            dataGridViewArea.Rows[_data.Count].Cells[3].Value = ber_living;
-            dataGridViewArea.Rows[_data.Count].Cells[4].Value = zab_total;
-            dataGridViewArea.Rows[_data.Count].Cells[5].Value = zab_living;
-            dataGridViewArea.Rows[_data.Count].Cells[6].Value = rog_total;
-            dataGridViewArea.Rows[_data.Count].Cells[7].Value = rog_living;
-            dataGridViewArea.Rows[_data.Count].Cells[8].Value = zhur_total;
-            dataGridViewArea.Rows[_data.Count].Cells[9].Value = zhur_living;
-            dataGridViewArea.Rows[_data.Count].Cells[10].Value = zag_total;
-            dataGridViewArea.Rows[_data.Count].Cells[11].Value = zag_living;
             dataGridViewArea.Rows[_data.Count].Cells[12].Value = all_total;
             dataGridViewArea.Rows[_data.Count].Cells[13].Value = all_living;
 
@@ -340,8 +256,6 @@ namespace DataBase
                     MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
                     add.ExecuteNonQuery();
                 }
-                else
-                {
 
                     string addYear = "UPDATE `areas_of_houses` SET `berezhnytsya_total` = '"+b_t+"'," +
                         "`berezhnytsya_living`= '"+b_l+"', `zabolotivtsi_total` = '" + z_t+ "'," +
@@ -351,15 +265,6 @@ namespace DataBase
                         "`zagurzchyna_living`= '"+za_l+"',`all_total` = '" + a_t + "', " +
                         "`all_living` = '"+a_l+"' WHERE(`id_area` = '" + id + "')";
 
-                    MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
-                    add.ExecuteNonQuery();
-                }
-                _manager.closeConnection();
-            }
-            catch
-            {
-                MessageBox.Show("Помилка !!!");
-            }
 
         }
 
