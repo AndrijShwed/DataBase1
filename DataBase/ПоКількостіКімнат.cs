@@ -125,8 +125,6 @@ namespace DataBase
             column10.Frozen = true;
             column10.CellTemplate = new DataGridViewTextBoxCell();
 
-
-
             dataGridView.Columns.Add(column1);
             dataGridView.Columns.Add(column2);
             dataGridView.Columns.Add(column3);
@@ -137,8 +135,6 @@ namespace DataBase
             dataGridView.Columns.Add(column8);
             dataGridView.Columns.Add(column9);
             dataGridView.Columns.Add(column10);
-
-
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
