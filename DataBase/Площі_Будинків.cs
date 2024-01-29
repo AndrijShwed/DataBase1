@@ -16,6 +16,7 @@ namespace DataBase
     {
         private User user;
         List<RowOfVillageArea> _data = new List<RowOfVillageArea>();
+        List<VillageStreet> data = new List<VillageStreet>();
 
         public Площі_Будинків()
         {
@@ -25,6 +26,27 @@ namespace DataBase
         }
         private void HeaderOfTheTable()
         {
+            bool mess = false;
+            data.Clear();
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+
+            _reader.Close();
+            _manager.closeConnection();
+
             this.dataGridViewArea.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
             this.dataGridViewArea.DefaultCellStyle.BackColor = Color.Beige;
             this.dataGridViewArea.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
@@ -32,90 +54,41 @@ namespace DataBase
             this.dataGridViewArea.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkOrange;
             this.dataGridViewArea.EnableHeadersVisualStyles = false;
 
+            //var column1 = new DataGridViewColumn();
+            //column1.HeaderText = "Номер";
+            //column1.Width = 70;
+            //column1.Name = "id";
+            //column1.Frozen = true;
+            //column1.CellTemplate = new DataGridViewTextBoxCell();
+
             var column1 = new DataGridViewColumn();
-            column1.HeaderText = "Номер";
+            column1.HeaderText = "Рік";
             column1.Width = 70;
-            column1.Name = "id";
+            column1.Name = "year";
             column1.Frozen = true;
             column1.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column2 = new DataGridViewColumn();
-            column2.HeaderText = "Рік";
-            column2.Width = 70;
-            column2.Name = "year";
-            column2.Frozen = true;
-            column2.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column3 = new DataGridViewColumn();
-            column3.HeaderText = "Бережниця заг. пл.";
-            column3.Width = 110;
-            column3.Name = "berezhnytsya";
-            column3.Frozen = true;
-            column3.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column4 = new DataGridViewColumn();
-            column4.HeaderText = "Бережниця житл. пл.";
-            column4.Width = 110;
-            column4.Name = "berezhnytsya";
-            column4.Frozen = true;
-            column4.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column5 = new DataGridViewColumn();
-            column5.HeaderText = "Заболотівці заг. пл.";
-            column5.Width = 110;
-            column5.Name = "zabolotivtsi";
-            column5.Frozen = true;
-            column5.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column6 = new DataGridViewColumn();
-            column6.HeaderText = "Заболотівці житл. пл.";
-            column6.Width = 110;
-            column6.Name = "zabolotivtsi";
-            column6.Frozen = true;
-            column6.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column7 = new DataGridViewColumn();
-            column7.HeaderText = "Рогізно заг. пл.";
-            column7.Width = 110;
-            column7.Name = "rogizno";
-            column7.Frozen = true;
-            column7.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Рогізно житл. пл.";
-            column8.Width = 110;
-            column8.Name = "rogizno";
-            column8.Frozen = true;
-            column8.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column9 = new DataGridViewColumn();
-            column9.HeaderText = "Журавків заг. пл.";
-            column9.Width = 110;
-            column9.Name = "zhuravkiv";
-            column9.Frozen = true;
-            column9.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column10 = new DataGridViewColumn();
-            column10.HeaderText = "Журавків житл. пл.";
-            column10.Width = 110;
-            column10.Name = "zhuravkiv";
-            column10.Frozen = true;
-            column10.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column11 = new DataGridViewColumn();
-            column11.HeaderText = "Загурщина заг. пл.";
-            column11.Width = 110;
-            column11.Name = "zagurzchyna";
-            column11.Frozen = true;
-            column11.CellTemplate = new DataGridViewTextBoxCell();
-
-            var column12 = new DataGridViewColumn();
-            column12.HeaderText = "Загурщина житл. пл.";
-            column12.Width = 110;
-            column12.Name = "zagurzchyna";
-            column12.Frozen = true;
-            column12.CellTemplate = new DataGridViewTextBoxCell();
-
+            List<DataGridViewColumn> col = new List<DataGridViewColumn>();
+            int k = 3;
+            for (int i = 0; i < data.Count; i++)
+            {
+               
+                var columnk = new DataGridViewColumn();
+                columnk.HeaderText = data[i].village.ToString()+" заг.пл.";
+                columnk.Width = 118;
+                columnk.Frozen = true;
+                columnk.CellTemplate = new DataGridViewTextBoxCell();
+                col.Add(columnk);
+                k++;
+                columnk = new DataGridViewColumn();
+                columnk.HeaderText = data[i].village.ToString() + " житл.пл.";
+                columnk.Width = 118;
+                columnk.Frozen = true;
+                columnk.CellTemplate = new DataGridViewTextBoxCell();
+                col.Add(columnk);
+                k++;
+            }
+            
             var column13 = new DataGridViewColumn();
             column13.HeaderText = "Всього заг. пл.";
             column13.Width = 110;
@@ -132,17 +105,12 @@ namespace DataBase
 
 
             dataGridViewArea.Columns.Add(column1);
-            dataGridViewArea.Columns.Add(column2);
-            dataGridViewArea.Columns.Add(column3);
-            dataGridViewArea.Columns.Add(column4);
-            dataGridViewArea.Columns.Add(column5);
-            dataGridViewArea.Columns.Add(column6);
-            dataGridViewArea.Columns.Add(column7);
-            dataGridViewArea.Columns.Add(column8);
-            dataGridViewArea.Columns.Add(column9);
-            dataGridViewArea.Columns.Add(column10);
-            dataGridViewArea.Columns.Add(column11);
-            dataGridViewArea.Columns.Add(column12);
+           
+            for (int i = 0; i < col.Count; i++)
+            {
+                dataGridViewArea.Columns.Add(col[i]);
+            }
+
             dataGridViewArea.Columns.Add(column13);
             dataGridViewArea.Columns.Add(column14);
 
@@ -170,10 +138,7 @@ namespace DataBase
         }
         private void AddDataGrid(RowOfVillageArea row)
         {
-            dataGridViewArea.Rows.Add(row.id_area, row.year, row.berezhnytsya_total, row.berezhnytsya_living,
-                row.zabolotivtsi_total, row.zabolotivtsi_living, row.rogizno_total, row.rogizno_living,
-                row.zhuravkiv_total, row.zhuravkiv_living, row.zagurzchyna_total, row.zagurzchyna_living,
-                row.all_total, row.all_living);
+            dataGridViewArea.Rows.Add(row.id, row.village, row.total, row.living);
         }
 
         private void Оновити_Click(object sender, EventArgs e)
@@ -189,21 +154,17 @@ namespace DataBase
 
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();
-            MySqlCommand _command = new MySqlCommand("SELECT * FROM areas_of_houses", _manager.getConnection());
+            MySqlCommand _command = new MySqlCommand("SELECT * FROM areas", _manager.getConnection());
             MySqlDataReader _reader;
            
             _reader = _command.ExecuteReader();
 
             try
             {
-
-
                 while (_reader.Read())
                 {
-                    RowOfVillageArea row = new RowOfVillageArea(_reader["id_area"], _reader["year"], _reader["berezhnytsya_total"],
-                        _reader["berezhnytsya_living"], _reader["zabolotivtsi_total"], _reader["zabolotivtsi_living"],
-                        _reader["rogizno_total"], _reader["rogizno_living"], _reader["zhuravkiv_total"], _reader["zhuravkiv_living"], 
-                        _reader["zagurzchyna_total"], _reader["zagurzchyna_living"], _reader["all_total"], _reader["all_living"]);
+                    RowOfVillageArea row = new RowOfVillageArea(_reader["id"], _reader["village"], _reader["total"],
+                        _reader["living"]);
                     _data.Add(row);
                 }
 
@@ -226,140 +187,74 @@ namespace DataBase
 
 
             this.dataGridViewArea.Rows.Add();
+            List<String> count = new List<String>();
 
-            string count_ber_total = "SELECT SUM(totalArea) FROM houses WHERE village = 'Бережниця'";
-            string count_ber_living = "SELECT SUM(livingArea) FROM houses WHERE village = 'Бережниця'";
-            string count_zab_total = "SELECT SUM(totalArea) FROM houses WHERE village = 'Заболотівці'";
-            string count_zab_living = "SELECT SUM(livingArea) FROM houses WHERE village = 'Заболотівці'";
-            string count_rog_total = "SELECT SUM(totalArea) FROM houses WHERE village = 'Рогізно'";
-            string count_rog_living = "SELECT SUM(livingArea) FROM houses WHERE village = 'Рогізно'";
-            string count_zhur_total = "SELECT SUM(totalArea) FROM houses WHERE village = 'Журавків'";
-            string count_zhur_living = "SELECT SUM(livingArea) FROM houses WHERE village = 'Журавків'";
-            string count_zag_total = "SELECT SUM(totalArea) FROM houses WHERE village = 'Загурщина'";
-            string count_zag_living = "SELECT SUM(livingArea) FROM houses WHERE village = 'Загурщина'";
-
-            MySqlCommand search_ber_total = new MySqlCommand(count_ber_total, _manager.getConnection());
-            MySqlCommand search_ber_living = new MySqlCommand(count_ber_living, _manager.getConnection());
-
-            MySqlCommand search_zab_total = new MySqlCommand(count_zab_total, _manager.getConnection());
-            MySqlCommand search_zab_living = new MySqlCommand(count_zab_living, _manager.getConnection());
-
-            MySqlCommand search_rog_total = new MySqlCommand(count_rog_total, _manager.getConnection());
-            MySqlCommand search_rog_living = new MySqlCommand(count_rog_living, _manager.getConnection());
-
-            MySqlCommand search_zhur_total = new MySqlCommand(count_zhur_total, _manager.getConnection());
-            MySqlCommand search_zhur_living = new MySqlCommand(count_zhur_living, _manager.getConnection());
-
-            MySqlCommand search_zag_total = new MySqlCommand(count_zag_total, _manager.getConnection());
-            MySqlCommand search_zag_living = new MySqlCommand(count_zag_living, _manager.getConnection());
-
-            int countRows = _data.Count;
-
-            if (countRows == 0)
+            for (int i = 0; i < data.Count; i++)
             {
-                countRows = 1;
+                string count_total = "SELECT SUM(totalArea) FROM houses WHERE village = '"+data[i].village.ToString()+"'";
+                count.Add(count_total);
+                string count_living = "SELECT SUM(livingArea) FROM houses WHERE village = '"+data[i].village.ToString()+"'";
+                count.Add(count_living);
             }
 
-            decimal ber_total = 0;
-            decimal ber_living = 0;
-            decimal zab_total = 0;
-            decimal zab_living = 0;
-            decimal rog_total = 0;
-            decimal rog_living = 0;
-            decimal zhur_total = 0;
-            decimal zhur_living = 0;
-            decimal zag_total = 0;
-            decimal zag_living = 0;
-            try
+            decimal total = 0;
+            decimal living = 0;
+            List<Decimal> tot = new List<Decimal>();
+            List<Decimal> liv = new List<Decimal>();
+            for (int i = 0; i < count.Count; i+=2)
             {
-                ber_total = Convert.ToDecimal(search_ber_total.ExecuteScalar());
-                ber_living = Convert.ToDecimal(search_ber_living.ExecuteScalar());
-                zab_total = Convert.ToDecimal(search_zab_total.ExecuteScalar());
-                zab_living = Convert.ToDecimal(search_zab_living.ExecuteScalar());
-                rog_total = Convert.ToDecimal(search_rog_total.ExecuteScalar());
-                rog_living = Convert.ToDecimal(search_rog_living.ExecuteScalar());
-                zhur_total = Convert.ToDecimal(search_zhur_total.ExecuteScalar());
-                zhur_living = Convert.ToDecimal(search_zhur_living.ExecuteScalar());
-                zag_total = Convert.ToDecimal(search_zag_total.ExecuteScalar());
-                zag_living = Convert.ToDecimal(search_zag_living.ExecuteScalar());
+                MySqlCommand search_total = new MySqlCommand(count[i], _manager.getConnection());
+                MySqlCommand search_living = new MySqlCommand(count[i + 1], _manager.getConnection());
+                try
+                {
+                    total = Convert.ToDecimal(search_total.ExecuteScalar());
+                    living = Convert.ToDecimal(search_living.ExecuteScalar());
+                    tot.Add(total);
+                    liv.Add(living);
+                }
+                catch
+                {
+                    MessageBox.Show("Помилка роботи з базою даних1 !");
+                }
             }
-            catch
+
+            decimal all_total = 0;
+            decimal all_living = 0;
+
+            for (int i = 0; i < tot.Count ; i++)
             {
-                MessageBox.Show("Помилка роботи з базою даних1 !");
+                all_total += tot[i];
+                all_living += liv[i];
+            }
+
+          
+            List<String> t = new List<String>();
+            List<String> l = new List<String>();
+            for (int i = 0; i < tot.Count; i++)
+            {
+                string to = (Convert.ToString(tot[i])).Replace(',', '.');
+                t.Add(to);
+                string li = (Convert.ToString(liv[i])).Replace(',', '.');
+                l.Add(li);  
             }
            
-            decimal all_total = ber_total + zab_total + rog_total + zhur_total + zag_total;
-            decimal all_living = ber_living + zab_living + rog_living + zhur_living + zag_living;
-            string id = Convert.ToString(this.dataGridViewArea.Rows[countRows - 1].Cells[0].Value);
-
-            string b_t = (Convert.ToString(ber_total)).Replace(',', '.');
-            string b_l = (Convert.ToString(ber_living)).Replace(',', '.');
-            string z_t = (Convert.ToString(zab_total)).Replace(',', '.');
-            string z_l = (Convert.ToString(zab_living)).Replace(',', '.');
-            string r_t = (Convert.ToString(rog_total)).Replace(',', '.');
-            string r_l = (Convert.ToString(rog_living)).Replace(',', '.');
-            string zh_t = (Convert.ToString(zhur_total)).Replace(',', '.');
-            string zh_l = (Convert.ToString(zhur_living)).Replace(',', '.');
-            string za_t = (Convert.ToString(zag_total)).Replace(',', '.');
-            string za_l = (Convert.ToString(zag_living)).Replace(',', '.');
             string a_t = (Convert.ToString(all_total)).Replace(',', '.');
             string a_l = (Convert.ToString(all_living)).Replace(',', '.');
-           
-           
 
-            dataGridViewArea.Rows[_data.Count].Cells[1].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
-            dataGridViewArea.Rows[_data.Count].Cells[2].Value = ber_total;
-            dataGridViewArea.Rows[_data.Count].Cells[3].Value = ber_living;
-            dataGridViewArea.Rows[_data.Count].Cells[4].Value = zab_total;
-            dataGridViewArea.Rows[_data.Count].Cells[5].Value = zab_living;
-            dataGridViewArea.Rows[_data.Count].Cells[6].Value = rog_total;
-            dataGridViewArea.Rows[_data.Count].Cells[7].Value = rog_living;
-            dataGridViewArea.Rows[_data.Count].Cells[8].Value = zhur_total;
-            dataGridViewArea.Rows[_data.Count].Cells[9].Value = zhur_living;
-            dataGridViewArea.Rows[_data.Count].Cells[10].Value = zag_total;
-            dataGridViewArea.Rows[_data.Count].Cells[11].Value = zag_living;
-            dataGridViewArea.Rows[_data.Count].Cells[12].Value = all_total;
-            dataGridViewArea.Rows[_data.Count].Cells[13].Value = all_living;
+            int r = 0;
 
-            try
+            dataGridViewArea.Rows[r].Cells[0].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
+            int k = 0;
+            for (int i = 0; i< t.Count; i++)
             {
-                string count = "SELECT COUNT(*) FROM areas_of_houses WHERE year = '" + yearNow + "'";
-                MySqlCommand isYear = new MySqlCommand(count, _manager.getConnection());
-                int yes = Convert.ToInt32(isYear.ExecuteScalar());
-                // yes = 0;
-                if (yes == 0)
-                {
-                    string addYear = "INSERT INTO `areas_of_houses` (`year`, `berezhnytsya_total`," +
-                        " `berezhnytsya_living`, `zabolotivtsi_total`, `zabolotivtsi_living`, `rogizno_total`," +
-                        " `rogizno_living`, `zhuravkiv_total`, `zhuravkiv_living`, `zagurzchyna_total`," +
-                        " `zagurzchyna_living`, `all_total`, `all_living`) VALUES('"+yearNow+"','"+b_t+"', '"+b_l+"'," +
-                        " '"+z_t+"', '"+z_l+"', '"+r_t+"', '"+r_l+"', " +
-                        "'"+zh_t+"', '"+zh_l+"', '"+za_t+"', '"+za_l+"', " +
-                        "'"+a_t+"', '"+a_l+"')";
-                   
-                    MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
-                    add.ExecuteNonQuery();
-                }
-                else
-                {
-
-                    string addYear = "UPDATE `areas_of_houses` SET `berezhnytsya_total` = '"+b_t+"'," +
-                        "`berezhnytsya_living`= '"+b_l+"', `zabolotivtsi_total` = '" + z_t+ "'," +
-                        " `zabolotivtsi_living`='"+z_l+"', `rogizno_total` = '" + r_t + "', " +
-                        "`rogizno_living`= '"+r_l+"', `zhuravkiv_total` = '" + zh_t + "', " +
-                        "`zhuravkiv_living`= '"+zh_l+"', `zagurzchyna_total` = '" + za_t + "', " +
-                        "`zagurzchyna_living`= '"+za_l+"',`all_total` = '" + a_t + "', " +
-                        "`all_living` = '"+a_l+"' WHERE(`id_area` = '" + id + "')";
-
-                    MySqlCommand add = new MySqlCommand(addYear, _manager.getConnection());
-                    add.ExecuteNonQuery();
-                }
-                _manager.closeConnection();
+                dataGridViewArea.Rows[r].Cells[k+1].Value = t[i].ToString();
+                dataGridViewArea.Rows[r].Cells[k+2].Value = l[i].ToString();
+                k += 2;
             }
-            catch
-            {
-                MessageBox.Show("Помилка !!!");
-            }
+           
+            dataGridViewArea.Rows[r].Cells[k+1].Value = all_total;
+            dataGridViewArea.Rows[r].Cells[k+2].Value = all_living;
+           
 
         }
 
