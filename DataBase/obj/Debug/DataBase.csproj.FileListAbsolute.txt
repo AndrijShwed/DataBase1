@@ -47,3 +47,4 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаП
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаПтицяДодати.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ХудобаТаПтицяСтатистика.resources
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПочатокРоботи.resources
+C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Налаштування.resources

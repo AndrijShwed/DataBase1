@@ -1,4 +1,4 @@
-namespace DataBase
+﻿namespace DataBase
 {
     class RowOfTableКористувачі
     {

@@ -11,7 +11,7 @@ namespace DataBase
         private List<RowOfDataL> _dataL = new List<RowOfDataL>();
         private List<VillageStreet> data = new List<VillageStreet>();
         private User user;
-        bool mess;
+       
         int rowNumber = 0;
 
         public ДомогосподарстваДодати()
@@ -290,7 +290,7 @@ namespace DataBase
                         comboBoxLastname.Items.Add(_dataL[i].lastname);
                         comboBoxName.Items.Add(_dataL[i].name);
                         comboBoxSurname.Items.Add(_dataL[i].surname);
-                        mess = true;
+                        a = true;
 
                     }
                     _manager.closeConnection();
@@ -302,7 +302,7 @@ namespace DataBase
                     comboBoxSurname.Text = "Виберіть побатькові";
                     string Surname = comboBoxSurname.Text;
 
-                    if (mess == false)
+                    if (a == false)
                     {
                         MessageBox.Show("Запис не знайдено !");
                     }

@@ -195,6 +195,12 @@
     <Compile Include="ДомогосподарстваДодати.Designer.cs">
       <DependentUpon>ДомогосподарстваДодати.cs</DependentUpon>
     </Compile>
+    <Compile Include="Налаштування.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Налаштування.Designer.cs">
+      <DependentUpon>Налаштування.cs</DependentUpon>
+    </Compile>
     <Compile Include="Населені_Пункти.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ДомогосподарстваДодати.resx">
       <DependentUpon>ДомогосподарстваДодати.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Налаштування.resx">
+      <DependentUpon>Налаштування.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Населені_Пункти.resx">
       <DependentUpon>Населені_Пункти.cs</DependentUpon>

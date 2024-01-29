@@ -1,4 +1,4 @@
-namespace DataBase
+﻿namespace DataBase
 {
     class RowOfDataAnymals
     {
@@ -17,7 +17,7 @@ namespace DataBase
         public object rabbits { get; set; }
         public object beeses { get; set; }
      
-       
+
         public RowOfDataAnymals() { }
 
         public RowOfDataAnymals(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,

@@ -23,7 +23,7 @@ namespace DataBase
         private void HeaderOfTheTable()
         {
 
-            bool mess = false;
+            //bool mess = false;
             data.Clear();
 
             ConnectionClass _manager = new ConnectionClass();
@@ -38,7 +38,7 @@ namespace DataBase
             {
                 VillageStreet row = new VillageStreet(_reader["village"]);
                 data.Add(row);
-
+               
             }
 
             _reader.Close();
@@ -67,8 +67,8 @@ namespace DataBase
             column2.CellTemplate = new DataGridViewTextBoxCell();
 
             List<DataGridViewColumn> col = new List<DataGridViewColumn>();
-
-            for (int i = 3; i < data.Count + 3; i++)
+            int i;
+            for ( i = 3; i < data.Count + 3; i++)
             {
                 var columni = new DataGridViewColumn();
                 columni.HeaderText = data[i - 3].village.ToString();
@@ -78,25 +78,25 @@ namespace DataBase
                 columni.CellTemplate = new DataGridViewTextBoxCell();
                 col.Add(columni);
             }
+            int k = i +1;
 
-
-            var column8 = new DataGridViewColumn();
-            column8.HeaderText = "Всього";
-            column8.Width = 120;
-            column8.Name = "all";
-            column8.Frozen = true;
-            column8.DefaultCellStyle.Format = "d";
-            column8.CellTemplate = new DataGridViewTextBoxCell();
+            var columnk = new DataGridViewColumn();
+            columnk.HeaderText = "Всього";
+            columnk.Width = 120;
+            columnk.Name = "all";
+            columnk.Frozen = true;
+            columnk.DefaultCellStyle.Format = "d";
+            columnk.CellTemplate = new DataGridViewTextBoxCell();
 
 
             dataGridViewНаселені_Пункти.Columns.Add(column1);
             dataGridViewНаселені_Пункти.Columns.Add(column2);
-            for (int i = 0; i < col.Count; i++)
+            for ( i = 0; i < col.Count; i++)
             {
                 dataGridViewНаселені_Пункти.Columns.Add(col[i]);
             }
 
-            dataGridViewНаселені_Пункти.Columns.Add(column8);
+            dataGridViewНаселені_Пункти.Columns.Add(columnk);
 
 
             dataGridViewНаселені_Пункти.AllowUserToAddRows = false;
@@ -145,27 +145,33 @@ namespace DataBase
                 }
 
                 int year = Convert.ToInt32(_data[0].year);
-
+               
                 int s = 0;
-
-                for (int i = 0; i < _data.Count; i++)
+              
+                for (int i = 0; i < data.Count; i++)
                 {
                     if (year == Convert.ToInt32(_data[i].year))
                     {
                         dataGridViewНаселені_Пункти.Rows[r].Cells[0].Value = r + 1;
                         dataGridViewНаселені_Пункти.Rows[r].Cells[1].Value = year.ToString();
+                       
                         dataGridViewНаселені_Пункти.Rows[r].Cells[k + 2].Value = Convert.ToInt32(_data[i].count);
+                        
                         s += Convert.ToInt32(_data[i].count);
+                      
                         dataGridViewНаселені_Пункти.Rows[r].Cells[data.Count + 2].Value = s;
                         k++;
                     }
                     else
                     {
+                       
                         dataGridViewНаселені_Пункти.Rows.Add();
                         r++;
                         s = 0;
                         k = 0;
+                       
                         dataGridViewНаселені_Пункти.Rows[r].Cells[k + 2].Value = Convert.ToInt32(_data[i].count);
+                        
                         s += Convert.ToInt32(_data[i].count);
                         k = 1;
 

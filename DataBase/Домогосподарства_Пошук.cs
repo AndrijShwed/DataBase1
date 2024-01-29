@@ -9,7 +9,7 @@ namespace DataBase
     public partial class Домогосподарства_Пошук : Form
     {
         private List<RowOfDataH> _dataH = new List<RowOfDataH>();
-
+        private List<VillageStreet> data = new List<VillageStreet>();
         private User user;
        
 
@@ -17,12 +17,47 @@ namespace DataBase
         { 
             InitializeComponent();
             comboBoxVillage.Text = "Виберіть населений пункт";
-            comboBoxVillage.Items.Add("Бережниця");
-            comboBoxVillage.Items.Add("Заболотівці");
-            comboBoxVillage.Items.Add("Рогізно");
-            comboBoxVillage.Items.Add("Журавків");
-            comboBoxVillage.Items.Add("Загурщина");
+            bool mess = false;
+            data.Clear();
+            comboBoxVillage.Items.Clear();
+
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT DISTINCT village FROM villagestreet";
+            MySqlCommand _search = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search.ExecuteReader();
+
+            while (_reader.Read())
+            {
+                VillageStreet row = new VillageStreet(_reader["village"]);
+                data.Add(row);
+
+            }
+            _reader.Close();
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                AddDataGrid(data[i]);
+                mess = true;
+            }
+            if (mess == false)
+            {
+                MessageBox.Show("Помилка роботи з базою даних !");
+            }
+            _manager.closeConnection();
+
             HeaderOfTheTable();
+        }
+
+        private void AddDataGrid(VillageStreet row)
+        {
+            comboBoxVillage.Items.Add(row.village);
+        }
+        private void AddDataGrid_1(VillageStreet row)
+        {
+            comboBoxStreets.Items.Add(row.village);
         }
         private void HeaderOfTheTable()
         {
@@ -152,57 +187,36 @@ namespace DataBase
 
             string village = comboBoxVillage.Text;
             comboBoxStreets.Text = "Виберіть вулицю";
+            data.Clear();
+            bool mess = false;
 
-            switch (village)
+            ConnectionClass _manager = new ConnectionClass();
+            MySqlDataReader _reader;
+            _manager.openConnection();
+
+            string reader = "SELECT street FROM villagestreet WHERE village = '" + village + "'";
+            MySqlCommand _search1 = new MySqlCommand(reader, _manager.getConnection());
+            _reader = _search1.ExecuteReader();
+
+            while (_reader.Read())
             {
-                case "Бережниця":
-                    comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("Дорошенка");
-                    comboBoxStreets.Items.Add("Надбережна");
-                    comboBoxStreets.Items.Add("Бандери С.");
-                    comboBoxStreets.Items.Add("Рогізнянська");
-                    comboBoxStreets.Items.Add("Ів.Франка");
-                    comboBoxStreets.Items.Add("Космонавтів");
-                    comboBoxStreets.Items.Add("Нова");
-                    comboBoxStreets.Items.Add("Молодіжна");
-                    comboBoxStreets.Items.Add("Лісна");
-                    comboBoxStreets.Items.Add("Садова");
-                    comboBoxStreets.Items.Add("Зелена");
-
-                    break;
-                case "Рогізно":
-                    comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("Ів.Франка");
-                    comboBoxStreets.Items.Add("Л.Українки");
-                    comboBoxStreets.Items.Add("Зелена");
-                    comboBoxStreets.Items.Add("Садова");
-                    comboBoxStreets.Items.Add("Вузька");
-                    break;
-                case "Заболотівці":
-                    comboBoxStreets.Items.Add("Миру");
-                    comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("Космонавтів");
-                    comboBoxStreets.Items.Add("Героїв України");
-                    break;
-                case "Журавків":
-                    comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("Довбуша");
-                    comboBoxStreets.Items.Add("Миру");
-                    comboBoxStreets.Items.Add("Б.Хмельницького");
-                    comboBoxStreets.Items.Add("Чорновола В.");
-                    comboBoxStreets.Items.Add("Лісна");
-                    break;
-                case "Загурщина":
-                    comboBoxStreets.Items.Add("Шевченка");
-                    comboBoxStreets.Items.Add("Зелена");
-                    comboBoxStreets.Items.Add("Нова");
-                    break;
-                default:
-                    return;
-
-
+                VillageStreet row = new VillageStreet(_reader["street"]);
+                data.Add(row);
 
             }
+            _reader.Close();
+
+            for (int i = 0; i < data.Count; i++)
+            {
+                AddDataGrid_1(data[i]);
+                mess = true;
+            }
+            if (mess == false)
+            {
+                MessageBox.Show("Помилка роботи з базою даних  !");
+            }
+            _manager.closeConnection();
+
         }
         private void AddDataGrid(RowOfDataH row)
         {

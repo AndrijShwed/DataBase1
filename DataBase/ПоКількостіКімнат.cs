@@ -25,7 +25,7 @@ namespace DataBase
 
         private void HeaderOfTheTable(DataGridView _dataGridView)
         {
-            bool mess = false;
+            //bool mess = false;
             data.Clear();
 
             ConnectionClass _manager = new ConnectionClass();
