@@ -1,12 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DataBase
@@ -409,8 +404,6 @@ namespace DataBase
                                 {
                                     try
                                     {
-
-
                                         string _commandString = "INSERT INTO `houses`(`village`,`street`,`numb_of_house`,`lastname`,`name`,`surname`,`totalArea`,`livingArea`,`total_of_rooms`)" +
                                       "VALUES(@village,@street,@numb_of_house,@lastname,@name,@surname,@totalArea,@livingArea,@total_of_rooms)";
                                         MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
@@ -426,15 +419,10 @@ namespace DataBase
                                         _command.Parameters.Add("@livingArea", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[8].Value;
                                         _command.Parameters.Add("@total_of_rooms", MySqlDbType.VarChar).Value = this.dataGridViewДомогосподарства.Rows[current].Cells[9].Value;
 
-
                                         if (_command.ExecuteNonQuery() == 1)
                                             add = true;
 
                                         dataGridViewДомогосподарства.Rows.RemoveAt(current);
-
-                                        //dataGridViewДодати.Rows.RemoveAt(i);
-
-
 
                                     }
                                     catch
@@ -450,7 +438,6 @@ namespace DataBase
                                 MessageBox.Show("Не всі поля заповнені !");
                                 return;
                             }
-
 
                         }
                         catch

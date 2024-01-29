@@ -172,7 +172,6 @@ namespace DataBase
             try
             {
                 
-
                 while(_reader.Read())
                 {
                     RowOfData row = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],

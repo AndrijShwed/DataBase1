@@ -1,9 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace DataBase
 {
     class RowOfDataAnymals
@@ -24,8 +18,6 @@ namespace DataBase
         public object beeses { get; set; }
      
        
-
-
         public RowOfDataAnymals() { }
 
         public RowOfDataAnymals(object _anymalsId, object _Прізвище, object _Ім_я, object _Побатькові,

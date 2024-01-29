@@ -96,13 +96,6 @@ namespace DataBase
             column13.Frozen = true;
             column13.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column14= new DataGridViewColumn();
-            column14.HeaderText = "Всього житл. пл.";
-            column14.Width = 110;
-            column14.Name = "all";
-            column14.Frozen = true;
-            column14.CellTemplate = new DataGridViewTextBoxCell();
-
 
             dataGridViewArea.Columns.Add(column1);
            
