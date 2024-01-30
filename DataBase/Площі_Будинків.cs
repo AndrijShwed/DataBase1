@@ -130,10 +130,6 @@ namespace DataBase
         {
             Application.Exit();
         }
-        private void AddDataGrid(RowOfVillageArea row)
-        {
-            dataGridViewArea.Rows.Add(row.id, row.village, row.total, row.living);
-        }
 
         private void Оновити_Click(object sender, EventArgs e)
         {
@@ -143,43 +139,9 @@ namespace DataBase
 
             user = new User();
 
-            int yearNow = Convert.ToInt32(DateTime.Now.Year);
-
-
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();
-            MySqlCommand _command = new MySqlCommand("SELECT * FROM areas", _manager.getConnection());
-            MySqlDataReader _reader;
            
-            _reader = _command.ExecuteReader();
-
-            try
-            {
-                while (_reader.Read())
-                {
-                    RowOfVillageArea row = new RowOfVillageArea(_reader["id"], _reader["village"], _reader["total"],
-                        _reader["living"]);
-                    _data.Add(row);
-                }
-
-                for (int i = 0; i < _data.Count; i++)
-                {
-                    AddDataGrid(_data[i]);
-                }
-            }
-            catch
-            {
-                MessageBox.Show("Помилка роботи з базою даних !");
-            }
-            finally
-            {
-                _manager.closeConnection();
-            }
-
-
-            _manager.openConnection();
-
-
             this.dataGridViewArea.Rows.Add();
             List<String> count = new List<String>();
 
@@ -230,21 +192,7 @@ namespace DataBase
                 all_total += tot[i];
                 all_living += liv[i];
             }
-
-          
-            List<String> t = new List<String>();
-            List<String> l = new List<String>();
-            for (int i = 0; i < tot.Count; i++)
-            {
-                string to = (Convert.ToString(tot[i])).Replace(',', '.');
-                t.Add(to);
-                string li = (Convert.ToString(liv[i])).Replace(',', '.');
-                l.Add(li);  
-            }
            
-            string a_t = (Convert.ToString(all_total)).Replace(',', '.');
-            string a_l = (Convert.ToString(all_living)).Replace(',', '.');
-
             int r = 0;
 
             dataGridViewArea.Rows[r].Cells[0].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
@@ -258,8 +206,6 @@ namespace DataBase
            
             dataGridViewArea.Rows[r].Cells[k+1].Value = all_total;
             dataGridViewArea.Rows[r].Cells[k+2].Value = all_living;
-           
-
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
