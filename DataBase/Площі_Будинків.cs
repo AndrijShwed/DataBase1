@@ -68,33 +68,34 @@ namespace DataBase
                
                 var columnk = new DataGridViewColumn();
                 columnk.HeaderText = data[i].village.ToString()+" заг.пл.";
-                columnk.Width = 118;
+                columnk.Width = 100;
                 columnk.Frozen = true;
                 columnk.CellTemplate = new DataGridViewTextBoxCell();
                 col.Add(columnk);
                 k++;
                 columnk = new DataGridViewColumn();
                 columnk.HeaderText = data[i].village.ToString() + " житл.пл.";
-                columnk.Width = 118;
+                columnk.Width = 100;
                 columnk.Frozen = true;
                 columnk.CellTemplate = new DataGridViewTextBoxCell();
                 col.Add(columnk);
                 k++;
             }
-            
-            var column13 = new DataGridViewColumn();
-            column13.HeaderText = "Всього заг. пл.";
-            column13.Width = 110;
-            column13.Name = "all";
-            column13.Frozen = true;
-            column13.CellTemplate = new DataGridViewTextBoxCell();
+            int s = k;
+           var columns = new DataGridViewColumn();
+            columns.HeaderText = "Всього заг. пл.";
+            columns.Width = 100;
+            columns.Name = "all";
+            columns.Frozen = true;
+            columns.CellTemplate = new DataGridViewTextBoxCell();
 
-            var column14= new DataGridViewColumn();
-            column14.HeaderText = "Всього житл. пл.";
-            column14.Width = 110;
-            column14.Name = "all";
-            column14.Frozen = true;
-            column14.CellTemplate = new DataGridViewTextBoxCell();
+            int l = s++;
+            var columnl= new DataGridViewColumn();
+            columnl.HeaderText = "Всього житл. пл.";
+            columnl.Width = 100;
+            columnl.Name = "all";
+            columnl.Frozen = true;
+            columnl.CellTemplate = new DataGridViewTextBoxCell();
 
 
             dataGridViewArea.Columns.Add(column1);
@@ -104,8 +105,8 @@ namespace DataBase
                 dataGridViewArea.Columns.Add(col[i]);
             }
 
-            dataGridViewArea.Columns.Add(column13);
-            dataGridViewArea.Columns.Add(column14);
+            dataGridViewArea.Columns.Add(columns);
+            dataGridViewArea.Columns.Add(columnl);
 
 
             dataGridViewArea.AllowUserToAddRows = false;
@@ -200,8 +201,18 @@ namespace DataBase
                 MySqlCommand search_living = new MySqlCommand(count[i + 1], _manager.getConnection());
                 try
                 {
-                    total = Convert.ToDecimal(search_total.ExecuteScalar());
-                    living = Convert.ToDecimal(search_living.ExecuteScalar());
+                    if(search_total.ExecuteScalar().ToString() == "" )
+                    {
+                        total = 0;
+                        living = 0;
+                    }
+                    else
+                    {
+                        total = Convert.ToDecimal(search_total.ExecuteScalar());
+                        living = Convert.ToDecimal(search_living.ExecuteScalar());
+
+                    }
+                   
                     tot.Add(total);
                     liv.Add(living);
                 }
