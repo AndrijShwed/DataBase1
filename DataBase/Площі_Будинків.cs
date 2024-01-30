@@ -54,13 +54,6 @@ namespace DataBase
             this.dataGridViewArea.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkOrange;
             this.dataGridViewArea.EnableHeadersVisualStyles = false;
 
-            //var column1 = new DataGridViewColumn();
-            //column1.HeaderText = "Номер";
-            //column1.Width = 70;
-            //column1.Name = "id";
-            //column1.Frozen = true;
-            //column1.CellTemplate = new DataGridViewTextBoxCell();
-
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Рік";
             column1.Width = 70;
