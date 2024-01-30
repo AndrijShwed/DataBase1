@@ -53,6 +53,7 @@ namespace DataBase
             this.dataGridViewArea.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewArea.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkOrange;
             this.dataGridViewArea.EnableHeadersVisualStyles = false;
+            this.dataGridViewArea.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             var column1 = new DataGridViewColumn();
             column1.HeaderText = "Рік";
@@ -130,11 +131,12 @@ namespace DataBase
         {
             Application.Exit();
         }
-
+      
         private void Оновити_Click(object sender, EventArgs e)
         {
             dataGridViewArea.DataSource = null;
             dataGridViewArea.Rows.Clear();
+
             _data.Clear();
 
             user = new User();
@@ -153,8 +155,8 @@ namespace DataBase
                 count.Add(count_living);
             }
 
-            decimal total = 0;
-            decimal living = 0;
+            decimal total;
+            decimal living;
             List<Decimal> tot = new List<Decimal>();
             List<Decimal> liv = new List<Decimal>();
             for (int i = 0; i < count.Count; i+=2)
@@ -192,20 +194,20 @@ namespace DataBase
                 all_total += tot[i];
                 all_living += liv[i];
             }
-           
+
             int r = 0;
 
             dataGridViewArea.Rows[r].Cells[0].Value = Convert.ToInt32(DateTime.Now.Year.ToString());
             int k = 0;
-            for (int i = 0; i< t.Count; i++)
+            for (int i = 0; i< tot.Count; i++)
             {
-                dataGridViewArea.Rows[r].Cells[k+1].Value = t[i].ToString();
-                dataGridViewArea.Rows[r].Cells[k+2].Value = l[i].ToString();
+                dataGridViewArea.Rows[r].Cells[k+1].Value = tot[i].ToString();
+                dataGridViewArea.Rows[r].Cells[k+2].Value = liv[i].ToString();
                 k += 2;
             }
            
             dataGridViewArea.Rows[r].Cells[k+1].Value = all_total;
-            dataGridViewArea.Rows[r].Cells[k+2].Value = all_living;
+            dataGridViewArea.Rows[r].Cells[k+2].Value = all_living;    
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
