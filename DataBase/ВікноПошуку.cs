@@ -1136,6 +1136,9 @@ namespace DataBase
         {
             for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
             {
+                string І = dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString().Substring(0, 1);
+                string По = dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString().Substring(0 , 1);
+                string П = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString();
                 string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
@@ -1165,7 +1168,7 @@ namespace DataBase
                     { "Вулиця", Вулиця },
                     { "Номербуд", Номер }
                 };
-                string fileName = ПІП;
+                string fileName = П + " " + І + "." + По + ".";
 
                 var app = new Word.Application();
                 Object file = @"D:\Картки\Картка_Шаблон.doc";
