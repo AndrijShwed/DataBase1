@@ -336,9 +336,9 @@ namespace DataBase
 
             SQLCommand c = new SQLCommand();
 
-            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower().Replace("'", "`");
-            string name = Convert.ToString(textBoxІм_я.Text).ToLower().Replace("'", "`");
-            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower().Replace("'", "`");
+            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower().Replace("'", "`").Replace('"', '`');
+            string name = Convert.ToString(textBoxІм_я.Text).ToLower().Replace("'", "`").Replace('"', '`');
+            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower().Replace("'", "`").Replace('"', '`');
             string village = Convert.ToString(textBoxНаселенийПункт.Text).ToLower();
 
             bool first = true;
@@ -537,9 +537,9 @@ namespace DataBase
 
                         {
                             string anymalsId = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[0].Value);
-                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value).Replace("'", "`");
-                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value).Replace("'", "`");
-                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value).Replace("'", "`");
+                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value).Replace("'", "`").Replace('"', '`');
+                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value).Replace("'", "`").Replace('"', '`');
+                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value).Replace("'", "`").Replace('"', '`');
                             string village = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value);
                             int anymals = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
                             int covs = Convert.ToInt32(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[6].Value);

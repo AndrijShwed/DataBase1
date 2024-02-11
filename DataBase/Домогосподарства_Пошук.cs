@@ -370,9 +370,9 @@ namespace DataBase
             string village = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[1].Value);
             string street = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[2].Value);
             string numb_of_house = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[3].Value);
-            string lastname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[4].Value).Replace("'", "`");
-            string name = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[5].Value).Replace("'", "`");
-            string surname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[6].Value).Replace("'", "`");
+            string lastname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[4].Value).Replace("'", "`").Replace('"', '`');
+            string name = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[5].Value).Replace("'", "`").Replace('"', '`');
+            string surname = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[6].Value).Replace("'", "`").Replace('"', '`');
             string totalArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[7].Value);
             totalArea = totalArea.Replace(',', '.');
             string livingArea = Convert.ToString(this.dataGridViewДомогосподарства_Пошук.Rows[0].Cells[8].Value);
