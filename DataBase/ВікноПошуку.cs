@@ -1136,9 +1136,6 @@ namespace DataBase
         {
             for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
             {
-                string І = dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString().Replace('"', '_');
-                string По = dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString().Replace('"', '_');
-                string П = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString().Replace('"', '_');
                 string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
