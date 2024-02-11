@@ -331,7 +331,6 @@ namespace DataBase
                                         MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
 
-
                                         _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
                                         _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
                                         _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
