@@ -490,9 +490,9 @@ namespace DataBase
 
             SQLCommand c = new SQLCommand();
            
-            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower();
-            string name = Convert.ToString(textBoxІм_я.Text).ToLower();
-            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower();
+            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower().Replace("'", "`");
+            string name = Convert.ToString(textBoxІм_я.Text).ToLower().Replace("'", "`");
+            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower().Replace("'", "`");
             string sex = Convert.ToString(textBoxСтать.Text).ToLower();
             string village = Convert.ToString(textBoxНаселенийПункт.Text).ToLower();
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
