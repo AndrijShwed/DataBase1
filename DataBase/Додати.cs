@@ -276,9 +276,9 @@ namespace DataBase
 
                     _manager.openConnection();
 
-                    string lastname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[1].Value);
-                    string name = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[2].Value);
-                    string surname = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[3].Value);
+                    string lastname = this.dataGridViewДодати.Rows[current].Cells[1].Value.ToString().Replace("'", "`").Replace('"', '`');
+                    string name = this.dataGridViewДодати.Rows[current].Cells[2].Value.ToString().Replace("'", "`").Replace('"', '`'); 
+                    string surname = this.dataGridViewДодати.Rows[current].Cells[3].Value.ToString().Replace("'", "`").Replace('"', '`'); 
                     string sex = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[4].Value);
                     string date_of_birth = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[5].Value);
                     string m_date = Convert.ToString(this.dataGridViewДодати.Rows[current].Cells[14].Value);
@@ -330,11 +330,10 @@ namespace DataBase
                                       "VALUES(@lastname,@name,@surname,@sex,@date_of_birth,@village,@street,@numb_of_house,@passport,@id_kod,@phone_numb,@status,@registr,@m_date)";
                                         MySqlCommand _command = new MySqlCommand(_commandString, _manager.getConnection());
 
-
-
-                                        _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
-                                        _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
-                                        _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
+                                       
+                                        _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value.ToString().Replace("'", "`").Replace('"', '`'); 
+                                        _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value.ToString().Replace("'", "`").Replace('"', '`');
+                                        _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value.ToString().Replace("'", "`").Replace('"', '`');
                                         _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
                                         _command.Parameters.Add("@date_of_birth", MySqlDbType.VarChar).Value = date_of_birth;
                                         _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;
@@ -373,9 +372,9 @@ namespace DataBase
 
 
 
-                                        _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value;
-                                        _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value;
-                                        _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value;
+                                        _command.Parameters.Add("@lastname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[1].Value.ToString().Replace("'", "`").Replace('"', '`');
+                                        _command.Parameters.Add("@name", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[2].Value.ToString().Replace("'", "`").Replace('"', '`');
+                                        _command.Parameters.Add("@surname", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[3].Value.ToString().Replace("'", "`").Replace('"', '`');
                                         _command.Parameters.Add("@sex", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[4].Value;
                                         _command.Parameters.Add("@date_of_birth", MySqlDbType.VarChar).Value = date_of_birth;
                                         _command.Parameters.Add("@village", MySqlDbType.VarChar).Value = this.dataGridViewДодати.Rows[current].Cells[6].Value;

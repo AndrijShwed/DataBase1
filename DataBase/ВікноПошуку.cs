@@ -490,9 +490,9 @@ namespace DataBase
 
             SQLCommand c = new SQLCommand();
            
-            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower();
-            string name = Convert.ToString(textBoxІм_я.Text).ToLower();
-            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower();
+            string lastname = Convert.ToString(textBoxПрізвище.Text).ToLower().Replace("'", "`").Replace('"', '`');
+            string name = Convert.ToString(textBoxІм_я.Text).ToLower().Replace("'", "`").Replace('"', '`');
+            string surname = Convert.ToString(textBoxПобатькові.Text).ToLower().Replace("'", "`").Replace('"', '`');
             string sex = Convert.ToString(textBoxСтать.Text).ToLower();
             string village = Convert.ToString(textBoxНаселенийПункт.Text).ToLower();
             string street = Convert.ToString(textBoxВулиця.Text).ToLower();
@@ -885,9 +885,9 @@ namespace DataBase
 
                         {
                             string people_id = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[0].Value);
-                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value);
-                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value);
-                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value);
+                            string lastname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value).Replace("'", "`").Replace('"', '`');
+                            string name = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value).Replace("'", "`").Replace('"', '`');
+                            string surname = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value).Replace("'", "`").Replace('"', '`');
                             string sex = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[4].Value);
                             string date_of_birth = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[5].Value);
                             string village = Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[6].Value);
@@ -1136,9 +1136,6 @@ namespace DataBase
         {
             for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
             {
-                string І = dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString().Replace('"', '_');
-                string По = dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString().Replace('"', '_');
-                string П = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString().Replace('"', '_');
                 string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
                              + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
@@ -1168,7 +1165,7 @@ namespace DataBase
                     { "Вулиця", Вулиця },
                     { "Номербуд", Номер }
                 };
-                string fileName = П + " " + І + " " + По;
+                string fileName = ПІП;
 
                 var app = new Word.Application();
                 Object file = @"D:\Картки\Картка_Шаблон.doc";

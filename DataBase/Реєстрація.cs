@@ -35,9 +35,9 @@ namespace DataBase
             {
                 bool been = false;
 
-                string loginUser = textBoxLogin.Text;
-                string nameUser = textBoxName.Text;
-                string surnameUser = textBoxSurname.Text;
+                string loginUser = textBoxLogin.Text.ToString().Replace("'", "`").Replace('"', '`');
+                string nameUser = textBoxName.Text.ToString().Replace("'", "`").Replace('"', '`');
+                string surnameUser = textBoxSurname.Text.ToString().Replace("'", "`").Replace('"', '`');
 
                 ConnectionClass connectionClass = new ConnectionClass();
                 DataTable _dataTable = new DataTable();
@@ -74,7 +74,7 @@ namespace DataBase
             get
             {
                 bool been = false;
-                string loginUser = textBoxLogin.Text;
+                string loginUser = textBoxLogin.Text.ToString().Replace("'", "`").Replace('"', '`');
                 string passwordUser = textBoxPassword.Text;
 
                 ConnectionClass connectionClass = new ConnectionClass();
@@ -196,9 +196,9 @@ namespace DataBase
 
                     try
                     {
-                        _mySqlCommand.Parameters.Add("@name", MySqlDbType.VarChar).Value = textBoxName.Text;
-                        _mySqlCommand.Parameters.Add("@surname", MySqlDbType.VarChar).Value = textBoxSurname.Text;
-                        _mySqlCommand.Parameters.Add("@login", MySqlDbType.VarChar).Value = textBoxLogin.Text;
+                        _mySqlCommand.Parameters.Add("@name", MySqlDbType.VarChar).Value = textBoxName.Text.ToString().Replace("'", "`").Replace('"', '`');
+                        _mySqlCommand.Parameters.Add("@surname", MySqlDbType.VarChar).Value = textBoxSurname.Text.ToString().Replace("'", "`").Replace('"', '`');
+                        _mySqlCommand.Parameters.Add("@login", MySqlDbType.VarChar).Value = textBoxLogin.Text.ToString().Replace("'", "`").Replace('"', '`');
                         _mySqlCommand.Parameters.Add("@password", MySqlDbType.VarChar).Value = textBoxPassword.Text;
 
                         connectionClass.openConnection();
