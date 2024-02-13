@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
@@ -1150,8 +1151,17 @@ namespace DataBase
                 string номПас = null;
                 if (pass != "")
                 {
-                    серія = pass.Substring(0, 2);
-                    номПас = pass.Substring(2, 6);
+                    bool containsLetters = pass.Any(char.IsLetter);
+                    if (containsLetters)
+                    {
+                        pass = pass.Replace(" ", "");
+                        серія = pass.Substring(0, 2);
+                        номПас = pass.Substring(2, 6);
+                    }
+                    else
+                    {
+                        номПас = pass;
+                    }
                 }
                
                 var items = new Dictionary<string, string>
