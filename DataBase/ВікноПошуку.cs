@@ -1258,7 +1258,6 @@ namespace DataBase
 
             }
            
-            List<string> str = new List<string>();
             string date_1;
             for (int i = 0; i < _data.Count; i++)
             {
@@ -1292,7 +1291,6 @@ namespace DataBase
                 {"Жителю", жителька },
                 {"Його", її }
               };
-
             }
 
 
@@ -1312,38 +1310,10 @@ namespace DataBase
                     DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
 
 
-                    if (MessageBox.Show(string.Format("Ви дійсно бажаєте видалити цей рядок ?", row.Cells["people_id"].Value), "Погоджуюсь",
-                       MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        ConnectionClass _manager = new ConnectionClass();
-                        _manager.openConnection();
-
-                        string com = "DELETE FROM people WHERE people_id = '" + row.Cells["people_id"].Value + "'";
-
-                        MySqlCommand dell = new MySqlCommand(com, _manager.getConnection());
 
 
-                        if (dell.ExecuteNonQuery() == 1)
-                        {
-                            dataGridViewВікноПошуку.Rows.RemoveAt(row.Index);
-                            MessageBox.Show("Дані успішно видалено ");
-                            _manager.closeConnection();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Помилка роботи з базою даних !!!");
-                        }
+
+
 
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
-
-        }
-
-       
-    }
-}
