@@ -877,8 +877,6 @@ namespace DataBase
                     for (int i = 0; i < dataGridViewВікноПошуку.SelectedRows.Count; i++)
                     {
 
-
-
                         if (Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[1].Value) != "" &&
                             Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[2].Value) != "" &&
                             Convert.ToString(this.dataGridViewВікноПошуку.SelectedRows[i].Cells[3].Value) != "" &&
@@ -1222,6 +1220,84 @@ namespace DataBase
             }
 
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
+        }
+
+        private void Довідка(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
+
+            string ПІП = row.Cells["lastname"].Value.ToString()
+                            + " " + row.Cells["name"].Value.ToString()
+                            + " " + row.Cells["surname"].Value.ToString();
+            string dd_mm_yyy = row.Cells["date_of_birth"].Value.ToString();
+            string date = dd_mm_yyy.Substring(0, 10) + "p.";
+            string Село = row.Cells["village"].Value.ToString();
+            string Вулиця = row.Cells["street"].Value.ToString();
+            string Номер = row.Cells["numb_of_house"].Value.ToString();
+            string sex = row.Cells["sex"].Value.ToString();
+            string житель = "жителю";
+            string жителька = "жительці";
+            string його = "його";
+            string її = "її";
+
+            string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
+                " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'";
+
+            ConnectionClass _manager = new ConnectionClass();
+            _manager.openConnection();
+            MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
+            MySqlDataReader _reader;
+            _reader = comand.ExecuteReader();
+            while (_reader.Read())
+            {
+                RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
+                    _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
+                    _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
+                    _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
+                _data.Add(row_1);
+
+            }
+           
+            List<string> str = new List<string>();
+            string date_1;
+            for (int i = 0; i < _data.Count; i++)
+            {
+                date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                str.Add((i + 1) + ". " +_data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.");
+            }
+            
+
+            if (sex == "чол")
+            {
+              var items_1 = new Dictionary<string, string>
+              {
+                {"Село", Село },
+                {"Вулиця", Вулиця },
+                {"Номер", Номер },
+                {"ПІП", ПІП },
+                {"Дата", date },
+                {"Жителю", житель },
+                {"Його", його }
+              };
+            }
+            else
+            {
+              var items_1 = new Dictionary<string, string>
+              {
+                {"Село", Село },
+                {"Вулиця", Вулиця },
+                {"Номер", Номер },
+                {"ПІП", ПІП },
+                {"Дата", date },
+                {"Жителю", жителька },
+                {"Його", її }
+              };
+
+            }
+
+
+
+
         }
 
         private void dataGridViewВікноПошуку_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
