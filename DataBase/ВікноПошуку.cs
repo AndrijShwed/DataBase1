@@ -1,9 +1,12 @@
-﻿using MySqlConnector;
+﻿using Microsoft.Office.Interop.Word;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
@@ -67,9 +70,9 @@ namespace DataBase
 
         private void HeaderOfTheTable()
         {
-            this.dataGridViewВікноПошуку.DefaultCellStyle.Font = new Font("TimeNewRoman", 10);
+            this.dataGridViewВікноПошуку.DefaultCellStyle.Font = new System.Drawing.Font("TimeNewRoman", 10);
             this.dataGridViewВікноПошуку.DefaultCellStyle.BackColor = Color.Beige;
-            this.dataGridViewВікноПошуку.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Italic);
+            this.dataGridViewВікноПошуку.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Arial", 10, FontStyle.Italic);
             this.dataGridViewВікноПошуку.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewВікноПошуку.ColumnHeadersDefaultCellStyle.BackColor = Color.DarkOrange;
             this.dataGridViewВікноПошуку.EnableHeadersVisualStyles = false;
@@ -847,7 +850,7 @@ namespace DataBase
 
         private void вихідЗПрограмиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            System.Windows.Forms.Application.Exit();
         }
 
         private void Редагувати_Click(object sender, EventArgs e)
@@ -1223,6 +1226,7 @@ namespace DataBase
             MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
         }
 
+<<<<<<< HEAD
         private void Довідка(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dataGridViewВікноПошуку.Rows[e.RowIndex];
@@ -1304,6 +1308,9 @@ namespace DataBase
 
         }
 
+=======
+       
+>>>>>>> 3e7c712f0fc35658418126ae36294ea58ba67272
         private void dataGridViewВікноПошуку_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             user = new User();
@@ -1348,6 +1355,219 @@ namespace DataBase
 
         }
 
-       
+
+
+        private void buttonДовідка_Click(object sender, EventArgs e)
+        {
+
+
+            string ПІП = dataGridViewВікноПошуку.Rows[0].Cells[1].Value.ToString()
+                            + " " + dataGridViewВікноПошуку.Rows[0].Cells[2].Value.ToString()
+                            + " " + dataGridViewВікноПошуку.Rows[0].Cells[3].Value.ToString();
+            string dd_mm_yyy = dataGridViewВікноПошуку.Rows[0].Cells[5].Value.ToString();
+                string date = dd_mm_yyy.Substring(0, 10) + " p.н.";
+                string Село = dataGridViewВікноПошуку.Rows[0].Cells[6].Value.ToString();
+                string Вулиця = dataGridViewВікноПошуку.Rows[0].Cells[7].Value.ToString();
+                string Номер = dataGridViewВікноПошуку.Rows[0].Cells[8].Value.ToString();
+                string sex = dataGridViewВікноПошуку.Rows[0].Cells[4].Value.ToString();
+                string житель = "жителю";
+                string жителька = "жительці";
+                string його = "його";
+                string її = "її";
+
+                string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
+                    " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'";
+
+                ConnectionClass _manager = new ConnectionClass();
+                _manager.openConnection();
+                MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
+                MySqlDataReader _reader;
+                _reader = comand.ExecuteReader();
+                while (_reader.Read())
+                {
+                    RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
+                        _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
+                        _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
+                    _data.Add(row_1);
+
+                }
+
+                List<string> listToInsert = new List<string>();
+                string date_1;
+            string str = "";
+                for (int i = 1; i < _data.Count; i++)
+                {
+                    date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                    str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+            //listToInsert.Add(i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\n");
+                }
+
+            Dictionary<string, string> replacements = new Dictionary<string, string>();
+
+            if (sex == "чол")
+            {
+                replacements.Add("жителю", житель);
+                replacements.Add("його", його);
+                replacements.Add("село", Село);
+                replacements.Add("вулиця", Вулиця);
+                replacements.Add("номер", Номер);
+                replacements.Add("ПІП", ПІП);
+                replacements.Add("дата", date);
+                replacements.Add("список", str);
+                
+            }
+            else
+            {
+                replacements.Add("жителю", жителька);
+                replacements.Add("його", її);
+                replacements.Add("село", Село);
+                replacements.Add("вулиця", Вулиця);
+                replacements.Add("номер", Номер);
+                replacements.Add("ПІП", ПІП);
+                replacements.Add("дата", date);
+                replacements.Add("список", str);
+                
+
+            }
+
+            string fileName = ПІП;
+
+            var app = new Word.Application();
+            Object file = @"D:\Довідки\Шаблон.doc";
+            Object missing = Type.Missing;
+
+            app.Documents.Open(file);
+
+            foreach (var item in replacements)
+            {
+                if (item.Value == null)
+                {
+                    Word.Find find = app.Selection.Find;
+                    find.ClearFormatting();
+                    find.Text = item.Key;
+                    find.Replacement.ClearFormatting();
+                    find.Replacement.Text = "______";
+
+                    object replaceAll = Word.WdReplace.wdReplaceAll;
+                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
+                }
+                else
+                {
+                    Word.Find find = app.Selection.Find;
+                    find.ClearFormatting();
+                    find.Text = item.Key;
+                    find.Replacement.ClearFormatting();
+                    find.Replacement.Text = item.Value;
+
+                    object replaceAll = Word.WdReplace.wdReplaceAll;
+                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref missing, ref missing, ref missing, ref missing, ref missing,
+                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                }
+            }
+
+            //Word.Find list = app.Selection.Find;
+            //list.ClearFormatting();
+            //list.Text = "список";
+            //list.Replacement.ClearFormatting();
+            //list.Replacement.Text = listToInsert.ToString();
+
+            //object replaceAll1 = Word.WdReplace.wdReplaceAll;
+            //list.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+            //    ref missing, ref missing, ref missing, ref missing, ref missing,
+            //    ref replaceAll1, ref missing, ref missing, ref missing, ref missing);
+
+            string newFileName = @"D:\Довідки\" + fileName + ".doc";
+            app.ActiveDocument.SaveAs2(newFileName);
+            app.ActiveDocument.Close();
+            app.Quit();
+
+
+            //string text = File.ReadAllText(newFileName);
+            //int insertIndex = text.IndexOf(":\r\n") + 3; // Потрібно додати 3, щоб перейти після ":"
+
+            //// Формуємо рядок для вставки списку
+            //string listString = string.Join(Environment.NewLine, listToInsert);
+
+            //// Вставляємо список у текст
+            //text = text.Insert(insertIndex, listString);
+
+
+            //// Записуємо змінений текст назад у файл
+
+            //File.WriteAllText(newFileName, text);
+
+            MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідка про склад сім'ї");
+
+        }
+
+
+
+
+
+
+
+        //string filePath = @"D:\Довідки\Шаблон.doc";
+
+        //        string newFilePath = @"D:\Довідки\" + fileName + ".doc";
+
+        //        File.Copy(filePath, newFilePath);
+
+        //        string text = File.ReadAllText(newFilePath);
+
+        //        // Створюємо словник для заміни слів
+        //        Dictionary<string, string> replacements = new Dictionary<string, string>();
+        //        if (sex == "чол")
+        //        {
+        //            replacements.Add("жителю", житель);
+        //            replacements.Add("його", його);
+        //            replacements.Add("село", Село);
+        //            replacements.Add("вулиця", Вулиця);
+        //            replacements.Add("номер", Номер);
+        //            replacements.Add("ПІП", ПІП);
+        //            replacements.Add("дата", date);
+        //        }
+        //        else
+        //        {
+        //            replacements.Add("жителю", жителька);
+        //            replacements.Add("його", її);
+        //            replacements.Add("село", Село);
+        //            replacements.Add("вулиця", Вулиця);
+        //            replacements.Add("номер", Номер);
+        //            replacements.Add("ПІП", ПІП);
+        //            replacements.Add("дата", date);
+
+        //        }
+        //        // Додайте інші заміни, якщо потрібно
+
+        //        // Заміна слів у тексті
+        //        foreach (var replacement in replacements)
+        //        {
+        //            text = Regex.Replace(text, @"\b" + replacement.Key + @"\b", replacement.Value);
+        //        }
+        //        File.WriteAllText(newFilePath, text);
+
+        //        string text_1 = File.ReadAllText(newFilePath);
+
+        //        int insertIndex = text_1.IndexOf(":\r\n") + 3; // Потрібно додати 3, щоб перейти після ":"
+
+        //        // Формуємо рядок для вставки списку
+        //        string listString = string.Join(Environment.NewLine, listToInsert);
+
+        //        // Вставляємо список у текст
+        //        text = text.Insert(insertIndex, listString);
+
+
+        //        // Записуємо змінений текст назад у файл
+
+        //        File.WriteAllText(newFilePath, text);
+           
+
+        //    MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідка про склад сім'ї");
+        //}
     }
 }
