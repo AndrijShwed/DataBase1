@@ -1308,14 +1308,13 @@ namespace DataBase
 
                 }
 
-                List<string> listToInsert = new List<string>();
                 string date_1;
-            string str = "";
+                string str = "";
                 for (int i = 1; i < _data.Count; i++)
                 {
                     date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
                     str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
-            //listToInsert.Add(i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\n");
+            
                 }
 
             Dictionary<string, string> replacements = new Dictionary<string, string>();
@@ -1385,104 +1384,15 @@ namespace DataBase
                 }
             }
 
-            //Word.Find list = app.Selection.Find;
-            //list.ClearFormatting();
-            //list.Text = "список";
-            //list.Replacement.ClearFormatting();
-            //list.Replacement.Text = listToInsert.ToString();
-
-            //object replaceAll1 = Word.WdReplace.wdReplaceAll;
-            //list.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-            //    ref missing, ref missing, ref missing, ref missing, ref missing,
-            //    ref replaceAll1, ref missing, ref missing, ref missing, ref missing);
-
             string newFileName = @"D:\Довідки\" + fileName + ".doc";
             app.ActiveDocument.SaveAs2(newFileName);
             app.ActiveDocument.Close();
             app.Quit();
-
-
-            //string text = File.ReadAllText(newFileName);
-            //int insertIndex = text.IndexOf(":\r\n") + 3; // Потрібно додати 3, щоб перейти після ":"
-
-            //// Формуємо рядок для вставки списку
-            //string listString = string.Join(Environment.NewLine, listToInsert);
-
-            //// Вставляємо список у текст
-            //text = text.Insert(insertIndex, listString);
-
-
-            //// Записуємо змінений текст назад у файл
-
-            //File.WriteAllText(newFileName, text);
 
             MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідка про склад сім'ї");
 
         }
 
 
-
-
-
-
-
-        //string filePath = @"D:\Довідки\Шаблон.doc";
-
-        //        string newFilePath = @"D:\Довідки\" + fileName + ".doc";
-
-        //        File.Copy(filePath, newFilePath);
-
-        //        string text = File.ReadAllText(newFilePath);
-
-        //        // Створюємо словник для заміни слів
-        //        Dictionary<string, string> replacements = new Dictionary<string, string>();
-        //        if (sex == "чол")
-        //        {
-        //            replacements.Add("жителю", житель);
-        //            replacements.Add("його", його);
-        //            replacements.Add("село", Село);
-        //            replacements.Add("вулиця", Вулиця);
-        //            replacements.Add("номер", Номер);
-        //            replacements.Add("ПІП", ПІП);
-        //            replacements.Add("дата", date);
-        //        }
-        //        else
-        //        {
-        //            replacements.Add("жителю", жителька);
-        //            replacements.Add("його", її);
-        //            replacements.Add("село", Село);
-        //            replacements.Add("вулиця", Вулиця);
-        //            replacements.Add("номер", Номер);
-        //            replacements.Add("ПІП", ПІП);
-        //            replacements.Add("дата", date);
-
-        //        }
-        //        // Додайте інші заміни, якщо потрібно
-
-        //        // Заміна слів у тексті
-        //        foreach (var replacement in replacements)
-        //        {
-        //            text = Regex.Replace(text, @"\b" + replacement.Key + @"\b", replacement.Value);
-        //        }
-        //        File.WriteAllText(newFilePath, text);
-
-        //        string text_1 = File.ReadAllText(newFilePath);
-
-        //        int insertIndex = text_1.IndexOf(":\r\n") + 3; // Потрібно додати 3, щоб перейти після ":"
-
-        //        // Формуємо рядок для вставки списку
-        //        string listString = string.Join(Environment.NewLine, listToInsert);
-
-        //        // Вставляємо список у текст
-        //        text = text.Insert(insertIndex, listString);
-
-
-        //        // Записуємо змінений текст назад у файл
-
-        //        File.WriteAllText(newFilePath, text);
-           
-
-        //    MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідка про склад сім'ї");
-        //}
     }
 }
