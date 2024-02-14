@@ -115,7 +115,7 @@
             // 
             // buttonДовідка
             // 
-            this.buttonДовідка.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.buttonДовідка.BackColor = System.Drawing.Color.PeachPuff;
             this.buttonДовідка.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonДовідка.ForeColor = System.Drawing.SystemColors.InfoText;
             this.buttonДовідка.Location = new System.Drawing.Point(841, 177);

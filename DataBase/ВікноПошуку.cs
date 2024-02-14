@@ -1275,12 +1275,14 @@ namespace DataBase
 
         private void buttonДовідка_Click(object sender, EventArgs e)
         {
-
-            int id = Convert.ToInt32(dataGridViewВікноПошуку.Rows[0].Cells[0].Value);
-            string ПІП = dataGridViewВікноПошуку.Rows[0].Cells[1].Value.ToString()
-                            + " " + dataGridViewВікноПошуку.Rows[0].Cells[2].Value.ToString()
-                            + " " + dataGridViewВікноПошуку.Rows[0].Cells[3].Value.ToString();
-            string dd_mm_yyy = dataGridViewВікноПошуку.Rows[0].Cells[5].Value.ToString();
+            buttonДовідка.BackColor = Color.IndianRed;
+            if (dataGridViewВікноПошуку.RowCount != 0)
+            {
+                int id = Convert.ToInt32(dataGridViewВікноПошуку.Rows[0].Cells[0].Value);
+                string ПІП = dataGridViewВікноПошуку.Rows[0].Cells[1].Value.ToString()
+                                + " " + dataGridViewВікноПошуку.Rows[0].Cells[2].Value.ToString()
+                                + " " + dataGridViewВікноПошуку.Rows[0].Cells[3].Value.ToString();
+                string dd_mm_yyy = dataGridViewВікноПошуку.Rows[0].Cells[5].Value.ToString();
                 string date = dd_mm_yyy.Substring(0, 10) + " p.н.";
                 string Село = dataGridViewВікноПошуку.Rows[0].Cells[6].Value.ToString();
                 string Вулиця = dataGridViewВікноПошуку.Rows[0].Cells[7].Value.ToString();
@@ -1290,61 +1292,61 @@ namespace DataBase
                 string жителька = "жительці";
                 string його = "його";
                 string її = "її";
-            string DateNow = DateTime.Now.ToShortDateString();
+                string DateNow = DateTime.Now.ToShortDateString();
 
-            string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
-                " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'" +
-                "AND people_id <> '" + id + "'";
+                string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
+                    " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'" +
+                    "AND people_id <> '" + id + "'";
 
-            ConnectionClass _manager = new ConnectionClass();
-            _manager.openConnection();
-            MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
-            MySqlDataReader _reader;
-            _reader = comand.ExecuteReader();
-            while (_reader.Read())
-            {
-                RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
-                    _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
-                    _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                    _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
-                _data.Add(row_1);
-
-            }
-
-            Dictionary<string, string> replacements = new Dictionary<string, string>();
-            string str = "";
-            string str_1 = "";
-            string date_1;
-            string date_2;
-
-            int k = 0;
-            if (_data.Count > 5)
-            {
-                k = _data.Count - 5;
-
-                for (int i = 1; i <= _data.Count - k; i++)
+                ConnectionClass _manager = new ConnectionClass();
+                _manager.openConnection();
+                MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
+                MySqlDataReader _reader;
+                _reader = comand.ExecuteReader();
+                while (_reader.Read())
                 {
-                    date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                    str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                    RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
+                        _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
+                        _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
+                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
+                    _data.Add(row_1);
+
                 }
-                for (int i = 6; i < _data.Count; i++)
+
+                Dictionary<string, string> replacements = new Dictionary<string, string>();
+                string str = "";
+                string str_1 = "";
+                string date_1;
+                string date_2;
+
+                int k = 0;
+                if (_data.Count > 5)
                 {
-                    date_2 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                    str_1 += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_2 + " р.н.\r";
+                    k = _data.Count - 5;
+
+                    for (int i = 1; i <= _data.Count - k; i++)
+                    {
+                        date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                        str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                    }
+                    for (int i = 6; i < _data.Count; i++)
+                    {
+                        date_2 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                        str_1 += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_2 + " р.н.\r";
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 1; i < _data.Count ; i++)
+                else
                 {
-                    date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                    str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                    for (int i = 1; i < _data.Count; i++)
+                    {
+                        date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                        str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                    }
                 }
-            }
-            var items_1 = new Dictionary<string, string> { };
-            if (sex == "чол")
-            {
-              items_1 = new Dictionary<string, string>
+                var items_1 = new Dictionary<string, string> { };
+                if (sex == "чол")
+                {
+                    items_1 = new Dictionary<string, string>
               {
                 {"ПоточнаДата", DateNow },
                 {"село", Село },
@@ -1357,10 +1359,10 @@ namespace DataBase
                 {"список", str },
                 {"продовження", str_1 }
               };
-            }
-            else
-            {
-              items_1 = new Dictionary<string, string>
+                }
+                else
+                {
+                    items_1 = new Dictionary<string, string>
               {
                 {"ПоточнаДата", DateNow },
                 {"село", Село },
@@ -1374,53 +1376,60 @@ namespace DataBase
                 {"продовження", str_1 }
               };
 
+                }
+
+                var app = new Word.Application();
+                Object file = @"D:\Довідки\Довідки про склад сім'ї\Шаблон.doc";
+                Object missing = Type.Missing;
+
+                app.Documents.Open(file);
+
+
+                foreach (var item in items_1)
+                {
+                    if (item.Value == null)
+                    {
+                        Word.Find find = app.Selection.Find;
+                        find.ClearFormatting();
+                        find.Text = item.Key;
+                        find.Replacement.ClearFormatting();
+                        find.Replacement.Text = "";
+
+                        object replaceAll = Word.WdReplace.wdReplaceAll;
+                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+
+                    }
+                    else
+                    {
+                        Word.Find find = app.Selection.Find;
+                        find.ClearFormatting();
+                        find.Text = item.Key;
+                        find.Replacement.ClearFormatting();
+                        find.Replacement.Text = item.Value;
+
+                        object replaceAll = Word.WdReplace.wdReplaceAll;
+                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref missing, ref missing, ref missing, ref missing, ref missing,
+                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                    }
+                }
+
+                string newFileName = @"D:\Довідки\Довідки про склад сім'ї\" + ПІП + ".doc";
+
+                app.ActiveDocument.SaveAs2(newFileName);
+                app.ActiveDocument.Close();
+                app.Quit();
+
+                MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідки про склад сім'ї");
+                buttonДовідка.BackColor = Color.PeachPuff;
             }
-
-            var app = new Word.Application();
-            Object file = @"D:\Довідки\Довідки про склад сім'ї\Шаблон.doc";
-            Object missing = Type.Missing;
-
-            app.Documents.Open(file);
-
-
-            foreach (var item in items_1)
+            else
             {
-                if (item.Value == null)
-                {
-                    Word.Find find = app.Selection.Find;
-                    find.ClearFormatting();
-                    find.Text = item.Key;
-                    find.Replacement.ClearFormatting();
-                    find.Replacement.Text = "";
-
-                    object replaceAll = Word.WdReplace.wdReplaceAll;
-                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
-                }
-                else
-                {
-                    Word.Find find = app.Selection.Find;
-                    find.ClearFormatting();
-                    find.Text = item.Key;
-                    find.Replacement.ClearFormatting();
-                    find.Replacement.Text = item.Value;
-
-                    object replaceAll = Word.WdReplace.wdReplaceAll;
-                    find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref missing, ref missing, ref missing, ref missing, ref missing,
-                        ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-                }
+                MessageBox.Show("Немає вибраної особи для формування довідки. Спочатку виберіть особу");
+                buttonДовідка.BackColor = Color.PeachPuff;
             }
-
-            string newFileName = @"D:\Довідки\Довідки про склад сім'ї\" + ПІП + ".doc";
-
-            app.ActiveDocument.SaveAs2(newFileName);
-            app.ActiveDocument.Close();
-            app.Quit();
-
-            MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідки про склад сім'ї");
 
         }
 
