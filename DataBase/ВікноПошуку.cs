@@ -1,6 +1,7 @@
 ﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -1239,6 +1240,7 @@ namespace DataBase
             string жителька = "жительці";
             string його = "його";
             string її = "її";
+            string DateNow = DateTime.Now.ToShortDateString();
 
             string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
                 " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'";
@@ -1271,6 +1273,7 @@ namespace DataBase
             {
               var items_1 = new Dictionary<string, string>
               {
+                {"ПоточнаДата", DateNow },
                 {"Село", Село },
                 {"Вулиця", Вулиця },
                 {"Номер", Номер },
@@ -1284,6 +1287,7 @@ namespace DataBase
             {
               var items_1 = new Dictionary<string, string>
               {
+                {"ПоточнаДата", DateNow },
                 {"Село", Село },
                 {"Вулиця", Вулиця },
                 {"Номер", Номер },
