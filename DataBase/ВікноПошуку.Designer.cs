@@ -152,7 +152,7 @@
             // 
             // Картки
             // 
-            this.Картки.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.Картки.BackColor = System.Drawing.Color.PeachPuff;
             this.Картки.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Картки.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Картки.Location = new System.Drawing.Point(1244, 69);

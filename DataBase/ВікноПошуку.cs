@@ -1137,36 +1137,39 @@ namespace DataBase
 
         private void Картки_Click(object sender, EventArgs e)
         {
-            for( int i = 1; i< dataGridViewВікноПошуку.RowCount + 1; i++)
+            Картки.BackColor = Color.IndianRed;
+            if (dataGridViewВікноПошуку.RowCount != 0)
             {
-                string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
-                             + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
-                             + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
-                string dd_mm_yyy = dataGridViewВікноПошуку.Rows[i - 1].Cells[5].Value.ToString();
-                string date = dd_mm_yyy.Substring(0, 10) + "p.";
-                string Село = dataGridViewВікноПошуку.Rows[i - 1].Cells[6].Value.ToString();    
-                string Вулиця = dataGridViewВікноПошуку.Rows[i - 1].Cells[7].Value.ToString();    
-                string Номер = dataGridViewВікноПошуку.Rows[i - 1].Cells[8].Value.ToString();
-                string іпн = dataGridViewВікноПошуку.Rows[i - 1].Cells[10].Value.ToString();
-                string pass = dataGridViewВікноПошуку.Rows[i - 1].Cells[9].Value.ToString();
-                string серія = null;
-                string номПас = null;
-                if (pass != "")
+                for (int i = 1; i < dataGridViewВікноПошуку.RowCount + 1; i++)
                 {
-                    bool containsLetters = pass.Any(char.IsLetter);
-                    if (containsLetters)
+                    string ПІП = dataGridViewВікноПошуку.Rows[i - 1].Cells[1].Value.ToString()
+                                 + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[2].Value.ToString()
+                                 + " " + dataGridViewВікноПошуку.Rows[i - 1].Cells[3].Value.ToString();
+                    string dd_mm_yyy = dataGridViewВікноПошуку.Rows[i - 1].Cells[5].Value.ToString();
+                    string date = dd_mm_yyy.Substring(0, 10) + "p.";
+                    string Село = dataGridViewВікноПошуку.Rows[i - 1].Cells[6].Value.ToString();
+                    string Вулиця = dataGridViewВікноПошуку.Rows[i - 1].Cells[7].Value.ToString();
+                    string Номер = dataGridViewВікноПошуку.Rows[i - 1].Cells[8].Value.ToString();
+                    string іпн = dataGridViewВікноПошуку.Rows[i - 1].Cells[10].Value.ToString();
+                    string pass = dataGridViewВікноПошуку.Rows[i - 1].Cells[9].Value.ToString();
+                    string серія = null;
+                    string номПас = null;
+                    if (pass != "")
                     {
-                        pass = pass.Replace(" ", "");
-                        серія = pass.Substring(0, 2);
-                        номПас = pass.Substring(2, 6);
+                        bool containsLetters = pass.Any(char.IsLetter);
+                        if (containsLetters)
+                        {
+                            pass = pass.Replace(" ", "");
+                            серія = pass.Substring(0, 2);
+                            номПас = pass.Substring(2, 6);
+                        }
+                        else
+                        {
+                            номПас = pass;
+                        }
                     }
-                    else
-                    {
-                        номПас = pass;
-                    }
-                }
-               
-                var items = new Dictionary<string, string>
+
+                    var items = new Dictionary<string, string>
                 {
                     { "Прізвище Ім'я Побатькові", ПІП },
                     { "dd mm yyyy", date },
@@ -1177,53 +1180,60 @@ namespace DataBase
                     { "Вулиця", Вулиця },
                     { "Номербуд", Номер }
                 };
-                string fileName = ПІП;
+                    string fileName = ПІП;
 
-                var app = new Word.Application();
-                Object file = @"D:\Картки\Картка_Шаблон.doc";
-                Object missing = Type.Missing;
+                    var app = new Word.Application();
+                    Object file = @"D:\Картки\Картка_Шаблон.doc";
+                    Object missing = Type.Missing;
 
-                app.Documents.Open(file);
+                    app.Documents.Open(file);
 
-                foreach (var item in items)
-                {
-                    if (item.Value == null)
+                    foreach (var item in items)
                     {
-                        Word.Find find = app.Selection.Find;
-                        find.ClearFormatting();
-                        find.Text = item.Key;
-                        find.Replacement.ClearFormatting();
-                        find.Replacement.Text = "______";
+                        if (item.Value == null)
+                        {
+                            Word.Find find = app.Selection.Find;
+                            find.ClearFormatting();
+                            find.Text = item.Key;
+                            find.Replacement.ClearFormatting();
+                            find.Replacement.Text = "______";
 
-                        object replaceAll = Word.WdReplace.wdReplaceAll;
-                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                            object replaceAll = Word.WdReplace.wdReplaceAll;
+                            find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                                ref missing, ref missing, ref missing, ref missing, ref missing,
+                                ref replaceAll, ref missing, ref missing, ref missing, ref missing);
 
+                        }
+                        else
+                        {
+                            Word.Find find = app.Selection.Find;
+                            find.ClearFormatting();
+                            find.Text = item.Key;
+                            find.Replacement.ClearFormatting();
+                            find.Replacement.Text = item.Value;
+
+                            object replaceAll = Word.WdReplace.wdReplaceAll;
+                            find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
+                                ref missing, ref missing, ref missing, ref missing, ref missing,
+                                ref replaceAll, ref missing, ref missing, ref missing, ref missing);
+                        }
                     }
-                    else
-                    {
-                        Word.Find find = app.Selection.Find;
-                        find.ClearFormatting();
-                        find.Text = item.Key;
-                        find.Replacement.ClearFormatting();
-                        find.Replacement.Text = item.Value;
 
-                        object replaceAll = Word.WdReplace.wdReplaceAll;
-                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-                    }
+                    string newFileName = @"D:\Картки\Картки_П_О\" + fileName + ".doc";
+                    app.ActiveDocument.SaveAs2(newFileName);
+                    app.ActiveDocument.Close();
+                    app.Quit();
+
                 }
-                   
-                string newFileName = @"D:\Картки\Картки_П_О\"+fileName+".doc";
-                app.ActiveDocument.SaveAs2(newFileName);
-                app.ActiveDocument.Close();
-                app.Quit();
 
+                MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
+                Картки.BackColor = Color.PeachPuff;
             }
-
-            MessageBox.Show("Файл збережено на диску D в папку Картки_П_О");
+            else
+            {
+                MessageBox.Show("Немає вибраної особи для формування картки. Спочатку виберіть особу або кілька осіб");
+                Картки.BackColor = Color.PeachPuff;
+            }
         }
 
 
@@ -1347,34 +1357,34 @@ namespace DataBase
                 if (sex == "чол")
                 {
                     items_1 = new Dictionary<string, string>
-              {
-                {"ПоточнаДата", DateNow },
-                {"село", Село },
-                {"вулиця", Вулиця },
-                {"номер", Номер },
-                {"піп", ПІП },
-                {"дата", date },
-                {"жителю", житель },
-                {"його", його },
-                {"список", str },
-                {"продовження", str_1 }
-              };
+                    {
+                        {"ПоточнаДата", DateNow },
+                        {"село", Село },
+                        {"вулиця", Вулиця },
+                        {"номер", Номер },
+                        {"піп", ПІП },
+                        {"дата", date },
+                        {"жителю", житель },
+                        {"його", його },
+                        {"список", str },
+                        {"продовження", str_1 }
+                    };
                 }
                 else
                 {
                     items_1 = new Dictionary<string, string>
-              {
-                {"ПоточнаДата", DateNow },
-                {"село", Село },
-                {"вулиця", Вулиця },
-                {"номер", Номер },
-                {"піп", ПІП },
-                {"дата", date },
-                {"жителю", жителька },
-                {"його", її },
-                {"список", str },
-                {"продовження", str_1 }
-              };
+                    {
+                      {"ПоточнаДата", DateNow },
+                      {"село", Село },
+                      {"вулиця", Вулиця },
+                      {"номер", Номер },
+                      {"піп", ПІП },
+                      {"дата", date },
+                      {"жителю", жителька },
+                      {"його", її },
+                      {"список", str },
+                      {"продовження", str_1 }
+                    };
 
                 }
 
