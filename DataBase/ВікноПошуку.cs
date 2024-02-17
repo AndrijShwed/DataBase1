@@ -1440,24 +1440,7 @@ namespace DataBase
                         {"продовження", str_1 }
                     };
                 }
-                else
-                {
-                    items_1 = new Dictionary<string, string>
-                    {
-                      {"ПоточнаДата", DateNow },
-                      {"село", Село },
-                      {"вулиця", Вулиця },
-                      {"номер", Номер },
-                      {"піп", ПІП },
-                      {"дата", date },
-                      {"жителю", жителька },
-                      {"його", її },
-                      {"список", str },
-                      {"продовження", str_1 }
-                    };
->>>>>>> 0adc8b15a2ba9904aec3cc0bf132802d1f11dbf1
 
-                }
 
                 var app = new Word.Application();
                 Object file = @"D:\Довідки\Довідки про склад сім'ї\Шаблон.doc";
