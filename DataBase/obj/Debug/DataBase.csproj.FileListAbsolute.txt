@@ -50,3 +50,7 @@ C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.ПочатокРо
 C:\Users\1\source\repos\DataBase1\DataBase\obj\Debug\DataBase.Налаштування.resources
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\Xceed.Document.NET.dll
 C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\Xceed.Words.NET.dll
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DocumentFormat.OpenXml.Framework.dll
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\1\source\repos\DataBase1\DataBase\bin\Debug\DocumentFormat.OpenXml.Framework.xml

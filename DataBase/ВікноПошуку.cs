@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using Xceed.Words.NET;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 
@@ -59,6 +60,9 @@ namespace DataBase
 
             textBoxM_Year.Text = "Рік зміни статусу";
             textBoxM_Year.ForeColor = Color.Gray;
+
+            textBoxНомерДовідки.Text = "Вкажіть номер";
+            textBoxНомерДовідки.ForeColor = Color.Gray;
 
             textBoxCount.Text = "0";
 
@@ -421,6 +425,25 @@ namespace DataBase
             }
         }
 
+        private void textBoxНомерДовідки_Enter(object sender, EventArgs e)
+        {
+
+            if (textBoxНомерДовідки.Text == "Вкажіть номер")
+            {
+                textBoxНомерДовідки.Text = "";
+                textBoxНомерДовідки.ForeColor = Color.Black;
+            }
+        }
+
+        private void textBoxНомерДовідки_Leave(object sender, EventArgs e)
+        {
+            if (textBoxНомерДовідки.Text == "")
+            {
+                textBoxНомерДовідки.Text = "Вкажіть номер";
+                textBoxНомерДовідки.ForeColor = Color.Gray;
+            }
+        }
+
         private void buttonОчиститиПоля_Click(object sender, EventArgs e)
         {
             textBoxПрізвище.Text = "Прізвище";
@@ -458,6 +481,9 @@ namespace DataBase
 
             textBoxFileName.Text = "Назва файлу";
             textBoxFileName.ForeColor = Color.Gray;
+
+            textBoxНомерДовідки.Text = "Вкажіть номер";
+            textBoxНомерДовідки.ForeColor = Color.Gray;
         }
 
         private void AddDataGrid(RowOfData row)
@@ -1283,174 +1309,143 @@ namespace DataBase
         private void buttonДовідка_Click(object sender, EventArgs e)
         {
             buttonДовідка.BackColor = Color.IndianRed;
-            if (dataGridViewВікноПошуку.RowCount != 0)
+
+            if (textBoxНомерДовідки.Text == "Вкажіть номер")
             {
-                int id = Convert.ToInt32(dataGridViewВікноПошуку.Rows[0].Cells[0].Value);
-                string ПІП = dataGridViewВікноПошуку.Rows[0].Cells[1].Value.ToString()
-                                + " " + dataGridViewВікноПошуку.Rows[0].Cells[2].Value.ToString()
-                                + " " + dataGridViewВікноПошуку.Rows[0].Cells[3].Value.ToString();
-                string dd_mm_yyy = dataGridViewВікноПошуку.Rows[0].Cells[5].Value.ToString();
-                string date = dd_mm_yyy.Substring(0, 10) + " p.н.";
-                string Село = dataGridViewВікноПошуку.Rows[0].Cells[6].Value.ToString();
-                string Вулиця = dataGridViewВікноПошуку.Rows[0].Cells[7].Value.ToString();
-                string Номер = dataGridViewВікноПошуку.Rows[0].Cells[8].Value.ToString();
-                string sex = dataGridViewВікноПошуку.Rows[0].Cells[4].Value.ToString();
-                string житель = "жителю";
-                string жителька = "жительці";
-                string його = "його";
-                string її = "її";
-                string DateNow = DateTime.Now.ToShortDateString();
-
-                string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
-                    " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'" +
-                    "AND people_id <> '" + id + "'";
-
-                ConnectionClass _manager = new ConnectionClass();
-                _manager.openConnection();
-                MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
-                MySqlDataReader _reader;
-                _reader = comand.ExecuteReader();
-                while (_reader.Read())
-                {
-                    RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
-                        _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
-                        _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
-                        _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
-                    _data.Add(row_1);
-
-                }
-
-                Dictionary<string, string> replacements = new Dictionary<string, string>();
-
-                if (sex == "чол")
-                {
-<<<<<<< HEAD
-                    if (_data.Count > 1)
-                    {
-                        items_1 = new Dictionary<string, string>
-                        {
-                            {"ПоточнаДата", DateNow },
-                            {"село", Село },
-                            {"вулиця", Вулиця },
-                            {"номер", Номер },
-                            {"піп", ПІП },
-                            {"дата", date },
-                            {"жителю", житель },
-                            {"його", його },
-                            {"список", str },
-                            {"продовження", str_1 }
-                        };
-                    }
-                    else
-                    {
-                        items_1 = new Dictionary<string, string>
-                        {
-                            {"ПоточнаДата", DateNow },
-                            {"село", Село },
-                            {"вулиця", Вулиця },
-                            {"номер", Номер },
-                            {"піп", ПІП },
-                            {"дата", date },
-                            {"жителю", житель },
-                            {"його сім’я складається з наступних осіб : ", " за даною адресою він зареєстрований один."},
-                            {"список", str },
-                            {"продовження", str_1 }
-                        };
-                    }
-                }
-                else
-                {
-                    if (_data.Count > 1)
-                    {
-                        items_1 = new Dictionary<string, string>
-                        {
-                           {"ПоточнаДата", DateNow },
-                           {"село", Село },
-                           {"вулиця", Вулиця },
-                           {"номер", Номер },
-                           {"піп", ПІП },
-                           {"дата", date },
-                           {"жителю", жителька },
-                           {"його", її },
-                           {"список", str },
-                           {"продовження", str_1 }
-                        };
-                    }
-                    else
-                    {
-
-                        items_1 = new Dictionary<string, string>
-                        {
-                           {"ПоточнаДата", DateNow },
-                           {"село", Село },
-                           {"вулиця", Вулиця },
-                           {"номер", Номер },
-                           {"піп", ПІП },
-                           {"дата", date },
-                           {"жителю", жителька },
-                           {"його сім’я складається з наступних осіб : ", " за даною адресою вона зареєстрована одна."},
-                           {"список", str },
-                           {"продовження", str_1 }
-                        };
-                    }
-                }
-
-
-                var app = new Word.Application();
-                Object file = @"D:\Довідки\Довідки про склад сім'ї\Шаблон.doc";
-                Object missing = Type.Missing;
-
-                app.Documents.Open(file);
-
-
-                foreach (var item in items_1)
-                {
-                    if (item.Value == null)
-                    {
-                        Word.Find find = app.Selection.Find;
-                        find.ClearFormatting();
-                        find.Text = item.Key;
-                        find.Replacement.ClearFormatting();
-                        find.Replacement.Text = "";
-
-                        object replaceAll = Word.WdReplace.wdReplaceAll;
-                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-
-                    }
-                    else
-                    {
-                        Word.Find find = app.Selection.Find;
-                        find.ClearFormatting();
-                        find.Text = item.Key;
-                        find.Replacement.ClearFormatting();
-                        find.Replacement.Text = item.Value;
-
-                        object replaceAll = Word.WdReplace.wdReplaceAll;
-                        find.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref missing, ref missing, ref missing, ref missing, ref missing,
-                            ref replaceAll, ref missing, ref missing, ref missing, ref missing);
-                    }
-                }
-
-                string newFileName = @"D:\Довідки\Довідки про склад сім'ї\" + ПІП + ".doc";
-
-                app.ActiveDocument.SaveAs2(newFileName);
-                app.ActiveDocument.Close();
-                app.Quit();
-
-                MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідки про склад сім'ї");
-                buttonДовідка.BackColor = Color.PeachPuff;
+                MessageBox.Show("Спочатку вкажіть порядковий номер довідки !");
             }
             else
             {
-                MessageBox.Show("Немає вибраної особи для формування довідки. Спочатку виберіть особу");
-                buttonДовідка.BackColor = Color.PeachPuff;
+                if (dataGridViewВікноПошуку.RowCount != 0)
+                {
+                    int id = Convert.ToInt32(dataGridViewВікноПошуку.Rows[0].Cells[0].Value);
+                    string ПІП = dataGridViewВікноПошуку.Rows[0].Cells[1].Value.ToString()
+                                    + " " + dataGridViewВікноПошуку.Rows[0].Cells[2].Value.ToString()
+                                    + " " + dataGridViewВікноПошуку.Rows[0].Cells[3].Value.ToString();
+                    string dd_mm_yyy = dataGridViewВікноПошуку.Rows[0].Cells[5].Value.ToString();
+                    string date = dd_mm_yyy.Substring(0, 10) + " p.н.";
+                    string Село = dataGridViewВікноПошуку.Rows[0].Cells[6].Value.ToString();
+                    string Вулиця = dataGridViewВікноПошуку.Rows[0].Cells[7].Value.ToString();
+                    string Номер = dataGridViewВікноПошуку.Rows[0].Cells[8].Value.ToString();
+                    string sex = dataGridViewВікноПошуку.Rows[0].Cells[4].Value.ToString();
+                    string житель = "жителю";
+                    string жителька = "жительці";
+                    string його = "його";
+                    string її = "її";
+                    string DateNow = DateTime.Now.ToShortDateString();
+                    string NumbOfDoc = textBoxНомерДовідки.Text.ToString();
+
+                    string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
+                        " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'" +
+                        "AND people_id <> '" + id + "'";
+
+                    ConnectionClass _manager = new ConnectionClass();
+                    _manager.openConnection();
+                    MySqlCommand comand = new MySqlCommand(select, _manager.getConnection());
+                    MySqlDataReader _reader;
+                    _reader = comand.ExecuteReader();
+
+                    _data.Clear();
+
+                    while (_reader.Read())
+                    {
+                        RowOfData row_1 = new RowOfData(_reader["people_id"], _reader["lastname"], _reader["name"],
+                            _reader["surname"], _reader["sex"], _reader["date_of_birth"], _reader["village"],
+                            _reader["street"], _reader["numb_of_house"], _reader["passport"], _reader["id_kod"],
+                            _reader["phone_numb"], _reader["status"], _reader["registr"], _reader["m_date"]);
+                        _data.Add(row_1);
+
+                    }
+
+                    DocX document = DocX.Load(@"D:\Довідки\Довідки про склад сім'ї\Шаблон.docx");
+
+                    // Заміна слова у всьому документі
+                    Dictionary<string, string> replacements = new Dictionary<string, string>();
+
+                    if (sex == "чол")
+                    {
+                        replacements.Add("жителю", житель);
+                        if (_data.Count > 1)
+                        {
+                            replacements.Add("його", його);
+                        }
+                        else
+                        {
+                            replacements.Add("його сім’я складається з наступних осіб : ", " за даною адресою він зареєстрований один.");
+                        }
+
+                    }
+                    else
+                    {
+                        replacements.Add("жителю", жителька);
+                        if (_data.Count > 1)
+                        {
+                            replacements.Add("його", її);
+                        }
+                        else
+                        {
+                            replacements.Add("його сім’я складається з наступних осіб : ", " за даною адресою вона зареєстрована одна.");
+                        }
+                    }
+                    replacements.Add("ПоточнаДата", DateNow);
+                    replacements.Add("НомерДовідки", NumbOfDoc);
+                    replacements.Add("село", Село);
+                    replacements.Add("вулиця", Вулиця);
+                    replacements.Add("номер", Номер);
+                    replacements.Add("піп", ПІП);
+                    replacements.Add("дата", date);
+                    string str = "";
+                    string str_1 = "";
+                    string date_1;
+                    string date_2;
+
+                    int k = 0;
+                    if (_data.Count > 5)
+                    {
+                        k = _data.Count - 5;
+
+                        for (int i = 0; i <= _data.Count - k; i++)
+                        {
+                            date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                            str += (i + 1) + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                        }
+                        for (int i = 6; i < _data.Count; i++)
+                        {
+                            date_2 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                            str_1 += (i + 1) + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_2 + " р.н.\r";
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < _data.Count; i++)
+                        {
+                            date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
+                            str += (i + 1) + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
+                        }
+                    }
+                    replacements.Add("список_", str);
+                    replacements.Add("продовження", str_1);
+
+                    foreach (var replacement in replacements)
+                    {
+                        document.ReplaceText(replacement.Key, replacement.Value, false);
+                    }
+
+                    // Збереження змін у документ
+                    document.SaveAs(@"D:\Довідки\Довідки про склад сім'ї\" + ПІП + ".docx");
+                    MessageBox.Show("Довідку збережено на диску D в папці Довідки/Довідки про склад сім'ї");
+                    buttonДовідка.BackColor = Color.PeachPuff;
+                   
+                }
+                else
+                {
+                    MessageBox.Show("Немає вибраної особи для формування довідки. Спочатку виберіть особу");
+                    buttonДовідка.BackColor = Color.PeachPuff;
+                }
             }
 
         }
 
-
+        
     }
 }
