@@ -11,7 +11,6 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Word = Microsoft.Office.Interop.Word;
 
-
 namespace DataBase
 {
     public partial class ВікноПошуку : Form
@@ -1281,8 +1280,6 @@ namespace DataBase
 
         }
 
-
-
         private void buttonДовідка_Click(object sender, EventArgs e)
         {
             buttonДовідка.BackColor = Color.IndianRed;
@@ -1324,36 +1321,7 @@ namespace DataBase
                 }
 
                 Dictionary<string, string> replacements = new Dictionary<string, string>();
-                string str = "";
-                string str_1 = "";
-                string date_1;
-                string date_2;
 
-                int k = 0;
-                if (_data.Count > 5)
-                {
-                    k = _data.Count - 5;
-
-                    for (int i = 1; i <= _data.Count - k; i++)
-                    {
-                        date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                        str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
-                    }
-                    for (int i = 6; i < _data.Count; i++)
-                    {
-                        date_2 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                        str_1 += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_2 + " р.н.\r";
-                    }
-                }
-                else
-                {
-                    for (int i = 1; i < _data.Count; i++)
-                    {
-                        date_1 = _data[i].date_of_birth.ToString().Substring(0, 10);
-                        str += i + ". " + _data[i].lastname + " " + _data[i].name + " " + _data[i].surname + ", " + date_1 + " р.н.\r";
-                    }
-                }
-                var items_1 = new Dictionary<string, string> { };
                 if (sex == "чол")
                 {
 <<<<<<< HEAD
@@ -1425,20 +1393,6 @@ namespace DataBase
                            {"продовження", str_1 }
                         };
                     }
-=======
-                    items_1 = new Dictionary<string, string>
-                    {
-                        {"ПоточнаДата", DateNow },
-                        {"село", Село },
-                        {"вулиця", Вулиця },
-                        {"номер", Номер },
-                        {"піп", ПІП },
-                        {"дата", date },
-                        {"жителю", житель },
-                        {"його", його },
-                        {"список", str },
-                        {"продовження", str_1 }
-                    };
                 }
 
 
