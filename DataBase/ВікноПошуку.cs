@@ -1337,7 +1337,7 @@ namespace DataBase
 
                     string select = "SELECT * FROM people WHERE `village` = '" + Село + "'" +
                         " AND `street` = '" + Вулиця + "' AND `numb_of_house` = '" + Номер + "'" +
-                        "AND people_id <> '" + id + "'";
+                        "AND people_id <> '" + id + "' AND registr = 'так'";
 
                     ConnectionClass _manager = new ConnectionClass();
                     _manager.openConnection();
