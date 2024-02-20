@@ -1,12 +1,8 @@
-﻿using Microsoft.Office.Interop.Word;
-using MySqlConnector;
+﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using Xceed.Words.NET;
 using Excel = Microsoft.Office.Interop.Excel;
