@@ -828,15 +828,38 @@ namespace DataBase
 
                     Excel.Application exApp = new Excel.Application();
                     Excel.Workbook workbook = exApp.Workbooks.Add();
-                    Excel.Worksheet worksheet = workbook.ActiveSheet;
+                    Excel.Worksheet worksheet = (Excel.Worksheet)workbook.ActiveSheet;
+                    worksheet.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+                   
+                    worksheet.Rows[1].Columns[1] = "П/н";
+                    worksheet.Rows[1].Columns[2] = "Прізвище";
+                    worksheet.Rows[1].Columns[3] = "Ім'я";
+                    worksheet.Rows[1].Columns[4] = "Побатькові";
+                    worksheet.Rows[1].Columns[5] = "";
+                    worksheet.Rows[1].Columns[6] = "Дата нар.";
+                    worksheet.Rows[1].Columns[7] = "Село";
+                    worksheet.Rows[1].Columns[8] = "Вулиця";
+                    worksheet.Rows[1].Columns[9] = "Ном.буд.";
+                    
 
-                    for (int i = 1; i < dataGridViewВікноПошуку.RowCount + 1; i++)
+                    for (int i = 2; i < dataGridViewВікноПошуку.RowCount + 2; i++)
                     {
-                        for (int j = 1; j < dataGridViewВікноПошуку.ColumnCount + 1; j++)
+                        worksheet.Rows[i].Columns[1] = i - 1;
+                        for (int j = 2; j < dataGridViewВікноПошуку.ColumnCount + 1; j++)
                         {
-                            worksheet.Rows[i].Columns[j] = dataGridViewВікноПошуку.Rows[i - 1].Cells[j - 1].Value;
+                            if (j != 5 && j != 10 && j != 11 && j != 12 && j != 13 && j != 14 && j != 15 && j != 16)
+                           
+                            worksheet.Rows[i].Columns[j] = dataGridViewВікноПошуку.Rows[i - 2].Cells[j - 1].Value;
                         }
+                        
                     }
+                    Excel.Range usedRange = worksheet.UsedRange;
+                    Excel.Range columnToDelete = worksheet.Columns[5];
+                    Excel.Range row = worksheet.Rows[1];
+                    row.Font.Bold = true;
+                    // Автоматично змінюємо ширину стовпців для відповідності вмісту
+                    usedRange.Columns.AutoFit();
+                    columnToDelete.Delete();
                     exApp.AlertBeforeOverwriting = false;
                     worksheet.SaveAs(path);
                     exApp.Quit();
