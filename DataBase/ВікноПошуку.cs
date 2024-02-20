@@ -830,7 +830,7 @@ namespace DataBase
                     Excel.Workbook workbook = exApp.Workbooks.Add();
                     Excel.Worksheet worksheet = (Excel.Worksheet)workbook.ActiveSheet;
                     worksheet.Cells.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                   
+                    worksheet.Cells.Font.Size = 14;
                     worksheet.Rows[1].Columns[1] = "П/н";
                     worksheet.Rows[1].Columns[2] = "Прізвище";
                     worksheet.Rows[1].Columns[3] = "Ім'я";
@@ -856,6 +856,7 @@ namespace DataBase
                     Excel.Range usedRange = worksheet.UsedRange;
                     Excel.Range columnToDelete = worksheet.Columns[5];
                     Excel.Range row = worksheet.Rows[1];
+                    row.Font.Size = 16;
                     row.Font.Bold = true;
                     // Автоматично змінюємо ширину стовпців для відповідності вмісту
                     usedRange.Columns.AutoFit();
