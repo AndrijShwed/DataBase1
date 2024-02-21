@@ -503,11 +503,6 @@ namespace DataBase
                     }
                 }
             }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
-        }
 
         private void Зберегти_зміни_Click(object sender, EventArgs e)
         {
