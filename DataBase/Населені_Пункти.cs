@@ -9,7 +9,7 @@ namespace DataBase
 {
     public partial class Населені_Пункти : Form
     {
-        private User user;
+        //private User user;
         List<RowOfVillage> _data = new List<RowOfVillage>();
         List<VillageStreet> data = new List<VillageStreet>();
 
@@ -112,7 +112,7 @@ namespace DataBase
             dataGridViewНаселені_Пункти.Rows.Clear();
             _data.Clear();
 
-            user = new User();
+            //user = new User();
 
             ConnectionClass _manager = new ConnectionClass();
             

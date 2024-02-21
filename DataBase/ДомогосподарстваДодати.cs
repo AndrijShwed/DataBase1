@@ -10,7 +10,7 @@ namespace DataBase
     {
         private List<RowOfDataL> _dataL = new List<RowOfDataL>();
         private List<VillageStreet> data = new List<VillageStreet>();
-        private User user;
+       // private User user;
        
         int rowNumber = 0;
 
@@ -349,10 +349,10 @@ namespace DataBase
 
         private void ЗберегтиВТаблицю_Click(object sender, EventArgs e)
         {
-            user = new User();
+            //user = new User();
 
-            if (user.userName == "A")
-            {
+            //if (user.userName == "A")
+            //{
 
                 if (this.dataGridViewДомогосподарства.Rows[0].Cells[7].Value == null ||
                     this.dataGridViewДомогосподарства.Rows[0].Cells[8].Value == null ||
@@ -464,11 +464,11 @@ namespace DataBase
 
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до бази даних");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("У вас немає доступу до бази даних");
+            //}
         }
 
         private void домогосподарстваToolStripMenuItem_Click(object sender, EventArgs e)

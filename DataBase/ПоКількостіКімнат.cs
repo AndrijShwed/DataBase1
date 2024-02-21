@@ -9,7 +9,7 @@ namespace DataBase
     public partial class ПоКількостіКімнат : Form
     {
 
-        private User user;
+        //private User user;
         List<RowCountOfRooms> _data = new List<RowCountOfRooms>();
         List<VillageStreet> data = new List<VillageStreet>();
       
@@ -184,7 +184,7 @@ namespace DataBase
            
             _data.Clear();
            
-            user = new User();
+            //user = new User();
 
             MessageBox.Show("Зачекайте !");
 

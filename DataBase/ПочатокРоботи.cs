@@ -10,7 +10,7 @@ namespace DataBase
     public partial class ПочатокРоботи : Form
     {
         private List<VillageStreet> data = new List<VillageStreet> ();
-        User user = new User ();
+       // User user = new User ();
 
         public ПочатокРоботи()
         {
@@ -215,10 +215,10 @@ namespace DataBase
 
         private void dataGridViewПочатокРоботи_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            user = new User();
+           // user = new User();
 
-            if (user.userName == "A")
-            {
+           // if (user.userName == "A")
+            //{
 
                 if (e.ColumnIndex == 3)
                 {
@@ -249,11 +249,11 @@ namespace DataBase
 
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            //}
 
         }
     }

@@ -10,7 +10,7 @@ namespace DataBase
     {
         private List<RowOfDataH> _dataH = new List<RowOfDataH>();
         private List<VillageStreet> data = new List<VillageStreet>();
-        private User user;
+        //private User user;
        
 
         public Домогосподарства_Пошук()
@@ -413,16 +413,16 @@ namespace DataBase
 
         private void Редагувати_Click(object sender, EventArgs e)
         {
-            user = new User();
+           // user = new User();
 
-            if (user.userName == "A")
-            {
+            //if (user.userName == "A")
+           // {
                 dataGridViewДомогосподарства_Пошук.ReadOnly = false;
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до редагування даних !!!");
-            }
+           // }
+            //else
+            //{
+            //    MessageBox.Show("У вас немає доступу до редагування даних !!!");
+            //}
         }
 
         private void rjButton1_Click(object sender, EventArgs e)

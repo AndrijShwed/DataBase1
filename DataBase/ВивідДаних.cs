@@ -14,7 +14,7 @@ namespace DataBase
 {
     public partial class ВивідДаних : Form
     {
-        private User user;
+       // private User user;
       
         public ВивідДаних()
         {
@@ -158,7 +158,7 @@ namespace DataBase
 
         private void ВивідДаних_Shown(object sender, EventArgs e)
         {
-            user = new User();
+            //user = new User();
 
             HeaderOfTheTable();
             List<RowOfData> _data = new List<RowOfData>();
@@ -219,7 +219,7 @@ namespace DataBase
 
         private void оновитиДаніToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            user = new User();
+            //user = new User();
 
             HeaderOfTheTable();
             List<RowOfData> _data = new List<RowOfData>();
