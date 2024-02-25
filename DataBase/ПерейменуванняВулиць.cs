@@ -14,7 +14,7 @@ namespace DataBase
     public partial class ПерейменуванняВулиць : Form
     {
         private List<VillageStreet> data = new List<VillageStreet>();
-        private User user;
+        //private User user;
 
         public ПерейменуванняВулиць()
         {
@@ -68,10 +68,10 @@ namespace DataBase
 
         private void ЗамінитиІЗберегти_Click(object sender, EventArgs e)
         {
-            user = new User();
+           // user = new User();
 
-            if (user.userName == "A")
-            {
+           // if (user.userName == "A")
+           // {
 
                 string NewName = Convert.ToString(НоваНазва.Text);
 
@@ -116,9 +116,9 @@ namespace DataBase
                     _manager.closeConnection();
                 }
 
-            }
-            else
-                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
+            //}
+            //else
+            //    MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
         }
 
         private void AddDataGrid(VillageStreet row)

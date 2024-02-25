@@ -12,7 +12,7 @@ namespace DataBase
         private List<RowOfData> _data = new List<RowOfData>();
         private List<VillageStreet> data = new List<VillageStreet>();
        
-        private User user;
+       // private User user;
         int rowNumber = 0;
 
         public Додати()
@@ -210,7 +210,7 @@ namespace DataBase
         {
             HeaderOfTheTable();
             dataGridViewДодати.Columns[0].ReadOnly = true;
-            user = new User();
+            //user = new User();
 
         }
 

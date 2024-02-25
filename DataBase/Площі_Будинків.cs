@@ -14,7 +14,7 @@ namespace DataBase
 {
     public partial class Площі_Будинків : Form
     {
-        private User user;
+        //private User user;
         List<RowOfVillageArea> _data = new List<RowOfVillageArea>();
         List<VillageStreet> data = new List<VillageStreet>();
 
@@ -139,7 +139,7 @@ namespace DataBase
 
             _data.Clear();
 
-            user = new User();
+            //user = new User();
 
             ConnectionClass _manager = new ConnectionClass();
             _manager.openConnection();

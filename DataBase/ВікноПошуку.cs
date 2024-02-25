@@ -13,7 +13,7 @@ namespace DataBase
     public partial class ВікноПошуку : Form
     {
         private List<RowOfData> _data = new List<RowOfData>();
-        private User user;
+       // private User user;
 
         public ВікноПошуку()
         {
@@ -216,7 +216,7 @@ namespace DataBase
         private void ВікноПошуку_Shown(object sender, EventArgs e)
         {
             HeaderOfTheTable();
-            user = new User();
+           // user = new User();
         }
        
         private void textBoxПрізвище_Enter(object sender, EventArgs e)
@@ -906,10 +906,10 @@ namespace DataBase
 
         private void Зберегти_зміни_Click(object sender, EventArgs e)
         {
-            user = new User();
+           // user = new User();
 
-            if (user.userName == "A")
-            {
+           // if (user.userName == "A")
+           // {
 
                 if (dataGridViewВікноПошуку.SelectedRows.Count == 0)
                 {
@@ -1173,10 +1173,10 @@ namespace DataBase
                     dataGridViewВікноПошуку.ReadOnly = true;
                     _manager.closeConnection();
                 }
-            }
+            //}
 
-            else
-                MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
+           // else
+                //MessageBox.Show("У вас немає доступу до зміни даних в таблиці !");
 
         }
 
@@ -1284,10 +1284,10 @@ namespace DataBase
 
         private void dataGridViewВікноПошуку_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            user = new User();
+            //user = new User();
 
-            if (user.userName == "A")
-            {
+            //if (user.userName == "A")
+            //{
 
                 if (e.ColumnIndex == 15)
                 {
@@ -1318,11 +1318,11 @@ namespace DataBase
 
                     }
                 }
-            }
-            else
-            {
-                MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("У вас немає доступу до видалення даних з таблиці !");
+            //}
 
         }
 
