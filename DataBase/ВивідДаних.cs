@@ -8,10 +8,12 @@ namespace DataBase
 {
     public partial class ВивідДаних : Form
     {
-       // private User user;
-      
+         
+        // private User user;
+
         public ВивідДаних()
         {
+            
             InitializeComponent();
         }
 
